@@ -107,6 +107,7 @@ mobile_settings_deps = [
   phosh_plugins_dep,
   phosh_settings_dep,
   wayland_client_dep,
+  yaml_dep,
   cc.find_library('m', required: false),
 ]
 

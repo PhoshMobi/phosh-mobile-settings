@@ -138,6 +138,7 @@ ms_settings_window_constructed (GObject *object)
   }
 
   if (g_settings_get_boolean (self->settings, "enable-conf-tweaks")) {
+    ms_tweaks_parser_parse_definition_files (self->ms_tweaks_parser, TWEAKS_DATA_DIR);
     parser_page_table = ms_tweaks_parser_get_page_table (self->ms_tweaks_parser);
     pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
 

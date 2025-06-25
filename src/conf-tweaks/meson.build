@@ -3,6 +3,8 @@ conf_tweaks_sources = files(
   'ms-tweaks-backend-interface.h',
   'ms-tweaks-callback-handlers.c',
   'ms-tweaks-callback-handlers.h',
+  'ms-tweaks-datasources.c',
+  'ms-tweaks-datasources.h',
   'ms-tweaks-gtk-utils.c',
   'ms-tweaks-gtk-utils.h',
   'ms-tweaks-mappings.c',
