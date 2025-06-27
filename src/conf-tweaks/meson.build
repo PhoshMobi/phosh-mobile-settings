@@ -1,3 +1,5 @@
+subdir('backends')
+
 conf_tweaks_sources = files(
   'ms-tweaks-backend-interface.c',
   'ms-tweaks-backend-interface.h',
@@ -15,4 +17,4 @@ conf_tweaks_sources = files(
   'ms-tweaks-preferences-page.h',
   'ms-tweaks-utils.c',
   'ms-tweaks-utils.h',
-)
+) + backend_sources

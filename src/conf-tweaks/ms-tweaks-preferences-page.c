@@ -10,6 +10,7 @@
 
 #include "ms-tweaks-preferences-page.h"
 
+#include "backends/ms-tweaks-backend-gsettings.h"
 #include "ms-tweaks-backend-interface.h"
 #include "ms-tweaks-callback-handlers.h"
 #include "ms-tweaks-mappings.h"
@@ -361,8 +362,10 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
         ms_tweaks_warning (setting_data->name,
                            "Unknown backend type, cannot get value. Is your system up-to-date?");
         break;
-      case MS_TWEAKS_BACKEND_IDENTIFIER_CSS:
       case MS_TWEAKS_BACKEND_IDENTIFIER_GSETTINGS:
+        backend_state = ms_tweaks_backend_gsettings_new (setting_data);
+        break;
+      case MS_TWEAKS_BACKEND_IDENTIFIER_CSS:
       case MS_TWEAKS_BACKEND_IDENTIFIER_GTK3SETTINGS:
       case MS_TWEAKS_BACKEND_IDENTIFIER_SYSFS:
       case MS_TWEAKS_BACKEND_IDENTIFIER_XRESOURCES:
