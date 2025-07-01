@@ -238,6 +238,8 @@ ms_tweaks_setting_free (MsTweaksSetting *setting)
 
   /* Free pointer array properties. */
   g_clear_pointer (&setting->key, g_ptr_array_unref);
+
+  g_free (setting);
 }
 
 
@@ -247,6 +249,8 @@ ms_tweaks_section_free (MsTweaksSection *section)
   g_free (section->name);
 
   g_clear_pointer (&section->setting_table, g_hash_table_unref);
+
+  g_free (section);
 }
 
 
@@ -256,6 +260,8 @@ ms_tweaks_page_free (MsTweaksPage *page)
   g_free (page->name);
 
   g_clear_pointer (&page->section_table, g_hash_table_unref);
+
+  g_free (page);
 }
 
 
