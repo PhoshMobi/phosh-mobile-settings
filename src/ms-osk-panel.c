@@ -13,6 +13,7 @@
 #include "ms-completer-info.h"
 #include "ms-enum-types.h"
 #include "ms-osk-layout-prefs.h"
+#include "ms-osk-add-shortcut-dialog.h"
 #include "ms-osk-panel.h"
 #include "ms-util.h"
 
@@ -191,31 +192,109 @@ on_drop (GtkDropTarget *drop_target, const GValue  *value, double x, double y, g
 }
 
 
+struct ShortcutData {
+  MsOskPanel *self;
+  char *shortcut_string;
+};
+
+
+static void
+shortcut_data_free (struct ShortcutData *data)
+{
+  if (!data)
+    return;
+  g_object_unref (data->self);
+  g_free (data->shortcut_string);
+  g_free (data);
+}
+
+
+static GStrv
+shortcut_remove (const char *const *shortcuts, const char *shortcut)
+{
+  g_autoptr (GStrvBuilder) builder = g_strv_builder_new ();
+
+  if (!shortcuts)
+    return NULL;
+
+  for (int i = 0; shortcuts[i]; i++) {
+    if (g_str_equal (shortcut, shortcuts[i]))
+      continue;
+    g_strv_builder_add (builder, shortcuts[i]);
+  }
+
+  return g_strv_builder_end (builder);
+}
+
+
+static void
+on_remove_button_clicked (gpointer user_data)
+{
+  struct ShortcutData *data = user_data;
+  MsOskPanel *self = MS_OSK_PANEL (data->self);
+  g_auto (GStrv) pos_terminal_shortcuts = NULL;
+  g_auto (GStrv) shortcuts = NULL;
+
+  pos_terminal_shortcuts = g_settings_get_strv (self->pos_terminal_settings, SHORTCUTS_KEY);
+  shortcuts = shortcut_remove ((const char * const *) pos_terminal_shortcuts, data->shortcut_string);
+
+  g_settings_set_strv (self->pos_terminal_settings, SHORTCUTS_KEY, (const char * const *)shortcuts);
+
+  shortcut_data_free (data);
+}
+
+
 static GtkWidget *
 create_shortcuts_row (gpointer item, gpointer user_data)
 {
   MsOskPanel *self = MS_OSK_PANEL (user_data);
   GtkStringObject *string = GTK_STRING_OBJECT (item);
-  GtkWidget *label = gtk_shortcut_label_new (gtk_string_object_get_string (string));
-  GtkDragSource *drag_source = gtk_drag_source_new ();
-  g_autoptr (GdkContentProvider) type = NULL;
-  GtkDropTarget *target = gtk_drop_target_new (G_TYPE_INVALID, GDK_ACTION_COPY);
+  const char *shortcut_string = gtk_string_object_get_string (string);
+  GtkWidget *label = gtk_shortcut_label_new (shortcut_string);
+
+  GtkWidget *row_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *remove_btn = gtk_button_new_from_icon_name ("window-close-symbolic");
+
   GType targets[] = { GTK_TYPE_STRING_OBJECT };
+  g_autoptr (GdkContentProvider) type = NULL;
+  GtkDragSource *drag_source;
+  GtkDropTarget *target;
+  struct ShortcutData *data;
+
+  data = g_new (struct ShortcutData, 1);
+  data->self = g_object_ref (self);
+  data->shortcut_string = g_strdup (shortcut_string);
+
+  gtk_widget_add_css_class (row_box, "shortcut-row");
+
+  gtk_box_append (GTK_BOX (row_box), label);
+  gtk_widget_add_css_class (remove_btn, "flat");
+  gtk_widget_add_css_class (remove_btn, "circular");
+
+  gtk_widget_set_hexpand (remove_btn, TRUE);
+  gtk_widget_set_halign (remove_btn, GTK_ALIGN_END);
+
+  gtk_box_append (GTK_BOX (row_box), remove_btn);
+
+  g_signal_connect_swapped (remove_btn, "clicked", G_CALLBACK (on_remove_button_clicked), data);
+
+  drag_source = gtk_drag_source_new ();
+  target = gtk_drop_target_new (G_TYPE_INVALID, GDK_ACTION_COPY);
 
   type = gdk_content_provider_new_typed (GTK_TYPE_STRING_OBJECT, string);
   /* drag */
   gtk_drag_source_set_content (drag_source, type);
-  g_signal_connect (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), label);
-  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (drag_source));
+  g_signal_connect (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), row_box);
+  gtk_widget_add_controller (row_box, GTK_EVENT_CONTROLLER (drag_source));
 
   /* drop */
   gtk_drop_target_set_gtypes (target, targets, G_N_ELEMENTS (targets));
   g_signal_connect (target, "drop", G_CALLBACK (on_drop), self);
   /* No ref as we just use it for string comparison */
   g_object_set_data (G_OBJECT (target), "ms-str", string);
-  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (target));
+  gtk_widget_add_controller (row_box, GTK_EVENT_CONTROLLER (target));
 
-  return label;
+  return row_box;
 }
 
 
@@ -421,6 +500,16 @@ is_osk_app (void)
 
 
 static void
+on_new_shortcut_clicked (MsOskPanel *self)
+{
+  GtkWidget *dialog;
+
+  dialog = ms_osk_add_shortcut_dialog_new ();
+  adw_dialog_present (ADW_DIALOG (dialog), GTK_WIDGET (self));
+}
+
+
+static void
 ms_osk_panel_finalize (GObject *object)
 {
   MsOskPanel *self = MS_OSK_PANEL (object);
@@ -466,6 +555,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   /* Terminal layout group */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, terminal_layout_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, shortcuts_box);
+  gtk_widget_class_bind_template_callback (widget_class, on_new_shortcut_clicked);
 
   /* Stevia scaling */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_scaling_group);
