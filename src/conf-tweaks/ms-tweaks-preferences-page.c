@@ -222,7 +222,12 @@ setting_data_to_file_widget (const MsTweaksSetting                 *setting_data
 
   if (widget_value) {
     const char *file_path = g_value_get_string (widget_value);
-    g_autofree char *filename = g_path_get_basename (file_path);
+    g_autofree char *filename = NULL;
+
+    /* The GValue received from _get () should never contain NULL. */
+    g_assert (file_path);
+
+    filename = g_path_get_basename (file_path);
 
     gtk_label_set_text (GTK_LABEL (metadata->file_picker_label), filename);
   }
@@ -253,14 +258,14 @@ setting_data_to_font_widget (const MsTweaksSetting *setting_data,
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
 
   set_title_and_subtitle (action_row, setting_data);
+  gtk_widget_set_valign (font_dialog_button, GTK_ALIGN_CENTER);
   adw_action_row_add_suffix (ADW_ACTION_ROW (action_row), font_dialog_button);
 
   if (widget_value) {
     const char *font_name = g_value_get_string (widget_value);
-    PangoFontDescription *font_desc = pango_font_description_from_string (font_name);
+    g_autoptr (PangoFontDescription) font_desc = pango_font_description_from_string (font_name);
 
     gtk_font_dialog_button_set_font_desc (GTK_FONT_DIALOG_BUTTON (font_dialog_button), font_desc);
-    pango_font_description_free (font_desc);
   }
 
   g_signal_connect (font_dialog_button,
@@ -301,12 +306,20 @@ setting_data_to_number_widget (const MsTweaksSetting *setting_data,
                                MsTweaksBackend       *backend_state,
                                const GValue          *widget_value)
 {
-  GtkWidget *spin_row = adw_spin_row_new_with_range (setting_data->min,
-                                                     setting_data->max,
-                                                     setting_data->step);
+  GtkWidget *spin_row;
 
   g_assert (setting_data);
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
+
+  if (G_APPROX_VALUE (setting_data->step, 0, DBL_EPSILON)) {
+    ms_tweaks_warning (setting_data->name,
+                       "step was %f in number widget, too close to 0",
+                       setting_data->step);
+
+    return NULL;
+  }
+
+  spin_row = adw_spin_row_new_with_range (setting_data->min, setting_data->max, setting_data->step);
 
   set_title_and_subtitle (spin_row, setting_data);
 
@@ -332,16 +345,16 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
   gboolean page_widget_is_valid = FALSE;
 
   for (const GList *section_iter = section_list; section_iter; section_iter = section_iter->next) {
-    const MsTweaksSection *const section_data = section_iter->data;
+    const MsTweaksSection *section_data = section_iter->data;
     const GList *setting_list = ms_tweaks_parser_sort_by_weight (section_data->setting_table);
-    GtkWidget *const restrict section_preference_group = adw_preferences_group_new ();
+    GtkWidget *restrict section_preference_group = adw_preferences_group_new ();
     gboolean section_widget_is_valid = FALSE;
 
     adw_preferences_group_set_title (ADW_PREFERENCES_GROUP (section_preference_group),
                                      section_data->name);
 
     for (const GList *setting_iter = setting_list; setting_iter; setting_iter = setting_iter->next) {
-      MsTweaksSetting *const setting_data = setting_iter->data;
+      MsTweaksSetting *setting_data = setting_iter->data;
       GtkWidget *restrict widget_to_add = NULL;
       gboolean setting_widget_is_valid = TRUE;
       MsTweaksBackend *backend_state = NULL;
@@ -359,8 +372,9 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
         setting_widget_is_valid = FALSE;
         break;
       case MS_TWEAKS_BACKEND_IDENTIFIER_UNKNOWN:
-        ms_tweaks_warning (setting_data->name,
-                           "Unknown backend type, cannot get value. Is your system up-to-date?");
+        ms_tweaks_debug (setting_data->name,
+                         "Unknown backend type, cannot get value. Is your system up-to-date?");
+        setting_widget_is_valid = FALSE;
         break;
       case MS_TWEAKS_BACKEND_IDENTIFIER_GSETTINGS:
         backend_state = ms_tweaks_backend_gsettings_new (setting_data);
@@ -372,15 +386,16 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       case MS_TWEAKS_BACKEND_IDENTIFIER_SOUNDTHEME:
       case MS_TWEAKS_BACKEND_IDENTIFIER_SYMLINK:
       default:
-        ms_tweaks_warning (setting_data->name,
-                           "Unimplemented backend type \"%s\"",
-                           pretty_format_backend_identifier (setting_data->backend));
+        ms_tweaks_debug (setting_data->name,
+                         "Unimplemented backend type '%s'",
+                         pretty_format_backend_identifier (setting_data->backend));
+        setting_widget_is_valid = FALSE;
         break;
       }
 
       /* Ensure that we actually constructed a tweaks backend. */
       if (!MS_IS_TWEAKS_BACKEND (backend_state)) {
-        ms_tweaks_warning (setting_data->name, "Failed to construct backend, ignoring");
+        ms_tweaks_debug (setting_data->name, "Failed to construct backend, ignoring");
         continue;
       }
 
@@ -427,15 +442,12 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
           continue;
         default:
           ms_tweaks_critical (setting_data->name,
-                              "Unimplemented setting type \"%i\"",
+                              "Unimplemented setting type '%i'",
                               setting_data->type);
         }
       }
 
-      if (!widget_to_add)
-        setting_widget_is_valid = FALSE;
-
-      if (setting_widget_is_valid) {
+      if (widget_to_add) {
         adw_preferences_group_add (ADW_PREFERENCES_GROUP (section_preference_group), widget_to_add);
         section_widget_is_valid = TRUE;
       } else
@@ -446,10 +458,11 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       adw_preferences_page_add (ADW_PREFERENCES_PAGE (&self->parent_instance),
                                 ADW_PREFERENCES_GROUP (section_preference_group));
       page_widget_is_valid = TRUE;
-    } else
-      g_warning ("No valid settings in section \"%s\" inside page \"%s\", hiding it",
-                 section_data->name,
-                 self->data->name);
+    } else {
+      g_debug ("No valid settings in section '%s' inside page '%s', hiding it",
+               section_data->name,
+               self->data->name);
+    }
   }
 
   return page_widget_is_valid;

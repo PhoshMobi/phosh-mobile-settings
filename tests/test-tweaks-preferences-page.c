@@ -125,7 +125,7 @@ test_setting_data_to_choice_widget (PreferencesPageTestFixture *fixture, gconstp
 {
   g_test_expect_message ("ms-tweaks-preferences-page",
                          G_LOG_LEVEL_WARNING,
-                         "[Setting \"" DEBUG_SETTING_NAME "\"] Choice widget with NULL map — either the datasource failed or the markup is wrong");
+                         "[Setting '" DEBUG_SETTING_NAME "'] Choice widget with NULL map — either the datasource failed or the markup is wrong");
 
   g_assert_false (setting_data_to_choice_widget (fixture->setting, fixture->backend, NULL));
 }
@@ -242,7 +242,7 @@ test_setting_data_to_info_widget (PreferencesPageTestFixture *fixture, gconstpoi
 {
   g_test_expect_message ("ms-tweaks-preferences-page",
                          G_LOG_LEVEL_WARNING,
-                         "[Setting \"" DEBUG_SETTING_NAME "\"] widget_value was NULL in setting_data_to_boolean_widget ()");
+                         "[Setting '" DEBUG_SETTING_NAME "'] widget_value was NULL in setting_data_to_boolean_widget ()");
 
   g_assert_false (setting_data_to_info_widget (fixture->setting, NULL));
 }
