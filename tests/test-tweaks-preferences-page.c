@@ -128,6 +128,8 @@ test_setting_data_to_choice_widget (PreferencesPageTestFixture *fixture, gconstp
                          "[Setting '" DEBUG_SETTING_NAME "'] Choice widget with NULL map — either the datasource failed or the markup is wrong");
 
   g_assert_false (setting_data_to_choice_widget (fixture->setting, fixture->backend, NULL));
+
+  g_test_assert_expected_messages ();
 }
 
 
