@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-07-02 20:56+0000\n"
-"PO-Revision-Date: 2025-07-03 05:47+0200\n"
+"POT-Creation-Date: 2025-07-19 16:13+0000\n"
+"PO-Revision-Date: 2025-07-20 04:44+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -208,7 +208,7 @@ msgstr "კრიტიკული"
 msgid "none"
 msgstr "არა"
 
-#: src/ms-feedback-panel.c:814
+#: src/ms-feedback-panel.c:806
 msgid "Mobile Settings Volume Control"
 msgstr "მობილურობის მორგების ხმის მართვა"
 
@@ -217,15 +217,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "დაბლოკვის ეკრანის ფონის სურათის დაყენება ჩავარდა"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:592
+#: src/ms-osk-panel.c:656
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: src/ms-osk-panel.c:593
+#: src/ms-osk-panel.c:657
 msgid "The default completer selected by the OSK"
 msgstr "ნაგულისხმევი დასრულების ძრავა OSK-ის მიერ"
 
-#: src/ms-osk-panel.c:596
+#: src/ms-osk-panel.c:660
 msgid "No information available for this completer"
 msgstr "ამ დამსრულებლისთვის ინფორმაცია ხელმისაწვდომი არა"
 
@@ -387,7 +387,7 @@ msgstr "ფონის სურათი"
 msgid "Feedback"
 msgstr "უკუკავშირი"
 
-#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:94
+#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
 msgid "Sounds"
 msgstr "ხმები"
 
@@ -411,7 +411,7 @@ msgstr "LED"
 msgid "Compositor"
 msgstr "კომპოზიტორი"
 
-#: src/ui/mobile-settings-window.ui:186
+#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
 msgid "Scaling"
 msgstr "მასშტაბი"
 
@@ -692,43 +692,43 @@ msgstr ""
 "როცა დაბლოკილია, დაადუმეთ ტელეფონი ხმის ჩაწევის ღილაკით, როცა გირეკავენ"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:60
 msgid "Haptic strength"
 msgstr "ვიბრაციის სიმძლავრე"
 
-#: src/ui/ms-feedback-panel.ui:62
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Maximum haptic feedback strength percentage"
 msgstr "მაქსიმალური ვიბრაციის უკუკავშირის სიძლიერის პროცენტულობა"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:80
 msgid "Per Application settings"
 msgstr "პარამეტრები თითოეული აპლიკაციისთვის"
 
-#: src/ui/ms-feedback-panel.ui:95
+#: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
 msgstr "ხმა ზოგიერთი მოვლენისთვის"
 
-#: src/ui/ms-feedback-panel.ui:103
+#: src/ui/ms-feedback-panel.ui:102
 msgid "Phone Calls"
 msgstr "სატელეფონო ზარები"
 
-#: src/ui/ms-feedback-panel.ui:109
+#: src/ui/ms-feedback-panel.ui:108
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:115
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Instant messages"
 msgstr "მყისი შეტყობინებები"
 
-#: src/ui/ms-feedback-panel.ui:126
+#: src/ui/ms-feedback-panel.ui:125
 msgid "Screen Wakeup"
 msgstr "ეკრანის გაღვიძება"
 
-#: src/ui/ms-feedback-panel.ui:129
+#: src/ui/ms-feedback-panel.ui:128
 msgid "Notification urgency that lights up the screen"
 msgstr "გაფრთხილების სასწრაფოობა, რომელიც ეკრანს გაანათებს"
 
-#: src/ui/ms-feedback-panel.ui:147
+#: src/ui/ms-feedback-panel.ui:146
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
@@ -736,59 +736,59 @@ msgstr ""
 "გაფრთხილების კატეგორიები, რომლებიც გააღვიძებენ ეკრანს მათი გადაუდებლობის "
 "მიუხედავად"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:149
 msgid "Calls"
 msgstr "ზარები"
 
-#: src/ui/ms-feedback-panel.ui:151
+#: src/ui/ms-feedback-panel.ui:150
 msgid "A generic audio or video call notification"
 msgstr "ზოგადი აუდიო ან ვიდეოზარის გაფრთხილება"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Device events"
 msgstr "მოწყობილობის მოვლენები"
 
-#: src/ui/ms-feedback-panel.ui:158
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic device-related notification"
 msgstr "ზოგადი გაფრთხილება მოწყობილობის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Emails"
 msgstr "ელფოსტები"
 
-#: src/ui/ms-feedback-panel.ui:165
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic e-mail-related notification"
 msgstr "ზოგადი გაფრთხილება ელფოსტის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Instant Messages"
 msgstr "მყისი შეტყობინებები"
 
-#: src/ui/ms-feedback-panel.ui:172
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic instant message-related notification"
 msgstr "ზოგადი გაფრთხილება ჩატის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:177
 msgid "Network events"
 msgstr "ქსელური მოვლენები"
 
-#: src/ui/ms-feedback-panel.ui:179
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic network notification"
 msgstr "ზოგადი გაფრთხილება ქსელის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Presence changes"
 msgstr "სტატუსის ცვლილებები"
 
-#: src/ui/ms-feedback-panel.ui:186
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic presence change notification"
 msgstr "ზოგადი გაფრთხილება სტატუსის ცვლილების შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:191
 msgid "File transfers"
 msgstr "ფაილის გადაწერები"
 
-#: src/ui/ms-feedback-panel.ui:193
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic file transfer or download notification"
 msgstr "ზოგადი გაფრთხილებები ფაილის ატვირთვის ან გადმოწერის შესახებ"
 
@@ -954,43 +954,60 @@ msgstr "კლავიატურის სიმაღლე ლანდშ�
 msgid "When the screen is wider than tall"
 msgstr "როდესაც ეკრანი უფრო ფართოა, ვიდრე მაღალი"
 
-#: src/ui/ms-osk-panel.ui:101
+#: src/ui/ms-osk-panel.ui:104
+msgid "Keep physical size constant"
+msgstr "ფიზიკური ზომის მუდმივად შენარჩუნება"
+
+#: src/ui/ms-osk-panel.ui:105
+msgid "Whether to keep the OSK's size constant in portrait mode"
+msgstr "იქნება თუ არა OSK-ის ზომა მუდმივი პორტრეტის რეჟიმში"
+
+#: src/ui/ms-osk-panel.ui:111
+msgid "Add empty space below keys"
+msgstr "თავისუფალი ადგილის დამატება ღილაკების ქვემოთ"
+
+#: src/ui/ms-osk-panel.ui:112
+msgid "Whether to add an empty area below the OSK's keys to shift it upward."
+msgstr ""
+"დაემატება თუ არა თავისუფალი ადგილი OSK ღილაკების ქვემოთ მის მაღლა ასაწევად."
+
+#: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
 msgstr "ტექსტის დასრულება"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:125
 msgid "Opportunistic word completion"
 msgstr "ოპორტუნისტული სიტყვების დასრულება"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:126
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "სიტყვის დასრულების ჩართვა, როცა აპი მიუთითებს, რომ ის სასარგებლოა"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:133
 msgid "Toggle via OSK menu"
 msgstr "გადართვა OSK მენიუდან"
 
-#: src/ui/ms-osk-panel.ui:113
+#: src/ui/ms-osk-panel.ui:134
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "სიტყვის დასრულების გადართვის ჩართვა კლავიატურის მენიუს ღილაკიდან"
 
-#: src/ui/ms-osk-panel.ui:119
+#: src/ui/ms-osk-panel.ui:140
 msgid "Default Completer"
 msgstr "ნაგულისხმევი დამსრულებელი"
 
-#: src/ui/ms-osk-panel.ui:120
+#: src/ui/ms-osk-panel.ui:141
 msgid "The default completion engine to use"
 msgstr "ნაგულისხმევი დასრულების ძრავა გამოსაყენებლად"
 
-#: src/ui/ms-osk-panel.ui:131
+#: src/ui/ms-osk-panel.ui:152
 msgid "Terminal Layout"
 msgstr "ტერმინალის განლაგება"
 
-#: src/ui/ms-osk-panel.ui:135
+#: src/ui/ms-osk-panel.ui:156
 msgid "Shortcuts"
 msgstr "მალსახმობები"
 
-#: src/ui/ms-osk-panel.ui:136
+#: src/ui/ms-osk-panel.ui:157
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "მალსახმობების პანელზე ხელმისაწვდომი მალსახმობები"
 
