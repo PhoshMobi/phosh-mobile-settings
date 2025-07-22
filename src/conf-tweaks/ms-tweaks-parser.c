@@ -86,6 +86,22 @@ typedef enum {
 } MsTweaksState;
 
 
+static const char *ms_tweaks_backend_identifier[] = {
+  [MS_TWEAKS_BACKEND_IDENTIFIER_UNKNOWN] = "UNKNOWN",
+
+  [MS_TWEAKS_BACKEND_IDENTIFIER_CSS] = "CSS",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_GSETTINGS] = "GSETTINGS",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_GTK3SETTINGS] = "GTK3SETTINGS",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_HARDWAREINFO] = "HARDWAREINFO",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_OSKSDL] = "OSKSDL",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_SOUNDTHEME] = "SOUNDTHEME",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_SYSFS] = "SYSFS",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_SYMLINK] = "SYMLINk",
+  [MS_TWEAKS_BACKEND_IDENTIFIER_XRESOURCES] = "XRESOURCES",
+};
+static const guint ms_tweaks_backend_identifier_count = G_N_ELEMENTS (ms_tweaks_backend_identifier);
+
+
 static const char *ms_tweaks_state[] = {
   [MS_TWEAKS_STATE_START] = "START",
   [MS_TWEAKS_STATE_STREAM] = "STREAM",
@@ -326,6 +342,16 @@ pretty_format_event (const yaml_event_t *event)
     return yaml_event[event->type];
   else
     return "FIXME: unknown event!";
+}
+
+
+const char *
+pretty_format_backend_identifier (const MsTweaksSettingBackend backend_identifier)
+{
+  if (backend_identifier < ms_tweaks_backend_identifier_count)
+    return ms_tweaks_backend_identifier[backend_identifier];
+  else
+    return "FIXME: unknown backend identifier!";
 }
 
 

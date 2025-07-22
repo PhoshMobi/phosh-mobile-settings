@@ -373,8 +373,8 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       case MS_TWEAKS_BACKEND_IDENTIFIER_SYMLINK:
       default:
         ms_tweaks_warning (setting_data->name,
-                           "Unimplemented backend type \"%i\"",
-                           setting_data->backend);
+                           "Unimplemented backend type \"%s\"",
+                           pretty_format_backend_identifier (setting_data->backend));
         break;
       }
 

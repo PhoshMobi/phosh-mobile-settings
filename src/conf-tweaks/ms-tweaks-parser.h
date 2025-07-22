@@ -125,6 +125,8 @@ G_DECLARE_FINAL_TYPE (MsTweaksParser, ms_tweaks_parser, MS, TWEAKS_PARSER, GObje
 GQuark ms_tweaks_parser_error_quark (void);
 #define MS_TWEAKS_PARSER_ERROR ms_tweaks_parser_error_quark ()
 
+const char *pretty_format_backend_identifier (const MsTweaksSettingBackend backend_identifier);
+
 MsTweaksParser *ms_tweaks_parser_new (void);
 
 void ms_tweaks_parser_parse_definition_files (MsTweaksParser *self, const char *tweaks_yaml_path);
