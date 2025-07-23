@@ -44,9 +44,11 @@ static GtkStringList *
 get_keys_from_hashtable (GHashTable *hashtable)
 {
   g_autoptr (GPtrArray) hash_table_keys_view = g_hash_table_get_keys_as_ptr_array (hashtable);
-  GtkStringList *hash_table_key_list = gtk_string_list_new ((const char **) hash_table_keys_view->pdata);
 
-  return hash_table_key_list;
+  /* We need to NULL-terminate the array to use the gtk_string_list_new () constructor. */
+  g_ptr_array_add (hash_table_keys_view, NULL);
+
+  return gtk_string_list_new ((const char **) hash_table_keys_view->pdata);
 }
 
 
