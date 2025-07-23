@@ -80,6 +80,28 @@ test_preferences_page_fixture_teardown (PreferencesPageTestFixture *fixture, gco
 
 
 static void
+test_get_keys_from_hash_table (void)
+{
+  GHashTable *hash_table = g_hash_table_new (g_str_hash, g_str_equal);
+  g_autoptr (GtkStringList) key_list = NULL;
+
+  g_hash_table_insert (hash_table, "Key 1", "unused");
+  g_hash_table_insert (hash_table, "Keysus 2", "unused");
+  g_hash_table_insert (hash_table, "3 Keyzzz", "unused");
+
+  key_list = get_keys_from_hashtable (hash_table);
+
+  g_assert_true (key_list);
+  /* Hash tables don't guarantee order, so just ensure that the keys are in the table at all. */
+  g_assert_cmpint (gtk_string_list_find (key_list, "Key 1"), <, 3);
+  g_assert_cmpint (gtk_string_list_find (key_list, "Keysus 2"), <, 3);
+  g_assert_cmpint (gtk_string_list_find (key_list, "3 Keyzzz"), <, 3);
+
+  g_hash_table_destroy (hash_table);
+}
+
+
+static void
 test_setting_data_to_boolean_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_boolean_widget (fixture->setting, fixture->backend, NULL);
@@ -297,6 +319,8 @@ main (int argc, char *argv[])
 {
   gtk_test_init (&argc, &argv, NULL);
 
+  g_test_add_func ("/phosh-mobile-settings/test-get-keys-from-hash-table",
+                   test_get_keys_from_hash_table);
   PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget",
                              test_setting_data_to_boolean_widget);
   PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget-with-value",
