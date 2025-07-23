@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-07-19 16:13+0000\n"
-"PO-Revision-Date: 2025-07-22 11:02+0200\n"
+"POT-Creation-Date: 2025-07-22 09:07+0000\n"
+"PO-Revision-Date: 2025-07-23 10:25+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -20,13 +20,13 @@ msgstr ""
 "20)) ? 1 : 2);\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
 msgstr "Reglări Mobil"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:13
+#: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobile;Preferences;MobileSettings;Mobil;Preferințe;Schimbări;Opțiuni;Configurări;ReglăriMobil;"
 
@@ -1111,7 +1111,7 @@ msgstr "Fișiere audio (ogg)"
 
 #: src/ui/ms-topbar-panel.ui:12
 msgid "UI Elements"
-msgstr "Elementele interfaței"
+msgstr "Elementele interfeței"
 
 #: src/ui/ms-topbar-panel.ui:16
 msgid "Show battery percentage"
