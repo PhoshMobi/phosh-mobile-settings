@@ -62,6 +62,25 @@ ms_tweaks_get_filename_extension (const char *filename)
 }
 
 /**
+ * ms_tweaks_util_get_single_key:
+ * @key_array: Array to get the first element of.
+ *
+ * Returns: The key if the array is 1 element long, otherwise NULL.
+ */
+const char *
+ms_tweaks_util_get_single_key (const GPtrArray *key_array)
+{
+  const char *key = NULL;
+
+  if (key_array->len == 1)
+    key = g_ptr_array_index (key_array, 0);
+  else
+    g_warning ("Only single-element key values are allowed");
+
+  return key;
+}
+
+/**
  * ms_tweaks_util_get_key_by_value_string:
  * @hash_table: The GHashTable to find the key in.
  * @value_to_find: The value to find the key of.

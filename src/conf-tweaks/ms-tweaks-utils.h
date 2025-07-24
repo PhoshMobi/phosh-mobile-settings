@@ -15,6 +15,7 @@ const char *ms_tweaks_util_boolean_to_string (const gboolean value);
 const char *ms_tweaks_get_filename_extension (const char *filename);
 
 /* Value retrieval functions. */
+const char *ms_tweaks_util_get_single_key (const GPtrArray *key_array);
 char *ms_tweaks_util_get_key_by_value_string (GHashTable *hash_table, const char *value_to_find);
 gboolean ms_tweaks_util_string_to_boolean (const char *string);
 
