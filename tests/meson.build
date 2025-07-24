@@ -33,6 +33,7 @@ if phoc.found()
   test_env_phoc.set('WLR_BACKENDS', 'headless')
 
   unit_tests = [
+    'tweaks-backend-gsettings',
     'tweaks-datasources',
     'tweaks-gtk-utils',
     'tweaks-mappings',
