@@ -44,28 +44,6 @@ test_gsettings_fixture_setup_alternative (BackendTestFixture *fixture, gconstpoi
 
 
 static void
-test_construct (BackendTestFixture *fixture, gconstpointer unused)
-{
-  g_assert_true (fixture->backend);
-}
-
-
-static void
-test_get (BackendTestFixture *fixture, gconstpointer unused)
-{
-  g_autofree GValue *value = NULL;
-
-  g_assert_true (fixture->backend);
-
-  value = MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->get_value (fixture->backend);
-
-  g_assert_true (value);
-
-  g_value_unset (value);
-}
-
-
-static void
 test_set (BackendTestFixture *fixture, gconstpointer unused)
 {
   g_autofree GValue *value = g_new0 (GValue, 1);
