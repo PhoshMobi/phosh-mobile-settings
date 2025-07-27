@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
-"ngs/-/issues\n"
-"POT-Creation-Date: 2025-07-22 11:58+0000\n"
-"PO-Revision-Date: 2025-07-22 16:01+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settin"
+"gs/-/issues\n"
+"POT-Creation-Date: 2025-07-27 04:33+0000\n"
+"PO-Revision-Date: 2025-07-27 21:17+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -44,8 +44,7 @@ msgstr ""
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
-msgstr ""
-"Додаткові параметри для мобільних пристроїв, де використовується Phosh"
+msgstr "Додаткові параметри для мобільних пристроїв, де використовується Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
@@ -220,15 +219,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Не вдалося встановити фонове зображення вікна блокування"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:656
+#: src/ms-osk-panel.c:746
 msgid "Default"
 msgstr "Типовий"
 
-#: src/ms-osk-panel.c:657
+#: src/ms-osk-panel.c:747
 msgid "The default completer selected by the OSK"
 msgstr "Типовий засіб доповнення, який вибрано OSK"
 
-#: src/ms-osk-panel.c:660
+#: src/ms-osk-panel.c:750
 msgid "No information available for this completer"
 msgstr "Немає даних для цього засобу доповнення"
 
@@ -848,16 +847,54 @@ msgid "Add Layout"
 msgstr "Додати компонування"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:16
 msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:22
 msgid "Add"
 msgstr "Додати"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "Мова"
+
+#. Translators: Title for a dialog to add a new on-screen keyboard shortcut
+#. Translators: Label for a button that allows the user to add a new keyboard shortcut
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#| msgid "Shortcuts"
+msgid "Add Shortcut"
+msgstr "Додати скорочення"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:43
+#| msgid "Choose sound file"
+msgid "Choose Shortcut Modifiers"
+msgstr "Виберіть модифікатори скорочення"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:128
+#| msgctxt "shortcut window"
+#| msgid "Show Shortcuts"
+msgid "Choose Shortcut Key"
+msgstr "Виберіть клавішу скорочення"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:139
+msgid "Enter Shortcut Key"
+msgstr "Введіть клавішу скорочення"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+msgid "Type a key such as letters (like C or V), etc."
+msgstr "Введіть клавішу у формі літер (наприклад, C або V) тощо"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:143
+#| msgid "Shortcuts"
+msgid "_Shortcut Key"
+msgstr "С_корочення"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:153
+#| msgid "Shortcuts"
+msgid "Shortcut Preview"
+msgstr "Попередній перегляд скорочення"
 
 #: src/ui/ms-osk-layout-prefs.ui:5
 msgctxt "on screen keyboard"
@@ -972,8 +1009,8 @@ msgstr "Додати порожнє місце під клавішами"
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
-"Визначає, чи слід додавати порожнє місце під клавішами OSK для його"
-" пересування вгору."
+"Визначає, чи слід додавати порожнє місце під клавішами OSK для його "
+"пересування вгору."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -985,8 +1022,7 @@ msgstr "Гнучке автоматичне доповнення"
 
 #: src/ui/ms-osk-panel.ui:126
 msgid "Enable word completion when the app indicates it is useful"
-msgstr ""
-"Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
+msgstr "Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
 
 #: src/ui/ms-osk-panel.ui:133
 msgid "Toggle via OSK menu"
@@ -1010,11 +1046,11 @@ msgstr "Типовий рушій автоматичного доповненн�
 msgid "Terminal Layout"
 msgstr "Компонування термінала"
 
-#: src/ui/ms-osk-panel.ui:156
+#: src/ui/ms-osk-panel.ui:171
 msgid "Shortcuts"
 msgstr "Скорочення"
 
-#: src/ui/ms-osk-panel.ui:157
+#: src/ui/ms-osk-panel.ui:172
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Скорочення, якими можна скористатися на панелі скорочень"
 
