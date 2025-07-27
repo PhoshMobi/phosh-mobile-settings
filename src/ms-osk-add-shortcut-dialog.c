@@ -302,6 +302,8 @@ ms_osk_add_shortcut_dialog_init (MsOskAddShortcutDialog *self)
 
   for (int i = 0; i < KEY_LAST; i++) {
     GtkWidget *key_shortcut_label = gtk_shortcut_label_new (shortcut_keys_names[i]);
+    gtk_widget_set_halign (key_shortcut_label, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign (key_shortcut_label, GTK_ALIGN_CENTER);
     gtk_flow_box_append (self->key_flowbox, key_shortcut_label);
   }
 }
