@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-07-13 17:05+0000\n"
-"PO-Revision-Date: 2025-07-28 16:09+0200\n"
+"POT-Creation-Date: 2025-07-28 14:47+0000\n"
+"PO-Revision-Date: 2025-07-28 17:11+0200\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
@@ -20,13 +20,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
 msgstr "Мобилни настройки"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:13
+#: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "телефон;настройки;мобилни настройки;mobile;preferences;mobilesettings;"
 
@@ -220,7 +220,7 @@ msgstr "критично"
 msgid "none"
 msgstr "без"
 
-#: src/ms-feedback-panel.c:814
+#: src/ms-feedback-panel.c:806
 msgid "Mobile Settings Volume Control"
 msgstr "Мобилни настройки на звука"
 
@@ -229,15 +229,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Неуспешно задаване на програмата за защита на заключен екран"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:592
+#: src/ms-osk-panel.c:746
 msgid "Default"
 msgstr "Стандартно"
 
-#: src/ms-osk-panel.c:593
+#: src/ms-osk-panel.c:747
 msgid "The default completer selected by the OSK"
 msgstr "Стандартната система дописване, избрана от екранната клавиатура"
 
-#: src/ms-osk-panel.c:596
+#: src/ms-osk-panel.c:750
 msgid "No information available for this completer"
 msgstr "Няма налична информация за тази система за дописване"
 
@@ -399,7 +399,7 @@ msgstr "Тапет"
 msgid "Feedback"
 msgstr "Обратна връзка"
 
-#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:94
+#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
 msgid "Sounds"
 msgstr "Звуци"
 
@@ -423,7 +423,7 @@ msgstr "Диод"
 msgid "Compositor"
 msgstr "Мениджър за наслагане"
 
-#: src/ui/mobile-settings-window.ui:186
+#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
 msgid "Scaling"
 msgstr "Мащабиране"
 
@@ -711,102 +711,102 @@ msgstr ""
 "бутона за намаляване на звука при входящи обаждания"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:60
 msgid "Haptic strength"
 msgstr "Сила на механичната обратна връзка"
 
-#: src/ui/ms-feedback-panel.ui:62
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Сила на механичната обратна връзка като процент от максималната"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:80
 msgid "Per Application settings"
 msgstr "Настройки за всяка програма"
 
-#: src/ui/ms-feedback-panel.ui:95
+#: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
 msgstr "Звукът, който се използва за определени събития"
 
-#: src/ui/ms-feedback-panel.ui:103
+#: src/ui/ms-feedback-panel.ui:102
 msgid "Phone Calls"
 msgstr "Телефонни обаждания"
 
-#: src/ui/ms-feedback-panel.ui:109
+#: src/ui/ms-feedback-panel.ui:108
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:115
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Instant messages"
 msgstr "Незабавни съобщения"
 
-#: src/ui/ms-feedback-panel.ui:126
+#: src/ui/ms-feedback-panel.ui:125
 msgid "Screen Wakeup"
 msgstr "Събуждане на екрана"
 
-#: src/ui/ms-feedback-panel.ui:129
+#: src/ui/ms-feedback-panel.ui:128
 msgid "Notification urgency that lights up the screen"
 msgstr "Спешност на известията, които осветяват екрана"
 
-#: src/ui/ms-feedback-panel.ui:147
+#: src/ui/ms-feedback-panel.ui:146
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "Категории на известия, които събуждат екрана независимо от тяхната спешност"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:149
 msgid "Calls"
 msgstr "Обаждания"
 
-#: src/ui/ms-feedback-panel.ui:151
+#: src/ui/ms-feedback-panel.ui:150
 msgid "A generic audio or video call notification"
 msgstr "Общо известие за аудио или видео повикване"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Device events"
 msgstr "Събития от устройството"
 
-#: src/ui/ms-feedback-panel.ui:158
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic device-related notification"
 msgstr "Общо известие, свързано с устройството"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Emails"
 msgstr "Е-писма"
 
-#: src/ui/ms-feedback-panel.ui:165
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic e-mail-related notification"
 msgstr "Общо известие, свързано с електронна поща"
 
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Instant Messages"
 msgstr "Незабавни съобщения"
 
-#: src/ui/ms-feedback-panel.ui:172
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic instant message-related notification"
 msgstr "Общо известие, свързано с незабавни съобщения"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:177
 msgid "Network events"
 msgstr "Мрежови събития"
 
-#: src/ui/ms-feedback-panel.ui:179
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic network notification"
 msgstr "Общо известие за мрежата"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Presence changes"
 msgstr "Промени в присъствието"
 
-#: src/ui/ms-feedback-panel.ui:186
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic presence change notification"
 msgstr "Общо известие за промяна на присъствието"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:191
 msgid "File transfers"
 msgstr "Прехвърляне на файлове"
 
-#: src/ui/ms-feedback-panel.ui:193
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic file transfer or download notification"
 msgstr "Общо известие за прехвърляне или изтегляне на файлове"
 
@@ -865,16 +865,48 @@ msgid "Add Layout"
 msgstr "Добавяне на подредба"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:16
 msgid "Cancel"
 msgstr "Отказване"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:22
 msgid "Add"
 msgstr "Добавяне"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "Език"
+
+#. Translators: Title for a dialog to add a new on-screen keyboard shortcut
+#. Translators: Label for a button that allows the user to add a new keyboard shortcut
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+msgid "Add Shortcut"
+msgstr "Добавяне на клавишна комбинация"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:43
+msgid "Choose Shortcut Modifiers"
+msgstr "Избор на модификатори за клавишна комбинация"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:128
+msgid "Choose Shortcut Key"
+msgstr "Избор на клавишна комбинация"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:139
+msgid "Enter Shortcut Key"
+msgstr "Въвеждане на клавишна комбинация"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+msgid "Type a key such as letters (like C or V), etc."
+msgstr "Въведете клавиш, напр. буква."
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:143
+msgid "_Shortcut Key"
+msgstr "_Клавишна комбинация"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:153
+msgid "Shortcut Preview"
+msgstr "Преглед на клавишни комбинации"
 
 #: src/ui/ms-osk-layout-prefs.ui:5
 msgctxt "on screen keyboard"
@@ -970,45 +1002,61 @@ msgstr "Височина на клавиатурата в режим на пей
 msgid "When the screen is wider than tall"
 msgstr "Когато екранът е по-широк, отколкото висок"
 
-#: src/ui/ms-osk-panel.ui:101
+#: src/ui/ms-osk-panel.ui:104
+msgid "Keep physical size constant"
+msgstr "Неизменен физически размер"
+
+#: src/ui/ms-osk-panel.ui:105
+msgid "Whether to keep the OSK's size constant in portrait mode"
+msgstr "Дали в портретен режим размерът на екранната клавиатура да е постоянен"
+
+#: src/ui/ms-osk-panel.ui:111
+msgid "Add empty space below keys"
+msgstr "Допълнително празно място под клавишите"
+
+#: src/ui/ms-osk-panel.ui:112
+msgid "Whether to add an empty area below the OSK's keys to shift it upward."
+msgstr "Избутване на екранната клавиатура нагоре"
+
+#: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
 msgstr "Дописване на текста"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:125
 msgid "Opportunistic word completion"
 msgstr "Дописване на думите"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:126
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Включване на дописването на думите при заявка от програма"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:133
 msgid "Toggle via OSK menu"
 msgstr "Превключване от менюто на екранната клавиатура"
 
-#: src/ui/ms-osk-panel.ui:113
+#: src/ui/ms-osk-panel.ui:134
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Позволява превключването на дописването на думите чрез бутона за менюто на "
 "клавиатурата"
 
-#: src/ui/ms-osk-panel.ui:119
+#: src/ui/ms-osk-panel.ui:140
 msgid "Default Completer"
 msgstr "Стандартна система за дописване"
 
-#: src/ui/ms-osk-panel.ui:120
+#: src/ui/ms-osk-panel.ui:141
 msgid "The default completion engine to use"
 msgstr "Стандартната система за дописване, което да се използва"
 
-#: src/ui/ms-osk-panel.ui:131
+#: src/ui/ms-osk-panel.ui:152
 msgid "Terminal Layout"
 msgstr "Подредба на терминала"
 
-#: src/ui/ms-osk-panel.ui:135
+#: src/ui/ms-osk-panel.ui:171
 msgid "Shortcuts"
 msgstr "Клавишни комбинации"
 
-#: src/ui/ms-osk-panel.ui:136
+#: src/ui/ms-osk-panel.ui:172
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Наличните клавишни комбинации в лентата с клавишни комбинации"
 
@@ -1119,6 +1167,3 @@ msgstr ""
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Организирайте допълнителните си бързи настройки"
-
-#~ msgid "Applications"
-#~ msgstr "Програми"
