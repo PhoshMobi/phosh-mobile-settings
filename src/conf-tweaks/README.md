@@ -33,6 +33,20 @@ The gtype option is used to define which type the gsetting is in case it's
 different than the type of the widget. This is mainly useful when things are
 remapped.
 
+### gtk3settings
+
+```yaml
+type: boolean
+backend: gtk3settings
+key: gtk-application-prefer-dark-theme
+default: "0"
+map:
+  true: "1"
+  false: "0"
+```
+This is a backend for modifying the `~/.config/gtk-3.0/settings.ini` file. The
+key is the name of the setting inside the `[Settings]` section.
+
 ### symlink
 
 ```yaml
