@@ -34,6 +34,7 @@ if phoc.found()
 
   unit_tests = [
     'tweaks-backend-gsettings',
+    'tweaks-backend-symlink',
     'tweaks-backend-xresources',
     'tweaks-datasources',
     'tweaks-gtk-utils',
