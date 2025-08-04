@@ -104,7 +104,7 @@ ms_tweaks_log (const char *restrict log_domain,
                ...)
 {
   va_list args;
-  char *restrict format_with_prefix = g_strconcat ("[Setting \"", name, "\"] ", format, NULL);
+  char *restrict format_with_prefix = g_strconcat ("[Setting '", name, "'] ", format, NULL);
 
   va_start (args, format);
 #pragma GCC diagnostic push
