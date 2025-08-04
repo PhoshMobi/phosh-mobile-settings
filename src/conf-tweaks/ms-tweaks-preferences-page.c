@@ -6,9 +6,9 @@
  * Author: Stefan Hansson <newbyte@postmarketos.org>
  */
 
-#define G_LOG_DOMAIN "ms-tweaks-page-builder"
+#define G_LOG_DOMAIN "ms-tweaks-preferences-page"
 
-#include "ms-tweaks-page-builder.h"
+#include "ms-tweaks-preferences-page.h"
 
 #include "ms-tweaks-backend-interface.h"
 #include "ms-tweaks-callback-handlers.h"
@@ -160,9 +160,9 @@ setting_data_to_color_widget (const MsTweaksSetting *setting_data,
 
 
 static void
-file_widget_open_file_picker (GtkButton                                 *widget,
-                              GdkEvent                                  *evnt,
-                              MsTweaksPageBuilderOpenFilePickerMetadata *metadata)
+file_widget_open_file_picker (GtkButton                             *widget,
+                              GdkEvent                              *evnt,
+                              MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
   GtkFileDialog *file_picker_dialog = gtk_file_dialog_new ();
 
@@ -178,9 +178,9 @@ static const char *restrict none_selected_label = "(None selected)";
 
 
 static void
-file_widget_unset (GtkButton                                 *widget,
-                   GdkEvent                                  *evnt,
-                   MsTweaksPageBuilderOpenFilePickerMetadata *metadata)
+file_widget_unset (GtkButton                             *widget,
+                   GdkEvent                              *evnt,
+                   MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
   MsTweaksBackendInterface *backend = MS_TWEAKS_BACKEND_GET_IFACE (metadata->backend_state);
 
@@ -193,10 +193,10 @@ file_widget_unset (GtkButton                                 *widget,
 
 
 static GtkWidget *
-setting_data_to_file_widget (const MsTweaksSetting                     *setting_data,
-                             MsTweaksBackend                           *backend_state,
-                             const GValue                              *widget_value,
-                             MsTweaksPageBuilderOpenFilePickerMetadata *metadata)
+setting_data_to_file_widget (const MsTweaksSetting                 *setting_data,
+                             MsTweaksBackend                       *backend_state,
+                             const GValue                          *widget_value,
+                             MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
   GtkWidget *restrict reset_selection_button = gtk_button_new ();
   GtkWidget *restrict file_picker_row = adw_action_row_new ();
@@ -403,7 +403,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
           widget_to_add = setting_data_to_color_widget (setting_data, backend_state, widget_value);
           break;
         case MS_TWEAKS_TYPE_FILE:
-          MsTweaksPageBuilderOpenFilePickerMetadata *metadata = g_new (MsTweaksPageBuilderOpenFilePickerMetadata, 1);
+          MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
           widget_to_add = setting_data_to_file_widget (setting_data,
                                                        backend_state,
                                                        widget_value,
