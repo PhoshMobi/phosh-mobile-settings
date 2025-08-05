@@ -26,7 +26,9 @@ static GParamSpec *props[PROP_LAST_PROP];
 
 
 struct _MsTweaksPreferencesPage {
-  AdwPreferencesPage parent_instance;
+  MsPanel parent_instance;
+
+  GtkWidget *page;
 
   const MsTweaksPage *data;
 };
@@ -344,6 +346,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
 {
   MsTweaksPreferencesPage *self = MS_TWEAKS_PREFERENCES_PAGE (initable);
   const GList *section_list = ms_tweaks_parser_sort_by_weight (self->data->section_table);
+  g_autoptr (GtkStringList) search_keywords = gtk_string_list_new (NULL);
   gboolean page_widget_is_valid = FALSE;
 
   for (const GList *section_iter = section_list; section_iter; section_iter = section_iter->next) {
@@ -451,20 +454,27 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
 
       if (widget_to_add) {
         adw_preferences_group_add (ADW_PREFERENCES_GROUP (section_preference_group), widget_to_add);
+        gtk_string_list_append (search_keywords, setting_data->name);
         section_widget_is_valid = TRUE;
       } else
         ms_tweaks_warning (setting_data->name, "Failed to construct widget");
     }
 
     if (section_widget_is_valid) {
-      adw_preferences_page_add (ADW_PREFERENCES_PAGE (&self->parent_instance),
+      adw_preferences_page_add (ADW_PREFERENCES_PAGE (self->page),
                                 ADW_PREFERENCES_GROUP (section_preference_group));
+      gtk_string_list_append (search_keywords, section_data->name);
       page_widget_is_valid = TRUE;
     } else {
       g_debug ("No valid settings in section '%s' inside page '%s', hiding it",
                section_data->name,
                self->data->name);
     }
+  }
+
+  if (page_widget_is_valid) {
+    gtk_string_list_append (search_keywords, self->data->name);
+    ms_panel_set_keywords (MS_PANEL (self), g_steal_pointer (&search_keywords));
   }
 
   return page_widget_is_valid;
@@ -487,7 +497,7 @@ ms_tweaks_preferences_page_initable_iface_init (GInitableIface *iface)
 
 G_DEFINE_TYPE_WITH_CODE (MsTweaksPreferencesPage,
                          ms_tweaks_preferences_page,
-                         ADW_TYPE_PREFERENCES_PAGE,
+                         MS_TYPE_PANEL,
                          G_IMPLEMENT_INTERFACE (G_TYPE_INITABLE,
                                                 ms_tweaks_preferences_page_initable_iface_init))
 
@@ -495,7 +505,9 @@ G_DEFINE_TYPE_WITH_CODE (MsTweaksPreferencesPage,
 static void
 ms_tweaks_preferences_page_init (MsTweaksPreferencesPage *self)
 {
+  self->page = adw_preferences_page_new ();
 
+  adw_bin_set_child (ADW_BIN (self), self->page);
 }
 
 
