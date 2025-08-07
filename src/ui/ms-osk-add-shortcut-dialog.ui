@@ -5,6 +5,7 @@
   <template class="MsOskAddShortcutDialog" parent="AdwDialog">
     <!-- Translators: Title for a dialog to add a new on-screen keyboard shortcut -->
     <property name="title" translatable="yes">Add Shortcut</property>
+    <property name="follows-content-size">True</property>
     <property name="child">
       <object class="AdwToolbarView">
         <child type="top">
