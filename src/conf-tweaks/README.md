@@ -66,6 +66,27 @@ Setting the value to `None` will remove the symlink.
 
 This backend is normally used with the file widget
 
+### sysfs
+
+```yaml
+type: choice
+map:
+  80% (4.10V): 4100000
+  85% (4.15V): 4150000
+  90% (4.20V): 4200000
+  100% (4.35V): 4350000
+backend: sysfs
+key: /sys/class/power_supply/axp20x-battery/voltage_max
+stype: int
+```
+
+With this, whenever a value is selected, it will be written to a staged
+configuration file in the current user's cache directory. After which, the user
+will be prompted to save the setting as root, which if accepted will cause the
+file to be moved to `/etc/sysfs.d/phosh-mobile-settings-tweaks.conf`, where it
+will be read by the update-sysfs program if it is run. That program then in
+turn actually writes the value to the path inside `/sys`.
+
 ### xresources
 
 ```yaml
