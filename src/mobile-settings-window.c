@@ -107,7 +107,7 @@ add_ms_tweaks_page (gpointer value, gpointer user_data)
                                                      GTK_WIDGET (page_widget), page_data->name,
                                                      page_data->name);
     /* TODO: Read icon from base64 property of settings definitions. */
-    gtk_stack_page_set_icon_name (stack_page, "applications-science-symbolic");
+    gtk_stack_page_set_icon_name (stack_page, "conf-tweaks-symbolic");
   }
 }
 
