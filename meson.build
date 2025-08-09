@@ -83,7 +83,7 @@ adwaita_dep = dependency(
 libcbd_dep = dependency(
   'libcellbroadcast-0.0',
   version: '>= 0.0.2',
-  fallback: ['libcellbroadcast', 'libcellbroadcast_dep'],
+  fallback: ['libcellbroadcast', 'libcellbroadcast_static_dep'],
   default_options: ['daemon=false', 'introspection=disabled', 'tests=false'],
 )
 
