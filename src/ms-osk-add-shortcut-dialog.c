@@ -21,14 +21,6 @@
  * Dialog to add an OSK shortcut
  */
 
-typedef enum {
-  MODIFIER_CTRL,
-  MODIFIER_ALT,
-  MODIFIER_SHIFT,
-  MODIFIER_SUPER,
-  MODIFIER_LAST
-} ShortcutModifiers;
-
 static const char * const shortcut_modifiers_names[] = {
   "ctrl",
   "alt",
@@ -89,7 +81,7 @@ struct _MsOskAddShortcutDialog {
   AdwToastOverlay         *toast_overlay;
   GtkWidget               *add_button;
 
-  GtkCheckButton          *shortcut_modifiers[MODIFIER_LAST];
+  GtkCheckButton          *shortcut_modifiers[G_N_ELEMENTS(shortcut_modifiers_names)];
 
   AdwEntryRow             *shortcut_key_entry;
   GtkFlowBox              *key_flowbox;
@@ -110,7 +102,7 @@ is_valid_shortcut (MsOskAddShortcutDialog *self)
     GtkWidget *invalid_label = gtk_label_new ("Invalid Shortcut");
     gtk_widget_add_css_class (invalid_label, "error");
 
-    for (int i = 0; i < MODIFIER_LAST; i++)
+    for (int i = 0; shortcut_modifiers_names[i]; i++)
       gtk_check_button_set_active (self->shortcut_modifiers[i], FALSE);
 
     gtk_flow_box_unselect_all (self->key_flowbox);
@@ -181,13 +173,14 @@ on_modifiers_toggled (MsOskAddShortcutDialog *self)
 {
   g_autofree char *current_modifers = g_strdup (get_current_preview_shortcut (self));
 
-  for (int i = 0; i < MODIFIER_LAST; i++) {
+  for (int i = 0; shortcut_modifiers_names[i]; i++) {
     GtkWidget *check_button_child = gtk_check_button_get_child (self->shortcut_modifiers[i]);
     const char *mod_label = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (check_button_child));
     gboolean active = gtk_check_button_get_active (self->shortcut_modifiers[i]);
     char *contain = g_strrstr (current_modifers, mod_label);
     g_autofree const char *accltr = NULL;
     GtkWidget *shortcut_label;
+
     if (active && contain == NULL) {
       accltr = g_strconcat (current_modifers, mod_label, NULL);
       shortcut_label = gtk_shortcut_label_new (accltr);
@@ -239,7 +232,7 @@ on_key_selected (GtkFlowBox      *box,
 static void
 on_preview_clear_clicked (MsOskAddShortcutDialog *self)
 {
-  for (int i = 0; i < MODIFIER_LAST; i++)
+  for (int i = 0; shortcut_modifiers_names[i]; i++)
     gtk_check_button_set_active (self->shortcut_modifiers[i], FALSE);
 
   gtk_flow_box_unselect_all (self->key_flowbox);
@@ -275,7 +268,7 @@ ms_osk_add_shortcut_dialog_class_init (MsOskAddShortcutDialogClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsOskAddShortcutDialog, toast_overlay);
   gtk_widget_class_bind_template_child (widget_class, MsOskAddShortcutDialog, add_button);
 
-  for (int i = 0; i < MODIFIER_LAST; i++) {
+  for (int i = 0; shortcut_modifiers_names[i]; i++) {
     g_autofree char *widget_name = g_strdup_printf ("%s_modifier", shortcut_modifiers_names[i]);
     gtk_widget_class_bind_template_child_full (widget_class,
                                                widget_name,
