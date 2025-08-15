@@ -204,8 +204,9 @@ on_shortcut_key_apply (MsOskAddShortcutDialog *self)
 {
   const char *modifiers = get_current_preview_shortcut (self);
   const char *key = gtk_editable_get_text (GTK_EDITABLE (self->shortcut_key_entry));
-  const char *joined = g_strconcat (modifiers, key, NULL);
+  g_autofree char *joined = g_strconcat (modifiers, key, NULL);
   GtkWidget *shortcut_label = gtk_shortcut_label_new (joined);
+
   gtk_flow_box_remove_all (self->preview_flowbox);
   gtk_flow_box_append (self->preview_flowbox, shortcut_label);
   is_valid_shortcut (self);
@@ -221,8 +222,9 @@ on_key_selected (GtkFlowBox      *box,
   GtkWidget *shortcut_label_child = gtk_widget_get_first_child (GTK_WIDGET (child));
   const char *modifiers = get_current_preview_shortcut (self);
   const char *box_key = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (shortcut_label_child));
-  const char *joined = g_strconcat (modifiers, box_key, NULL);
+  g_autofree char *joined = g_strconcat (modifiers, box_key, NULL);
   GtkWidget *shortcut_label = gtk_shortcut_label_new (joined);
+
   gtk_flow_box_remove_all (self->preview_flowbox);
   gtk_flow_box_append (self->preview_flowbox, shortcut_label);
   is_valid_shortcut (self);
@@ -273,7 +275,8 @@ ms_osk_add_shortcut_dialog_class_init (MsOskAddShortcutDialogClass *klass)
     gtk_widget_class_bind_template_child_full (widget_class,
                                                widget_name,
                                                FALSE,
-                                               G_STRUCT_OFFSET (MsOskAddShortcutDialog, shortcut_modifiers[i]));
+                                               G_STRUCT_OFFSET (MsOskAddShortcutDialog,
+                                                                shortcut_modifiers[i]));
   }
 
   gtk_widget_class_bind_template_child (widget_class, MsOskAddShortcutDialog, shortcut_key_entry);
