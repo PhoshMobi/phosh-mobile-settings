@@ -230,14 +230,9 @@ on_modifiers_toggled (MsOskAddShortcutDialog *self)
 static void
 on_shortcut_key_apply (MsOskAddShortcutDialog *self)
 {
-  const char *modifiers = get_current_preview_shortcut (self);
   const char *key = gtk_editable_get_text (GTK_EDITABLE (self->shortcut_key_entry));
-  g_autofree char *joined = g_strconcat (modifiers, key, NULL);
-  GtkWidget *shortcut_label = gtk_shortcut_label_new (joined);
 
-  gtk_flow_box_remove_all (self->preview_flowbox);
-  gtk_flow_box_append (self->preview_flowbox, shortcut_label);
-  is_valid_shortcut (self);
+  update_shortcut (self, key);
 }
 
 
