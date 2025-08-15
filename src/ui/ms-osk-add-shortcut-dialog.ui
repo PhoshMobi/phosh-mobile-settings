@@ -130,7 +130,7 @@
                         <child>
                           <object class="GtkFlowBox" id="key_flowbox">
                             <property name="selection-mode">none</property>
-                            <signal name="child-activated" handler="on_key_selected"/>
+                            <signal name="child-activated" handler="on_key_activated" swapped="yes"/>
                           </object>
                         </child>
                       </object>

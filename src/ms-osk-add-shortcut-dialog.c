@@ -213,11 +213,8 @@ on_shortcut_key_apply (MsOskAddShortcutDialog *self)
 
 
 static void
-on_key_selected (GtkFlowBox      *box,
-                 GtkFlowBoxChild *child,
-                 gpointer         user_data)
+on_key_activated (MsOskAddShortcutDialog *self, GtkFlowBoxChild *child, GtkFlowBox *box)
 {
-  MsOskAddShortcutDialog *self = user_data;
   GtkWidget *shortcut_label_child = gtk_widget_get_first_child (GTK_WIDGET (child));
   const char *modifiers = get_current_preview_shortcut (self);
   const char *box_key = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (shortcut_label_child));
@@ -284,7 +281,7 @@ ms_osk_add_shortcut_dialog_class_init (MsOskAddShortcutDialogClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_add_clicked);
   gtk_widget_class_bind_template_callback (widget_class, on_modifiers_toggled);
   gtk_widget_class_bind_template_callback (widget_class, on_shortcut_key_apply);
-  gtk_widget_class_bind_template_callback (widget_class, on_key_selected);
+  gtk_widget_class_bind_template_callback (widget_class, on_key_activated);
   gtk_widget_class_bind_template_callback (widget_class, on_preview_clear_clicked);
 }
 
