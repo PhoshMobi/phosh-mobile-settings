@@ -115,6 +115,21 @@ is_valid_shortcut (MsOskAddShortcutDialog *self)
 }
 
 
+static char *
+extract_modifiers (const char *shortcut)
+{
+  GString *current = g_string_new ("");
+  const char * const modifiers[] = { "<ctrl>", "<alt>", "<shift>", "<super>", NULL };
+
+  for (int i = 0; modifiers[i]; i++) {
+    if (strstr (shortcut, modifiers[i]))
+      g_string_append (current, modifiers[i]);
+  }
+
+  return g_string_free_and_steal (current);
+}
+
+
 static GStrv
 shortcut_append (const char *const *shortcuts, const char *shortcut)
 {
@@ -168,6 +183,23 @@ on_add_clicked (MsOskAddShortcutDialog *self)
 
 
 static void
+update_shortcut (MsOskAddShortcutDialog *self, const char *update)
+{
+  const char *current = get_current_preview_shortcut (self);
+  g_autofree char *modifiers = NULL, *new = NULL;
+  GtkWidget *shortcut_label;
+
+  modifiers = extract_modifiers (current);
+  new = g_strconcat (modifiers, update, NULL);
+
+  shortcut_label = gtk_shortcut_label_new (new);
+  gtk_flow_box_remove_all (self->preview_flowbox);
+  gtk_flow_box_append (self->preview_flowbox, shortcut_label);
+  is_valid_shortcut (self);
+}
+
+
+static void
 on_modifiers_toggled (MsOskAddShortcutDialog *self)
 {
   g_autofree char *current_modifers = g_strdup (get_current_preview_shortcut (self));
@@ -216,14 +248,9 @@ static void
 on_key_activated (MsOskAddShortcutDialog *self, GtkFlowBoxChild *child, GtkFlowBox *box)
 {
   GtkWidget *shortcut_label_child = gtk_widget_get_first_child (GTK_WIDGET (child));
-  const char *modifiers = get_current_preview_shortcut (self);
   const char *box_key = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (shortcut_label_child));
-  g_autofree char *joined = g_strconcat (modifiers, box_key, NULL);
-  GtkWidget *shortcut_label = gtk_shortcut_label_new (joined);
 
-  gtk_flow_box_remove_all (self->preview_flowbox);
-  gtk_flow_box_append (self->preview_flowbox, shortcut_label);
-  is_valid_shortcut (self);
+  update_shortcut (self, box_key);
 }
 
 
