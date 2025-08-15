@@ -178,7 +178,7 @@ on_modifiers_toggled (MsOskAddShortcutDialog *self)
     const char *mod_label = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (check_button_child));
     gboolean active = gtk_check_button_get_active (self->shortcut_modifiers[i]);
     char *contain = g_strrstr (current_modifers, mod_label);
-    g_autofree const char *accltr = NULL;
+    g_autofree char *accltr = NULL;
     GtkWidget *shortcut_label;
 
     if (active && contain == NULL) {
