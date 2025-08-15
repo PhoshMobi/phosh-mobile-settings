@@ -105,7 +105,6 @@ is_valid_shortcut (MsOskAddShortcutDialog *self)
     for (int i = 0; shortcut_modifiers_names[i]; i++)
       gtk_check_button_set_active (self->shortcut_modifiers[i], FALSE);
 
-    gtk_flow_box_unselect_all (self->key_flowbox);
     gtk_flow_box_remove_all (self->preview_flowbox);
     gtk_flow_box_append (self->preview_flowbox, invalid_label);
     gtk_editable_set_text (GTK_EDITABLE (self->shortcut_key_entry), "");
@@ -237,7 +236,6 @@ on_preview_clear_clicked (MsOskAddShortcutDialog *self)
   for (int i = 0; shortcut_modifiers_names[i]; i++)
     gtk_check_button_set_active (self->shortcut_modifiers[i], FALSE);
 
-  gtk_flow_box_unselect_all (self->key_flowbox);
   gtk_flow_box_remove_all (self->preview_flowbox);
   gtk_editable_set_text (GTK_EDITABLE (self->shortcut_key_entry), "");
   gtk_widget_set_sensitive (GTK_WIDGET (self->add_button), FALSE);
