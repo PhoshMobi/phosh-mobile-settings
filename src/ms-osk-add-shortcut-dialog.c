@@ -202,24 +202,21 @@ update_shortcut (MsOskAddShortcutDialog *self, const char *update)
 static void
 on_modifiers_toggled (MsOskAddShortcutDialog *self)
 {
-  g_autofree char *current_modifers = g_strdup (get_current_preview_shortcut (self));
+  g_autofree char *current_modifers = extract_modifiers (get_current_preview_shortcut (self));
 
   for (int i = 0; shortcut_modifiers_names[i]; i++) {
     GtkWidget *check_button_child = gtk_check_button_get_child (self->shortcut_modifiers[i]);
     const char *mod_label = gtk_shortcut_label_get_accelerator (GTK_SHORTCUT_LABEL (check_button_child));
     gboolean active = gtk_check_button_get_active (self->shortcut_modifiers[i]);
-    char *contain = g_strrstr (current_modifers, mod_label);
-    g_autofree char *accltr = NULL;
+    const char *contain = g_strrstr (current_modifers, mod_label);
     GtkWidget *shortcut_label;
 
-    if (active && contain == NULL) {
-      accltr = g_strconcat (current_modifers, mod_label, NULL);
-      shortcut_label = gtk_shortcut_label_new (accltr);
-      gtk_flow_box_remove_all (self->preview_flowbox);
-      gtk_flow_box_append (self->preview_flowbox, shortcut_label);
-      is_valid_shortcut (self);
+    if (active && !contain) {
+      update_shortcut (self, mod_label);
     } else if (!active && contain) {
+      g_autofree char *accltr = NULL;
       g_auto (GStrv) parts = g_strsplit (current_modifers, mod_label, -1);
+
       accltr = g_strjoinv ("", parts);
       shortcut_label = gtk_shortcut_label_new (accltr);
       gtk_flow_box_remove_all (self->preview_flowbox);
