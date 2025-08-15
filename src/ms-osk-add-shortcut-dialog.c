@@ -101,7 +101,7 @@ G_DEFINE_TYPE (MsOskAddShortcutDialog, ms_osk_add_shortcut_dialog, ADW_TYPE_DIAL
 static void
 is_valid_shortcut (MsOskAddShortcutDialog *self)
 {
-  GtkFlowBoxChild* flow_child = gtk_flow_box_get_child_at_index (self->preview_flowbox, 0);
+  GtkFlowBoxChild *flow_child = gtk_flow_box_get_child_at_index (self->preview_flowbox, 0);
   GtkWidget *shortcut_label = gtk_widget_get_first_child (GTK_WIDGET (flow_child));
   GtkWidget *label_child = gtk_widget_get_first_child (shortcut_label);
 
@@ -144,7 +144,7 @@ shortcut_append (const char *const *shortcuts, const char *shortcut)
 static const char *
 get_current_preview_shortcut (MsOskAddShortcutDialog *self)
 {
-  GtkFlowBoxChild* child = gtk_flow_box_get_child_at_index (self->preview_flowbox, 0);
+  GtkFlowBoxChild *child = gtk_flow_box_get_child_at_index (self->preview_flowbox, 0);
   GtkWidget *shortcut_label;
 
   if (!child)
