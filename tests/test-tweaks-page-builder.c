@@ -6,7 +6,7 @@
  * Author: Stefan Hansson <newbyte@postmarketos.org>
  */
 
-#include "pmos-tweaks/ms-tweaks-page-builder.c"
+#include "conf-tweaks/ms-tweaks-page-builder.c"
 
 #include "utils/ms-tweaks-backend-dummy.h"
 

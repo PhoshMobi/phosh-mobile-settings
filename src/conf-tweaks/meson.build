@@ -1,4 +1,4 @@
-pmos_tweaks_sources = files(
+conf_tweaks_sources = files(
   'ms-tweaks-backend-interface.c',
   'ms-tweaks-backend-interface.h',
   'ms-tweaks-callback-handlers.c',

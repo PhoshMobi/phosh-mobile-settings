@@ -1,9 +1,9 @@
-# Phosh Mobile Settings postmarketOS Tweaks support
+# Configurable Tweaks support
 
 ## Introduction
 
-This optional feature implements support for the YAML definition format
-implemented by the now deprecated [postmarketOS Tweaks application][1].
+This feature implements support for the YAML definition format implemented by
+the now deprecated [postmarketOS Tweaks application][1].
 
 Since the original documentation is incomplete, this serves as an up-to-date
 reference that also includes notable changes from the original. While this
