@@ -6,7 +6,7 @@
  * Author: Stefan Hansson <newbyte@postmarketos.org>
  */
 
-#include "pmos-tweaks/ms-tweaks-page-builder.c"
+#include "conf-tweaks/ms-tweaks-preferences-page.c"
 
 #include "utils/ms-tweaks-backend-dummy.h"
 
@@ -15,14 +15,14 @@ typedef struct {
   MsTweaksSetting *setting;
   MsTweaksBackend *backend;
   GValue *         value;
-} PageBuilderTestFixture;
+} PreferencesPageTestFixture;
 
 
 #define DEBUG_SETTING_NAME "Debug"
 
 
 static void
-test_page_builder_fixture_setup (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_preferences_page_fixture_setup (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   fixture->setting = g_new0 (MsTweaksSetting, 1);
   fixture->backend = ms_tweaks_backend_dummy_new (fixture->setting);
@@ -40,9 +40,9 @@ test_page_builder_fixture_setup (PageBuilderTestFixture *fixture, gconstpointer 
 
 
 static void
-test_page_builder_fixture_setup_with_map (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_preferences_page_fixture_setup_with_map (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  test_page_builder_fixture_setup (fixture, unused);
+  test_preferences_page_fixture_setup (fixture, unused);
 
   fixture->setting->map = g_hash_table_new (g_str_hash, g_str_equal);
 
@@ -53,7 +53,7 @@ test_page_builder_fixture_setup_with_map (PageBuilderTestFixture *fixture, gcons
 
 
 static void
-test_page_builder_fixture_teardown (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_preferences_page_fixture_teardown (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   if (fixture->setting->map)
     g_hash_table_destroy (fixture->setting->map);
@@ -64,23 +64,23 @@ test_page_builder_fixture_teardown (PageBuilderTestFixture *fixture, gconstpoint
 }
 
 
-#define PAGE_BUILDER_TEST_ADD(name, test_func) g_test_add ((name), \
-                                                           PageBuilderTestFixture, \
-                                                           NULL, \
-                                                           test_page_builder_fixture_setup, \
-                                                           (test_func), \
-                                                           test_page_builder_fixture_teardown)
+#define PREFERENCES_PAGE_TEST_ADD(name, test_func) g_test_add ((name), \
+                                                               PreferencesPageTestFixture, \
+                                                               NULL, \
+                                                               test_preferences_page_fixture_setup, \
+                                                               (test_func), \
+                                                               test_preferences_page_fixture_teardown)
 
-#define PAGE_BUILDER_TEST_ADD_WITH_MAP(name, test_func) g_test_add ((name), \
-                                                                    PageBuilderTestFixture, \
-                                                                    NULL, \
-                                                                    test_page_builder_fixture_setup_with_map, \
-                                                                    (test_func), \
-                                                                    test_page_builder_fixture_teardown)
+#define PREFERENCES_PAGE_TEST_ADD_WITH_MAP(name, test_func) g_test_add ((name), \
+                                                                        PreferencesPageTestFixture, \
+                                                                        NULL, \
+                                                                        test_preferences_page_fixture_setup_with_map, \
+                                                                        (test_func), \
+                                                                        test_preferences_page_fixture_teardown)
 
 
 static void
-test_setting_data_to_boolean_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_boolean_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_boolean_widget (fixture->setting, fixture->backend, NULL);
 
@@ -93,7 +93,7 @@ test_setting_data_to_boolean_widget (PageBuilderTestFixture *fixture, gconstpoin
 
 
 static void
-test_setting_data_to_boolean_widget_with_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_boolean_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GValue *value = g_new0 (GValue, 1);
   GtkWidget *widget_1 = NULL;
@@ -121,9 +121,9 @@ test_setting_data_to_boolean_widget_with_value (PageBuilderTestFixture *fixture,
 
 
 static void
-test_setting_data_to_choice_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_choice_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  g_test_expect_message ("ms-tweaks-page-builder",
+  g_test_expect_message ("ms-tweaks-preferences-page",
                          G_LOG_LEVEL_WARNING,
                          "[Setting \"" DEBUG_SETTING_NAME "\"] Choice widget with NULL map — either the datasource failed or the markup is wrong");
 
@@ -132,7 +132,7 @@ test_setting_data_to_choice_widget (PageBuilderTestFixture *fixture, gconstpoint
 
 
 static void
-test_setting_data_to_choice_widget_with_map (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_choice_widget_with_map (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = NULL;
 
@@ -146,7 +146,7 @@ test_setting_data_to_choice_widget_with_map (PageBuilderTestFixture *fixture, gc
 
 
 static void
-test_setting_data_to_choice_widget_with_map_and_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_choice_widget_with_map_and_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkStringObject *string_object = NULL;
   GtkWidget *widget_1 = NULL;
@@ -174,9 +174,9 @@ test_setting_data_to_choice_widget_with_map_and_value (PageBuilderTestFixture *f
 
 
 static void
-test_setting_data_to_file_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_file_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  MsTweaksPageBuilderOpenFilePickerMetadata *metadata = g_new (MsTweaksPageBuilderOpenFilePickerMetadata, 1);
+  MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
   GtkWidget *widget = setting_data_to_file_widget (fixture->setting,
                                                    fixture->backend,
                                                    NULL,
@@ -193,9 +193,9 @@ test_setting_data_to_file_widget (PageBuilderTestFixture *fixture, gconstpointer
 
 
 static void
-test_setting_data_to_file_widget_with_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_file_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  MsTweaksPageBuilderOpenFilePickerMetadata *metadata = g_new (MsTweaksPageBuilderOpenFilePickerMetadata, 1);
+  MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
   GtkWidget *widget = setting_data_to_file_widget (fixture->setting,
                                                    fixture->backend,
                                                    fixture->value,
@@ -212,7 +212,7 @@ test_setting_data_to_file_widget_with_value (PageBuilderTestFixture *fixture, gc
 
 
 static void
-test_setting_data_to_font_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_font_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_font_widget (fixture->setting, fixture->backend, NULL);
 
@@ -224,7 +224,7 @@ test_setting_data_to_font_widget (PageBuilderTestFixture *fixture, gconstpointer
 
 
 static void
-test_setting_data_to_font_widget_with_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_font_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_font_widget (fixture->setting,
                                                    fixture->backend,
@@ -238,9 +238,9 @@ test_setting_data_to_font_widget_with_value (PageBuilderTestFixture *fixture, gc
 
 
 static void
-test_setting_data_to_info_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_info_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  g_test_expect_message ("ms-tweaks-page-builder",
+  g_test_expect_message ("ms-tweaks-preferences-page",
                          G_LOG_LEVEL_WARNING,
                          "[Setting \"" DEBUG_SETTING_NAME "\"] widget_value was NULL in setting_data_to_boolean_widget ()");
 
@@ -249,7 +249,7 @@ test_setting_data_to_info_widget (PageBuilderTestFixture *fixture, gconstpointer
 
 
 static void
-test_setting_data_to_info_widget_with_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_info_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_info_widget (fixture->setting, fixture->value);
 
@@ -261,7 +261,7 @@ test_setting_data_to_info_widget_with_value (PageBuilderTestFixture *fixture, gc
 
 
 static void
-test_setting_data_to_number_widget (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_number_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_number_widget (fixture->setting, fixture->backend, NULL);
 
@@ -273,7 +273,7 @@ test_setting_data_to_number_widget (PageBuilderTestFixture *fixture, gconstpoint
 
 
 static void
-test_setting_data_to_number_widget_with_value (PageBuilderTestFixture *fixture, gconstpointer unused)
+test_setting_data_to_number_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GValue value = G_VALUE_INIT;
   GtkWidget *widget = NULL;
@@ -295,32 +295,32 @@ main (int argc, char *argv[])
 {
   gtk_test_init (&argc, &argv, NULL);
 
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget",
-                         test_setting_data_to_boolean_widget);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget-with-value",
-                         test_setting_data_to_boolean_widget_with_value);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget",
-                         test_setting_data_to_choice_widget);
-  PAGE_BUILDER_TEST_ADD_WITH_MAP ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget-with-map",
-                                  test_setting_data_to_choice_widget_with_map);
-  PAGE_BUILDER_TEST_ADD_WITH_MAP ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget-with-map-and-value",
-                                  test_setting_data_to_choice_widget_with_map_and_value);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-file-widget",
-                         test_setting_data_to_file_widget);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-file-widget-with-value",
-                         test_setting_data_to_file_widget_with_value);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-font-widget",
-                         test_setting_data_to_font_widget);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-font-widget-with-value",
-                         test_setting_data_to_font_widget_with_value);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-info-widget",
-                         test_setting_data_to_info_widget);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-info-widget-with-value",
-                         test_setting_data_to_info_widget_with_value);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-number-widget",
-                         test_setting_data_to_number_widget);
-  PAGE_BUILDER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-number-widget-with-value",
-                         test_setting_data_to_number_widget_with_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget",
+                             test_setting_data_to_boolean_widget);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget-with-value",
+                             test_setting_data_to_boolean_widget_with_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget",
+                             test_setting_data_to_choice_widget);
+  PREFERENCES_PAGE_TEST_ADD_WITH_MAP ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget-with-map",
+                                      test_setting_data_to_choice_widget_with_map);
+  PREFERENCES_PAGE_TEST_ADD_WITH_MAP ("/phosh-mobile-settings/test-tweaks-setting-data-to-choice-widget-with-map-and-value",
+                                      test_setting_data_to_choice_widget_with_map_and_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-file-widget",
+                             test_setting_data_to_file_widget);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-file-widget-with-value",
+                             test_setting_data_to_file_widget_with_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-font-widget",
+                             test_setting_data_to_font_widget);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-font-widget-with-value",
+                             test_setting_data_to_font_widget_with_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-info-widget",
+                             test_setting_data_to_info_widget);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-info-widget-with-value",
+                             test_setting_data_to_info_widget_with_value);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-number-widget",
+                             test_setting_data_to_number_widget);
+  PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-number-widget-with-value",
+                             test_setting_data_to_number_widget_with_value);
 
   return g_test_run ();
 }

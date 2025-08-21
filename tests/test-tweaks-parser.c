@@ -6,7 +6,7 @@
  * Author: Stefan Hansson <newbyte@postmarketos.org>
  */
 
-#include "pmos-tweaks/ms-tweaks-parser.h"
+#include "conf-tweaks/ms-tweaks-parser.h"
 
 
 #define SETTING_COUNT 3

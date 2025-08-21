@@ -35,8 +35,8 @@ if phoc.found()
   unit_tests = [
     'tweaks-gtk-utils',
     'tweaks-mappings',
-    'tweaks-page-builder',
     'tweaks-parser',
+    'tweaks-preferences-page',
     'tweaks-utils',
   ]
 

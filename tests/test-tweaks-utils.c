@@ -8,7 +8,7 @@
 
 #define G_LOG_DOMAIN "test-tweaks-utils"
 
-#include "pmos-tweaks/ms-tweaks-utils.h"
+#include "conf-tweaks/ms-tweaks-utils.h"
 
 
 #define TEST_WARNING_MESSAGE "scary warning: "
