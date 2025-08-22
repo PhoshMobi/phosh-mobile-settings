@@ -104,8 +104,8 @@ add_ms_tweaks_page (gpointer value, gpointer user_data)
 
   if (page_widget) {
     GtkStackPage *stack_page = gtk_stack_add_titled (self->stack,
-                                                     GTK_WIDGET (page_widget), page_data->name,
-                                                     page_data->name);
+                                                     GTK_WIDGET (page_widget), page_data->name_i18n,
+                                                     page_data->name_i18n);
     /* TODO: Read icon from base64 property of settings definitions. */
     gtk_stack_page_set_icon_name (stack_page, "conf-tweaks-symbolic");
   }
