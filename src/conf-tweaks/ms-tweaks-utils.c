@@ -73,7 +73,6 @@ ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,
 }
 
 
-[[gnu::format (gnu_printf, 4, 5)]]
 void
 ms_tweaks_log (const char *restrict log_domain,
                GLogLevelFlags       log_level,
