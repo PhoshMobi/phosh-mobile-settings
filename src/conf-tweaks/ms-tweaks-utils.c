@@ -84,7 +84,10 @@ ms_tweaks_log (const char *restrict log_domain,
   char *restrict format_with_prefix = g_strconcat ("[Setting \"", name, "\"] ", format, NULL);
 
   va_start (args, format);
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wformat-nonliteral"
   g_logv (log_domain, log_level, format_with_prefix, args);
+#pragma GCC diagnostic pop
   va_end (args);
   g_free (format_with_prefix);
 }
