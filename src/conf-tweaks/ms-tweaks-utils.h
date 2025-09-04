@@ -48,4 +48,4 @@ void ms_tweaks_log (const char     *restrict log_domain,
                     GLogLevelFlags           log_level,
                     const char     *restrict name,
                     const char     *restrict message,
-                    ...);
+                    ...) G_GNUC_PRINTF(4, 5);

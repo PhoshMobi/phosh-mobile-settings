@@ -73,7 +73,6 @@ ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,
 }
 
 
-[[gnu::format (gnu_printf, 4, 5)]]
 void
 ms_tweaks_log (const char *restrict log_domain,
                GLogLevelFlags       log_level,
@@ -85,7 +84,10 @@ ms_tweaks_log (const char *restrict log_domain,
   char *restrict format_with_prefix = g_strconcat ("[Setting \"", name, "\"] ", format, NULL);
 
   va_start (args, format);
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wformat-nonliteral"
   g_logv (log_domain, log_level, format_with_prefix, args);
+#pragma GCC diagnostic pop
   va_end (args);
   g_free (format_with_prefix);
 }
