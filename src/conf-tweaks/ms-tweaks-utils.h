@@ -12,6 +12,7 @@
 
 /* Data conversion functions. */
 const char *ms_tweaks_util_boolean_to_string (const gboolean value);
+const char *ms_tweaks_get_filename_extension (const char *filename);
 
 /* Value retrieval functions. */
 char *ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,

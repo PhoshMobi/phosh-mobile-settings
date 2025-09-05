@@ -14,3 +14,21 @@ settings applications implementing them. As such, they have not been implemented
 If you see any justification for re-adding these features, patches are welcome!
 
  [1]: https://gitlab.postmarketos.org/postmarketOS/postmarketos-tweaks
+
+## Backends
+
+### gsettings
+
+```yaml
+backend: gsettings
+gtype: boolean
+key: org.postmarketos.Tweaks.coolsetting
+```
+
+Uses GSettings to read and write the settings. The key is the full path to the
+setting. It's possible to set the key to a list of settings, in which case the
+first one found will be used.
+
+The gtype option is used to define which type the gsetting is in case it's
+different than the type of the widget. This is mainly useful when things are
+remapped.

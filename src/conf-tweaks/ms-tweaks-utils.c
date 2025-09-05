@@ -39,6 +39,29 @@ ms_tweaks_util_string_to_boolean (const char *string)
 }
 
 /**
+ * ms_tweaks_get_filename_extension:
+ * @filename: File to get the file extension of.
+ *
+ * Modified from the original by ThiefMaster on Stack Overflow: https://stackoverflow.com/a/5309508
+ *
+ * Returns: The file extension of a file. This does not consider dotfiles (e.g. ".Xresources").
+ */
+const char *
+ms_tweaks_get_filename_extension (const char *filename)
+{
+  char *dot;
+
+  g_assert (filename);
+
+  dot = strrchr (filename, '.');
+
+  if (!dot || dot == filename)
+    return "";
+
+  return dot + 1;
+}
+
+/**
  * ms_tweaks_util_get_key_by_value_string:
  * @hash_table: The GHashTable to find the key in.
  * @value_to_find: The value to find the key of.
@@ -81,7 +104,7 @@ ms_tweaks_log (const char *restrict log_domain,
                ...)
 {
   va_list args;
-  char *restrict format_with_prefix = g_strconcat ("[Setting \"", name, "\"] ", format, NULL);
+  char *restrict format_with_prefix = g_strconcat ("[Setting '", name, "'] ", format, NULL);
 
   va_start (args, format);
 #pragma GCC diagnostic push
