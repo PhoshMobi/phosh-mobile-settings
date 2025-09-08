@@ -29,18 +29,18 @@ struct _MsTweaksBackendGsettings {
 
 
 static const MsTweaksSetting *
-ms_tweaks_backend_gsettings_get_setting_data (MsTweaksBackend *self_)
+ms_tweaks_backend_gsettings_get_setting_data (MsTweaksBackend *backend)
 {
-  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (self_);
+  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
 
   return self->setting_data;
 }
 
 
 static GValue *
-backend_gsettings_get_value (MsTweaksBackend *self_)
+backend_gsettings_get_value (MsTweaksBackend *backend)
 {
-  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (self_);
+  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
   GValue *return_value = g_new0 (GValue, 1);
 
   if (self->setting_data->type == MS_TWEAKS_TYPE_BOOLEAN
@@ -60,9 +60,9 @@ backend_gsettings_get_value (MsTweaksBackend *self_)
 
 
 static void
-backend_gsettings_set_value (MsTweaksBackend *self_, GValue *value)
+backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value)
 {
-  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (self_);
+  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
   GType value_gtype;
 
   if (value) {
@@ -102,9 +102,9 @@ backend_gsettings_set_value (MsTweaksBackend *self_, GValue *value)
 
 
 static char *
-ms_tweaks_backend_gsettings_get_key (MsTweaksBackend *self_)
+ms_tweaks_backend_gsettings_get_key (MsTweaksBackend *backend)
 {
-  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (self_);
+  MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
 
   return self->key;
 }
