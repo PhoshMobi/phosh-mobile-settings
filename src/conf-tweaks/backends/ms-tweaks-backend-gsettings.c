@@ -9,8 +9,8 @@
 #define G_LOG_DOMAIN "ms-tweaks-backend-gsettings"
 
 #include "ms-tweaks-backend-gsettings.h"
-#include "../ms-tweaks-gtk-utils.h"
-#include "../ms-tweaks-utils.h"
+#include "ms-tweaks-gtk-utils.h"
+#include "ms-tweaks-utils.h"
 
 #include <adwaita.h>
 #include <limits.h>
