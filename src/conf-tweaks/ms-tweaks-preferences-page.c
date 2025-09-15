@@ -37,8 +37,8 @@ struct _MsTweaksPreferencesPage {
 static void
 set_title_and_subtitle (GtkWidget *widget, const MsTweaksSetting *setting_data)
 {
-  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (widget), setting_data->name);
-  adw_action_row_set_subtitle (ADW_ACTION_ROW (widget), setting_data->help);
+  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (widget), setting_data->name_i18n);
+  adw_action_row_set_subtitle (ADW_ACTION_ROW (widget), setting_data->help_i18n);
 }
 
 
@@ -290,7 +290,7 @@ setting_data_to_info_widget (const MsTweaksSetting *setting_data,
   if (widget_value) {
     GtkWidget *action_row = adw_action_row_new ();
 
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (action_row), setting_data->name);
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (action_row), setting_data->name_i18n);
     adw_action_row_set_subtitle (ADW_ACTION_ROW (action_row), g_value_get_string (widget_value));
 
     adw_action_row_set_subtitle_selectable (ADW_ACTION_ROW (action_row), true);
@@ -356,7 +356,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
     gboolean section_widget_is_valid = FALSE;
 
     adw_preferences_group_set_title (ADW_PREFERENCES_GROUP (section_preference_group),
-                                     section_data->name);
+                                     section_data->name_i18n);
 
     for (const GList *setting_iter = setting_list; setting_iter; setting_iter = setting_iter->next) {
       MsTweaksSetting *setting_data = setting_iter->data;
@@ -454,7 +454,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
 
       if (widget_to_add) {
         adw_preferences_group_add (ADW_PREFERENCES_GROUP (section_preference_group), widget_to_add);
-        gtk_string_list_append (search_keywords, setting_data->name);
+        gtk_string_list_append (search_keywords, setting_data->name_i18n);
         section_widget_is_valid = TRUE;
       } else
         ms_tweaks_warning (setting_data->name, "Failed to construct widget");
@@ -463,7 +463,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
     if (section_widget_is_valid) {
       adw_preferences_page_add (ADW_PREFERENCES_PAGE (self->page),
                                 ADW_PREFERENCES_GROUP (section_preference_group));
-      gtk_string_list_append (search_keywords, section_data->name);
+      gtk_string_list_append (search_keywords, section_data->name_i18n);
       page_widget_is_valid = TRUE;
     } else {
       g_debug ("No valid settings in section '%s' inside page '%s', hiding it",
@@ -473,7 +473,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
   }
 
   if (page_widget_is_valid) {
-    gtk_string_list_append (search_keywords, self->data->name);
+    gtk_string_list_append (search_keywords, self->data->name_i18n);
     ms_panel_set_keywords (MS_PANEL (self), g_steal_pointer (&search_keywords));
   }
 
