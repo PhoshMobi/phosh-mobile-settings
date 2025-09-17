@@ -658,7 +658,7 @@ str_to_sysfs_type (const char *setting_type_str)
  * Copied from parse.c in libyaml-examples with minor modifications.
  */
 static int
-str_to_bool (const char *restrict string, gboolean *value)
+str_to_bool (const char *string, gboolean *value)
 {
   const char *t[] = { "y", "Y", "yes", "Yes", "YES", "true", "True", "TRUE", "on", "On", "ON", NULL };
   const char *f[] = { "n", "N", "no", "No", "NO", "false", "False", "FALSE", "off", "Off", "OFF", NULL };
@@ -1610,8 +1610,8 @@ ms_tweaks_parser_class_init (MsTweaksParserClass *klass)
 static gint
 compare_by_weight (gconstpointer structure_a, gconstpointer structure_b)
 {
-  const int *restrict weight_a;
-  const int *restrict weight_b;
+  const int *weight_a;
+  const int *weight_b;
 
   /* The cast below only works if these assertions hold true, if they fail the sorting will be
    * completely broken. */

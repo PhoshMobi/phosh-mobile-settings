@@ -74,11 +74,11 @@ ms_tweaks_get_filename_extension (const char *filename)
  * Returns: The key string if one was found, otherwise NULL.
  */
 char *
-ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,
-                                        const char *restrict  value_to_find)
+ms_tweaks_util_get_key_by_value_string (GHashTable *hash_table,
+                                        const char *value_to_find)
 {
-  char *restrict matching_key = NULL;
   gpointer key = NULL, value = NULL;
+  char *matching_key = NULL;
   GHashTableIter iter;
 
   g_assert (hash_table);
@@ -97,14 +97,14 @@ ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,
 
 
 void
-ms_tweaks_log (const char *restrict log_domain,
-               GLogLevelFlags       log_level,
-               const char *restrict name,
-               const char *restrict format,
+ms_tweaks_log (const char     *log_domain,
+               GLogLevelFlags  log_level,
+               const char     *name,
+               const char     *format,
                ...)
 {
   va_list args;
-  char *restrict format_with_prefix = g_strconcat ("[Setting '", name, "'] ", format, NULL);
+  char *format_with_prefix = g_strconcat ("[Setting '", name, "'] ", format, NULL);
 
   va_start (args, format);
 #pragma GCC diagnostic push

@@ -138,10 +138,10 @@ setting_data_to_color_widget (const MsTweaksSetting *setting_data,
                               GValue                *widget_value)
 {
   GdkRGBA widget_colour;
-  GtkWidget *restrict action_row = adw_action_row_new ();
+  GtkWidget *action_row = adw_action_row_new ();
   GtkColorDialog *color_dialog = gtk_color_dialog_new ();
   const char *colour_from_backend = g_value_get_string (widget_value);
-  GtkWidget *restrict color_dialog_button = gtk_color_dialog_button_new (color_dialog);
+  GtkWidget *color_dialog_button = gtk_color_dialog_button_new (color_dialog);
 
   g_assert (setting_data);
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
@@ -179,7 +179,7 @@ file_widget_open_file_picker (GtkButton                             *widget,
 }
 
 
-static const char *restrict none_selected_label = "(None selected)";
+static const char *none_selected_label = "(None selected)";
 
 
 static void
@@ -203,11 +203,11 @@ setting_data_to_file_widget (const MsTweaksSetting                 *setting_data
                              const GValue                          *widget_value,
                              MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
-  GtkWidget *restrict reset_selection_button = gtk_button_new ();
-  GtkWidget *restrict file_picker_row = adw_action_row_new ();
-  GtkWidget *restrict file_picker_button = gtk_button_new ();
-  GtkWidget *restrict file_picker_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-  GtkWidget *restrict file_picker_icon = gtk_image_new_from_icon_name ("folder-open-symbolic");
+  GtkWidget *reset_selection_button = gtk_button_new ();
+  GtkWidget *file_picker_row = adw_action_row_new ();
+  GtkWidget *file_picker_button = gtk_button_new ();
+  GtkWidget *file_picker_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *file_picker_icon = gtk_image_new_from_icon_name ("folder-open-symbolic");
 
   g_assert (setting_data);
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
@@ -254,9 +254,9 @@ setting_data_to_font_widget (const MsTweaksSetting *setting_data,
                              MsTweaksBackend       *backend_state,
                              const GValue          *widget_value)
 {
-  GtkWidget *restrict action_row = adw_action_row_new ();
+  GtkWidget *action_row = adw_action_row_new ();
   GtkFontDialog *font_dialog = gtk_font_dialog_new ();
-  GtkWidget *restrict font_dialog_button = gtk_font_dialog_button_new (font_dialog);
+  GtkWidget *font_dialog_button = gtk_font_dialog_button_new (font_dialog);
 
   g_assert (setting_data);
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
@@ -352,7 +352,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
   for (const GList *section_iter = section_list; section_iter; section_iter = section_iter->next) {
     const MsTweaksSection *section_data = section_iter->data;
     const GList *setting_list = ms_tweaks_parser_sort_by_weight (section_data->setting_table);
-    GtkWidget *restrict section_preference_group = adw_preferences_group_new ();
+    GtkWidget *section_preference_group = adw_preferences_group_new ();
     gboolean section_widget_is_valid = FALSE;
 
     adw_preferences_group_set_title (ADW_PREFERENCES_GROUP (section_preference_group),
@@ -360,7 +360,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
 
     for (const GList *setting_iter = setting_list; setting_iter; setting_iter = setting_iter->next) {
       MsTweaksSetting *setting_data = setting_iter->data;
-      GtkWidget *restrict widget_to_add = NULL;
+      GtkWidget *widget_to_add = NULL;
       gboolean setting_widget_is_valid = TRUE;
       MsTweaksBackend *backend_state = NULL;
       GValue *widget_value = NULL;
