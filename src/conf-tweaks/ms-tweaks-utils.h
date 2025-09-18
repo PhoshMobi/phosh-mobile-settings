@@ -15,8 +15,7 @@ const char *ms_tweaks_util_boolean_to_string (const gboolean value);
 const char *ms_tweaks_get_filename_extension (const char *filename);
 
 /* Value retrieval functions. */
-char *ms_tweaks_util_get_key_by_value_string (GHashTable           *hash_table,
-                                              const char *restrict  value_to_find);
+char *ms_tweaks_util_get_key_by_value_string (GHashTable *hash_table, const char *value_to_find);
 gboolean ms_tweaks_util_string_to_boolean (const char *string);
 
 /* Miscellaneous utilities. */
@@ -45,8 +44,8 @@ gboolean ms_tweaks_util_string_to_boolean (const char *string);
                                                      (name), \
                                                      __VA_ARGS__)
 
-void ms_tweaks_log (const char     *restrict log_domain,
-                    GLogLevelFlags           log_level,
-                    const char     *restrict name,
-                    const char     *restrict message,
+void ms_tweaks_log (const char     *log_domain,
+                    GLogLevelFlags  log_level,
+                    const char     *name,
+                    const char     *message,
                     ...) G_GNUC_PRINTF(4, 5);
