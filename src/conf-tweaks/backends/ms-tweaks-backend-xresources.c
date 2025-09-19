@@ -180,6 +180,10 @@ write_new_xresources (MsTweaksBackendXresources  *self,
                        "failed to create leading directories \"%s\": %s",
                        xresources_dir_path,
                        strerror (errno));
+    g_set_error (error,
+                 MS_TWEAKS_BACKEND_XRESOURCES_ERROR,
+                 MS_TWEAKS_BACKEND_XRESOURCES_ERROR_FAILED_TO_CREATE_PARENTS,
+                 "Failed to write new Xresources");
     return;
   }
 
@@ -193,13 +197,14 @@ write_new_xresources (MsTweaksBackendXresources  *self,
 
 
 static void
-ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend, GValue *new_value_)
+ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
+                                        GValue *new_value_,
+                                        GError **error)
 {
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (backend);
   const char *new_value = new_value_ ? g_value_get_string (new_value_) : NULL;
   g_autofree char *xresources_path = NULL;
   g_autofree char *contents = NULL;
-  g_autoptr (GError) error = NULL;
 
   xresources_path = ms_tweaks_backend_xresources_get_xresources_path (self);
 
@@ -208,10 +213,10 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend, GValue *new_va
     return;
   }
 
-  if (g_file_get_contents (xresources_path, &contents, NULL, &error))
-    rewrite_existing_xresources (self, contents, xresources_path, new_value, &error);
+  if (g_file_get_contents (xresources_path, &contents, NULL, error))
+    rewrite_existing_xresources (self, contents, xresources_path, new_value, error);
   else
-    write_new_xresources (self, xresources_path, new_value, &error);
+    write_new_xresources (self, xresources_path, new_value, error);
 }
 
 
@@ -237,6 +242,7 @@ ms_tweaks_backend_xresources_interface_init (MsTweaksBackendInterface *iface)
 G_DEFINE_TYPE_WITH_CODE (MsTweaksBackendXresources, ms_tweaks_backend_xresources, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (MS_TYPE_TWEAKS_BACKEND,
                                                 ms_tweaks_backend_xresources_interface_init))
+G_DEFINE_QUARK (ms-tweaks-backend-xresources-error-quark, ms_tweaks_backend_xresources_error)
 
 
 static void

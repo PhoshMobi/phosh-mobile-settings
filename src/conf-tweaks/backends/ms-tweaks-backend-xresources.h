@@ -13,10 +13,17 @@
 
 #include <gtk/gtk.h>
 
+enum {
+  MS_TWEAKS_BACKEND_XRESOURCES_ERROR_FAILED_TO_CREATE_PARENTS,
+};
+
 G_BEGIN_DECLS
 
 #define MS_TYPE_TWEAKS_BACKEND_XRESOURCES ms_tweaks_backend_xresources_get_type ()
 G_DECLARE_FINAL_TYPE (MsTweaksBackendXresources, ms_tweaks_backend_xresources, MS, TWEAKS_BACKEND_XRESOURCES, GObject)
+
+GQuark ms_tweaks_backend_xresources_error_quark (void);
+#define MS_TWEAKS_BACKEND_XRESOURCES_ERROR ms_tweaks_backend_xresources_error_quark ()
 
 MsTweaksBackend *ms_tweaks_backend_xresources_new (const MsTweaksSetting *setting_data);
 

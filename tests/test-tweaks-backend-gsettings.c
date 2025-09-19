@@ -47,12 +47,16 @@ static void
 test_set_alternative (BackendTestFixture *fixture, gconstpointer unused)
 {
   g_autofree GValue *value = g_new0 (GValue, 1);
+  g_autoptr (GError) error = NULL;
+
   g_value_init (value, G_TYPE_FLAGS);
   g_value_set_flags (value, 0);
 
   g_assert_true (fixture->backend);
 
-  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, value);
+  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, value, &error);
+
+  g_assert_false (error);
 
   g_value_unset (value);
 }

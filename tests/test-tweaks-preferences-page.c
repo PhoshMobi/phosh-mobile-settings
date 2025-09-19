@@ -12,9 +12,9 @@
 
 
 typedef struct {
-  MsTweaksSetting *setting;
-  MsTweaksBackend *backend;
-  GValue *         value;
+  MsTweaksSetting      *setting;
+  GValue *              value;
+  MsTweaksCallbackMeta *callback_meta;
 } PreferencesPageTestFixture;
 
 
@@ -25,8 +25,10 @@ static void
 test_preferences_page_fixture_setup (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   fixture->setting = g_new0 (MsTweaksSetting, 1);
-  fixture->backend = ms_tweaks_backend_dummy_new (fixture->setting);
   fixture->value = g_new0 (GValue, 1);
+  fixture->callback_meta = g_new (MsTweaksCallbackMeta, 1);
+  fixture->callback_meta->backend_state = ms_tweaks_backend_dummy_new (fixture->setting);
+  fixture->callback_meta->toast_overlay = ADW_TOAST_OVERLAY (adw_toast_overlay_new ());
 
   fixture->setting->name = DEBUG_SETTING_NAME;
 
@@ -36,6 +38,8 @@ test_preferences_page_fixture_setup (PreferencesPageTestFixture *fixture, gconst
 
   g_value_init (fixture->value, G_TYPE_STRING);
   g_value_set_string (fixture->value, "Put Your Money On Me");
+
+  g_object_ref_sink (fixture->callback_meta->toast_overlay);
 }
 
 
@@ -58,7 +62,9 @@ test_preferences_page_fixture_teardown (PreferencesPageTestFixture *fixture, gco
   if (fixture->setting->map)
     g_hash_table_destroy (fixture->setting->map);
   g_free (fixture->setting);
-  g_clear_object (&fixture->backend);
+  g_clear_object (&fixture->callback_meta->toast_overlay);
+  g_clear_object (&fixture->callback_meta->backend_state);
+  g_free (fixture->callback_meta);
   g_value_unset (fixture->value);
   g_free (fixture->value);
 }
@@ -104,7 +110,9 @@ test_get_keys_from_hash_table (void)
 static void
 test_setting_data_to_boolean_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  GtkWidget *widget = setting_data_to_boolean_widget (fixture->setting, fixture->backend, NULL);
+  GtkWidget *widget = setting_data_to_boolean_widget (fixture->setting,
+                                                      NULL,
+                                                      fixture->callback_meta);
 
   g_assert_true (ADW_IS_SWITCH_ROW (widget));
   g_assert_false (adw_switch_row_get_active (ADW_SWITCH_ROW (widget)));
@@ -124,10 +132,10 @@ test_setting_data_to_boolean_widget_with_value (PreferencesPageTestFixture *fixt
   g_value_init (value, G_TYPE_BOOLEAN);
 
   g_value_set_boolean (value, TRUE);
-  widget_1 = setting_data_to_boolean_widget (fixture->setting, fixture->backend, value);
+  widget_1 = setting_data_to_boolean_widget (fixture->setting, value, fixture->callback_meta);
 
   g_value_set_boolean (value, FALSE);
-  widget_2 = setting_data_to_boolean_widget (fixture->setting, fixture->backend, value);
+  widget_2 = setting_data_to_boolean_widget (fixture->setting, value, fixture->callback_meta);
 
   g_assert_true (ADW_IS_SWITCH_ROW (widget_1));
   g_assert_true (ADW_IS_SWITCH_ROW (widget_2));
@@ -149,7 +157,8 @@ test_setting_data_to_choice_widget (PreferencesPageTestFixture *fixture, gconstp
                          G_LOG_LEVEL_WARNING,
                          "[Setting '" DEBUG_SETTING_NAME "'] Choice widget with NULL map — either the datasource failed or the markup is wrong");
 
-  g_assert_false (setting_data_to_choice_widget (fixture->setting, fixture->backend, NULL));
+
+  g_assert_false (setting_data_to_choice_widget (fixture->setting, NULL, fixture->callback_meta));
 
   g_test_assert_expected_messages ();
 }
@@ -160,7 +169,7 @@ test_setting_data_to_choice_widget_with_map (PreferencesPageTestFixture *fixture
 {
   GtkWidget *widget = NULL;
 
-  widget = setting_data_to_choice_widget (fixture->setting, fixture->backend, NULL);
+  widget = setting_data_to_choice_widget (fixture->setting, NULL, fixture->callback_meta);
 
   g_assert_true (ADW_IS_COMBO_ROW (widget));
 
@@ -176,10 +185,14 @@ test_setting_data_to_choice_widget_with_map_and_value (PreferencesPageTestFixtur
   GtkWidget *widget_1 = NULL;
   GtkWidget *widget_2 = NULL;
 
-  widget_1 = setting_data_to_choice_widget (fixture->setting, fixture->backend, fixture->value);
+  widget_1 = setting_data_to_choice_widget (fixture->setting,
+                                            fixture->value,
+                                            fixture->callback_meta);
 
   g_value_set_string (fixture->value, "Value 2");
-  widget_2 = setting_data_to_choice_widget (fixture->setting, fixture->backend, fixture->value);
+  widget_2 = setting_data_to_choice_widget (fixture->setting,
+                                            fixture->value,
+                                            fixture->callback_meta);
 
   g_assert_true (ADW_IS_COMBO_ROW (widget_1));
   g_assert_true (ADW_IS_COMBO_ROW (widget_2));
@@ -202,8 +215,9 @@ test_setting_data_to_file_widget (PreferencesPageTestFixture *fixture, gconstpoi
 {
   MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
   GtkWidget *widget = setting_data_to_file_widget (fixture->setting,
-                                                   fixture->backend,
+                                                   fixture->callback_meta->backend_state,
                                                    NULL,
+                                                   ADW_TOAST_OVERLAY (fixture->callback_meta->toast_overlay),
                                                    metadata);
 
   g_assert_true (widget);
@@ -221,8 +235,9 @@ test_setting_data_to_file_widget_with_value (PreferencesPageTestFixture *fixture
 {
   MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
   GtkWidget *widget = setting_data_to_file_widget (fixture->setting,
-                                                   fixture->backend,
+                                                   fixture->callback_meta->backend_state,
                                                    fixture->value,
+                                                   ADW_TOAST_OVERLAY (fixture->callback_meta->toast_overlay),
                                                    metadata);
 
   g_assert_true (widget);
@@ -238,7 +253,7 @@ test_setting_data_to_file_widget_with_value (PreferencesPageTestFixture *fixture
 static void
 test_setting_data_to_font_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  GtkWidget *widget = setting_data_to_font_widget (fixture->setting, fixture->backend, NULL);
+  GtkWidget *widget = setting_data_to_font_widget (fixture->setting, NULL, fixture->callback_meta);
 
   g_assert_true (widget);
 
@@ -251,8 +266,8 @@ static void
 test_setting_data_to_font_widget_with_value (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_font_widget (fixture->setting,
-                                                   fixture->backend,
-                                                   fixture->value);
+                                                   fixture->value,
+                                                   fixture->callback_meta);
 
   g_assert_true (widget);
 
@@ -287,7 +302,9 @@ test_setting_data_to_info_widget_with_value (PreferencesPageTestFixture *fixture
 static void
 test_setting_data_to_number_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
-  GtkWidget *widget = setting_data_to_number_widget (fixture->setting, fixture->backend, NULL);
+  GtkWidget *widget = setting_data_to_number_widget (fixture->setting,
+                                                     NULL,
+                                                     fixture->callback_meta);
 
   g_assert_true (widget);
 
@@ -304,7 +321,7 @@ test_setting_data_to_number_widget_with_value (PreferencesPageTestFixture *fixtu
 
   g_value_init (&value, G_TYPE_DOUBLE);
   g_value_set_double (&value, 5);
-  widget = setting_data_to_number_widget (fixture->setting, fixture->backend, &value);
+  widget = setting_data_to_number_widget (fixture->setting, &value, fixture->callback_meta);
 
   g_assert_true (widget);
 
