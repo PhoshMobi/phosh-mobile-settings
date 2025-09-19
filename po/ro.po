@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-07-26 14:21+0000\n"
-"PO-Revision-Date: 2025-07-26 17:19+0200\n"
+"POT-Creation-Date: 2025-09-18 19:40+0000\n"
+"PO-Revision-Date: 2025-09-19 11:29+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -137,7 +137,7 @@ msgstr "- Gestionează reglările pentru mobil"
 msgid "translator-credits"
 msgstr "libre (Antonio Marin)"
 
-#: src/mobile-settings-window.c:135
+#: src/mobile-settings-window.c:150
 msgid "Device"
 msgstr "Aparat"
 
@@ -169,7 +169,7 @@ msgstr "Volum sonerie ceas"
 msgid "Emergency Alerts Volume"
 msgstr "Volum alerte de urgență"
 
-#: src/ms-cb-message-row.c:98
+#: src/ms-cb-message-row.c:114
 msgid "Message of unknown severity"
 msgstr "Mesaj cu nivel de urgență necunoscut"
 
@@ -491,13 +491,17 @@ msgstr "Suspendă"
 
 #: src/ui/mobile-settings-window.ui:309
 msgid "Experimental"
-msgstr "Experimentale"
+msgstr "Experimental"
 
 #: src/ui/mobile-settings-window.ui:333
+msgid "_Show Configurable Tweaks"
+msgstr "_Arată reglări personalizabile"
+
+#: src/ui/mobile-settings-window.ui:339
 msgid "_Keyboard Shortcuts"
 msgstr "Scur_tături"
 
-#: src/ui/mobile-settings-window.ui:337
+#: src/ui/mobile-settings-window.ui:343
 msgid "_About Mobile Settings"
 msgstr "_Despre Reglări Mobil"
 
@@ -563,7 +567,7 @@ msgstr "Arată mesaje despre urgențele legate de răpirea copiilor"
 msgid "History of Emergency and Governmental Alerts"
 msgstr "Cronologia alertelor de urgență și guvernamentale"
 
-#: src/ui/ms-alerts-panel.ui:81
+#: src/ui/ms-alerts-panel.ui:82
 msgid "No emergency alerts yet"
 msgstr "Nicio alertă de urgență"
 
@@ -851,12 +855,12 @@ msgid "Add Layout"
 msgstr "Adaugă un aranjament"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:16
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
 msgid "Cancel"
 msgstr "Anulează"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:22
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
 msgid "Add"
 msgstr "Adaugă"
 
@@ -870,27 +874,27 @@ msgstr "Limba"
 msgid "Add Shortcut"
 msgstr "Adaugă scurtătura"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:43
+#: src/ui/ms-osk-add-shortcut-dialog.ui:44
 msgid "Choose Shortcut Modifiers"
 msgstr "Alege modificatorii scurtăturii"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:128
+#: src/ui/ms-osk-add-shortcut-dialog.ui:129
 msgid "Choose Shortcut Key"
 msgstr "Alege tasta scurtăturii"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:139
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
 msgid "Enter Shortcut Key"
 msgstr "Introdu tasta scurtăturii"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+#: src/ui/ms-osk-add-shortcut-dialog.ui:141
 msgid "Type a key such as letters (like C or V), etc."
 msgstr "Apasă o tastă, de exemplu o literă, etc."
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:143
+#: src/ui/ms-osk-add-shortcut-dialog.ui:144
 msgid "_Shortcut Key"
 msgstr "Tasta _scurtăturii"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:153
+#: src/ui/ms-osk-add-shortcut-dialog.ui:154
 msgid "Shortcut Preview"
 msgstr "Arată scurtătura"
 
