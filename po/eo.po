@@ -1,0 +1,1152 @@
+# Esperanto translation for phosh-mobile-settings.
+# Copyright (C) 2025 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2025-09-20 16:52+0000\n"
+"PO-Revision-Date: 2025-09-21 11:28+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:2
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Poŝtelefonaj agordoj"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Poŝtelefono;Preferoj;PoŝajAgordoj;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Poŝtelefonaj agordoj por Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Ĉi tiu aplikaĵo permesas al vi agordi kelkajn aspektojn de Phosh, kiuj alie "
+"postulus uzon de komandlinio."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Altnivelaj agordoj por poŝaj aparatoj, kiuj uzas Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Disponeblaj paneloj"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "Panelo de kunmetilo"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "Panelo de reagoj"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "Kritika temperaturo estas %.2f°C"
+
+#. Translators "Librem 5" is a smartphone model, usually no need to translate it
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+msgid "Librem 5"
+msgstr "Librem 5"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend device"
+msgstr "Suspendi aparaton"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+msgid "Suspend is experimental"
+msgstr "Suspendo estas eksperimenta"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+msgid "suspend now"
+msgstr "suspendi nun"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+msgid "Temperatures"
+msgstr "Temperaturoj"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+msgid "CPU"
+msgstr "CPU"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+msgid "Fuel Gauge"
+msgstr "Ŝargnivela mezurilo"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+msgid "Battery"
+msgstr "Baterio"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Ĝenerala"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Montri fulmoklavojn"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Eliri"
+
+#: src/mobile-settings-application.c:36
+msgid "- Manage your mobile settings"
+msgstr "- Administri viajn poŝajn agordojn"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:447
+msgid "translator-credits"
+msgstr "Kristjan SCHMIDT"
+
+#: src/mobile-settings-window.c:150
+msgid "Device"
+msgstr "Aparato"
+
+#: src/ms-alerts-panel.c:242
+msgid "Could not get list of cell broadcast messages"
+msgstr "Ne eblis akiri liston de ĉel-elsendaj mesaĝoj"
+
+#: src/ms-audio-devices.c:178
+msgid "Media Volume"
+msgstr "Plurmedia laŭteco"
+
+#: src/ms-audio-devices.c:180
+msgid "Notification Volume"
+msgstr "Laŭteco de sciigoj"
+
+#: src/ms-audio-devices.c:182
+msgid "Ring Tone Volume"
+msgstr "Laŭteco de sonorilo"
+
+#: src/ms-audio-devices.c:184
+msgid "Call volume"
+msgstr "Laŭteco de voko"
+
+#: src/ms-audio-devices.c:186
+msgid "Alarm Volume"
+msgstr "Laŭteco de alarmo"
+
+#: src/ms-audio-devices.c:188
+msgid "Emergency Alerts Volume"
+msgstr "Laŭteco de kriz-avertoj"
+
+#: src/ms-cb-message-row.c:114
+msgid "Message of unknown severity"
+msgstr "Mesaĝo kun nekonata graveco"
+
+#: src/ms-feedback-panel.c:212
+msgid "Sound file does not exist"
+msgstr "Sondosiero ne ekzistas"
+
+#: src/ms-feedback-panel.c:214
+msgid "Sound file is corrupt"
+msgstr "Sondosiero estas difektita"
+
+#: src/ms-feedback-panel.c:216
+msgid "Failed to play sound"
+msgstr "Malsukcesis ludi sonon"
+
+#: src/ms-feedback-panel.c:255
+#, c-format
+msgid "Playing %s"
+msgstr "Ludante %s"
+
+#. Translators: "low" categorizes notifications with minor importance
+#: src/ms-feedback-panel.c:416
+msgid "low"
+msgstr "malalta"
+
+#. Translators: "normal" categorizes notifications with standard importance
+#: src/ms-feedback-panel.c:419
+msgid "normal"
+msgstr "normala"
+
+#. Translators: "critical" categorizes notifications with urgent importance
+#: src/ms-feedback-panel.c:422
+msgid "critical"
+msgstr "kritika"
+
+#. Translators: "none" is the default for notifications with no specified importance
+#: src/ms-feedback-panel.c:426
+msgid "none"
+msgstr "neniu"
+
+#: src/ms-feedback-panel.c:806
+msgid "Mobile Settings Volume Control"
+msgstr "Laŭtec-kontrolo de Poŝaj Agordoj"
+
+#: src/ms-lockscreen-panel.c:62
+msgid "Failed to set lockscreen wallpaper"
+msgstr "Malsukcesis agordi fonbildon de ŝlosekrano"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:746
+msgid "Default"
+msgstr "Defaŭlta"
+
+#: src/ms-osk-panel.c:747
+msgid "The default completer selected by the OSK"
+msgstr "La defaŭlta kompletigilo elektita de la OSK"
+
+#: src/ms-osk-panel.c:750
+msgid "No information available for this completer"
+msgstr "Neniu informo disponebla por ĉi tiu kompletigilo"
+
+#: src/ms-overview-panel.c:69
+msgid "Reset favorites?"
+msgstr "Ĉu restarigi preferatojn?"
+
+#: src/ms-overview-panel.c:72
+msgid "Reset list of favorite applications to the default?"
+msgstr "Ĉu restarigi la liston de preferataj aplikaĵoj al la defaŭlta?"
+
+#: src/ms-overview-panel.c:75
+msgid "_Cancel"
+msgstr "_Nuligi"
+
+#: src/ms-overview-panel.c:76
+msgid "_Reset"
+msgstr "_Restarigi"
+
+#: src/ms-overview-panel.c:331
+msgid "Failed to set wallpaper for overview"
+msgstr "Malsukcesis agordi fonbildon por superrigardo"
+
+#. Translators: "Normal" represents the standard or default orientation
+#: src/ms-sensor-panel.c:93
+msgid "Normal"
+msgstr "Normala"
+
+#. Translators: "Bottom up" indicates the orientation is flipped vertically
+#: src/ms-sensor-panel.c:96
+msgid "Bottom up"
+msgstr "Malsupro supren"
+
+#. Translators: "Left up" indicates the orientation of a device with left side up
+#: src/ms-sensor-panel.c:99
+msgid "Left up"
+msgstr "Maldekstro supren"
+
+#. Translators: "Right up" indicates the orientation of a device with right side up
+#: src/ms-sensor-panel.c:102
+msgid "Right up"
+msgstr "Dekstro supren"
+
+#. Translators: "Undefined" is shown when the orientation of the device is not recognized
+#: src/ms-sensor-panel.c:105
+msgid "Undefined"
+msgstr "Nedifinita"
+
+#. Translators: "Near" indicates proximity close to the sensor
+#. * "Far" indicates some distance from the sensor
+#: src/ms-sensor-panel.c:142
+msgid "Near"
+msgstr "Proksime"
+
+#: src/ms-sensor-panel.c:142
+msgid "Far"
+msgstr "Fore"
+
+#: src/ms-sensor-panel.c:260
+msgid "Updating…"
+msgstr "Ĝisdatigado…"
+
+#. Translators: "Not available" indicates that the proximity sensor data is unavailable
+#: src/ms-sensor-panel.c:277
+msgctxt "proximity sensor data"
+msgid "Not available"
+msgstr "Nedisponebla"
+
+#. Translators: "Not available" indicates that the light sensor data is unavailable
+#: src/ms-sensor-panel.c:279
+msgctxt "light sensor data"
+msgid "Not available"
+msgstr "Nedisponebla"
+
+#. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
+#: src/ms-sensor-panel.c:281
+msgctxt "accelerometer sensor data"
+msgid "Not available"
+msgstr "Nedisponebla"
+
+#. Translators: "Custom" is the name of a user-defined sound theme
+#: src/ms-sound-row.c:128
+msgid "Custom"
+msgstr "Propra"
+
+#: src/ms-sound-row.c:309
+msgid "Choose sound file"
+msgstr "Elekti sondosieron"
+
+#. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
+#: src/ms-util.c:170
+msgid "Full"
+msgstr "Plena"
+
+#. Translators: "Quiet" represents a feedback profile with haptic and LED
+#: src/ms-util.c:173
+msgid "Quiet"
+msgstr "Kvieta"
+
+#. Translators: "Silent" represents a feedback profile with LED only
+#: src/ms-util.c:176
+msgid "Silent"
+msgstr "Silenta"
+
+#: src/ms-util.c:292
+msgid "Choose Wallpaper"
+msgstr "Elekti fonbildon"
+
+#. Translators: this is a verb.
+#: src/ui/mobile-settings-window.ui:31
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/ui/mobile-settings-window.ui:48
+msgid "Search settings"
+msgstr "Serĉi agordojn"
+
+#: src/ui/mobile-settings-window.ui:98
+msgid "Welcome"
+msgstr "Bonvenon"
+
+#: src/ui/mobile-settings-window.ui:104
+msgid "Welcome to Mobile Settings"
+msgstr "Bonvenon al Poŝaj Agordoj"
+
+#: src/ui/mobile-settings-window.ui:105
+msgid "Tweak advanced mobile settings"
+msgstr "Alĝustigu altnivelajn poŝajn agordojn"
+
+#: src/ui/mobile-settings-window.ui:113
+msgid "Top Bar"
+msgstr "Supra breto"
+
+#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Rapidaj agordoj"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Notches"
+msgstr "Noĉoj"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Overview"
+msgstr "Superrigardo"
+
+#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
+msgid "Favorites"
+msgstr "Preferatoj"
+
+#: src/ui/mobile-settings-window.ui:142
+msgid "Filter"
+msgstr "Filtrilo"
+
+#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
+msgid "Wallpaper"
+msgstr "Fonbildo"
+
+#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
+msgid "Feedback"
+msgstr "Reagoj"
+
+#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
+msgid "Sounds"
+msgstr "Sonoj"
+
+#: src/ui/mobile-settings-window.ui:164
+msgid "Wakeup"
+msgstr "Vekigo"
+
+#: src/ui/mobile-settings-window.ui:165
+msgid "Vibra"
+msgstr "Vibrado"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Haptic"
+msgstr "Hapta"
+
+#: src/ui/mobile-settings-window.ui:167
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/mobile-settings-window.ui:178
+msgid "Compositor"
+msgstr "Kunmetilo"
+
+#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
+msgid "Scaling"
+msgstr "Skalado"
+
+#: src/ui/mobile-settings-window.ui:197
+msgid "Lockscreen"
+msgstr "Ŝlosekrano"
+
+#: src/ui/mobile-settings-window.ui:206
+msgid "Shuffle"
+msgstr "Miksi"
+
+#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
+msgid "Widgets"
+msgstr "Fenestraĵoj"
+
+#: src/ui/mobile-settings-window.ui:208
+msgid "Password"
+msgstr "Pasvorto"
+
+#: src/ui/mobile-settings-window.ui:219
+msgid "Convergence"
+msgstr "Konverĝo"
+
+#: src/ui/mobile-settings-window.ui:237
+msgid "On Screen Keyboard"
+msgstr "Ekrana klavaro"
+
+#: src/ui/mobile-settings-window.ui:245
+msgid "Keyboard"
+msgstr "Klavaro"
+
+#: src/ui/mobile-settings-window.ui:246
+msgid "Unfold"
+msgstr "Malvolvi"
+
+#: src/ui/mobile-settings-window.ui:247
+msgid "OSK"
+msgstr "OSK"
+
+#: src/ui/mobile-settings-window.ui:248
+msgid "Word Completion"
+msgstr "Vorta kompletigo"
+
+#: src/ui/mobile-settings-window.ui:259
+msgid "Emergency Alerts"
+msgstr "Kriz-avertoj"
+
+#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
+msgid "Emergency"
+msgstr "Krizo"
+
+#: src/ui/mobile-settings-window.ui:268
+msgid "Cell Broadcast"
+msgstr "Ĉel-elsendo"
+
+#: src/ui/mobile-settings-window.ui:269
+msgid "Danger"
+msgstr "Danĝero"
+
+#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Sensiloj"
+
+#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Alta kontrasto"
+
+#: src/ui/mobile-settings-window.ui:299
+msgid "Experimental features"
+msgstr "Eksperimentaj funkcioj"
+
+#: src/ui/mobile-settings-window.ui:308
+msgid "Suspend"
+msgstr "Suspendo"
+
+#: src/ui/mobile-settings-window.ui:309
+msgid "Experimental"
+msgstr "Eksperimenta"
+
+#: src/ui/mobile-settings-window.ui:333
+msgid "_Show Configurable Tweaks"
+msgstr "_Montri agordeblajn ĝustigojn"
+
+#: src/ui/mobile-settings-window.ui:339
+msgid "_Keyboard Shortcuts"
+msgstr "_Fulmoklavoj"
+
+#: src/ui/mobile-settings-window.ui:343
+msgid "_About Mobile Settings"
+msgstr "_Pri Poŝaj Agordoj"
+
+#: src/ui/ms-alerts-panel.ui:17
+msgid "Unable To Receive Alerts"
+msgstr "Ne eblas ricevi avertojn"
+
+#: src/ui/ms-alerts-panel.ui:18
+msgid ""
+"Cannot receive Emergency Alerts on this device as no usable cellular modem "
+"is detected."
+msgstr ""
+"Ne eblas ricevi kriz-avertojn en ĉi tiu aparato, ĉar neniu uzebla "
+"poŝtelefona modemo estas trovita."
+
+#: src/ui/ms-alerts-panel.ui:30
+msgid "Emergency and Governmental Alerts"
+msgstr "Krizaj kaj registaraj avertoj"
+
+#: src/ui/ms-alerts-panel.ui:33
+msgid "Extreme Threat Alerts"
+msgstr "Ekstremaj minac-avertoj"
+
+#: src/ui/ms-alerts-panel.ui:35
+msgid "Display alerts for extreme threats to life and safety"
+msgstr "Montri avertojn pri ekstremaj minacoj al vivo kaj sekureco"
+
+#: src/ui/ms-alerts-panel.ui:41
+msgid "Severe Threat Alerts"
+msgstr "Severaj minac-avertoj"
+
+#: src/ui/ms-alerts-panel.ui:43
+msgid "Display alerts for severe threats to life and safety"
+msgstr "Montri avertojn pri severaj minacoj al vivo kaj sekureco"
+
+#: src/ui/ms-alerts-panel.ui:49
+msgid "Public Safety Alerts"
+msgstr "Publik-sekurecaj avertoj"
+
+#: src/ui/ms-alerts-panel.ui:51
+msgid "Show recommended actions to take in situations with a risk to safety"
+msgstr "Montri rekomenditajn agojn en situacioj kun risko por sekureco"
+
+#: src/ui/ms-alerts-panel.ui:57
+msgid "Test alerts"
+msgstr "Testaj avertoj"
+
+#: src/ui/ms-alerts-panel.ui:59
+msgid "Show periodic messages to test the alert system"
+msgstr "Montri periodajn mesaĝojn por testi la avert-sistemon"
+
+#: src/ui/ms-alerts-panel.ui:65
+msgid "Amber alerts"
+msgstr "AMBER-avertoj"
+
+#: src/ui/ms-alerts-panel.ui:67
+msgid "Show messages about child abduction emergencies"
+msgstr "Montri mesaĝojn pri infanforportaj krizoj"
+
+#: src/ui/ms-alerts-panel.ui:76
+msgid "History of Emergency and Governmental Alerts"
+msgstr "Historio de krizaj kaj registaraj avertoj"
+
+#: src/ui/ms-alerts-panel.ui:82
+msgid "No emergency alerts yet"
+msgstr "Ankoraŭ neniuj kriz-avertoj"
+
+#: src/ui/ms-audio-device-row.ui:32
+msgid "Volume"
+msgstr "Laŭteco"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "Malskalado de ruliĝantaj aplikaĵoj"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "Ebligu ĉi tion nur por misaj aplikaĵoj, kiuj ne taŭgas al la ekrano"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "Malskaligi ĉiujn aplikaĵojn"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr "Devige malskaligi ĉiujn aplikaĵojn. Uzu tion nur kiel lastan rimedon."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "Malskaligi ĉiujn aplikaĵojn"
+
+#. Translators: setting to scale down all applications
+#. Translators: setting to scale down a single application
+#: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
+msgctxt "scale to fit setting"
+msgid "Enabled"
+msgstr "Ebligita"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "Neniu konata dokstacio trovita"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "Mapi enkonstruitan tuŝekranon"
+
+#. Translators: setting to map built-in touch screen
+#: src/ui/ms-convergence-panel.ui:36
+msgctxt "touch setting"
+msgid "Enabled"
+msgstr "Ebligita"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Eksperimentaj funkcioj"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "Funkcioj ankoraŭ ne konsiderataj plene stabilaj"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Kriz-vokoj"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Ebligi kriz-vokojn. Bonvolu ebligi ĉi tion nur se vi povas sekure certigi, "
+"ke ĝi funkcias kun via provizanto."
+
+#. Translators: setting to enable emergency calls
+#: src/ui/ms-features-panel.ui:24
+msgctxt "emergency calls setting"
+msgid "Enabled"
+msgstr "Ebligita"
+
+#: src/ui/ms-features-panel.ui:32
+msgid "Enable suspend via the system menu"
+msgstr "Ebligi suspendon per la sistemmenuo"
+
+#: src/ui/ms-features-panel.ui:34
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Bonvolu ebligi ĉi tion nur se vi konscias pri la limigoj kiel datum-konekta "
+"perdo aŭ maltrafitaj alarmoj"
+
+#. Translators: setting to enable suspend via the system menu
+#: src/ui/ms-features-panel.ui:40
+msgctxt "suspend setting"
+msgid "Enabled"
+msgstr "Ebligita"
+
+#: src/ui/ms-feedback-panel.ui:13
+msgid "Sound Settings"
+msgstr "Sonagordoj"
+
+#: src/ui/ms-feedback-panel.ui:27
+msgid "Feedback Settings"
+msgstr "Agordoj de reagoj"
+
+#: src/ui/ms-feedback-panel.ui:30
+msgid "Feedback profile"
+msgstr "Profilo de reagoj"
+
+#: src/ui/ms-feedback-panel.ui:31
+msgid "The global maximum feedback profile"
+msgstr "La tutmonda maksimuma profilo de reagoj"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Prefer flash"
+msgstr "Preferi fulmilon"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "Prefer camera flash over status LED when available"
+msgstr "Preferi fulmilon de fotilo anstataŭ stato-LED kiam disponeble"
+
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:53
+msgid "Silence on Vol-"
+msgstr "Silenti ĉe Vol-"
+
+#: src/ui/ms-feedback-panel.ui:54
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Kiam ŝlosite, enŝalti silentan reĝimon je premo de Vol- dum envenantaj vokoj"
+
+#. Translators: Strength of the haptic motor
+#: src/ui/ms-feedback-panel.ui:60
+msgid "Haptic strength"
+msgstr "Forto de haptiko"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "Maximum haptic feedback strength percentage"
+msgstr "Maksimuma procento de haptika reagforto"
+
+#: src/ui/ms-feedback-panel.ui:80
+msgid "Per Application settings"
+msgstr "Agordoj laŭ aplikaĵo"
+
+#: src/ui/ms-feedback-panel.ui:94
+msgid "The sound to use for certain events"
+msgstr "La sono uzenda por certaj eventoj"
+
+#: src/ui/ms-feedback-panel.ui:102
+msgid "Phone Calls"
+msgstr "Telefonaj vokoj"
+
+#: src/ui/ms-feedback-panel.ui:108
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:114
+msgid "Instant messages"
+msgstr "Tujmesaĝoj"
+
+#: src/ui/ms-feedback-panel.ui:125
+msgid "Screen Wakeup"
+msgstr "Vekiĝo de ekrano"
+
+#: src/ui/ms-feedback-panel.ui:128
+msgid "Notification urgency that lights up the screen"
+msgstr "Urĝeco de sciigo, kiu ŝaltas la ekranon"
+
+#: src/ui/ms-feedback-panel.ui:146
+msgid ""
+"Notification categories that wake up the screen independent from their "
+"urgency"
+msgstr "Kategorioj de sciigoj, kiuj vekas la ekranon sendepende de ilia urĝeco"
+
+#: src/ui/ms-feedback-panel.ui:149
+msgid "Calls"
+msgstr "Vokoj"
+
+#: src/ui/ms-feedback-panel.ui:150
+msgid "A generic audio or video call notification"
+msgstr "Ĝenerala sciigo pri sona aŭ videovoko"
+
+#: src/ui/ms-feedback-panel.ui:156
+msgid "Device events"
+msgstr "Aparataj eventoj"
+
+#: src/ui/ms-feedback-panel.ui:157
+msgid "A generic device-related notification"
+msgstr "Ĝenerala sciigo rilata al aparato"
+
+#: src/ui/ms-feedback-panel.ui:163
+msgid "Emails"
+msgstr "Retpoŝtoj"
+
+#: src/ui/ms-feedback-panel.ui:164
+msgid "A generic e-mail-related notification"
+msgstr "Ĝenerala sciigo rilata al retpoŝto"
+
+#: src/ui/ms-feedback-panel.ui:170
+msgid "Instant Messages"
+msgstr "Tujmesaĝoj"
+
+#: src/ui/ms-feedback-panel.ui:171
+msgid "A generic instant message-related notification"
+msgstr "Ĝenerala sciigo rilata al tujmesaĝoj"
+
+#: src/ui/ms-feedback-panel.ui:177
+msgid "Network events"
+msgstr "Retaj eventoj"
+
+#: src/ui/ms-feedback-panel.ui:178
+msgid "A generic network notification"
+msgstr "Ĝenerala ret-sciigo"
+
+#: src/ui/ms-feedback-panel.ui:184
+msgid "Presence changes"
+msgstr "Ŝanĝoj de ĉeesteco"
+
+#: src/ui/ms-feedback-panel.ui:185
+msgid "A generic presence change notification"
+msgstr "Ĝenerala sciigo pri ŝanĝo de ĉeesteco"
+
+#: src/ui/ms-feedback-panel.ui:191
+msgid "File transfers"
+msgstr "Dosiertransigoj"
+
+#: src/ui/ms-feedback-panel.ui:192
+msgid "A generic file transfer or download notification"
+msgstr "Ĝenerala sciigo pri dosiertransigo aŭ elŝuto"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Locking and unlocking"
+msgstr "Ŝlosado kaj malŝlosado"
+
+#: src/ui/ms-lockscreen-panel.ui:18
+msgid "Shuffle keypad"
+msgstr "Miksi ciferklavaron"
+
+#: src/ui/ms-lockscreen-panel.ui:19
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Ĉu miksi la numerojn sur la ciferklavaro"
+
+#: src/ui/ms-lockscreen-panel.ui:25
+msgid "Require authentication to unlock"
+msgstr "Postuli aŭtentikigon por malŝlosi"
+
+#: src/ui/ms-lockscreen-panel.ui:26
+msgid "Require typing PIN or password to unlock the device"
+msgstr "Postuli entajpon de PIN aŭ pasvorto por malŝlosi la aparaton"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Automatic screen lock delay"
+msgstr "Prokrasto por aŭtomata ekranŝloso"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Seconds from screen blank to screen lock"
+msgstr "Sekundoj de nigriĝo de ekrano ĝis ekranŝloso"
+
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+msgid "Background"
+msgstr "Fono"
+
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+msgid "_Select Wallpaper…"
+msgstr "_Elekti fonbildon…"
+
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+msgid "Use wallpaper"
+msgstr "Uzi fonbildon"
+
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+msgid "Whether to show a colorful wallpaper"
+msgstr "Ĉu montri buntan fonbildon"
+
+#: src/ui/ms-lockscreen-panel.ui:80
+msgid "Additional widgets for the lock screen"
+msgstr "Pliaj fenestraĵoj por la ŝlosekrano"
+
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Aldoni aranĝon"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Aldoni"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:40
+msgid "Language"
+msgstr "Lingvo"
+
+#. Translators: Title for a dialog to add a new on-screen keyboard shortcut
+#. Translators: Label for a button that allows the user to add a new keyboard shortcut
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+msgid "Add Shortcut"
+msgstr "Aldoni fulmoklavon"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:44
+msgid "Choose Shortcut Modifiers"
+msgstr "Elekti modifilojn de fulmoklavo"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:129
+msgid "Choose Shortcut Key"
+msgstr "Elekti fulmoklavan klavon"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+msgid "Enter Shortcut Key"
+msgstr "Enigi fulmoklavan klavon"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:141
+msgid "Type a key such as letters (like C or V), etc."
+msgstr "Tajpu klavon kiel literojn (ekz. C aŭ V) ktp."
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:144
+msgid "_Shortcut Key"
+msgstr "_Fulmoklava klavo"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+msgid "Shortcut Preview"
+msgstr "Antaŭrigardo de fulmoklavo"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Aranĝoj"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: src/ui/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Neniuj aranĝoj agorditaj"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Pli da opcioj…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Movi supren"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Movi malsupren"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Forigi"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Ebligi _ekranan klavaron"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Ĉu montri la ekranan klavaron kiam necese"
+
+#: src/ui/ms-osk-panel.ui:20
+msgid "Unfold long-press"
+msgstr "Malvolvo ĉe longprema gesto"
+
+#: src/ui/ms-osk-panel.ui:21
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Kiom longe premi la centron de la hejma breto por malvolvi la ekranan "
+"klavaron"
+
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
+#: src/ui/ms-osk-panel.ui:26
+msgid "short"
+msgstr "mallonga"
+
+#. Translators: abbreviation for 1 second interval of time
+#: src/ui/ms-osk-panel.ui:28
+msgctxt "press interval"
+msgid "normal"
+msgstr "normala"
+
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
+#: src/ui/ms-osk-panel.ui:30
+msgid "long"
+msgstr "longa"
+
+#: src/ui/ms-osk-panel.ui:38
+msgid "Ignore hardware keyboard"
+msgstr "Ignori aparatan klavaron"
+
+#: src/ui/ms-osk-panel.ui:39
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr "Ĉu montri la ekranan klavaron kiam fizika klavaro ĉeestas"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Key indicator popup"
+msgstr "Ŝprucfenestro de klav-indikilo"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid "Whether to show a popover indicating the currently pressed key"
+msgstr "Ĉu montri ŝprucfenestron, kiu indikas la nuntempe premitan klavon"
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Keyboard height in portrait mode"
+msgstr "Alto de klavaro en portreta reĝimo"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "When the screen is taller than wide"
+msgstr "Kiam la ekrano estas pli alta ol larĝa"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Keyboard height in landscape mode"
+msgstr "Alto de klavaro en pejzaĝa reĝimo"
+
+#: src/ui/ms-osk-panel.ui:77
+msgid "When the screen is wider than tall"
+msgstr "Kiam la ekrano estas pli larĝa ol alta"
+
+#: src/ui/ms-osk-panel.ui:104
+msgid "Keep physical size constant"
+msgstr "Teni fizikan grandecon konstanta"
+
+#: src/ui/ms-osk-panel.ui:105
+msgid "Whether to keep the OSK's size constant in portrait mode"
+msgstr "Ĉu teni la grandecon de la OSK konstanta en portreta reĝimo"
+
+#: src/ui/ms-osk-panel.ui:111
+msgid "Add empty space below keys"
+msgstr "Aldoni malplenan spacon sub klavoj"
+
+#: src/ui/ms-osk-panel.ui:112
+msgid "Whether to add an empty area below the OSK's keys to shift it upward."
+msgstr "Ĉu aldoni malplenan areon sub la klavoj de la OSK por ŝovi ĝin supren."
+
+#: src/ui/ms-osk-panel.ui:122
+msgid "Text Completion"
+msgstr "Teksta kompletigo"
+
+#: src/ui/ms-osk-panel.ui:125
+msgid "Opportunistic word completion"
+msgstr "Oportunisma vorta kompletigo"
+
+#: src/ui/ms-osk-panel.ui:126
+msgid "Enable word completion when the app indicates it is useful"
+msgstr "Ebligi vortan kompletigon kiam la aplikaĵo indikas, ke ĝi utilas"
+
+#: src/ui/ms-osk-panel.ui:133
+msgid "Toggle via OSK menu"
+msgstr "Ŝalti/malŝalti per OSK-menuo"
+
+#: src/ui/ms-osk-panel.ui:134
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+"Permesi ŝalti/malŝalti vortan kompletigon per la menu-butonon de la klavaro"
+
+#: src/ui/ms-osk-panel.ui:140
+msgid "Default Completer"
+msgstr "Defaŭlta kompletigilo"
+
+#: src/ui/ms-osk-panel.ui:141
+msgid "The default completion engine to use"
+msgstr "La defaŭlta kompletiga motoro uzenda"
+
+#: src/ui/ms-osk-panel.ui:152
+msgid "Terminal Layout"
+msgstr "Terminala aranĝo"
+
+#: src/ui/ms-osk-panel.ui:171
+msgid "Shortcuts"
+msgstr "Fulmoklavoj"
+
+#: src/ui/ms-osk-panel.ui:172
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "La fulmoklavoj disponeblaj en la fulmoklava breto"
+
+#: src/ui/ms-overview-panel.ui:22
+msgid "Organize Favorites"
+msgstr "Organizi preferatojn"
+
+#: src/ui/ms-overview-panel.ui:23
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Trenu kaj faligu la subajn aplikaĵojn por rearanĝi viajn preferatajn "
+"aplikaĵojn"
+
+#: src/ui/ms-overview-panel.ui:48
+msgid "Reset Favorites"
+msgstr "Restarigi preferatojn"
+
+#: src/ui/ms-overview-panel.ui:49
+msgid "Set list of favorite apps back to the default"
+msgstr "Remeti liston de preferataj aplikaĵoj al la defaŭlta"
+
+#: src/ui/ms-overview-panel.ui:53
+msgid "Reset"
+msgstr "Restarigi"
+
+#: src/ui/ms-overview-panel.ui:64
+msgid "Mobile App Filtering"
+msgstr "Filtrado de poŝaj aplikaĵoj"
+
+#: src/ui/ms-overview-panel.ui:67
+msgid "Set Application Filter Mode"
+msgstr "Agordi filtrreĝimon por aplikaĵoj"
+
+#: src/ui/ms-overview-panel.ui:68
+msgid "Show only mobile apps in the overview"
+msgstr "Montri nur poŝajn aplikaĵojn en la superrigardo"
+
+#: src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Aplikaĵo"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Neniuj sensiloj trovitaj"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+"Aŭ ne estas sensiloj instalitaj en via aparato aŭ ili estas malŝaltitaj per "
+"malŝalta baskulo."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Sensilaj valoroj"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Proksimeco"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Lumo"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Orientiĝo"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Aŭtomata alta kontrasto"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "Kontrolata de la ĉirkaŭluma sensilo"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "Sojlo de lumintenseco"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "Etoso ŝanĝiĝos al alta kontrasto super la sojlo"
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "Sondosieroj (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Elementoj de interfaco"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Montri baterioprocenton"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Montri ĝustan ŝargan nivelon en la supra breto"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Eviti noĉojn"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Ne loki elementojn de uzantinterfaco sub noĉojn kaj ekranajn tranĉaĵojn"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "Organizi viajn pliajn rapidajn agordojn"
