@@ -133,7 +133,6 @@ ms_settings_window_constructed (GObject *object)
   MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
   GtkWidget *device_panel;
   GAction *toggle_conf_tweaks;
-  GList *pages_sorted_by_weight = NULL;
   GHashTable *parser_page_table = NULL;
 
   G_OBJECT_CLASS (mobile_settings_window_parent_class)->constructed (object);
@@ -154,13 +153,16 @@ ms_settings_window_constructed (GObject *object)
 
   ms_tweaks_parser_parse_definition_files (self->ms_tweaks_parser, TWEAKS_DATA_DIR);
   parser_page_table = ms_tweaks_parser_get_page_table (self->ms_tweaks_parser);
-  pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
 
-  g_list_foreach (pages_sorted_by_weight, add_ms_tweaks_page, self);
+  if (g_hash_table_size (parser_page_table) != 0) {
+    GList *pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
 
-  toggle_conf_tweaks = g_settings_create_action (self->settings, "enable-conf-tweaks");
-  g_signal_connect (self->settings, "changed::enable-conf-tweaks", G_CALLBACK (do_toggle_conf_tweaks), self);
-  g_action_map_add_action (G_ACTION_MAP (app), G_ACTION (toggle_conf_tweaks));
+    g_list_foreach (pages_sorted_by_weight, add_ms_tweaks_page, self);
+
+    toggle_conf_tweaks = g_settings_create_action (self->settings, "enable-conf-tweaks");
+    g_signal_connect (self->settings, "changed::enable-conf-tweaks", G_CALLBACK (do_toggle_conf_tweaks), self);
+    g_action_map_add_action (G_ACTION_MAP (app), G_ACTION (toggle_conf_tweaks));
+  }
 }
 
 
