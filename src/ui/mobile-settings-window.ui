@@ -332,6 +332,7 @@
       <item>
         <attribute name="label" translatable="yes">_Show Configurable Tweaks</attribute>
         <attribute name="action">app.enable-conf-tweaks</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
       </item>
     </section>
     <section>
