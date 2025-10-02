@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-09-18 15:15+0000\n"
-"PO-Revision-Date: 2025-09-18 21:38+0200\n"
+"POT-Creation-Date: 2025-10-02 14:53+0000\n"
+"PO-Revision-Date: 2025-10-02 21:52+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -112,6 +112,11 @@ msgstr "Palivoměr"
 msgid "Battery"
 msgstr "Baterie"
 
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:36
+#, c-format
+msgid "Something went wrong: %s"
+msgstr "Něco neproběhlo správně: %s"
+
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -136,7 +141,7 @@ msgstr "- Spravujte svá mobilní nastavení"
 msgid "translator-credits"
 msgstr "Daniel Rusek <mail@asciiwolf.com>"
 
-#: src/mobile-settings-window.c:150
+#: src/mobile-settings-window.c:148
 msgid "Device"
 msgstr "Zařízení"
 
@@ -496,11 +501,11 @@ msgstr "Experimentální"
 msgid "_Show Configurable Tweaks"
 msgstr "Zobrazit na_stavitelná vyladění"
 
-#: src/ui/mobile-settings-window.ui:339
+#: src/ui/mobile-settings-window.ui:340
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: src/ui/mobile-settings-window.ui:343
+#: src/ui/mobile-settings-window.ui:344
 msgid "_About Mobile Settings"
 msgstr "O _aplikaci Mobilní nastavení"
 
