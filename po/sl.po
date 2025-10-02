@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-09-18 15:15+0000\n"
-"PO-Revision-Date: 2025-09-18 21:36+0200\n"
+"POT-Creation-Date: 2025-10-02 19:54+0000\n"
+"PO-Revision-Date: 2025-10-02 23:20+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -114,6 +114,11 @@ msgstr "Merilnik goriva"
 msgid "Battery"
 msgstr "Baterija"
 
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:36
+#, c-format
+msgid "Something went wrong: %s"
+msgstr "Nekaj je šlo narobe: %s"
+
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -138,7 +143,7 @@ msgstr "- Upravljajte nastavitve svojega mobilnika"
 msgid "translator-credits"
 msgstr "Martin Srebotnjak <miles@filmsi.net>"
 
-#: src/mobile-settings-window.c:150
+#: src/mobile-settings-window.c:148
 msgid "Device"
 msgstr "Naprava"
 
@@ -499,11 +504,11 @@ msgstr "Poskusno"
 msgid "_Show Configurable Tweaks"
 msgstr "_Pokaži nastavljive prilagoditve"
 
-#: src/ui/mobile-settings-window.ui:339
+#: src/ui/mobile-settings-window.ui:340
 msgid "_Keyboard Shortcuts"
 msgstr "_Tipkovne bližnjice‫"
 
-#: src/ui/mobile-settings-window.ui:343
+#: src/ui/mobile-settings-window.ui:344
 msgid "_About Mobile Settings"
 msgstr "_O programu Mobilne nastavitve"
 
