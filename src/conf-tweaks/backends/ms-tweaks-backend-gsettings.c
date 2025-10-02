@@ -60,7 +60,7 @@ backend_gsettings_get_value (MsTweaksBackend *backend)
 
 
 static void
-backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value)
+backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **error)
 {
   MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
   GType value_gtype;

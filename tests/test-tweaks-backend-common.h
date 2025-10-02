@@ -49,12 +49,16 @@ static void
 test_set (BackendTestFixture *fixture, gconstpointer string_value)
 {
   g_autofree GValue *value = g_new0 (GValue, 1);
+  g_autoptr (GError) error = NULL;
+
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, string_value);
 
   g_assert_nonnull (fixture->backend);
 
-  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, value);
+  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, value, &error);
+
+  g_assert_false (error);
 
   g_value_unset (value);
 }
@@ -63,7 +67,11 @@ test_set (BackendTestFixture *fixture, gconstpointer string_value)
 static void
 test_remove (BackendTestFixture *fixture, gconstpointer unused)
 {
+  g_autoptr (GError) error = NULL;
+
   g_assert_nonnull (fixture->backend);
 
-  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, NULL);
+  MS_TWEAKS_BACKEND_GET_IFACE (fixture->backend)->set_value (fixture->backend, NULL, &error);
+
+  g_assert_false (error);
 }
