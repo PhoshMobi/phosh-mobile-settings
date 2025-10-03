@@ -10,8 +10,8 @@
 
 #include "ms-tweaks-backend-xresources.h"
 
-#include "../ms-tweaks-gtk-utils.h"
-#include "../ms-tweaks-utils.h"
+#include "ms-tweaks-gtk-utils.h"
+#include "ms-tweaks-utils.h"
 
 #include <gio/gio.h>
 
