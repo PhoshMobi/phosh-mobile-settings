@@ -503,6 +503,10 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
     ms_panel_set_keywords (MS_PANEL (self), g_steal_pointer (&search_keywords));
   }
 
+  /* In case of failure g_initable_new will drop a ref so make this non-floating */
+  if (!page_widget_is_valid)
+    g_object_ref (self);
+
   return page_widget_is_valid;
 }
 
