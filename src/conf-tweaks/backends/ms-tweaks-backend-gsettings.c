@@ -59,7 +59,7 @@ backend_gsettings_get_value (MsTweaksBackend *backend)
 }
 
 
-static void
+static gboolean
 backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **error)
 {
   MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
@@ -98,6 +98,8 @@ backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **e
     }
   } else
     g_settings_reset (self->settings, self->key);
+
+  return TRUE;
 }
 
 
