@@ -89,7 +89,7 @@ backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **e
       break;
     case G_TYPE_UINT:
       g_settings_set_uint (self->settings, self->key, g_value_get_uint (value));
-      break;;
+      break;
     default:
       ms_tweaks_error (self->setting_data->name,
                        "Unsupported GType type: %s",
