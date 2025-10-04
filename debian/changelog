@@ -1,3 +1,49 @@
+phosh-mobile-settings (0.50.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * plugin-list-box: Skip plugins with NoDisplay=true.
+    We don't want to show demo plugins to the user. We also might at
+    some point have plugins that are always enabled. Hence add a way
+    to hide those plugins in the UI.
+  * tweaks-backend-xresources: Simplify includes.
+    Fixes: 95a3da8 ("conf-tweaks: Add Xresources backend")
+  * tweaks-preferences-page: Sink floating ref on failure.
+    If we don't construct a page we need to sink the ref as
+    `g_initable_new()` will drop one on failure. This raises
+    a warning if the ref is floating.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/85
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Propagate errors from backends into toasts.
+    This is currently not used, but it will be used by future backends such
+    as the Xresoruces backend.
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 04 Oct 2025 12:32:23 +0200
+
 phosh-mobile-settings (0.50~rc1) experimental; urgency=medium
 
   [ Stefan Hansson ]

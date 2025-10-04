@@ -1,9 +1,12 @@
-phosh-mobile-settings 0.50~rc1
-------------------------------
-Released September 2025
-* Support for GSetting and XResources config tweaks
+phosh-mobile-settings 0.50.0
+----------------------------
+Released October 2025
+* Support for GSettings and XResources config tweaks
   (aka postmarketOS tweaks)
+* Hide demo plugins
 * Various fixes
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/85
 * Contributors:
     * Anna (cybertailor) Vyalkova
     * Daniel Rusek
@@ -23,9 +26,9 @@ Released September 2025
     * Nathan Follens (nl)
     * Philipp Kiemle (de)
     * Sabri Ünal (tr)
-    * twlvnn kraftwerk (bg)
     * Yaron Shahrabani (he)
     * Yuri Chornoivan (uk)
+    * twlvnn kraftwerk (bg)
 
 phosh-mobile-settings 0.49.0
 ----------------------------
