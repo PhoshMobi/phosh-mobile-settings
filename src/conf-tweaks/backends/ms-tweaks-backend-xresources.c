@@ -114,7 +114,7 @@ ms_tweaks_backend_xresources_get_value (MsTweaksBackend *backend)
 }
 
 
-static void
+static gboolean
 rewrite_existing_xresources (MsTweaksBackendXresources  *self,
                              const char                 *xresources_contents,
                              const char                 *xresources_path,
@@ -131,6 +131,8 @@ rewrite_existing_xresources (MsTweaksBackendXresources  *self,
                                                   g_value_get_string (old_value),
                                                   NULL);
   g_autofree char *line_to_insert = NULL;
+
+  g_value_unset (old_value);
 
   if (new_value)
     line_to_insert = g_strconcat (self->key, ": ", new_value, NULL);
@@ -152,16 +154,18 @@ rewrite_existing_xresources (MsTweaksBackendXresources  *self,
     g_string_append_printf (contents_string, "%s\n", line_to_insert);
   }
 
-  if (!g_file_set_contents (xresources_path, contents_string->str, -1, error))
+  if (!g_file_set_contents (xresources_path, contents_string->str, -1, error)) {
     g_warning ("Error while writing to Xresources at \"%s\": %s",
                xresources_path,
                (*error)->message);
+    return FALSE;
+  }
 
-  g_value_unset (old_value);
+  return TRUE;
 }
 
 
-static void
+static gboolean
 write_new_xresources (MsTweaksBackendXresources  *self,
                       const char                 *xresources_path,
                       const char                 *new_value,
@@ -184,7 +188,7 @@ write_new_xresources (MsTweaksBackendXresources  *self,
                  MS_TWEAKS_BACKEND_XRESOURCES_ERROR,
                  MS_TWEAKS_BACKEND_XRESOURCES_ERROR_FAILED_TO_CREATE_PARENTS,
                  "Failed to write new Xresources");
-    return;
+    return FALSE;
   }
 
   if (!g_file_set_contents (xresources_path, new_xresources, -1, error)) {
@@ -192,11 +196,14 @@ write_new_xresources (MsTweaksBackendXresources  *self,
                        "error while writing to xresources at \"%s\": %s",
                        xresources_path,
                        (*error)->message);
+    return FALSE;
   }
+
+  return TRUE;
 }
 
 
-static void
+static gboolean
 ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
                                         GValue *new_value_,
                                         GError **error)
@@ -205,18 +212,21 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
   const char *new_value = new_value_ ? g_value_get_string (new_value_) : NULL;
   g_autofree char *xresources_path = NULL;
   g_autofree char *contents = NULL;
+  gboolean success;
 
   xresources_path = ms_tweaks_backend_xresources_get_xresources_path (self);
 
   if (!self->key) {
     ms_tweaks_warning (self->setting_data->name, "key was NULL. Can't set property.");
-    return;
+    return FALSE;
   }
 
   if (g_file_get_contents (xresources_path, &contents, NULL, error))
-    rewrite_existing_xresources (self, contents, xresources_path, new_value, error);
+    success = rewrite_existing_xresources (self, contents, xresources_path, new_value, error);
   else
-    write_new_xresources (self, xresources_path, new_value, error);
+    success = write_new_xresources (self, xresources_path, new_value, error);
+
+  return success;
 }
 
 

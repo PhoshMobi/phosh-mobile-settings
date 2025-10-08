@@ -21,6 +21,7 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
 {
   const MsTweaksSetting *setting_data = NULL;
   GError *error = NULL;
+  gboolean success;
 
   g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
   g_assert (MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_setting_data);
@@ -30,9 +31,11 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
 
   ms_tweaks_mappings_handle_set (value_to_set, setting_data);
 
-  MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->set_value (backend_state, value_to_set, &error);
+  success = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->set_value (backend_state,
+                                                                    value_to_set,
+                                                                    &error);
 
-  if (error) {
+  if (!success) {
     AdwToast *toast = adw_toast_new_format (_("Something went wrong: %s"), error->message);
 
     adw_toast_overlay_add_toast (toast_overlay, toast);
