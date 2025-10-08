@@ -331,6 +331,22 @@ test_setting_data_to_number_widget_with_value (PreferencesPageTestFixture *fixtu
 }
 
 
+static void
+test_construct_empty_preferences_page (void)
+{
+  MsTweaksPage page = {
+    .weight = 999999,
+    .name = "Really heavy page",
+    .section_table = g_hash_table_new (g_str_hash, g_str_equal),
+    .name_i18n = "Riktigt tung sida",
+  };
+
+  g_assert_null (ms_tweaks_preferences_page_new (&page));
+
+  g_hash_table_unref (page.section_table);
+}
+
+
 int
 main (int argc, char *argv[])
 {
@@ -364,6 +380,8 @@ main (int argc, char *argv[])
                              test_setting_data_to_number_widget);
   PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-number-widget-with-value",
                              test_setting_data_to_number_widget_with_value);
+  g_test_add_func ("/phosh-mobile-settings/test-construct-empty-preferences-page",
+                   test_construct_empty_preferences_page);
 
   return g_test_run ();
 }
