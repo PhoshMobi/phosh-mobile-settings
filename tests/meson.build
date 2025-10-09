@@ -21,6 +21,7 @@ subdir('utils')
 phoc = find_program('phoc', required: false)
 
 unit_tests = [
+  'add-shortcut-dialog',
   'tweaks-backend-gsettings',
   'tweaks-backend-gtk3settings',
   'tweaks-backend-symlink',
