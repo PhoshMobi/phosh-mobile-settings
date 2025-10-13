@@ -96,8 +96,9 @@ backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **e
                        g_type_name (value_gtype));
       break;
     }
-  } else
+  } else {
     g_settings_reset (self->settings, self->key);
+  }
 
   return TRUE;
 }
