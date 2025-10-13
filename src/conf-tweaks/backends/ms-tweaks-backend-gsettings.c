@@ -188,8 +188,7 @@ ms_tweaks_backend_gsettings_new (const MsTweaksSetting *setting_data)
 
     self->key = g_strdup (parts[parts_length - 1]);
     /* We don't want the last segment in the "base key", so replace it with NULL. */
-    g_free (parts[parts_length - 1]);
-    parts[parts_length - 1] = NULL;
+    g_free (g_steal_pointer (&parts[parts_length - 1]));
 
     base_key = g_strjoinv (".", parts);
     g_strfreev (parts);
