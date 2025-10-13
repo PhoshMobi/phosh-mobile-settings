@@ -32,9 +32,9 @@ ms_tweaks_backend_xresources_get_xresources_path (MsTweaksBackendXresources *sel
 {
   GPathBuf *xresources_path;
 
-  if (self->xresources_path)
+  if (self->xresources_path) {
     xresources_path = g_path_buf_new_from_path (self->xresources_path);
-  else {
+  } else {
     xresources_path = g_path_buf_new_from_path (g_get_home_dir ());
     g_path_buf_push (xresources_path, ".Xresources");
   }
