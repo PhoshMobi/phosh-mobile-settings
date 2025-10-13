@@ -16,14 +16,20 @@
 #include <gio/gio.h>
 
 
+enum {
+  PROP_0,
+  PROP_SETTING_DATA,
+  PROP_LAST_PROP,
+};
+static GParamSpec *props[PROP_LAST_PROP];
+
+
 struct _MsTweaksBackendXresources {
   MsTweaksBackendInterface parent_interface;
 
-  const MsTweaksSetting *setting_data;
-
-  const char            *key;
-
-  char                  *xresources_path;
+  MsTweaksSetting         *setting_data;
+  const char              *key;
+  char                    *xresources_path;
 };
 
 
@@ -267,6 +273,54 @@ ms_tweaks_backend_xresources_dispose (GObject *object)
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (object);
 
   g_clear_pointer (&self->xresources_path, g_free);
+  g_clear_pointer (&self->setting_data, ms_tweaks_setting_free);
+}
+
+
+static void
+ms_tweaks_backend_xresources_set_property (GObject      *object,
+                                           guint         property_id,
+                                           const GValue *value,
+                                           GParamSpec   *pspec)
+{
+  MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (object);
+
+  switch (property_id) {
+  case PROP_SETTING_DATA:
+    self->setting_data = g_value_dup_boxed (value);
+    break;
+  default:
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    break;
+  }
+}
+
+
+static void
+ms_tweaks_backend_xresources_get_property (GObject    *object,
+                                           guint       property_id,
+                                           GValue     *value,
+                                           GParamSpec *pspec)
+{
+  MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (object);
+
+  switch (property_id) {
+  case PROP_SETTING_DATA:
+    g_value_set_boxed (value, self->setting_data);
+    break;
+  default:
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    break;
+  }
+}
+
+
+static void
+ms_tweaks_backend_xresources_constructed (GObject *object)
+{
+  MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (object);
+
+  self->key = ms_tweaks_util_get_single_key (self->setting_data->key);
 }
 
 
@@ -276,16 +330,27 @@ ms_tweaks_backend_xresources_class_init (MsTweaksBackendXresourcesClass *klass)
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
   object_class->dispose = ms_tweaks_backend_xresources_dispose;
+  object_class->constructed = ms_tweaks_backend_xresources_constructed;
+  object_class->set_property = ms_tweaks_backend_xresources_set_property;
+  object_class->get_property = ms_tweaks_backend_xresources_get_property;
+
+  props[PROP_SETTING_DATA] = g_param_spec_boxed ("setting-data",
+                                                 NULL,
+                                                 NULL,
+                                                 MS_TYPE_TWEAKS_SETTING,
+                                                 G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
+
+  g_object_class_install_properties (object_class, G_N_ELEMENTS (props), props);
 }
 
 
 MsTweaksBackend *
 ms_tweaks_backend_xresources_new (const MsTweaksSetting *setting_data)
 {
-  MsTweaksBackendXresources *self = g_object_new (MS_TYPE_TWEAKS_BACKEND_XRESOURCES, NULL);
-
-  self->setting_data = setting_data;
-  self->key = ms_tweaks_util_get_single_key (setting_data->key);
+  MsTweaksBackendXresources *self = g_object_new (MS_TYPE_TWEAKS_BACKEND_XRESOURCES,
+                                                  "setting-data",
+                                                  setting_data,
+                                                  NULL);
 
   return MS_TWEAKS_BACKEND (self);
 }
