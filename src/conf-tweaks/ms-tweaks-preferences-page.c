@@ -167,9 +167,7 @@ setting_data_to_color_widget (const MsTweaksSetting *setting_data,
 
 
 static void
-file_widget_open_file_picker (GtkButton                             *widget,
-                              GdkEvent                              *evnt,
-                              MsTweaksPreferencesPageFilePickerMeta *metadata)
+file_widget_open_file_picker (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
   GtkFileDialog *file_picker_dialog = gtk_file_dialog_new ();
 
@@ -185,9 +183,7 @@ static const char *none_selected_label = "(None selected)";
 
 
 static void
-file_widget_unset (GtkButton                             *widget,
-                   GdkEvent                              *evnt,
-                   MsTweaksPreferencesPageFilePickerMeta *metadata)
+file_widget_unset (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
   MsTweaksBackendInterface *backend = MS_TWEAKS_BACKEND_GET_IFACE (metadata->backend_state);
   GError *error = NULL;
