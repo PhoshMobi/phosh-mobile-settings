@@ -187,6 +187,7 @@ file_widget_unset (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *met
 {
   MsTweaksBackendInterface *backend;
   GError *error = NULL;
+  gboolean success;
 
   g_assert (metadata);
   g_assert (metadata->backend_state);
@@ -197,9 +198,12 @@ file_widget_unset (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *met
 
   g_assert (backend->set_value);
 
-  backend->set_value (metadata->backend_state, NULL, &error);
+  success = backend->set_value (metadata->backend_state, NULL, &error);
 
-  gtk_label_set_label (GTK_LABEL (metadata->file_picker_label), none_selected_label);
+  if (success)
+    gtk_label_set_label (GTK_LABEL (metadata->file_picker_label), none_selected_label);
+  else
+    ms_tweaks_callback_handlers_show_error_toast (metadata->toast_overlay, error->message);
 }
 
 

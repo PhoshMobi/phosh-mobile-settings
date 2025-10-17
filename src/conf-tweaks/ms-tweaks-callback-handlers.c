@@ -35,11 +35,18 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
                                                                     value_to_set,
                                                                     &error);
 
-  if (!success) {
-    AdwToast *toast = adw_toast_new_format (_("Something went wrong: %s"), error->message);
+  if (!success)
+    ms_tweaks_callback_handlers_show_error_toast (toast_overlay, error->message);
+}
 
-    adw_toast_overlay_add_toast (toast_overlay, toast);
-  }
+
+void
+ms_tweaks_callback_handlers_show_error_toast (AdwToastOverlay *toast_overlay,
+                                              const char      *error_message)
+{
+  AdwToast *toast = adw_toast_new_format (_("Something went wrong: %s"), error_message);
+
+  adw_toast_overlay_add_toast (toast_overlay, toast);
 }
 
 /**
