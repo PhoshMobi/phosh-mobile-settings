@@ -32,7 +32,8 @@ typedef struct {
   AdwToastOverlay *toast_overlay;
 } MsTweaksCallbackMeta;
 
-
+void ms_tweaks_callback_handlers_show_error_toast (AdwToastOverlay *toast_overlay,
+                                                   const char      *error_message);
 void ms_tweaks_callback_handlers_type_boolean (AdwSwitchRow         *switch_row,
                                                GParamSpec           *unused,
                                                MsTweaksCallbackMeta *callback_meta);

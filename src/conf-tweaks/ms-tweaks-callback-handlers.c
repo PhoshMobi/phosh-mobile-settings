@@ -35,11 +35,18 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
                                                                     value_to_set,
                                                                     &error);
 
-  if (!success) {
-    AdwToast *toast = adw_toast_new_format (_("Something went wrong: %s"), error->message);
+  if (!success)
+    ms_tweaks_callback_handlers_show_error_toast (toast_overlay, error->message);
+}
 
-    adw_toast_overlay_add_toast (toast_overlay, toast);
-  }
+
+void
+ms_tweaks_callback_handlers_show_error_toast (AdwToastOverlay *toast_overlay,
+                                              const char      *error_message)
+{
+  AdwToast *toast = adw_toast_new_format (_("Something went wrong: %s"), error_message);
+
+  adw_toast_overlay_add_toast (toast_overlay, toast);
 }
 
 /**
@@ -141,22 +148,19 @@ ms_tweaks_callback_handlers_type_file (GObject *source_object, GAsyncResult *res
 {
   MsTweaksPreferencesPageFilePickerMeta *metadata = (MsTweaksPreferencesPageFilePickerMeta *) data;
   g_autoptr (GtkFileDialog) file_picker_dialog = NULL;
-  const MsTweaksSetting *setting_data = NULL;
   GValue path_to_picked_file = G_VALUE_INIT;
   g_autofree char *picked_file_name = NULL;
   g_autoptr (GFile) picked_file = NULL;
   g_autoptr (GError) error = NULL;
 
   g_assert (metadata->backend_state);
-  g_assert (MS_TWEAKS_BACKEND_GET_IFACE (metadata->backend_state)->get_setting_data);
 
   file_picker_dialog = GTK_FILE_DIALOG (source_object);
   picked_file = gtk_file_dialog_open_finish (file_picker_dialog, result, &error);
-  setting_data = MS_TWEAKS_BACKEND_GET_IFACE (metadata->backend_state)->get_setting_data (metadata->backend_state);
 
-  if (error != NULL) {
-    ms_tweaks_warning (setting_data->name, "Something went wrong when picking a file: %s",
-                       error->message);
+  if (!picked_file) {
+    if (!g_error_matches (error, GTK_DIALOG_ERROR, GTK_DIALOG_ERROR_DISMISSED))
+      ms_tweaks_callback_handlers_show_error_toast (metadata->toast_overlay, error->message);
     return;
   }
 
