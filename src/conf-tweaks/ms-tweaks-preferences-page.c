@@ -232,6 +232,7 @@ setting_data_to_file_widget (const MsTweaksSetting                 *setting_data
   adw_action_row_add_suffix (ADW_ACTION_ROW (file_picker_row), reset_selection_button);
   adw_action_row_add_suffix (ADW_ACTION_ROW (file_picker_row), file_picker_button);
 
+  gtk_box_append (GTK_BOX (file_picker_box), metadata->file_picker_label);
   gtk_box_append (GTK_BOX (file_picker_box), file_picker_icon);
   gtk_button_set_child (GTK_BUTTON (file_picker_button), file_picker_box);
   gtk_button_set_icon_name (GTK_BUTTON (reset_selection_button), "document-revert-symbolic");
