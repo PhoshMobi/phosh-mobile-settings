@@ -224,8 +224,6 @@ test_setting_data_to_file_widget (PreferencesPageTestFixture *fixture, gconstpoi
 
   g_object_ref_sink (widget);
   g_object_unref (widget);
-  g_object_ref_sink (metadata->file_picker_label);
-  g_object_unref (metadata->file_picker_label);
   g_free (metadata);
 }
 
@@ -244,8 +242,6 @@ test_setting_data_to_file_widget_with_value (PreferencesPageTestFixture *fixture
 
   g_object_ref_sink (widget);
   g_object_unref (widget);
-  g_object_ref_sink (metadata->file_picker_label);
-  g_object_unref (metadata->file_picker_label);
   g_free (metadata);
 }
 
