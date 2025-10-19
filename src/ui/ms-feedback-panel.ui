@@ -118,7 +118,7 @@
                         <child>
                           <object class="MsSoundRow" id="alarm_clock_sound_row">
                             <property name="visible">0</property>
-                            <property name="title" translatable="yes">Alarm clock</property>
+                            <property name="title" translatable="yes">Alarm Clock</property>
                             <property name="effect-name">alarm-clock-elapsed</property>
                           </object>
                         </child>

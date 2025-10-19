@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 Purism SPC
+ *               2023-2025 Phosh.mobi e.V.
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -93,6 +94,7 @@ struct _MsFeedbackPanel {
   GtkWidget                 *prefer_flash;
 
   MsSoundRow                *alarm_clock_sound_row;
+  GCancellable              *check_alarm_app_cancel;
   GSoundContext             *sound_context;
   GCancellable              *sound_cancel;
 
@@ -733,6 +735,9 @@ ms_feedback_panel_dispose (GObject *object)
 {
   MsFeedbackPanel *self = MS_FEEDBACK_PANEL (object);
 
+  g_cancellable_cancel (self->check_alarm_app_cancel);
+  g_clear_object (&self->check_alarm_app_cancel);
+
   g_clear_object (&self->sound_cancel);
   g_clear_object (&self->sound_context);
 
@@ -824,6 +829,62 @@ ms_feedback_panel_init_audio (MsFeedbackPanel *self)
 
 
 static void
+on_check_alarm_app_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
+{
+  gboolean success;
+  MsFeedbackPanel *self;
+  g_autoptr (GError) err = NULL;
+  g_autoptr (GBytes) stdout_buf = NULL;
+  gboolean is_mobile_friendly = FALSE;
+  const char *output;
+
+  success = g_subprocess_communicate_finish (G_SUBPROCESS (source_object),
+                                             res,
+                                             &stdout_buf,
+                                             NULL,
+                                             &err);
+
+  if (!success) {
+    g_warning ("Failed to check for alarm app: %s", err->message);
+    return;
+  }
+
+  self = MS_FEEDBACK_PANEL (user_data);
+
+  output = g_bytes_get_data (stdout_buf, NULL);
+  /* If the alarm clock app supports --hidden it is very likely one with feedbackd support */
+  if (strstr (output, "--hidden ")) {
+    g_debug ("Found mobile friendly alarm app");
+    is_mobile_friendly = TRUE;
+  }
+
+  gtk_widget_set_visible (GTK_WIDGET (self->alarm_clock_sound_row), is_mobile_friendly);
+}
+
+
+static void
+ms_feedback_panel_check_alarm_app (MsFeedbackPanel *self)
+{
+  g_autoptr (GError) err = NULL;
+  g_autoptr (GSubprocess) clock = NULL;
+
+  clock = g_subprocess_new (G_SUBPROCESS_FLAGS_STDOUT_PIPE, &err, "gnome-clocks", "--help", NULL);
+  if (!clock) {
+    if (!g_error_matches (err, G_SPAWN_ERROR, G_SPAWN_ERROR_NOENT))
+      g_warning ("Failed to build alarm-clock subprocess: %s", err->message);
+    return;
+  }
+
+  self->check_alarm_app_cancel = g_cancellable_new ();
+  g_subprocess_communicate_async (clock,
+                                  NULL,
+                                  self->check_alarm_app_cancel,
+                                  on_check_alarm_app_ready,
+                                  self);
+}
+
+
+static void
 ms_feedback_panel_init (MsFeedbackPanel *self)
 {
   g_autoptr (GError) error = NULL;
@@ -863,6 +924,7 @@ ms_feedback_panel_init (MsFeedbackPanel *self)
     g_warning ("Failed to make sound context: %s", error->message);
 
   ms_feedback_panel_init_audio (self);
+  ms_feedback_panel_check_alarm_app (self);
 }
 
 
