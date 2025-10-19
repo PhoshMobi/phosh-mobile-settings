@@ -92,6 +92,7 @@ struct _MsFeedbackPanel {
 
   GtkWidget                 *prefer_flash;
 
+  MsSoundRow                *alarm_clock_sound_row;
   GSoundContext             *sound_context;
   GCancellable              *sound_cancel;
 
@@ -769,6 +770,7 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   g_type_ensure (MS_TYPE_FEEDBACK_PROFILE);
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-feedback-panel.ui");
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, alarm_clock_sound_row);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, audio_devices_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, haptic_strenth_adj);
