@@ -53,8 +53,6 @@ struct _MsTweaksBackendInterface
 
   char *                  (* get_key) (MsTweaksBackend *self);
   char *                  (* get_name) (MsTweaksBackend *self);
-
-  void                    (* set_source_ext) (MsTweaksBackend *self, gboolean new_value);
 };
 
 G_END_DECLS
