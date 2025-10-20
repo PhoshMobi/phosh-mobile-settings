@@ -421,7 +421,6 @@ static void
 merge_weights (int *into, const int from)
 {
   g_assert (into);
-  g_assert (from);
 
   /* Only overwrite the weight if it wasn't specified. We assume that even if the default was
    * specified, the original definition didn't care about the weight. */
