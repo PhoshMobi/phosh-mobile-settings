@@ -37,10 +37,10 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2025-06-16
+  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2025-10-20
+  CHECK_IMAGE: $CI_REGISTRY/world/phosh/phosh/ci-checks:v0.0.2025-10-20
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
   GCHECK_DIRS: src tests plugins
-  PHOSH_ADDITIONAL_EXPERIMENTAL_PKGS: libgmobile-dev phoc
 
 .trixie_vars: &trixie_vars
   variables:
@@ -104,9 +104,6 @@ test:native-debian-trixie:
     when: always
     reports:
       junit: _build/meson-logs/testlog.junit.xml
-  except:
-    variables:
-      - $PKG_ONLY == '1'
 
 asan-test-native-debian-trixie:
   stage: test
@@ -121,22 +118,23 @@ asan-test-native-debian-trixie:
 
 check-po:
   stage: test
+  image: ${CHECK_IMAGE}
   extends: .phosh-check-po
-  except:
-    variables:
-      - $PKG_ONLY == "1"
 
 check-consistency:
   stage: test
+  image: ${CHECK_IMAGE}
   extends: .phosh-check-consistency
 
 format-check:
   stage: style-checks
+  image: ${CHECK_IMAGE}
   extends: .phosh-format-check
   allow_failure: true
 
 check-g-style:
   stage: style-checks
+  image: ${CHECK_IMAGE}
   allow_failure: true
   script:
     - ./.gitlab-ci/g-style ${GCHECK_DIRS}
@@ -149,11 +147,13 @@ check-g-style:
 
 check-meson:
   stage: style-checks
+  image: ${CHECK_IMAGE}
   extends:
     - .phosh-check-meson
 
 check-markdown:
   stage: style-checks
+  image: ${CHECK_IMAGE}
   variables:
     PHOSH_MARKDOWN_PATHS: "*.md"
   extends: .phosh-check-markdown
