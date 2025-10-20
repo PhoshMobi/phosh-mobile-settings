@@ -41,7 +41,6 @@ variables:
   CHECK_IMAGE: $CI_REGISTRY/world/phosh/phosh/ci-checks:v0.0.2025-10-20
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
   GCHECK_DIRS: src tests plugins
-  PHOSH_ADDITIONAL_EXPERIMENTAL_PKGS: libgmobile-dev phoc
 
 .trixie_vars: &trixie_vars
   variables:
