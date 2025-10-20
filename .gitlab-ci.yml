@@ -105,9 +105,6 @@ test:native-debian-trixie:
     when: always
     reports:
       junit: _build/meson-logs/testlog.junit.xml
-  except:
-    variables:
-      - $PKG_ONLY == '1'
 
 asan-test-native-debian-trixie:
   stage: test
@@ -124,9 +121,6 @@ check-po:
   stage: test
   image: ${CHECK_IMAGE}
   extends: .phosh-check-po
-  except:
-    variables:
-      - $PKG_ONLY == "1"
 
 check-consistency:
   stage: test
