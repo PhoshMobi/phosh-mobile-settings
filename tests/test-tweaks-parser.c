@@ -184,6 +184,32 @@ test_copy_page (void)
   ms_tweaks_page_free (page);
 }
 
+
+static void
+test_merge_weights (void)
+{
+  int into = 50;
+  const int from = 0;
+
+  merge_weights (&into, from);
+
+  g_assert_cmpint (into, ==, 0);
+  g_assert_cmpint (into, ==, from);
+}
+
+
+static void
+test_merge_weights_no_merge (void)
+{
+  int into = 25;
+  const int from = 100;
+
+  merge_weights (&into, from);
+
+  g_assert_cmpint (into, ==, 25);
+  g_assert_cmpint (into, !=, from);
+}
+
 /**
  * test_parse_nothing:
  * Ensures that trying to parse a nonexistent path is handled gracefully.
@@ -777,6 +803,10 @@ main (int argc, char *argv[])
                    test_copy_section);
   g_test_add_func ("/phosh-mobile-settings/test-tweaks-parser-copy-page",
                    test_copy_page);
+  g_test_add_func ("/phosh-mobile-settings/test-tweaks-parser-merge-weights",
+                   test_merge_weights);
+  g_test_add_func ("/phosh-mobile-settings/test-tweaks-parser-merge-weights-no-merge",
+                   test_merge_weights_no_merge);
   PARSER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-parser-parse-nothing",
                    test_parse_nothing);
   PARSER_TEST_ADD ("/phosh-mobile-settings/test-tweaks-parser-parse-basic",
