@@ -37,7 +37,7 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2025-06-16
+  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2025-10-20
   CHECK_IMAGE: $CI_REGISTRY/world/phosh/phosh/ci-checks:v0.0.2025-10-20
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
   GCHECK_DIRS: src tests plugins
