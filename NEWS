@@ -1,3 +1,10 @@
+phosh-mobile-settings 0.50.1
+----------------------------
+Released October 2025
+* Fix possible crash on startup with conf tweaks
+* Contributors:
+    * Stefan Hansson
+
 phosh-mobile-settings 0.50.0
 ----------------------------
 Released October 2025

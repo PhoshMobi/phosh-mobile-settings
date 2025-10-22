@@ -1,3 +1,12 @@
+phosh-mobile-settings (0.50.1) experimental; urgency=medium
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Remove nonsensical assertion.
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/88
+  * tests: Add tests for merge_weights()
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 22 Oct 2025 13:05:57 +0200
+
 phosh-mobile-settings (0.50.0) experimental; urgency=medium
 
   [ Guido Günther ]
