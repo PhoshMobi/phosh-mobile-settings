@@ -195,7 +195,10 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
   gboolean success;
 
   if (!self->key) {
-    ms_tweaks_warning (self->setting_data->name, "key was NULL. Can't set property.");
+    g_set_error (error,
+                 MS_TWEAKS_BACKEND_XRESOURCES_ERROR,
+                 MS_TWEAKS_BACKEND_XRESOURCES_ERROR_NULL_KEY,
+                 "key was NULL. Can't set property.");
     return FALSE;
   }
 
