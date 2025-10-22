@@ -19,6 +19,7 @@
 enum {
   PROP_0,
   PROP_SETTING_DATA,
+  PROP_XRESOURCES_PATH,
   PROP_LAST_PROP,
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -33,44 +34,18 @@ struct _MsTweaksBackendXresources {
 };
 
 
-static char *
-ms_tweaks_backend_xresources_get_xresources_path (MsTweaksBackendXresources *self)
-{
-  GPathBuf *xresources_path;
-
-  if (self->xresources_path) {
-    xresources_path = g_path_buf_new_from_path (self->xresources_path);
-  } else {
-    xresources_path = g_path_buf_new_from_path (g_get_home_dir ());
-    g_path_buf_push (xresources_path, ".Xresources");
-  }
-
-  return g_path_buf_free_to_path (xresources_path);
-}
-
-
-void
-ms_tweaks_backend_xresources_set_xresources_path (MsTweaksBackend *backend, char *xresources_path)
-{
-  MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (backend);
-  self->xresources_path = xresources_path;
-}
-
-
 static GValue *
 ms_tweaks_backend_xresources_get_value (MsTweaksBackend *backend)
 {
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (backend);
   g_autoptr (GDataInputStream) input_stream = NULL;
   g_autoptr (GFileInputStream) file_input_stream;
-  g_autofree char *xresources_path;
   g_autoptr (GError) error = NULL;
   g_autoptr (GFile) input_file;
   g_autofree char *line = NULL;
   GValue *value;
 
-  xresources_path = ms_tweaks_backend_xresources_get_xresources_path (self);
-  input_file = g_file_new_for_path (xresources_path);
+  input_file = g_file_new_for_path (self->xresources_path);
   file_input_stream = g_file_read (input_file, NULL, &error);
 
   value = g_new0 (GValue, 1);
@@ -216,21 +191,18 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
 {
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (backend);
   const char *new_value = new_value_ ? g_value_get_string (new_value_) : NULL;
-  g_autofree char *xresources_path = NULL;
   g_autofree char *contents = NULL;
   gboolean success;
-
-  xresources_path = ms_tweaks_backend_xresources_get_xresources_path (self);
 
   if (!self->key) {
     ms_tweaks_warning (self->setting_data->name, "key was NULL. Can't set property.");
     return FALSE;
   }
 
-  if (g_file_get_contents (xresources_path, &contents, NULL, error))
-    success = rewrite_existing_xresources (self, contents, xresources_path, new_value, error);
+  if (g_file_get_contents (self->xresources_path, &contents, NULL, error))
+    success = rewrite_existing_xresources (self, contents, self->xresources_path, new_value, error);
   else
-    success = write_new_xresources (self, xresources_path, new_value, error);
+    success = write_new_xresources (self, self->xresources_path, new_value, error);
 
   return success;
 }
@@ -264,6 +236,11 @@ G_DEFINE_QUARK (ms-tweaks-backend-xresources-error-quark, ms_tweaks_backend_xres
 static void
 ms_tweaks_backend_xresources_init (MsTweaksBackendXresources *self)
 {
+  GPathBuf *xresources_path_buf;
+
+  xresources_path_buf = g_path_buf_new_from_path (g_get_home_dir ());
+  g_path_buf_push (xresources_path_buf, ".Xresources");
+  self->xresources_path = g_path_buf_free_to_path (xresources_path_buf);
 }
 
 
@@ -289,6 +266,12 @@ ms_tweaks_backend_xresources_set_property (GObject      *object,
   case PROP_SETTING_DATA:
     self->setting_data = g_value_dup_boxed (value);
     break;
+  case PROP_XRESOURCES_PATH:
+    /* Free any previous value, like the default value. */
+    g_clear_pointer (&self->xresources_path, g_free);
+
+    self->xresources_path = g_value_dup_string (value);
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
@@ -307,6 +290,9 @@ ms_tweaks_backend_xresources_get_property (GObject    *object,
   switch (property_id) {
   case PROP_SETTING_DATA:
     g_value_set_boxed (value, self->setting_data);
+    break;
+  case PROP_XRESOURCES_PATH:
+    g_value_set_string (value, self->xresources_path);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -339,6 +325,11 @@ ms_tweaks_backend_xresources_class_init (MsTweaksBackendXresourcesClass *klass)
                                                  NULL,
                                                  MS_TYPE_TWEAKS_SETTING,
                                                  G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
+  props[PROP_XRESOURCES_PATH] = g_param_spec_string ("xresources-path",
+                                                     NULL,
+                                                     NULL,
+                                                     NULL,
+                                                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, G_N_ELEMENTS (props), props);
 }

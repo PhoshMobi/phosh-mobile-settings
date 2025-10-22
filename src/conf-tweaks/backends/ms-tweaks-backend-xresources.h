@@ -27,7 +27,4 @@ GQuark ms_tweaks_backend_xresources_error_quark (void);
 
 MsTweaksBackend *ms_tweaks_backend_xresources_new (const MsTweaksSetting *setting_data);
 
-void ms_tweaks_backend_xresources_set_xresources_path (MsTweaksBackend *backend,
-                                                       char *xresources_path);
-
 G_END_DECLS
