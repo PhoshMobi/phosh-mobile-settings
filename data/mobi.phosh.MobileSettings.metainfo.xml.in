@@ -52,6 +52,14 @@
 
   <releases>
 
+    <release version="0.50.1" date="2025-10-22">
+      <description translate="no">
+        <ul>
+          <li>Fix possible crash on startup with conf tweaks</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.50.0" date="2025-10-04">
       <description translate="no">
         <ul>
