@@ -111,7 +111,7 @@
                         </child>
                         <child>
                           <object class="MsSoundRow">
-                            <property name="title" translatable="yes">Instant messages</property>
+                            <property name="title" translatable="yes">Instant Messages</property>
                             <property name="effect-name">message-new-instant</property>
                           </object>
                         </child>
