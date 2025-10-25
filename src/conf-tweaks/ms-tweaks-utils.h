@@ -58,3 +58,5 @@ void ms_tweaks_log (const char     *log_domain,
                     const char     *name,
                     const char     *message,
                     ...) G_GNUC_PRINTF(4, 5);
+
+gboolean ms_tweaks_is_path_inside_user_home_directory (const char *path);

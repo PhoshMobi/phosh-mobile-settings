@@ -194,3 +194,17 @@ ms_tweaks_log (const char     *log_domain,
   va_end (args);
   g_free (format_with_prefix);
 }
+
+/**
+ * ms_tweaks_is_path_inside_user_home_directory:
+ * @path: Absolute path without any variables or other things that need to be expanded.
+ *
+ * Determines whether a given path is inside of the current user's home directory.
+ *
+ * Returns: TRUE if it is within the user's home directory, FALSE otherwise.
+ */
+gboolean
+ms_tweaks_is_path_inside_user_home_directory (const char *path)
+{
+  return g_str_has_prefix (path, g_get_home_dir ());
+}
