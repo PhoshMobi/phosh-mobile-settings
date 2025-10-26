@@ -237,17 +237,6 @@ G_DEFINE_QUARK (ms-tweaks-backend-xresources-error-quark, ms_tweaks_backend_xres
 
 
 static void
-ms_tweaks_backend_xresources_init (MsTweaksBackendXresources *self)
-{
-  GPathBuf *xresources_path_buf;
-
-  xresources_path_buf = g_path_buf_new_from_path (g_get_home_dir ());
-  g_path_buf_push (xresources_path_buf, ".Xresources");
-  self->xresources_path = g_path_buf_free_to_path (xresources_path_buf);
-}
-
-
-static void
 ms_tweaks_backend_xresources_dispose (GObject *object)
 {
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (object);
@@ -335,6 +324,17 @@ ms_tweaks_backend_xresources_class_init (MsTweaksBackendXresourcesClass *klass)
                                                      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, G_N_ELEMENTS (props), props);
+}
+
+
+static void
+ms_tweaks_backend_xresources_init (MsTweaksBackendXresources *self)
+{
+  GPathBuf *xresources_path_buf;
+
+  xresources_path_buf = g_path_buf_new_from_path (g_get_home_dir ());
+  g_path_buf_push (xresources_path_buf, ".Xresources");
+  self->xresources_path = g_path_buf_free_to_path (xresources_path_buf);
 }
 
 
