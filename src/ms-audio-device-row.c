@@ -79,7 +79,7 @@ transform_icon_name_to_icon (GBinding     *binding,
   if (icon_name == NULL)
     icon_name = "audio-speakers-symbolic";
 
-  icon = g_themed_icon_new_with_default_fallbacks (icon_name);
+  icon = g_themed_icon_new (icon_name);
 
   g_value_take_object (to_value, icon);
   return TRUE;
