@@ -35,6 +35,7 @@
     <file alias="mobi.phosh.MobileSettings.svg">../data/icons/hicolor/scalable/apps/mobi.phosh.MobileSettings.svg</file>
     <file alias="conf-tweaks-symbolic.svg">../data/icons/conf-tweaks-symbolic.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
+    <file alias="phone-ongoing-call-symbolic.svg">../data/icons/phone-ongoing-call-symbolic.svg</file>
     <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
     <file alias="phonelink2-symbolic.svg">../data/icons/phonelink2-symbolic.svg</file>
   </gresource>

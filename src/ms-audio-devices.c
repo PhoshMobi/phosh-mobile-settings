@@ -178,6 +178,8 @@ on_device_added (MsAudioDevices *self, guint id)
     description = g_strdup (_("Media Volume"));
   } else if (g_str_equal (name, "input.loopback.sink.role.notification")) {
     description = g_strdup (_("Notification Volume"));
+  } else if (g_str_equal (name, "input.loopback.sink.role.phone")) {
+    description = g_strdup (_("Voice Call Volume"));
   } else if (g_str_equal (name, "input.loopback.sink.role.ringtone")) {
     description = g_strdup (_("Ring Tone Volume"));
   } else if (g_str_equal (name, "input.loopback.sink.role.call")) {
