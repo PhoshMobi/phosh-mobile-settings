@@ -10,9 +10,17 @@
 
 #include <glib.h>
 
+enum {
+  MS_TWEAKS_UTILS_ERROR_WORDEXP_FAILED,
+};
+
+GQuark ms_tweaks_utils_error_quark (void);
+#define MS_TWEAKS_UTILS_ERROR ms_tweaks_utils_error_quark ()
+
 /* Data conversion functions. */
 const char *ms_tweaks_util_boolean_to_string (const gboolean value);
 const char *ms_tweaks_get_filename_extension (const char *filename);
+char *ms_tweaks_expand_single (const char *to_expand, GError **error);
 
 /* Value retrieval functions. */
 const char *ms_tweaks_util_get_single_key (const GPtrArray *key_array);
@@ -50,3 +58,5 @@ void ms_tweaks_log (const char     *log_domain,
                     const char     *name,
                     const char     *message,
                     ...) G_GNUC_PRINTF(4, 5);
+
+gboolean ms_tweaks_is_path_inside_user_home_directory (const char *path);

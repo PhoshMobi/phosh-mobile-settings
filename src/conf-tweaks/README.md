@@ -33,6 +33,24 @@ The gtype option is used to define which type the gsetting is in case it's
 different than the type of the widget. This is mainly useful when things are
 remapped.
 
+### symlink
+
+```yaml
+backend: symlink
+key: ~/.local/var/example.data
+source_ext: false
+```
+
+This creates a symlink where the source is the input data from the user and
+the target is the `key`.
+
+If `source_ext` is true, the extension of the source file will be appended to
+the key before using that as the target path for the symlink.
+
+Setting the value to `None` will remove the symlink.
+
+This backend is normally used with the file widget
+
 ### xresources
 
 ```yaml
