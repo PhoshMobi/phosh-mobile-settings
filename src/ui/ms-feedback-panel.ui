@@ -111,8 +111,15 @@
                         </child>
                         <child>
                           <object class="MsSoundRow">
-                            <property name="title" translatable="yes">Instant messages</property>
+                            <property name="title" translatable="yes">Instant Messages</property>
                             <property name="effect-name">message-new-instant</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="MsSoundRow" id="alarm_clock_sound_row">
+                            <property name="visible">0</property>
+                            <property name="title" translatable="yes">Alarm Clock</property>
+                            <property name="effect-name">alarm-clock-elapsed</property>
                           </object>
                         </child>
                       </object>
