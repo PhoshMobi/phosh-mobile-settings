@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-03 06:06+0000\n"
-"PO-Revision-Date: 2025-10-03 15:52+0200\n"
+"POT-Creation-Date: 2025-10-27 21:02+0000\n"
+"PO-Revision-Date: 2025-10-28 12:07+0100\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -113,7 +113,7 @@ msgstr "Indicator de energie"
 msgid "Battery"
 msgstr "Baterie"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:36
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "Ceva nu a funcționat bine: %s"
@@ -178,44 +178,44 @@ msgstr "Volum alerte de urgență"
 msgid "Message of unknown severity"
 msgstr "Mesaj cu nivel de urgență necunoscut"
 
-#: src/ms-feedback-panel.c:212
+#: src/ms-feedback-panel.c:215
 msgid "Sound file does not exist"
 msgstr "Fișierul audio nu există"
 
-#: src/ms-feedback-panel.c:214
+#: src/ms-feedback-panel.c:217
 msgid "Sound file is corrupt"
 msgstr "Fișierul audio este deteriorat"
 
-#: src/ms-feedback-panel.c:216
+#: src/ms-feedback-panel.c:219
 msgid "Failed to play sound"
 msgstr "Nu s-a putut reda sunetul"
 
-#: src/ms-feedback-panel.c:255
+#: src/ms-feedback-panel.c:258
 #, c-format
 msgid "Playing %s"
 msgstr "Se redă %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:416
+#: src/ms-feedback-panel.c:419
 msgid "low"
 msgstr "redus"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:422
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:425
 msgid "critical"
 msgstr "critic"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:426
+#: src/ms-feedback-panel.c:429
 msgid "none"
 msgstr "nimic"
 
-#: src/ms-feedback-panel.c:806
+#: src/ms-feedback-panel.c:813
 msgid "Mobile Settings Volume Control"
 msgstr "Reglarea volumului"
 
@@ -661,7 +661,7 @@ msgid ""
 "connection loss or missed alarms"
 msgstr ""
 "Activează această opțiune numai dacă accepți limitări precum pierderea "
-"conexiunii de date sau pierderea alarmelor"
+"conexiunii de date sau că nu va mai suna ceasul"
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
@@ -730,78 +730,78 @@ msgstr "Apeluri"
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:114
-msgid "Instant messages"
+#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+msgid "Instant Messages"
 msgstr "Mesaje instantanee"
 
-#: src/ui/ms-feedback-panel.ui:125
+#: src/ui/ms-feedback-panel.ui:121
+msgid "Alarm Clock"
+msgstr "Soneria ceasului"
+
+#: src/ui/ms-feedback-panel.ui:132
 msgid "Screen Wakeup"
 msgstr "Iluminarea ecranului"
 
-#: src/ui/ms-feedback-panel.ui:128
+#: src/ui/ms-feedback-panel.ui:135
 msgid "Notification urgency that lights up the screen"
 msgstr "Notificare de urgență care iluminează ecranul"
 
-#: src/ui/ms-feedback-panel.ui:146
+#: src/ui/ms-feedback-panel.ui:153
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "Categorii de notificări care activează ecranul independent de urgența lor"
 
-#: src/ui/ms-feedback-panel.ui:149
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Calls"
 msgstr "Apeluri"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic audio or video call notification"
 msgstr "O notificare standard pentru apeluri audio sau video"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Device events"
 msgstr "Evenimentele aparatului"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic device-related notification"
 msgstr "O notificare standard referitoare la aparat"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Emails"
 msgstr "E-mailuri"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic e-mail-related notification"
 msgstr "O notificare standard pentru e-mailuri"
 
-#: src/ui/ms-feedback-panel.ui:170
-msgid "Instant Messages"
-msgstr "Mesaje instantanee"
-
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic instant message-related notification"
 msgstr "O notificare standard pentru mesajele instantanee"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Network events"
 msgstr "Evenimentele rețelei"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic network notification"
 msgstr "O notificare standard referitoare la rețea"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:191
 msgid "Presence changes"
 msgstr "Schimbări de prezență"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic presence change notification"
 msgstr "O notificare standard referitoare la schimbarea stării de prezență"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:198
 msgid "File transfers"
 msgstr "Transferuri de fișiere"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:199
 msgid "A generic file transfer or download notification"
 msgstr "O notificare standard pentru transferuri de fișiere sau descărcări"
 
@@ -945,8 +945,8 @@ msgstr "Să apară prin apăsare lungă"
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
-"Cât de lungă să fie apăsarea în centrul spațiului de căutare pentru a "
-"desfășura tastatura pe ecran"
+"Cât de lungă să fie apăsarea în centrul spațiului de căutare pentru ca să "
+"apară tastatura pe ecran"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
 #: src/ui/ms-osk-panel.ui:26
@@ -972,12 +972,11 @@ msgstr "Ignoră tastatura fizică"
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
-"Dacă să se afișeze tastatura pe ecran atunci când este prezentă o tastatură "
-"fizică"
+"Dacă să apară tastatura pe ecran atunci când este prezentă o tastatură fizică"
 
 #: src/ui/ms-osk-panel.ui:46
 msgid "Key indicator popup"
-msgstr "Vizualizare tastă apăsată"
+msgstr "Indicarea tastei apăsate"
 
 #: src/ui/ms-osk-panel.ui:47
 msgid "Whether to show a popover indicating the currently pressed key"
