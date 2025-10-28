@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-03 16:26+0000\n"
-"PO-Revision-Date: 2025-10-04 07:16+0200\n"
+"POT-Creation-Date: 2025-10-28 11:17+0000\n"
+"PO-Revision-Date: 2025-10-29 00:54+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
@@ -111,7 +111,7 @@ msgstr "ელემენტის მუხტი"
 msgid "Battery"
 msgstr "კვების ელემენტი"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:36
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "რაღაც ისე ვერ არის: %s"
@@ -176,44 +176,44 @@ msgstr "გადაუდებელი განგაშის ხმის 
 msgid "Message of unknown severity"
 msgstr "უცნობი სიმძიმის შეტყობინება"
 
-#: src/ms-feedback-panel.c:212
+#: src/ms-feedback-panel.c:215
 msgid "Sound file does not exist"
 msgstr "ხმის ფაილი არ არსებობს"
 
-#: src/ms-feedback-panel.c:214
+#: src/ms-feedback-panel.c:217
 msgid "Sound file is corrupt"
 msgstr "ხმის ფაილი დაზიანებულია"
 
-#: src/ms-feedback-panel.c:216
+#: src/ms-feedback-panel.c:219
 msgid "Failed to play sound"
 msgstr "ხმის დაკვრა ჩავარდა"
 
-#: src/ms-feedback-panel.c:255
+#: src/ms-feedback-panel.c:258
 #, c-format
 msgid "Playing %s"
 msgstr "%s-ის დაკვრა"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:416
+#: src/ms-feedback-panel.c:419
 msgid "low"
 msgstr "დაბალი"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:422
 msgid "normal"
 msgstr "ნორმალური"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:425
 msgid "critical"
 msgstr "კრიტიკული"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:426
+#: src/ms-feedback-panel.c:429
 msgid "none"
 msgstr "არა"
 
-#: src/ms-feedback-panel.c:806
+#: src/ms-feedback-panel.c:813
 msgid "Mobile Settings Volume Control"
 msgstr "მობილურობის მორგების ხმის მართვა"
 
@@ -725,19 +725,23 @@ msgstr "სატელეფონო ზარები"
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:114
-msgid "Instant messages"
+#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+msgid "Instant Messages"
 msgstr "მყისი შეტყობინებები"
 
-#: src/ui/ms-feedback-panel.ui:125
+#: src/ui/ms-feedback-panel.ui:121
+msgid "Alarm Clock"
+msgstr "მაღვიძარა"
+
+#: src/ui/ms-feedback-panel.ui:132
 msgid "Screen Wakeup"
 msgstr "ეკრანის გაღვიძება"
 
-#: src/ui/ms-feedback-panel.ui:128
+#: src/ui/ms-feedback-panel.ui:135
 msgid "Notification urgency that lights up the screen"
 msgstr "გაფრთხილების სასწრაფოობა, რომელიც ეკრანს გაანათებს"
 
-#: src/ui/ms-feedback-panel.ui:146
+#: src/ui/ms-feedback-panel.ui:153
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
@@ -745,59 +749,55 @@ msgstr ""
 "გაფრთხილების კატეგორიები, რომლებიც გააღვიძებენ ეკრანს მათი გადაუდებლობის "
 "მიუხედავად"
 
-#: src/ui/ms-feedback-panel.ui:149
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Calls"
 msgstr "ზარები"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic audio or video call notification"
 msgstr "ზოგადი აუდიო ან ვიდეოზარის გაფრთხილება"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Device events"
 msgstr "მოწყობილობის მოვლენები"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic device-related notification"
 msgstr "ზოგადი გაფრთხილება მოწყობილობის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Emails"
 msgstr "ელფოსტები"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic e-mail-related notification"
 msgstr "ზოგადი გაფრთხილება ელფოსტის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:170
-msgid "Instant Messages"
-msgstr "მყისი შეტყობინებები"
-
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic instant message-related notification"
 msgstr "ზოგადი გაფრთხილება ჩატის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Network events"
 msgstr "ქსელური მოვლენები"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic network notification"
 msgstr "ზოგადი გაფრთხილება ქსელის შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:191
 msgid "Presence changes"
 msgstr "სტატუსის ცვლილებები"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic presence change notification"
 msgstr "ზოგადი გაფრთხილება სტატუსის ცვლილების შესახებ"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:198
 msgid "File transfers"
 msgstr "ფაილის გადაწერები"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:199
 msgid "A generic file transfer or download notification"
 msgstr "ზოგადი გაფრთხილებები ფაილის ატვირთვის ან გადმოწერის შესახებ"
 
@@ -1159,6 +1159,9 @@ msgstr ""
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "მოირგეთ თქვენი დამატებითი სწრაფი პარამეტრები"
+
+#~ msgid "Instant messages"
+#~ msgstr "მყისი შეტყობინებები"
 
 #~ msgid "Applications"
 #~ msgstr "აპლიკაციები"
