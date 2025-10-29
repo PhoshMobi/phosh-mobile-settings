@@ -1,0 +1,1128 @@
+# Greek translation for phosh-mobile-settings.
+# Copyright (C) 2025 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Efstathios Iosifidis <eiosifidis@gnome.org>,  2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2025-10-28 23:55+0000\n"
+"PO-Revision-Date: 2025-10-28 23:55+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Greek <Greek>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:2
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Ρυθμίσεις Κινητού"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Κινητό;Προτιμήσεις;ΡυθμίσειςΚινητού;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Ρυθμίσεις Κινητού Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Αυτή η εφαρμογή σας επιτρέπει να ρυθμίσετε ορισμένες πτυχές του Phosh που "
+"διαφορετικά θα απαιτούσαν χρήση γραμμής εντολών."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Προχωρημένες ρυθμίσεις για συσκευές κινητών που χρησιμοποιούν Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Διαθέσιμοι πίνακες"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "Πίνακας συνθέτη"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "Πίνακας ανατροφοδότησης"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "Κρίσιμη θερμοκρασία είναι %.2f°C"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+msgid "Librem 5"
+msgstr "Librem 5"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend device"
+msgstr "Αναστολή συσκευής"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+msgid "Suspend is experimental"
+msgstr "Η αναστολή είναι πειραματική"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+msgid "suspend now"
+msgstr "αναστολή τώρα"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+msgid "Temperatures"
+msgstr "Θερμοκρασίες"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+msgid "CPU"
+msgstr "CPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+msgid "GPU"
+msgstr "GPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+msgid "Fuel Gauge"
+msgstr "Δείκτης Καυσίμου"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+msgid "Battery"
+msgstr "Μπαταρία"
+
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
+#, c-format
+msgid "Something went wrong: %s"
+msgstr "Κάτι πήγε στραβά: %s"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Γενικά"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Εμφάνιση Συντομεύσεων"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: src/mobile-settings-application.c:36
+msgid "- Manage your mobile settings"
+msgstr "- Διαχείριση των ρυθμίσεων κινητού σας"
+
+#: src/mobile-settings-application.c:447
+msgid "translator-credits"
+msgstr "Greek translation team"
+
+#: src/mobile-settings-window.c:148
+msgid "Device"
+msgstr "Συσκευή"
+
+#: src/ms-alerts-panel.c:242
+msgid "Could not get list of cell broadcast messages"
+msgstr "Δεν ήταν δυνατή η λήψη λίστας μηνυμάτων cell broadcast"
+
+#: src/ms-audio-devices.c:178
+msgid "Media Volume"
+msgstr "Ένταση Πολυμέσων"
+
+#: src/ms-audio-devices.c:180
+msgid "Notification Volume"
+msgstr "Ένταση Ειδοποιήσεων"
+
+#: src/ms-audio-devices.c:182
+msgid "Ring Tone Volume"
+msgstr "Ένταση Ηχητικού Σήματος"
+
+#: src/ms-audio-devices.c:184
+msgid "Call volume"
+msgstr "Ένταση κλήσης"
+
+#: src/ms-audio-devices.c:186
+msgid "Alarm Volume"
+msgstr "Ένταση Ξυπνητηριού"
+
+#: src/ms-audio-devices.c:188
+msgid "Emergency Alerts Volume"
+msgstr "Ένταση Ειδοποιήσεων Έκτακτης Ανάγκης"
+
+#: src/ms-cb-message-row.c:114
+msgid "Message of unknown severity"
+msgstr "Μήνυμα άγνωστης σοβαρότητας"
+
+#: src/ms-feedback-panel.c:215
+msgid "Sound file does not exist"
+msgstr "Το αρχείο ήχου δεν υπάρχει"
+
+#: src/ms-feedback-panel.c:217
+msgid "Sound file is corrupt"
+msgstr "Το αρχείο ήχου είναι κατεστραμμένο"
+
+#: src/ms-feedback-panel.c:219
+msgid "Failed to play sound"
+msgstr "Αποτυχία αναπαραγωγής ήχου"
+
+#: src/ms-feedback-panel.c:258
+#, c-format
+msgid "Playing %s"
+msgstr "Αναπαραγωγή %s"
+
+#: src/ms-feedback-panel.c:419
+msgid "low"
+msgstr "χαμηλή"
+
+#: src/ms-feedback-panel.c:422
+msgid "normal"
+msgstr "κανονική"
+
+#: src/ms-feedback-panel.c:425
+msgid "critical"
+msgstr "κρίσιμη"
+
+#: src/ms-feedback-panel.c:429
+msgid "none"
+msgstr "κανένα"
+
+#: src/ms-feedback-panel.c:813
+msgid "Mobile Settings Volume Control"
+msgstr "Έλεγχος Έντασης Ρυθμίσεων Κινητού"
+
+#: src/ms-lockscreen-panel.c:62
+msgid "Failed to set lockscreen wallpaper"
+msgstr "Αποτυχία ορισμού ταπετσαρίας οθόνης κλειδώματος"
+
+#: src/ms-osk-panel.c:746
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: src/ms-osk-panel.c:747
+msgid "The default completer selected by the OSK"
+msgstr "Ο προεπιλεγμένος συμπληρωτής που επιλέγεται από το OSK"
+
+#: src/ms-osk-panel.c:750
+msgid "No information available for this completer"
+msgstr "Δεν υπάρχουν πληροφορίες διαθέσιμες για αυτόν τον συμπληρωτή"
+
+#: src/ms-overview-panel.c:69
+msgid "Reset favorites?"
+msgstr "Επαναφορά αγαπημένων;"
+
+#: src/ms-overview-panel.c:72
+msgid "Reset list of favorite applications to the default?"
+msgstr "Επαναφορά λίστας αγαπημένων εφαρμογών στην προεπιλογή;"
+
+#: src/ms-overview-panel.c:75
+msgid "_Cancel"
+msgstr "_Ακύρωση"
+
+#: src/ms-overview-panel.c:76
+msgid "_Reset"
+msgstr "_Επαναφορά"
+
+#: src/ms-overview-panel.c:331
+msgid "Failed to set wallpaper for overview"
+msgstr "Αποτυχία ορισμού ταπετσαρίας για επισκόπηση"
+
+#: src/ms-sensor-panel.c:93
+msgid "Normal"
+msgstr "Κανονική"
+
+#: src/ms-sensor-panel.c:96
+msgid "Bottom up"
+msgstr "Κάτω προς τα πάνω"
+
+#: src/ms-sensor-panel.c:99
+msgid "Left up"
+msgstr "Αριστερά προς τα πάνω"
+
+#: src/ms-sensor-panel.c:102
+msgid "Right up"
+msgstr "Δεξιά προς τα πάνω"
+
+#: src/ms-sensor-panel.c:105
+msgid "Undefined"
+msgstr "Απροσδιόριστη"
+
+#: src/ms-sensor-panel.c:142
+msgid "Near"
+msgstr "Κοντά"
+
+#: src/ms-sensor-panel.c:142
+msgid "Far"
+msgstr "Μακριά"
+
+#: src/ms-sensor-panel.c:260
+msgid "Updating…"
+msgstr "Ενημέρωση…"
+
+#: src/ms-sensor-panel.c:277
+msgctxt "proximity sensor data"
+msgid "Not available"
+msgstr "Μη διαθέσιμα"
+
+#: src/ms-sensor-panel.c:279
+msgctxt "light sensor data"
+msgid "Not available"
+msgstr "Μη διαθέσιμα"
+
+#: src/ms-sensor-panel.c:281
+msgctxt "accelerometer sensor data"
+msgid "Not available"
+msgstr "Μη διαθέσιμα"
+
+#: src/ms-sound-row.c:128
+msgid "Custom"
+msgstr "Προσαρμοσμένο"
+
+#: src/ms-sound-row.c:309
+msgid "Choose sound file"
+msgstr "Επιλογή αρχείου ήχου"
+
+#: src/ms-util.c:170
+msgid "Full"
+msgstr "Πλήρης"
+
+#: src/ms-util.c:173
+msgid "Quiet"
+msgstr "Σιωπηλό"
+
+#: src/ms-util.c:176
+msgid "Silent"
+msgstr "Αθόρυβο"
+
+#: src/ms-util.c:292
+msgid "Choose Wallpaper"
+msgstr "Επιλογή Ταπετσαρίας"
+
+#: src/ui/mobile-settings-window.ui:31
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: src/ui/mobile-settings-window.ui:48
+msgid "Search settings"
+msgstr "Αναζήτηση ρυθμίσεων"
+
+#: src/ui/mobile-settings-window.ui:98
+msgid "Welcome"
+msgstr "Καλωσήρθατε"
+
+#: src/ui/mobile-settings-window.ui:104
+msgid "Welcome to Mobile Settings"
+msgstr "Καλωσήρθατε στις Ρυθμίσεις Κινητού"
+
+#: src/ui/mobile-settings-window.ui:105
+msgid "Tweak advanced mobile settings"
+msgstr "Προσαρμογή προχωρημένων ρυθμίσεων κινητού"
+
+#: src/ui/mobile-settings-window.ui:113
+msgid "Top Bar"
+msgstr "Ανώτερη Μπάρα"
+
+#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Γρήγορες Ρυθμίσεις"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Notches"
+msgstr "Εγκοπές"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Overview"
+msgstr "Επισκόπηση"
+
+#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
+msgid "Favorites"
+msgstr "Αγαπημένα"
+
+#: src/ui/mobile-settings-window.ui:142
+msgid "Filter"
+msgstr "Φίλτρο"
+
+#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
+msgid "Wallpaper"
+msgstr "Ταπετσαρία"
+
+#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
+msgid "Feedback"
+msgstr "Ανατροφοδότηση"
+
+#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
+msgid "Sounds"
+msgstr "Ήχοι"
+
+#: src/ui/mobile-settings-window.ui:164
+msgid "Wakeup"
+msgstr "Αφύπνιση"
+
+#: src/ui/mobile-settings-window.ui:165
+msgid "Vibra"
+msgstr "Δόνηση"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Haptic"
+msgstr "Απτική"
+
+#: src/ui/mobile-settings-window.ui:167
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/mobile-settings-window.ui:178
+msgid "Compositor"
+msgstr "Συνθέτης"
+
+#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
+msgid "Scaling"
+msgstr "Κλιμάκωση"
+
+#: src/ui/mobile-settings-window.ui:197
+msgid "Lockscreen"
+msgstr "Οθόνη Κλειδώματος"
+
+#: src/ui/mobile-settings-window.ui:206
+msgid "Shuffle"
+msgstr "Ανακάτεμα"
+
+#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
+msgid "Widgets"
+msgstr "Widgets"
+
+#: src/ui/mobile-settings-window.ui:208
+msgid "Password"
+msgstr "Κωδικός Πρόσβασης"
+
+#: src/ui/mobile-settings-window.ui:219
+msgid "Convergence"
+msgstr "Σύγκλιση"
+
+#: src/ui/mobile-settings-window.ui:237
+msgid "On Screen Keyboard"
+msgstr "Πληκτρολόγιο Οθόνης"
+
+#: src/ui/mobile-settings-window.ui:245
+msgid "Keyboard"
+msgstr "Πληκτρολόγιο"
+
+#: src/ui/mobile-settings-window.ui:246
+msgid "Unfold"
+msgstr "Ξεδίπλωμα"
+
+#: src/ui/mobile-settings-window.ui:247
+msgid "OSK"
+msgstr "OSK"
+
+#: src/ui/mobile-settings-window.ui:248
+msgid "Word Completion"
+msgstr "Συμπλήρωση Λέξεων"
+
+#: src/ui/mobile-settings-window.ui:259
+msgid "Emergency Alerts"
+msgstr "Ειδοποιήσεις Έκτακτης Ανάγκης"
+
+#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
+msgid "Emergency"
+msgstr "Επείγον"
+
+#: src/ui/mobile-settings-window.ui:268
+msgid "Cell Broadcast"
+msgstr "Cell Broadcast"
+
+#: src/ui/mobile-settings-window.ui:269
+msgid "Danger"
+msgstr "Κίνδυνος"
+
+#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Αισθητήρες"
+
+#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Υψηλή Αντίθεση"
+
+#: src/ui/mobile-settings-window.ui:299
+msgid "Experimental features"
+msgstr "Πειραματικές λειτουργίες"
+
+#: src/ui/mobile-settings-window.ui:308
+msgid "Suspend"
+msgstr "Αναστολή"
+
+#: src/ui/mobile-settings-window.ui:309
+msgid "Experimental"
+msgstr "Πειραματικό"
+
+#: src/ui/mobile-settings-window.ui:333
+msgid "_Show Configurable Tweaks"
+msgstr "_Εμφάνιση Προσαρμόσιμων Τweak"
+
+#: src/ui/mobile-settings-window.ui:340
+msgid "_Keyboard Shortcuts"
+msgstr "_Συντομεύσεις Πληκτρολογίου"
+
+#: src/ui/mobile-settings-window.ui:344
+msgid "_About Mobile Settings"
+msgstr "_Σχετικά με τις Ρυθμίσεις Κινητού"
+
+#: src/ui/ms-alerts-panel.ui:17
+msgid "Unable To Receive Alerts"
+msgstr "Αδυναμία Λήψης Ειδοποιήσεων"
+
+#: src/ui/ms-alerts-panel.ui:18
+msgid ""
+"Cannot receive Emergency Alerts on this device as no usable cellular modem "
+"is detected."
+msgstr ""
+"Δεν είναι δυνατή η λήψη Ειδοποιήσεων Έκτακτης Ανάγκης σε αυτή τη συσκευή καθώς "
+"δεν ανιχνεύεται χρησιμοποιήσιμο modem κινητής τηλεφωνίας."
+
+#: src/ui/ms-alerts-panel.ui:30
+msgid "Emergency and Governmental Alerts"
+msgstr "Ειδοποιήσεις Έκτακτης Ανάγκης και Κυβερνήσεων"
+
+#: src/ui/ms-alerts-panel.ui:33
+msgid "Extreme Threat Alerts"
+msgstr "Ειδοποιήσεις Ακραίας Απειλής"
+
+#: src/ui/ms-alerts-panel.ui:35
+msgid "Display alerts for extreme threats to life and safety"
+msgstr "Εμφάνιση ειδοποιήσεων για ακραίες απειλές ζωής και ασφάλειας"
+
+#: src/ui/ms-alerts-panel.ui:41
+msgid "Severe Threat Alerts"
+msgstr "Ειδοποιήσεις Σοβαρής Απειλής"
+
+#: src/ui/ms-alerts-panel.ui:43
+msgid "Display alerts for severe threats to life and safety"
+msgstr "Εμφάνιση ειδοποιήσεων για σοβαρές απειλές ζωής και ασφάλειας"
+
+#: src/ui/ms-alerts-panel.ui:49
+msgid "Public Safety Alerts"
+msgstr "Ειδοποιήσεις Δημόσιας Ασφάλειας"
+
+#: src/ui/ms-alerts-panel.ui:51
+msgid "Show recommended actions to take in situations with a risk to safety"
+msgstr "Εμφάνιση προτεινόμενων ενεργειών σε καταστάσεις με κίνδυνο ασφάλειας"
+
+#: src/ui/ms-alerts-panel.ui:57
+msgid "Test alerts"
+msgstr "Δοκιμαστικές ειδοποιήσεις"
+
+#: src/ui/ms-alerts-panel.ui:59
+msgid "Show periodic messages to test the alert system"
+msgstr "Εμφάνιση περιοδικών μηνυμάτων για δοκιμή του συστήματος ειδοποιήσεων"
+
+#: src/ui/ms-alerts-panel.ui:65
+msgid "Amber alerts"
+msgstr "Ειδοποιήσεις Amber"
+
+#: src/ui/ms-alerts-panel.ui:67
+msgid "Show messages about child abduction emergencies"
+msgstr "Εμφάνιση μηνυμάτων για επείγουσες περιπτώσεις απαγωγής παιδιών"
+
+#: src/ui/ms-alerts-panel.ui:76
+msgid "History of Emergency and Governmental Alerts"
+msgstr "Ιστορικό Ειδοποιήσεων Έκτακτης Ανάγκης και Κυβερνήσεων"
+
+#: src/ui/ms-alerts-panel.ui:82
+msgid "No emergency alerts yet"
+msgstr "Καμία ειδοποίηση έκτακτης ανάγκης ακόμα"
+
+#: src/ui/ms-audio-device-row.ui:32
+msgid "Volume"
+msgstr "Ένταση"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "Κλιμάκωση προς τα κάτω εκτελούμενων εφαρμογών"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "Ενεργοποιήστε αυτό μόνο για κατεστραμμένες εφαρμογές που δεν χωράνε στην οθόνη"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "Κλιμάκωση όλων των εφαρμογών προς τα κάτω"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr "Εξαναγκαστική κλιμάκωση όλων των εφαρμογών προς τα κάτω. Χρησιμοποιήστε μόνο ως τελευταία λύση."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "Κλιμάκωση όλων των εφαρμογών προς τα κάτω"
+
+#: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
+msgctxt "scale to fit setting"
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "Δεν ανιχνεύθηκαν γνωστές βάσεις"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "Αντιστοίχιση ενσωματωμένης οθόνης αφής"
+
+#: src/ui/ms-convergence-panel.ui:36
+msgctxt "touch setting"
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Πειραματικές Λειτουργίες"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "Λειτουργίες που δεν θεωρούνται ακόμα πλήρως σταθερές"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Κλήσεις Έκτακτης Ανάγκης"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Ενεργοποίηση κλήσεων έκτακτης ανάγκης. Παρακαλώ ενεργοποιήστε αυτό μόνο εάν "
+"μπορείτε με ασφάλεια να διασφαλίσετε ότι λειτουργεί με τον πάροχο σας."
+
+#: src/ui/ms-features-panel.ui:24
+msgctxt "emergency calls setting"
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: src/ui/ms-features-panel.ui:32
+msgid "Enable suspend via the system menu"
+msgstr "Ενεργοποίηση αναστολής μέσω του συστημικού μενού"
+
+#: src/ui/ms-features-panel.ui:34
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Παρακαλώ ενεργοποιήστε αυτό μόνο εάν γνωρίζετε τους περιορισμούς όπως απώλεια "
+"σύνδεσης δεδομένων ή χαμένα ξυπνητήρια"
+
+#: src/ui/ms-features-panel.ui:40
+msgctxt "suspend setting"
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: src/ui/ms-feedback-panel.ui:13
+msgid "Sound Settings"
+msgstr "Ρυθμίσεις Ήχου"
+
+#: src/ui/ms-feedback-panel.ui:27
+msgid "Feedback Settings"
+msgstr "Ρυθμίσεις Ανατροφοδότησης"
+
+#: src/ui/ms-feedback-panel.ui:30
+msgid "Feedback profile"
+msgstr "Προφίλ ανατροφοδότησης"
+
+#: src/ui/ms-feedback-panel.ui:31
+msgid "The global maximum feedback profile"
+msgstr "Το παγκόσμιο μέγιστο προφίλ ανατροφοδότησης"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Prefer flash"
+msgstr "Προτίμηση φλας"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "Prefer camera flash over status LED when available"
+msgstr "Προτίμηση φλας κάμερας έναντι LED κατάστασης όταν είναι διαθέσιμο"
+
+#: src/ui/ms-feedback-panel.ui:53
+msgid "Silence on Vol-"
+msgstr "Σίγαση στο Vol-"
+
+#: src/ui/ms-feedback-panel.ui:54
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Όταν είναι κλειδωμένο, βάλτε το τηλέφωνο σε σιωπηλή λειτουργία όταν πατιέται "
+"το Vol- σε εισερχόμενες κλήσεις"
+
+#: src/ui/ms-feedback-panel.ui:60
+msgid "Haptic strength"
+msgstr "Ισχύς απτικής"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "Maximum haptic feedback strength percentage"
+msgstr "Μέγιστο ποσοστό ισχύος απτικής ανατροφοδότησης"
+
+#: src/ui/ms-feedback-panel.ui:80
+msgid "Per Application settings"
+msgstr "Ρυθμίσεις ανά Εφαρμογή"
+
+#: src/ui/ms-feedback-panel.ui:94
+msgid "The sound to use for certain events"
+msgstr "Ο ήχος προς χρήση για ορισμένα συμβάντα"
+
+#: src/ui/ms-feedback-panel.ui:102
+msgid "Phone Calls"
+msgstr "Τηλεφωνικές Κλήσεις"
+
+#: src/ui/ms-feedback-panel.ui:108
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+msgid "Instant Messages"
+msgstr "Άμεσα Μηνύματα"
+
+#: src/ui/ms-feedback-panel.ui:121
+msgid "Alarm Clock"
+msgstr "Ξυπνητήρι"
+
+#: src/ui/ms-feedback-panel.ui:132
+msgid "Screen Wakeup"
+msgstr "Αφύπνιση Οθόνης"
+
+#: src/ui/ms-feedback-panel.ui:135
+msgid "Notification urgency that lights up the screen"
+msgstr "Επείγουσα ειδοποίηση που ανάβει την οθόνη"
+
+#: src/ui/ms-feedback-panel.ui:153
+msgid ""
+"Notification categories that wake up the screen independent from their "
+"urgency"
+msgstr "Κατηγορίες ειδοποιήσεων που αφυπνίζουν την οθόνη ανεξάρτητα από την επείγουσά τους"
+
+#: src/ui/ms-feedback-panel.ui:156
+msgid "Calls"
+msgstr "Κλήσεις"
+
+#: src/ui/ms-feedback-panel.ui:157
+msgid "A generic audio or video call notification"
+msgstr "Μια γενική ειδοποίηση ήχου ή βίντεο κλήσης"
+
+#: src/ui/ms-feedback-panel.ui:163
+msgid "Device events"
+msgstr "Συμβάντα συσκευής"
+
+#: src/ui/ms-feedback-panel.ui:164
+msgid "A generic device-related notification"
+msgstr "Μια γενική ειδοποίηση σχετική με συσκευή"
+
+#: src/ui/ms-feedback-panel.ui:170
+msgid "Emails"
+msgstr "Emails"
+
+#: src/ui/ms-feedback-panel.ui:171
+msgid "A generic e-mail-related notification"
+msgstr "Μια γενική ειδοποίηση σχετική με email"
+
+#: src/ui/ms-feedback-panel.ui:178
+msgid "A generic instant message-related notification"
+msgstr "Μια γενική ειδοποίηση σχετική με άμεσα μηνύματα"
+
+#: src/ui/ms-feedback-panel.ui:184
+msgid "Network events"
+msgstr "Συμβάντα δικτύου"
+
+#: src/ui/ms-feedback-panel.ui:185
+msgid "A generic network notification"
+msgstr "Μια γενική ειδοποίηση δικτύου"
+
+#: src/ui/ms-feedback-panel.ui:191
+msgid "Presence changes"
+msgstr "Αλλαγές παρουσίας"
+
+#: src/ui/ms-feedback-panel.ui:192
+msgid "A generic presence change notification"
+msgstr "Μια γενική ειδοποίηση αλλαγής παρουσίας"
+
+#: src/ui/ms-feedback-panel.ui:198
+msgid "File transfers"
+msgstr "Μεταφορές αρχείων"
+
+#: src/ui/ms-feedback-panel.ui:199
+msgid "A generic file transfer or download notification"
+msgstr "Μια γενική ειδοποίηση μεταφοράς αρχείου ή λήψης"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Locking and unlocking"
+msgstr "Κλείδωμα και ξεκλείδωμα"
+
+#: src/ui/ms-lockscreen-panel.ui:18
+msgid "Shuffle keypad"
+msgstr "Ανακάτεμα πληκτρολογίου"
+
+#: src/ui/ms-lockscreen-panel.ui:19
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Εάν θα ανακατεύονται οι αριθμοί στο πληκτρολόγιο"
+
+#: src/ui/ms-lockscreen-panel.ui:25
+msgid "Require authentication to unlock"
+msgstr "Απαίτηση πιστοποίησης για ξεκλείδωμα"
+
+#: src/ui/ms-lockscreen-panel.ui:26
+msgid "Require typing PIN or password to unlock the device"
+msgstr "Απαίτηση πληκτρολόγησης PIN ή κωδικού πρόσβασης για ξεκλείδωμα συσκευής"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Automatic screen lock delay"
+msgstr "Καθυστέρηση αυτόματου κλειδώματος οθόνης"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Seconds from screen blank to screen lock"
+msgstr "Δευτερόλεπτα από κενή οθόνη έως κλείδωμα οθόνης"
+
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+msgid "Background"
+msgstr "Φόντο"
+
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+msgid "_Select Wallpaper…"
+msgstr "_Επιλογή Ταπετσαρίας…"
+
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+msgid "Use wallpaper"
+msgstr "Χρήση ταπετσαρίας"
+
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+msgid "Whether to show a colorful wallpaper"
+msgstr "Εάν θα εμφανίζεται μια πολύχρωμη ταπετσαρία"
+
+#: src/ui/ms-lockscreen-panel.ui:80
+msgid "Additional widgets for the lock screen"
+msgstr "Πρόσθετα widgets για την οθόνη κλειδώματος"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Προσθήκη Διάταξης"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Προσθήκη"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:40
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+msgid "Add Shortcut"
+msgstr "Προσθήκη Συντόμευσης"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:44
+msgid "Choose Shortcut Modifiers"
+msgstr "Επιλογή Τροποποιητών Συντόμευσης"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:129
+msgid "Choose Shortcut Key"
+msgstr "Επιλογή Πλήκτρου Συντόμευσης"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+msgid "Enter Shortcut Key"
+msgstr "Εισαγωγή Πλήκτρου Συντόμευσης"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:141
+msgid "Type a key such as letters (like C or V), etc."
+msgstr "Πληκτρολογήστε ένα πλήκρο όπως γράμματα (π.χ. C ή V), κλπ."
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:144
+msgid "_Shortcut Key"
+msgstr "_Πλήκτρο Συντόμευσης"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+msgid "Shortcut Preview"
+msgstr "Προεπισκόπηση Συντόμευσης"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Διατάξεις"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: src/ui/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Δεν έχουν ρυθμιστεί διατάξεις"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Περισσότερες επιλογές…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Μετακίνηση Πάνω"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Μετακίνηση Κάτω"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Ενεργοποίηση _Πληκτρολογίου Οθόνης"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Εάν θα εμφανίζεται το πληκτρολόγιο οθόνης όταν χρειάζεται"
+
+#: src/ui/ms-osk-panel.ui:20
+msgid "Unfold long-press"
+msgstr "Ξεδίπλωμα με παρατεταμένο πάτημα"
+
+#: src/ui/ms-osk-panel.ui:21
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Πόσο καιρό να πατιέται το κέντρο της γραμμής αρχικής οθόνης για να "
+"ξεδιπλωθεί το πληκτρολόγιο οθόνης"
+
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
+#: src/ui/ms-osk-panel.ui:26
+msgid "short"
+msgstr "σύντομο"
+
+#. Translators: abbreviation for 1 second interval of time
+#: src/ui/ms-osk-panel.ui:28
+msgctxt "press interval"
+msgid "normal"
+msgstr "κανονικό"
+
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
+#: src/ui/ms-osk-panel.ui:30
+msgid "long"
+msgstr "μεγάλο"
+
+#: src/ui/ms-osk-panel.ui:38
+msgid "Ignore hardware keyboard"
+msgstr "Αγνόηση φυσικού πληκτρολογίου"
+
+#: src/ui/ms-osk-panel.ui:39
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+"Εάν θα εμφανίζεται το πληκτρολόγιο οθόνης όταν υπάρχει φυσικό πληκτρολόγιο"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Key indicator popup"
+msgstr "Αναδυόμενος δείκτης πλήκτρου"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid "Whether to show a popover indicating the currently pressed key"
+msgstr ""
+"Εάν θα εμφανίζεται ένα αναδυόμενο παράθυρο που δείχνει το πλήκτρο που "
+"πατιέται"
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Keyboard height in portrait mode"
+msgstr "Ύψος πληκτρολογίου σε κατακόρυφη λειτουργία"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "When the screen is taller than wide"
+msgstr "Όταν η οθόνη είναι ψηλότερη από όσο είναι φαρδιά"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Keyboard height in landscape mode"
+msgstr "Ύψος πληκτρολογίου σε οριζόντια λειτουργία"
+
+#: src/ui/ms-osk-panel.ui:77
+msgid "When the screen is wider than tall"
+msgstr "Όταν η οθόνη είναι φαρδύτερη από όσο είναι ψηλή"
+
+#: src/ui/ms-osk-panel.ui:104
+msgid "Keep physical size constant"
+msgstr "Διατήρηση σταθερού φυσικού μεγέθους"
+
+#: src/ui/ms-osk-panel.ui:105
+msgid "Whether to keep the OSK's size constant in portrait mode"
+msgstr ""
+"Εάν θα διατηρείται το μέγεθος του πληκτρολογίου οθόνης σταθερό σε "
+"κατακόρυφη λειτουργία"
+
+#: src/ui/ms-osk-panel.ui:111
+msgid "Add empty space below keys"
+msgstr "Προσθήκη κενού χώρου κάτω από τα πλήκτρα"
+
+#: src/ui/ms-osk-panel.ui:112
+msgid "Whether to add an empty area below the OSK's keys to shift it upward."
+msgstr ""
+"Εάν θα προστίθεται μια κενή περιοχή κάτω από τα πλήκτρα του πληκτρολογίου "
+"οθόνης για να μετακινείται προς τα πάνω."
+
+#: src/ui/ms-osk-panel.ui:122
+msgid "Text Completion"
+msgstr "Συμπλήρωση Κειμένου"
+
+#: src/ui/ms-osk-panel.ui:125
+msgid "Opportunistic word completion"
+msgstr "Ευκαιριακή συμπλήρωση λέξεων"
+
+#: src/ui/ms-osk-panel.ui:126
+msgid "Enable word completion when the app indicates it is useful"
+msgstr ""
+"Ενεργοποίηση συμπλήρωσης λέξεων όταν η εφαρμογή υποδεικνύει ότι είναι χρήσιμη"
+
+#: src/ui/ms-osk-panel.ui:133
+msgid "Toggle via OSK menu"
+msgstr "Εναλλαγή μέσω μενού πληκτρολογίου οθόνης"
+
+#: src/ui/ms-osk-panel.ui:134
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+"Να επιτρέπεται η εναλλαγή συμπλήρωσης λέξεων μέσω του πλήκτρου μενού του "
+"πληκτρολογίου"
+
+#: src/ui/ms-osk-panel.ui:140
+msgid "Default Completer"
+msgstr "Προεπιλεγμένος Συμπληρωτής"
+
+#: src/ui/ms-osk-panel.ui:141
+msgid "The default completion engine to use"
+msgstr "Η προεπιλεγμένη μηχανή συμπλήρωσης που θα χρησιμοποιείται"
+
+#: src/ui/ms-osk-panel.ui:152
+msgid "Terminal Layout"
+msgstr "Διάταξη Τερματικού"
+
+#: src/ui/ms-osk-panel.ui:171
+msgid "Shortcuts"
+msgstr "Συντομεύσεις"
+
+#: src/ui/ms-osk-panel.ui:172
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "Οι συντομεύσεις που είναι διαθέσιμες στη γραμμή συντομεύσεων"
+
+#: src/ui/ms-overview-panel.ui:22
+msgid "Organize Favorites"
+msgstr "Οργάνωση Αγαπημένων"
+
+#: src/ui/ms-overview-panel.ui:23
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Σύρετε και αποθέστε τις εφαρμογές παρακάτω για να αναδιατάξετε τις "
+"αγαπημένες σας εφαρμογές"
+
+#: src/ui/ms-overview-panel.ui:48
+msgid "Reset Favorites"
+msgstr "Επαναφορά Αγαπημένων"
+
+#: src/ui/ms-overview-panel.ui:49
+msgid "Set list of favorite apps back to the default"
+msgstr "Επαναφορά της λίστας αγαπημένων εφαρμογών στις προεπιλογές"
+
+#: src/ui/ms-overview-panel.ui:53
+msgid "Reset"
+msgstr "Επαναφορά"
+
+#: src/ui/ms-overview-panel.ui:64
+msgid "Mobile App Filtering"
+msgstr "Φιλτράρισμα Εφαρμογών Κινητού"
+
+#: src/ui/ms-overview-panel.ui:67
+msgid "Set Application Filter Mode"
+msgstr "Ρύθμιση Λειτουργίας Φιλτραρίσματος Εφαρμογών"
+
+#: src/ui/ms-overview-panel.ui:68
+msgid "Show only mobile apps in the overview"
+msgstr "Εμφάνιση μόνο εφαρμογών κινητού στην επισκόπηση"
+
+#: src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Εφαρμογή"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Δεν βρέθηκαν αισθητήρες"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+"Είτε δεν υπάρχουν αισθητήρες εγκατεστημένοι στη συσκευή σας είτε έχουν "
+"απενεργοποιηθεί από έναν διακόπτη ασφαλείας."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Αναγνώσεις Αισθητήρων"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Εγγύτητα"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Φως"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Προσανατολισμός"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Αυτόματη Υψηλή Αντίθεση"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "Ελέγχεται από τον Αισθητήρα Αμβιέντ Φωτισμού"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "Όριο έντασης φωτός"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "Το θέμα θα αλλάξει σε υψηλή αντίθεση πάνω από το όριο"
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "Αρχεία ήχου (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Στοιχεία Διεπαφής"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Εμφάνιση ποσοστού μπαταρίας"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Εμφάνιση ακριβούς επιπέδου φόρτισης στην επάνω γραμμή"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Αποφυγή εγκοπών"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Να μην τοποθετούνται στοιχεία διεπαφής κάτω από εγκοπές και αποκοπές οθόνης"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "Οργάνωση των πρόσθετων Γρήγορων Ρυθμίσεων"
