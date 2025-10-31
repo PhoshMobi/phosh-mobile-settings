@@ -261,6 +261,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
     g_autoptr (GError) error = NULL;
     g_autoptr (GKeyFile) keyfile = g_key_file_new ();
     g_auto (GStrv) types = NULL;
+    g_autofree char *icon_name = NULL;
 
     if (!g_str_has_prefix (filename, PHOSH_PLUGIN_PREFIX) ||
         !g_str_has_suffix (filename, PHOSH_PLUGIN_SUFFIX))
@@ -290,9 +291,13 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
     title = g_key_file_get_locale_string (keyfile, "Plugin", "Name", NULL, NULL);
     description = g_key_file_get_locale_string (keyfile, "Plugin", "Comment", NULL, NULL);
     types = g_key_file_get_string_list (keyfile, "Plugin", "Types", NULL, NULL);
+    icon_name = g_key_file_get_string (keyfile, "Plugin", "Icon", NULL);
 
     if (types == NULL)
       g_warning ("Plugin '%s' has no type. Please fix", name);
+
+    if (icon_name == NULL)
+      g_warning ("Failed to get icon for %s plugin", name);
 
     if (!g_strv_contains ((const char *const *)types, self->plugin_type))
       continue;
@@ -310,6 +315,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
                         "enabled", enabled,
                         "has-prefs", !!prefs_path,
                         "filename", path,
+                        "icon", icon_name,
                         NULL);
     g_signal_connect_object (row,
                              "notify::enabled",
