@@ -126,13 +126,15 @@ test_mappings_fixture_teardown (MappingTestFixture *fixture, gconstpointer unuse
 static void
 test_mappings_handle_get_boolean_type_choice (MappingTestFixture *fixture, gconstpointer unused)
 {
+  g_autoptr (GError) error = NULL;
   GValue *value = fixture->value;
   MsTweaksSetting *setting = fixture->setting;
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, CHOICE_VALUE_STRING_1);
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_cmpstr (g_value_get_string (value), ==, CHOICE_VALUE_STRING_1);
+  g_assert_no_error (error);
 }
 
 
@@ -157,20 +159,23 @@ test_mappings_handle_set_boolean_type_choice (MappingTestFixture *fixture, gcons
 static void
 test_mappings_handle_get_type_number (MappingTestFixture *fixture, gconstpointer unused)
 {
+  g_autoptr (GError) error = NULL;
   GValue *value = fixture->value;
   MsTweaksSetting *setting = fixture->setting;
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, TEST_FLOAT_STRING_REPR);
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_TRUE_MIN);
+  g_assert_no_error (error);
 
   g_value_unset (value);
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, TEST_FLOAT_STRING_REPR_SHORT);
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_TRUE_MIN);
+  g_assert_no_error (error);
 }
 
 
@@ -190,21 +195,24 @@ test_mappings_handle_set_type_number (MappingTestFixture *fixture, gconstpointer
 static void
 test_mappings_handle_get_boolean (MappingTestFixture *fixture, gconstpointer unused)
 {
+  g_autoptr (GError) error = NULL;
   GValue *value = fixture->value;
   MsTweaksSetting *setting = fixture->setting;
 
   /* Test valid mappings. */
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, BOOLEAN_TRUE_STRING);
-  ms_tweaks_mappings_handle_get (value, setting);
+  ms_tweaks_mappings_handle_get (value, setting, &error);
   g_assert_true (g_value_get_boolean (value));
+  g_assert_no_error (error);
 
   g_value_unset (value);
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, BOOLEAN_FALSE_STRING);
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_false (g_value_get_boolean (value));
+  g_assert_no_error (error);
 
   /* Test invalid mappings. These always result in the value being set to false and no error being
    * logged. Might be worth logging some error and testing that it happens in the future. */
@@ -212,15 +220,27 @@ test_mappings_handle_get_boolean (MappingTestFixture *fixture, gconstpointer unu
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, "what the heck");
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_false (g_value_get_boolean (value));
+  g_assert_no_error (error);
 
   g_value_unset (value);
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, "it is okay");
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_false (g_value_get_boolean (value));
+  g_assert_no_error (error);
+
+  g_value_unset (value);
+
+  /* Test nonexistent mappings. These always result in an error being returned. */
+  g_value_init (value, G_TYPE_STRING);
+  g_value_set_string (value, "this_is_the_wrong_place_for_me");
+  g_assert_false (ms_tweaks_mappings_handle_get (value, setting, &error));
+  g_assert_error (error,
+                  MS_TWEAKS_MAPPINGS_ERROR,
+                  MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_FIND_KEY_BY_VALUE);
 }
 
 /**
@@ -271,13 +291,15 @@ test_mappings_handle_set_gtype_boolean (MappingTestFixture *fixture, gconstpoint
 static void
 test_mappings_handle_get_null_map (MappingTestFixture *fixture, gconstpointer unused)
 {
+  g_autoptr (GError) error = NULL;
   GValue *value = fixture->value;
   MsTweaksSetting *setting = fixture->setting;
 
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, TEST_STRING);
-  ms_tweaks_mappings_handle_get (value, setting);
+  g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
   g_assert_cmpstr (g_value_get_string (value), ==, TEST_STRING);
+  g_assert_no_error (error);
 }
 
 
