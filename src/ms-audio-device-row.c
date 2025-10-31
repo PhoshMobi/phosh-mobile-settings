@@ -79,7 +79,7 @@ transform_icon_name_to_icon (GBinding     *binding,
   if (icon_name == NULL)
     icon_name = "audio-speakers-symbolic";
 
-  icon = g_themed_icon_new_with_default_fallbacks (icon_name);
+  icon = g_themed_icon_new (icon_name);
 
   g_value_take_object (to_value, icon);
   return TRUE;
@@ -90,6 +90,7 @@ static void
 on_stream_volume_changed (MsAudioDeviceRow *self)
 {
   GvcMixerStream *stream;
+  pa_volume_t vol;
 
   if (self->setting_volume)
     return;
@@ -97,9 +98,10 @@ on_stream_volume_changed (MsAudioDeviceRow *self)
   stream = ms_audio_device_get_stream (self->audio_device);
   g_return_if_fail (stream);
 
+  vol = gvc_mixer_stream_get_volume (stream);
   self->setting_volume = TRUE;
-  g_debug ("Adjusting volume to %d", gvc_mixer_stream_get_volume (stream));
-  gtk_adjustment_set_value (self->adjustment, gvc_mixer_stream_get_volume (stream));
+  g_debug ("Adjusting volume to %d", vol);
+  gtk_adjustment_set_value (self->adjustment, vol);
   self->setting_volume = FALSE;
 }
 
