@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-27 09:59+0000\n"
-"PO-Revision-Date: 2025-10-27 11:27+0100\n"
+"POT-Creation-Date: 2025-10-31 21:20+0000\n"
+"PO-Revision-Date: 2025-10-31 23:00+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -160,18 +160,22 @@ msgid "Notification Volume"
 msgstr "Glasnost obvestil"
 
 #: src/ms-audio-devices.c:182
+msgid "Voice Call Volume"
+msgstr "Glasnost glasovnih klicev"
+
+#: src/ms-audio-devices.c:184
 msgid "Ring Tone Volume"
 msgstr "Glasnost zvonjenja"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:186
 msgid "Call volume"
 msgstr "Glasnost klicev"
 
-#: src/ms-audio-devices.c:186
+#: src/ms-audio-devices.c:188
 msgid "Alarm Volume"
 msgstr "Glasnost alarma"
 
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:190
 msgid "Emergency Alerts Volume"
 msgstr "Glasnost opozoril v sili"
 
@@ -909,15 +913,15 @@ msgstr "Postavitve"
 msgid "No Layouts configured"
 msgstr "Postavitve niso nastavljene"
 
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
 msgid "More options…"
 msgstr "_Dodatne možnosti …"
 
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
 msgid "Move Up"
 msgstr "Premakni gor"
 
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
 msgid "Move Down"
 msgstr "Premakni dol"
 
