@@ -137,6 +137,9 @@ ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_dat
   g_autofree char *normalised;
   char *mapped;
 
+  g_assert (value);
+  g_assert (setting_data);
+
   normalised = stringify_gvalue (value);
 
   if (!normalised) {
