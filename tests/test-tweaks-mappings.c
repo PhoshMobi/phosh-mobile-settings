@@ -166,7 +166,7 @@ test_mappings_handle_get_type_number (MappingTestFixture *fixture, gconstpointer
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, TEST_FLOAT_STRING_REPR);
   g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
-  g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_TRUE_MIN);
+  g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_EPSILON);
   g_assert_no_error (error);
 
   g_value_unset (value);
@@ -174,7 +174,7 @@ test_mappings_handle_get_type_number (MappingTestFixture *fixture, gconstpointer
   g_value_init (value, G_TYPE_STRING);
   g_value_set_string (value, TEST_FLOAT_STRING_REPR_SHORT);
   g_assert_true (ms_tweaks_mappings_handle_get (value, setting, &error));
-  g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_TRUE_MIN);
+  g_assert_cmpfloat_with_epsilon (g_value_get_double (value), TEST_FLOAT_DOUBLE_REPR, FLT_EPSILON);
   g_assert_no_error (error);
 }
 
