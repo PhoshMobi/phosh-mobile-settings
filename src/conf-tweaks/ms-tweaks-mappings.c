@@ -106,7 +106,7 @@ stringify_gvalue (GValue *value)
     normalised = ms_tweaks_mappings_int_to_string (g_value_get_int (value));
     break;
   case G_TYPE_STRING:
-    normalised = g_strdup (g_value_get_string (value));
+    normalised = g_value_dup_string (value);
     break;
   case G_TYPE_UINT:
     normalised = ms_tweaks_mappings_uint_to_string (g_value_get_uint (value));
