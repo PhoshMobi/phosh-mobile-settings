@@ -15,9 +15,10 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#define MS_TWEAKS_NO_LOCALE_FORMATTING
+#include "ms-tweaks-files-poison.h"
 
 G_DEFINE_QUARK (ms-tweaks-mappings-error-quark, ms_tweaks_mappings_error)
-
 
 static gboolean
 ms_tweaks_mappings_string_to_boolean (const char *from)

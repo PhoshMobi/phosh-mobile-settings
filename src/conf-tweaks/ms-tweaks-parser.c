@@ -23,8 +23,8 @@
 #include <math.h>
 #include <yaml.h>
 
-/* Tweaks files use C locale so make sure we don't accidentally use locale-aware functions. */
-#pragma GCC poison strtof strtod strtold
+#define MS_TWEAKS_NO_LOCALE_FORMATTING
+#include "ms-tweaks-files-poison.h"
 
 /* Undocumented default from settingstree.py in postmarketos-tweaks. */
 #define CONF_TWEAKS_DEFAULT_WEIGHT 50
