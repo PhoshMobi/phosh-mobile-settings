@@ -155,11 +155,6 @@ write_new_xresources (MsTweaksBackendXresources  *self,
   g_autofree char *new_xresources = g_strconcat (self->key, ": ", new_value, NULL);
   g_autofree char *xresources_dir_path = g_path_get_dirname (xresources_path);
 
-  g_debug ("xresources doesn't exist at \"%s\", creating new one (error: %s)",
-           xresources_path,
-           (*error)->message);
-  g_clear_error (error);
-
   if (g_mkdir_with_parents (xresources_dir_path, 0700) == -1) {
     ms_tweaks_warning (self->setting_data->name,
                        "failed to create leading directories \"%s\": %s",
@@ -202,10 +197,15 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
     return FALSE;
   }
 
-  if (g_file_get_contents (self->xresources_path, &contents, NULL, error))
+  if (g_file_get_contents (self->xresources_path, &contents, NULL, error)) {
     success = rewrite_existing_xresources (self, contents, self->xresources_path, new_value, error);
-  else
+  } else if (g_error_matches (*error, G_FILE_ERROR, G_FILE_ERROR_NOENT)) {
+    g_debug ("xresources doesn't exist at \"%s\", creating new one (error: %s)",
+             self->xresources_path,
+             (*error)->message);
+    g_clear_error (error);
     success = write_new_xresources (self, self->xresources_path, new_value, error);
+  }
 
   return success;
 }
