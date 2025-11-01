@@ -11,4 +11,4 @@
 #endif
 
 /* Tweaks files use C locale so make sure we don't accidentally use locale-aware functions. */
-#pragma GCC poison strtof strtod strtold
+#pragma GCC poison g_strtod strtof strtod strtold

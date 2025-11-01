@@ -38,7 +38,7 @@ ms_tweaks_mappings_boolean_to_string (const gboolean from)
 static double
 ms_tweaks_mappings_string_to_double (const char *from)
 {
-  return g_strtod (from, NULL);
+  return g_ascii_strtod (from, NULL);
 }
 
 
