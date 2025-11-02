@@ -431,8 +431,19 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
         widget_value = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_value (backend_state);
 
       /* Handle mappings. */
-      if (widget_value)
-        ms_tweaks_mappings_handle_get (widget_value, setting_data);
+      if (widget_value) {
+        g_autoptr (GError) mapping_error = NULL;
+        gboolean success;
+
+        success = ms_tweaks_mappings_handle_get (widget_value, setting_data, &mapping_error);
+
+        if (!success) {
+          ms_tweaks_warning (setting_data->name,
+                             "Failed to handle mappings, ignoring: %s",
+                             mapping_error->message);
+          continue;
+        }
+      }
 
       if (setting_widget_is_valid) {
         MsTweaksCallbackMeta *callback_meta;

@@ -15,6 +15,10 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+
+G_DEFINE_QUARK (ms-tweaks-mappings-error-quark, ms_tweaks_mappings_error)
+
+
 static gboolean
 ms_tweaks_mappings_string_to_boolean (const char *from)
 {
@@ -102,7 +106,7 @@ stringify_gvalue (GValue *value)
     normalised = ms_tweaks_mappings_int_to_string (g_value_get_int (value));
     break;
   case G_TYPE_STRING:
-    normalised = g_strdup (g_value_get_string (value));
+    normalised = g_value_dup_string (value);
     break;
   case G_TYPE_UINT:
     normalised = ms_tweaks_mappings_uint_to_string (g_value_get_uint (value));
@@ -119,25 +123,47 @@ stringify_gvalue (GValue *value)
  * ms_tweaks_mappings_handle_get:
  * @value: Value to reverse-map and convert.
  * @setting_data: Data to use for mapping and type information.
+ * @error: Set if there was an error when handling mappings.
  *
  * Takes a GValue initialised with some data from a backend, converts it to a string, reverse-maps
  * it based on `setting_data->map` if it is set, and then converts it to the type appropriate for
  * its `setting_data->type` value.
+ *
+ * Returns: TRUE on success, FALSE on error.
  */
-void
-ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_data)
+gboolean
+ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_data, GError **error)
 {
-  g_autofree char *normalised = stringify_gvalue (value);
-  char *mapped = normalised;
+  g_autofree char *normalised;
+  char *mapped;
+
+  g_assert (value);
+  g_assert (setting_data);
+
+  normalised = stringify_gvalue (value);
+
+  if (!normalised) {
+    g_set_error (error,
+                 MS_TWEAKS_MAPPINGS_ERROR,
+                 MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_NORMALISE,
+                 "Failed to normalise data, unimplemented GType?");
+    return FALSE;
+  }
 
   /* setting_data->map has a different purpose in choice widgets than other ones, so don't use it
    * for this. */
   if (setting_data->map && setting_data->type != MS_TWEAKS_TYPE_CHOICE)
     mapped = ms_tweaks_util_get_key_by_value_string (setting_data->map, normalised);
+  else
+    mapped = normalised;
 
   if (!mapped) {
-    ms_tweaks_warning (setting_data->name, "Error when handling mappings");
-    return;
+    g_set_error (error,
+                 MS_TWEAKS_MAPPINGS_ERROR,
+                 MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_FIND_KEY_BY_VALUE,
+                 "Couldn't find a key with the expected value ('%s') in map",
+                 normalised);
+    return FALSE;
   }
 
   g_value_unset (value);
@@ -162,6 +188,8 @@ ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_dat
     g_value_set_string (value, mapped);
     break;
   }
+
+  return TRUE;
 }
 
 /**
