@@ -41,9 +41,9 @@ variables:
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
   GCHECK_DIRS: src tests plugins
 
-.trixie_vars: &trixie_vars
+.forky_vars: &forky_vars
   variables:
-    DIST: trixie
+    DIST: forky
     BUILD_OPTS:  ${COMMON_BUILD_OPTS}
 
 .build_step: &build_step
@@ -80,23 +80,23 @@ sanity:
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
 
-build:native-debian-trixie:
+build:native-debian-forky:
   stage: build
   image: ${DEBIAN_IMAGE}
   <<: *before
-  <<: *trixie_vars
+  <<: *forky_vars
   <<: *build_step
   artifacts:
     paths:
       - _build
 
-test:native-debian-trixie:
+test:native-debian-forky:
   stage: test
   image: ${DEBIAN_IMAGE}
   needs:
-    - build:native-debian-trixie
+    - build:native-debian-forky
   <<: *before
-  <<: *trixie_vars
+  <<: *forky_vars
   <<: *test_step
   coverage: '/^lines:\s+([\d.]+\%)\s+/'
   artifacts:
@@ -104,7 +104,7 @@ test:native-debian-trixie:
     reports:
       junit: _build/meson-logs/testlog.junit.xml
 
-asan-test-native-debian-trixie:
+asan-test-native-debian-forky:
   stage: test
   image: ${DEBIAN_IMAGE}
   tags: [asan]
