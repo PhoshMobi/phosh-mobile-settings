@@ -845,7 +845,8 @@ on_check_alarm_app_ready (GObject *source_object, GAsyncResult *res, gpointer us
                                              &err);
 
   if (!success) {
-    g_warning ("Failed to check for alarm app: %s", err->message);
+    if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+      g_warning ("Failed to check for alarm app: %s", err->message);
     return;
   }
 

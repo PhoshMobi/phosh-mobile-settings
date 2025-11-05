@@ -297,7 +297,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
       g_warning ("Plugin '%s' has no type. Please fix", name);
 
     if (icon_name == NULL)
-      g_warning ("Failed to get icon for %s plugin", name);
+      g_debug ("Failed to get icon for %s plugin", name);
 
     if (!g_strv_contains ((const char *const *)types, self->plugin_type))
       continue;
