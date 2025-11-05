@@ -56,7 +56,7 @@ variables:
 .test_step: &test_step
   script:
     - !reference [.phosh-prepare-apt]
-    - dbus-run-session meson test --print-errorlogs -C _build
+    - ${XVFB_RUN} meson test --print-errorlogs -C _build
     - ninja -C _build coverage-html || true
 
 .before: &before
