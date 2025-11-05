@@ -25,6 +25,7 @@ Build-Depends:
  gsettings-desktop-schemas <!nocheck>,
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
+ phosh-plugins (>= 0.40.0~) <!nocheck>,
  xauth <!nocheck>,
  xvfb <!nocheck>,
  xwayland <!nocheck>,
