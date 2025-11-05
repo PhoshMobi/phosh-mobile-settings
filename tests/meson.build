@@ -14,11 +14,6 @@ test_env_common.set(
   'suppressions=@0@/data/leak-suppress.txt'.format(meson.project_source_root()),
 )
 
-if gtk_dep.version().version_compare('>=4.19.1')
-  test_env_common.set('GSK_RENDERER', 'opengl')
-else
-  test_env_common.set('GSK_RENDERER', 'ngl')
-endif
 test_env_common.set('MS_FORCE_OSK', 'unknown')
 
 subdir('utils')
