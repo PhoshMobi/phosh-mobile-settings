@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-02 21:22+0000\n"
-"PO-Revision-Date: 2025-10-03 03:09+0330\n"
+"POT-Creation-Date: 2025-11-05 16:04+0000\n"
+"PO-Revision-Date: 2025-11-06 16:03+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
@@ -110,7 +110,7 @@ msgstr "عقربهٔ سوخت"
 msgid "Battery"
 msgstr "باتری"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:36
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "چیزی اشتباه پیش رفت: %s"
@@ -156,18 +156,22 @@ msgid "Notification Volume"
 msgstr "حجم صدای آگاهی"
 
 #: src/ms-audio-devices.c:182
+msgid "Voice Call Volume"
+msgstr "حجم صدای تماس صوتی"
+
+#: src/ms-audio-devices.c:184
 msgid "Ring Tone Volume"
 msgstr "حجم صدای زنگ"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:186
 msgid "Call volume"
 msgstr "حجم صدای تماس"
 
-#: src/ms-audio-devices.c:186
+#: src/ms-audio-devices.c:188
 msgid "Alarm Volume"
 msgstr "خجم صدای هشدار"
 
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:190
 msgid "Emergency Alerts Volume"
 msgstr "حجم صدای هشدارهای اضطراری"
 
@@ -175,44 +179,44 @@ msgstr "حجم صدای هشدارهای اضطراری"
 msgid "Message of unknown severity"
 msgstr "پیام با شدّت نامعلوم"
 
-#: src/ms-feedback-panel.c:212
+#: src/ms-feedback-panel.c:215
 msgid "Sound file does not exist"
 msgstr "پروندهٔ صدا وجود ندارد"
 
-#: src/ms-feedback-panel.c:214
+#: src/ms-feedback-panel.c:217
 msgid "Sound file is corrupt"
 msgstr "پروندهٔ صدا خراب است"
 
-#: src/ms-feedback-panel.c:216
+#: src/ms-feedback-panel.c:219
 msgid "Failed to play sound"
 msgstr "شکست در پخش صد"
 
-#: src/ms-feedback-panel.c:255
+#: src/ms-feedback-panel.c:258
 #, c-format
 msgid "Playing %s"
 msgstr "پخش کردن %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:416
+#: src/ms-feedback-panel.c:419
 msgid "low"
 msgstr "کم"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:422
 msgid "normal"
 msgstr "معمولی"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:425
 msgid "critical"
 msgstr "بحرانی"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:426
+#: src/ms-feedback-panel.c:429
 msgid "none"
 msgstr "هیچ"
 
-#: src/ms-feedback-panel.c:806
+#: src/ms-feedback-panel.c:813
 msgid "Mobile Settings Volume Control"
 msgstr "واپایش حجم صدای تنظیمات همراه"
 
@@ -721,76 +725,76 @@ msgstr "تماس‌های تلفنی"
 msgid "SMS"
 msgstr "پیامک"
 
-#: src/ui/ms-feedback-panel.ui:114
-msgid "Instant messages"
+#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+msgid "Instant Messages"
 msgstr "پیام‌های فوری"
 
-#: src/ui/ms-feedback-panel.ui:125
+#: src/ui/ms-feedback-panel.ui:121
+msgid "Alarm Clock"
+msgstr "ساعت زنگ‌دار"
+
+#: src/ui/ms-feedback-panel.ui:132
 msgid "Screen Wakeup"
 msgstr "بیدار شدن صفحه"
 
-#: src/ui/ms-feedback-panel.ui:128
+#: src/ui/ms-feedback-panel.ui:135
 msgid "Notification urgency that lights up the screen"
 msgstr "ضروریت آگاهی‌ای که صفحه را روشن می‌کند"
 
-#: src/ui/ms-feedback-panel.ui:146
+#: src/ui/ms-feedback-panel.ui:153
 msgid ""
 "Notification categories that wake up the screen independent from their urgency"
 msgstr "دسته‌های آگاهی که مستقل از ضرورتشان صفحه را برمی‌خیزانند"
 
-#: src/ui/ms-feedback-panel.ui:149
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Calls"
 msgstr "تماس‌ها"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic audio or video call notification"
 msgstr "آگاهی عمومی تماس صوتی یا تصویری"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Device events"
 msgstr "رویدادهای افزاره"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic device-related notification"
 msgstr "آگاهی عمومی مربوط به افزاره"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Emails"
 msgstr "رایانامه‌ها"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic e-mail-related notification"
 msgstr "آگاهی عمومی مربوط به رایانامه"
 
-#: src/ui/ms-feedback-panel.ui:170
-msgid "Instant Messages"
-msgstr "پیام‌های فوری"
-
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic instant message-related notification"
 msgstr "آگاهی عمومی مربوط به پیام فوری"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Network events"
 msgstr "رویدادهای شبکه"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic network notification"
 msgstr "آگاهی عمومی شبکه"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:191
 msgid "Presence changes"
 msgstr "تغییرات حضور"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic presence change notification"
 msgstr "آگاهی عمومی دگرگونی حضور"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:198
 msgid "File transfers"
 msgstr "انتفال پرونده‌ها"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:199
 msgid "A generic file transfer or download notification"
 msgstr "آگاهی عمومی بارگیری یا انتقال پرونده"
 
@@ -900,15 +904,15 @@ msgstr "چینش‌ها"
 msgid "No Layouts configured"
 msgstr "هیچ چینشی پیکربندی نشده"
 
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
 msgid "More options…"
 msgstr "گزینه‌های بیش‌تر…"
 
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
 msgid "Move Up"
 msgstr "جابه‌جایی به بالا"
 
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
 msgid "Move Down"
 msgstr "جابه‌جایی به پایین"
 
@@ -1145,6 +1149,9 @@ msgstr "قرار ندادن عنصرهای میانای کاربری زیر رو
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "سازمان دهی تنظیمات سریع اضافیتان"
+
+#~ msgid "Instant messages"
+#~ msgstr "پیام‌های فوری"
 
 #~ msgid "Applications"
 #~ msgstr "برنامه‌ها"
