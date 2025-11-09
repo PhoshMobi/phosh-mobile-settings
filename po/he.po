@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-09-25 17:57+0000\n"
-"PO-Revision-Date: 2025-09-28 16:56+0300\n"
+"POT-Creation-Date: 2025-11-07 14:39+0000\n"
+"PO-Revision-Date: 2025-11-09 10:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <yoseforb@gmail.com>\n"
 "Language: he\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
@@ -113,6 +113,11 @@ msgstr "מד דלק"
 msgid "Battery"
 msgstr "סוללה"
 
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
+#, c-format
+msgid "Something went wrong: %s"
+msgstr "משהו השתבש: %s"
+
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -157,18 +162,22 @@ msgid "Notification Volume"
 msgstr "עוצמת שמע של התראות"
 
 #: src/ms-audio-devices.c:182
+msgid "Voice Call Volume"
+msgstr "עוצמת שמע של שיחה קולית"
+
+#: src/ms-audio-devices.c:184
 msgid "Ring Tone Volume"
 msgstr "עוצמת שמע של צלצול"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:186
 msgid "Call volume"
 msgstr "עוצמת שמע של שיחה"
 
-#: src/ms-audio-devices.c:186
+#: src/ms-audio-devices.c:188
 msgid "Alarm Volume"
 msgstr "עוצמת שמע לשעון מעורר"
 
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:190
 msgid "Emergency Alerts Volume"
 msgstr "עוצמת שמע לשיחות חירום"
 
@@ -176,44 +185,44 @@ msgstr "עוצמת שמע לשיחות חירום"
 msgid "Message of unknown severity"
 msgstr "הודעה בדרגת חומרה לא ידועה"
 
-#: src/ms-feedback-panel.c:212
+#: src/ms-feedback-panel.c:215
 msgid "Sound file does not exist"
 msgstr "לא קיים קובץ שמע"
 
-#: src/ms-feedback-panel.c:214
+#: src/ms-feedback-panel.c:217
 msgid "Sound file is corrupt"
 msgstr "קובץ השמע פגום"
 
-#: src/ms-feedback-panel.c:216
+#: src/ms-feedback-panel.c:219
 msgid "Failed to play sound"
 msgstr "השמעת הצליל נכשלה"
 
-#: src/ms-feedback-panel.c:255
+#: src/ms-feedback-panel.c:258
 #, c-format
 msgid "Playing %s"
 msgstr "‫%s מתנגן"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:416
+#: src/ms-feedback-panel.c:419
 msgid "low"
 msgstr "נמוך"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:422
 msgid "normal"
 msgstr "רגיל"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:425
 msgid "critical"
 msgstr "קיצוני"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:426
+#: src/ms-feedback-panel.c:429
 msgid "none"
 msgstr "ללא"
 
-#: src/ms-feedback-panel.c:806
+#: src/ms-feedback-panel.c:813
 msgid "Mobile Settings Volume Control"
 msgstr "בקרת עוצמת שמע להגדרות הנייד"
 
@@ -720,77 +729,77 @@ msgstr "שיחות טלפון"
 msgid "SMS"
 msgstr "מסרון"
 
-#: src/ui/ms-feedback-panel.ui:114
-msgid "Instant messages"
+#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+msgid "Instant Messages"
 msgstr "הודעות מיידיות"
 
-#: src/ui/ms-feedback-panel.ui:125
+#: src/ui/ms-feedback-panel.ui:121
+msgid "Alarm Clock"
+msgstr "שעון מעורר"
+
+#: src/ui/ms-feedback-panel.ui:132
 msgid "Screen Wakeup"
 msgstr "התעוררות המסך"
 
-#: src/ui/ms-feedback-panel.ui:128
+#: src/ui/ms-feedback-panel.ui:135
 msgid "Notification urgency that lights up the screen"
 msgstr "דחיפות התראות שמפעילה את המסך"
 
-#: src/ui/ms-feedback-panel.ui:146
+#: src/ui/ms-feedback-panel.ui:153
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr "קטגוריות התראות שמעירות את המסך ללא תלות בדרגת הדחיפות שלהן"
 
-#: src/ui/ms-feedback-panel.ui:149
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Calls"
 msgstr "שיחות"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:157
 msgid "A generic audio or video call notification"
 msgstr "התראת שיחת שמע או וידאו כללית"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:163
 msgid "Device events"
 msgstr "אירועי מכשיר"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:164
 msgid "A generic device-related notification"
 msgstr "התראה כללית שקשורה במכשיר"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:170
 msgid "Emails"
 msgstr "הודעות דוא״ל"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:171
 msgid "A generic e-mail-related notification"
 msgstr "התראה כללית שקשורה בדוא״ל"
 
-#: src/ui/ms-feedback-panel.ui:170
-msgid "Instant Messages"
-msgstr "הודעות מיידיות"
-
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:178
 msgid "A generic instant message-related notification"
 msgstr "התראה כללית שקשורה בהודעות מיידיות"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:184
 msgid "Network events"
 msgstr "אירועי רשת"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:185
 msgid "A generic network notification"
 msgstr "התראת רשת כללית"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:191
 msgid "Presence changes"
 msgstr "שינויי נוכחות"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:192
 msgid "A generic presence change notification"
 msgstr "התראת שינוי נוכחות כללית"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:198
 msgid "File transfers"
 msgstr "העברות קבצים"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:199
 msgid "A generic file transfer or download notification"
 msgstr "התראת העברת קבצים או הורדה כללית"
 
@@ -902,15 +911,15 @@ msgstr "פריסות"
 msgid "No Layouts configured"
 msgstr "לא מוגדרות פריסות"
 
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
 msgid "More options…"
 msgstr "אפשרויות נוספות…"
 
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
 msgid "Move Up"
 msgstr "העלאה למעלה"
 
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
 msgid "Move Down"
 msgstr "הורדה למטה"
 
@@ -1146,6 +1155,9 @@ msgstr "לא להציב רכיבי מנשק משתמש מתחת לאזורי ח�
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "מיון ההגדרות המהירות הנוספות שלך"
+
+#~ msgid "Instant messages"
+#~ msgstr "הודעות מיידיות"
 
 #~ msgid "Applications"
 #~ msgstr "יישומים"
