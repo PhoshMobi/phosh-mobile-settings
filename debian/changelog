@@ -1,3 +1,182 @@
+phosh-mobile-settings (0.51~rc1) experimental; urgency=medium
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Return boolean from value setter methods.
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/86
+  * conf-tweaks: Remove excess semicolon
+  * tests: Add test for constructing an empty MsTweaksPreferencesPage
+  * conf-tweaks: Use g_steal_pointer () to simplify some pointer stealing
+  * conf-tweaks: Add more braces.
+    Stylistic preference, apparently.
+  * conf-tweaks: Use GInitable for the GSettings backend.
+    It's better to put the fallible logic the GInitable init method than in
+    the _new () method.
+  * conf-tweaks: Fix signature for functions connecting to GtkButton::clicked.
+    This was a copy-paste error, I'm not sure how it ever worked. The
+    GtkButton::clicked signal only has two parameters, GtkButton * and
+    gpointer. There is no third argument, and none of them give a GdkEvent.
+    See https://docs.gtk.org/gtk4/signal.Button.clicked.html
+  * conf-tweaks: Add more assertions in file_widget_unset ()
+    Can be useful for catching bugs.
+  * conf-tweaks: Display an error toast if unsetting a file fails.
+    Before, this would just fail silently.
+    Fixes c83aef0f9865f735e5255b098c1597cd15198d43
+  * conf-tweaks: Display an error toast if picking a file fails.
+    Fixes c83aef0f9865f735e5255b098c1597cd15198d43
+  * conf-tweaks: Also append file picker label in file widget.
+    Otherwise you cannot see which file has been picked.
+    Fixes 646c6984047d6637dc3d353e72dfd0ca3075786b
+  * conf-tweaks: Remove nonsensical assertion.
+    I'm not sure why I added this assertion, but my guess would be that
+    either `from` also used to be a pointer, or I just didn't really think
+    about that it wasn't one when adding that. Either way, it makes no sense
+    since it's perfectly valid for the weigh of a setting to be 0. Asserting
+    that `into` is not 0 makes sense since it is a pointer and this function
+    will crash if `into` is a NULL pointer.
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/88
+    Fixes b113b068e26ce11cb645b5570d9f00a999cb8de0
+  * tests: Add tests for merge_weights ()
+  * conf-tweaks: Add ms_tweaks_expand_single () utility function
+  * conf-tweaks: Remove set_source_ext from backend interface.
+    This should've been handled as a property, not like this. Remove this
+    now unused part of the interface.
+  * conf-tweaks: Add utility for checking whether a given path is inside $HOME
+  * conf-tweaks: Add Symlink backend
+  * tests: Add test for Symlink backend
+  * conf-tweaks: Add more braces.
+    Stylistic preference, apparently.
+  * conf-tweaks: Make setting-data a prop in Xresources backend.
+    More consistent with other backends, probably more idiomatic? It also
+    avoids potential use-after-free issues with setting_data by copying it
+    instead of borrowing it.
+  * conf-tweaks: Make xresources-path a prop in Xresources backend.
+    Previously this was implemented using a bespoke default value handling
+    solution rather than the GObject-property one. Make it a GObject
+    property so we don't have to worry about that.
+  * conf-tweaks: Fix error not being set properly in Xresources backend
+  * conf-tweaks: Reorder functions to align with Phosh code style.
+  * conf-tweaks: Add Gtk3settings backend
+  * conf-tweaks: Add tests for Gtk3settings backend
+  * conf-tweaks: Only attempt to create new Xresources on G_FILE_ERROR_NOENT.
+    If there was some other error, we probably don't want to try to make a
+    new file since something is weird with the location we're trying to
+    write to.
+    Additionally, shuffle around some code to make it more readable and
+    clearer what's going on. It seems unexpected to me that
+    write_new_xresources () expects an error that already is filled and then
+    clears it. Move this to the caller.
+  * conf-tweaks: Handle mapping failures gracefully in PreferencesPage.
+    Previously the program could crash due to type errors if the mapping
+    step didn't go through properly. Handle such cases better by just
+    ignoring the problematic setting.
+    Also reorganise some code to make it easier to follow.
+  * conf-tweaks: Simplify G_TYPE_STRING normalisation
+  * conf-tweaks: Add more assertions to ms_tweaks_mappings_handle_get ()
+    Made possible by earlier code reorganisations.
+  * tests: Replace FLT_TRUE_MIN with FLT_EPSILON.
+    Requested during review[1].
+     [1]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/merge_requests/276#note_2592049
+  * tests: Don't run unit tests in Phoc, use xvfb.
+    Running them in Phoc means that setting brakepoints immediately when you
+    enter gdb becomes a lot trickier and isn't really necessary. This does
+    however mean that you have to run the tests with xvfb-run or equivalent
+    for test-preferences-page to pass.
+
+  [ Nathan Follens ]
+  * Update Dutch translation
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+  * Update Turkish translation
+
+  [ Guido Günther ]
+  * tweaks-preference-page: Fix file_picker_label life cycle.
+    Appending to a box sinks the ref so we can't sink or unref it
+    later without taking a reference on our own first. But as the label
+    won't outlive the containing widget there's no need for us to
+    keep a reference anyway.
+    Should we ever intend to use the metadata longer than the generated
+    widget we would sink the ref in `setting_data_to_file_widget` and
+    would unref on dispose.
+  * ci: Use check image.
+    No need to reach out to an external registry and install packages
+    every time
+  * ci: Drop PKG_ONLY.
+    Unused since ages
+  * ci: No need to fetch packages from experimental.
+    All in forky now
+  * ci: Update image to forky
+  * ci: Simplify.
+    Use the shared default image from 5cd8a21 now that the
+    code is merged.
+  * feedback-panel: Add sound row for alarm clock
+  * feedback-panel: Check for mobile friendly alarm app.
+    If we find an alarm app that is likely to support feedbackd
+    we enable the sound settings row. This is currenlty based on
+    the app having the `--hidden` option. We might later on check
+    for the DBus name.
+  * feedback-panel: Use header capitalization
+  * audio-devices: Fix ringtone loopback name.
+    Let's make it match https://gitlab.freedesktop.org/xdg/xdg-specs/-/issues/202
+  * audio-device-row: Get volume only once
+  * audio-devices: Handle phone call volume
+  * audio-device-row: Drop fallback.
+    Otherwise we might fallback to incorrect icons for the volume streams.
+  * plugin-list-box: Don't warn on missing icon.
+    Otherwise we fail on every system that has phosh plugins installed.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/92
+    Fixes: 6cd666c ("plugin-list-box: Don't warn on missing icon")
+  * feedback-panel: Don't warn when operation got cancelled.
+    This can happen in tests
+    Fixes: f56f820 ("feedback-panel: Check for mobile friendly alarm app")
+  * packaging: Require phosh plugins during the build.
+    This makes sure we test plugin related code paths which
+    is the common case on phosh installations.
+  * ci: Update images.
+    Make sure we test against recent GTK.
+  * ci: Switch all jobs to forky
+  * ci: Robustify xvfb-run
+  * ci: Don't set renderer.
+    This lets test fail when running under xvfb and everyone should
+    have recent enough GTK nowadays.
+
+  [ Martin ]
+  * Update Slovenian translation
+  * Update Slovenian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Efstathios Iosifidis ]
+  * Add Greek translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Gotam Gorabh ]
+  * ms-plugin-row: Display icon for enabled quick settings.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/56
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 09 Nov 2025 12:39:44 +0100
+
 phosh-mobile-settings (0.50.0) experimental; urgency=medium
 
   [ Guido Günther ]

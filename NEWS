@@ -1,3 +1,32 @@
+phosh-mobile-settings 0.51~rc1
+------------------------------
+Released November 2025
+* feedback panel: Allow to set alarm clock sound when clock app supports it
+* top-bar panel: Show icon for quick settings plugins
+* feedback-panel: Improve role-based audio volume settings
+* conf-tweaks; Better error handling, error reporting and bug fixes
+* conf-tweaks: Add Gtk3Settings
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/92
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/56
+* Contributors:
+    * Gotam Gorabh
+    * Guido Günther
+    * Stefan Hansson
+* UI translations:
+    * Anders Jonsson (sv)
+    * Antonio Marin (ro)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Efstathios Iosifidis (el)
+    * Ekaterine Papava (ka)
+    * Juliano de Souza Camargo (pt_BR)
+    * Martin (sl)
+    * Nathan Follens (nl)
+    * Sabri Ünal (tr)
+    * Yaron Shahrabani (he)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.50.0
 ----------------------------
 Released October 2025
