@@ -8,6 +8,7 @@ Build-Depends:
  desktop-file-utils,
  dbus-x11 <!nocheck>,
  libadwaita-1-dev (>= 1.5),
+ libcellbroadcast-dev (>= 0.0.3),
  libfeedback-dev (>= 0.7.0),
  libgsound-dev,
  libgmobile-dev (>= 0.4.0),
@@ -29,9 +30,6 @@ Build-Depends:
  xauth <!nocheck>,
  xvfb <!nocheck>,
  xwayland <!nocheck>,
- libmm-glib-dev (>= 1.24.0),
- mobile-broadband-provider-info,
-# last two dependencies needed for libcellbroadcast
 Standards-Version: 4.6.0
 Homepage: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/
 Rules-Requires-Root: no
