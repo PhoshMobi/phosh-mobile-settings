@@ -135,14 +135,7 @@ rewrite_existing_xresources (MsTweaksBackendXresources  *self,
     g_string_append_printf (contents_string, "%s\n", line_to_insert);
   }
 
-  if (!g_file_set_contents (xresources_path, contents_string->str, -1, error)) {
-    g_warning ("Error while writing to Xresources at '%s': %s",
-               xresources_path,
-               (*error)->message);
-    return FALSE;
-  }
-
-  return TRUE;
+  return g_file_set_contents (xresources_path, contents_string->str, -1, error);
 }
 
 
@@ -167,15 +160,7 @@ write_new_xresources (MsTweaksBackendXresources  *self,
     return FALSE;
   }
 
-  if (!g_file_set_contents (xresources_path, new_xresources, -1, error)) {
-    ms_tweaks_warning (self->setting_data->name,
-                       "error while writing to xresources at '%s': %s",
-                       xresources_path,
-                       (*error)->message);
-    return FALSE;
-  }
-
-  return TRUE;
+  return g_file_set_contents (xresources_path, new_xresources, -1, error);
 }
 
 
