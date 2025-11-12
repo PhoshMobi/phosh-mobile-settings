@@ -55,6 +55,7 @@ G_DEFINE_QUARK (ms-tweaks-backend-symlink-error-quark, ms_tweaks_backend_symlink
 static GValue *
 ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
 {
+  g_autofree char *link = NULL;
   g_autoptr (GError) error = NULL;
   g_autofree GValue *value = g_new0 (GValue, 1);
   MsTweaksBackendSymlink *self = MS_TWEAKS_BACKEND_SYMLINK (backend);
@@ -85,10 +86,9 @@ ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
     g_value_set_string (value, private->key);
   }
 
-  if (g_value_get_string (value)) {
-    /* Could avoid a copy here by using g_value_steal_string () in the future. */
-    const char *link = g_value_get_string (value);
-    char *link_target = NULL;
+  link = g_value_steal_string (value);
+  if (link) {
+    g_autofree char *link_target = NULL;
 
     if ((link_target = g_file_read_link (link, &error)) == NULL) {
       if (g_error_matches (error, G_FILE_ERROR, G_FILE_ERROR_NOENT)) {
@@ -106,7 +106,7 @@ ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
       return NULL;
     }
 
-    g_value_take_string (value, link_target);
+    g_value_take_string (value, g_steal_pointer (&link_target));
 
     return g_steal_pointer (&value);
   } else {
