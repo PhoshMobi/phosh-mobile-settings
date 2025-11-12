@@ -81,8 +81,9 @@ ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
     }
 
     globfree (&results);
-  } else
+  } else {
     g_value_set_string (value, private->key);
+  }
 
   if (g_value_get_string (value)) {
     /* Could avoid a copy here by using g_value_steal_string () in the future. */
@@ -108,8 +109,9 @@ ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
     g_value_take_string (value, link_target);
 
     return g_steal_pointer (&value);
-  } else
+  } else {
     return NULL;
+  }
 }
 
 
