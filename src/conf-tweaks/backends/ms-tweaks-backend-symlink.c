@@ -61,7 +61,7 @@ ms_tweaks_backend_symlink_get_value (MsTweaksBackend *backend)
   MsTweaksBackendSymlink *self = MS_TWEAKS_BACKEND_SYMLINK (backend);
   MsTweaksBackendSymlinkPrivate *private = ms_tweaks_backend_symlink_get_instance_private (self);
 
-  g_return_val_if_fail (private->setting_data->key != NULL, NULL);
+  g_assert (private->setting_data->key);
   g_value_init (value, G_TYPE_STRING);
 
   /* If source_ext is set, we need to guess which file extension the symlink has. */
