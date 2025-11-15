@@ -52,6 +52,18 @@
 
   <releases>
 
+    <release version="0.51.0" date="2025-11-15">
+      <description translate="no">
+        <ul>
+          <li>feedback panel: Allow to set alarm clock sound when clock app supports it</li>
+          <li>top-bar panel: Show icon for quick settings plugins</li>
+          <li>feedback-panel: Improve role-based audio volume settings</li>
+          <li>conf-tweaks: Better error handling, error reporting and bug fixes</li>
+          <li>conf-tweaks: Add Gtk3Settings</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.50.0" date="2025-10-04">
       <description translate="no">
         <ul>
