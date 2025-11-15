@@ -120,7 +120,7 @@ rewrite_existing_xresources (MsTweaksBackendXresources  *self,
   else
     line_to_insert = g_strdup (""); /* Remove the entry by replacing it with an empty string. */
 
-  g_debug ("Rewriting existing Xresources at \"%s\"", xresources_path);
+  g_debug ("Rewriting existing Xresources at '%s'", xresources_path);
   /* If there is more than one identical entry, something is weird anyway. */
   g_string_replace (contents_string, line_to_replace, line_to_insert, 1);
 
@@ -135,14 +135,7 @@ rewrite_existing_xresources (MsTweaksBackendXresources  *self,
     g_string_append_printf (contents_string, "%s\n", line_to_insert);
   }
 
-  if (!g_file_set_contents (xresources_path, contents_string->str, -1, error)) {
-    g_warning ("Error while writing to Xresources at \"%s\": %s",
-               xresources_path,
-               (*error)->message);
-    return FALSE;
-  }
-
-  return TRUE;
+  return g_file_set_contents (xresources_path, contents_string->str, -1, error);
 }
 
 
@@ -157,7 +150,7 @@ write_new_xresources (MsTweaksBackendXresources  *self,
 
   if (g_mkdir_with_parents (xresources_dir_path, 0700) == -1) {
     ms_tweaks_warning (self->setting_data->name,
-                       "failed to create leading directories \"%s\": %s",
+                       "failed to create leading directories '%s': %s",
                        xresources_dir_path,
                        strerror (errno));
     g_set_error (error,
@@ -167,15 +160,7 @@ write_new_xresources (MsTweaksBackendXresources  *self,
     return FALSE;
   }
 
-  if (!g_file_set_contents (xresources_path, new_xresources, -1, error)) {
-    ms_tweaks_warning (self->setting_data->name,
-                       "error while writing to xresources at \"%s\": %s",
-                       xresources_path,
-                       (*error)->message);
-    return FALSE;
-  }
-
-  return TRUE;
+  return g_file_set_contents (xresources_path, new_xresources, -1, error);
 }
 
 
@@ -200,7 +185,7 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
   if (g_file_get_contents (self->xresources_path, &contents, NULL, error)) {
     success = rewrite_existing_xresources (self, contents, self->xresources_path, new_value, error);
   } else if (g_error_matches (*error, G_FILE_ERROR, G_FILE_ERROR_NOENT)) {
-    g_debug ("xresources doesn't exist at \"%s\", creating new one (error: %s)",
+    g_debug ("xresources doesn't exist at '%s', creating new one (error: %s)",
              self->xresources_path,
              (*error)->message);
     g_clear_error (error);

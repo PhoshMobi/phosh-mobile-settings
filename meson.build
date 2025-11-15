@@ -16,7 +16,7 @@ pkgdatadir = datadir / meson.project_name()
 pkglibdir = libdir / meson.project_name()
 ms_plugins_dir = prefix / libdir / 'phosh-mobile-settings' / 'plugins'
 
-glib_ver = '2.76'
+glib_ver = '2.84'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.', '_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
