@@ -41,5 +41,7 @@ GVariant *        ms_bool_to_picture_mode (const GValue       *in_value,
                                            gpointer            data);
 char             *ms_normalize_casefold_and_unaccent (const char *str);
 GtkStringList    *ms_get_casefolded_string_list (GtkStringList *strlist);
+const char       *ms_get_event_id_for_media_role (MsMediaRole role);
+const char       *ms_get_media_role_as_string (MsMediaRole role);
 
 G_END_DECLS

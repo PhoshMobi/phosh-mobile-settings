@@ -11,6 +11,12 @@
                 <child>
                   <object class="AdwPreferencesGroup" id="sound_settings_group">
                     <property name="title" translatable="yes">Sound Settings</property>
+                    <property name="header-suffix">
+                      <object class="GtkToggleButton" id="volume_slider_mute_btn">
+                        <property name="icon-name">audio-volume-muted-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Play sound on adjusting volume sliders</property>
+                      </object>
+                    </property>
                     <child>
                       <object class="GtkListBox" id="audio_devices_listbox">
                         <property name="selection-mode">none</property>
