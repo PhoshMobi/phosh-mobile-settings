@@ -1,3 +1,32 @@
+phosh-mobile-settings (0.51.0) experimental; urgency=medium
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Move locale poison to its own file and use it in mappings.
+    We don't want to do locale-specific format handling in the mappings
+    either, so let's poison it there too.
+  * conf-tweaks: Remove use of g_strtod from mappings and poison it.
+    We already poison the non-GLib strtod, poison the GLib variant for the
+    same reason. A better replacemnet is g_ascii_strtod () since it always
+    behaves as if it uses the C locale, which is what we want.
+  * ci: Also run non-ASAN tests in xvfb-run.
+    We need a display for the tests to pass now, so add it here too.
+  * conf-tweaks: Minor style fixes.
+    Similar fixes have been requested elsewhere, let's keep it consistent.
+  * build: Bump GLib dependency to 2.84.
+    To allow using g_string_new_take (), which requires GLib 2.78. Bumping
+    all the way to 2.84 to align with Debian Stable however.
+  * conf-tweaks: Don't leak link and link_target in error path.
+  * conf-tweaks: Replace g_return_val_if_fail with g_assert in symlink backend.
+    Apparently preferred for non-library APIs.
+  * conf-tweaks: Simplify Xresources file writing.
+    We don't need to print messages here this now that we're doing GError
+    handling better.
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 15 Nov 2025 10:57:26 +0100
+
 phosh-mobile-settings (0.51~rc1) experimental; urgency=medium
 
   [ Stefan Hansson ]
