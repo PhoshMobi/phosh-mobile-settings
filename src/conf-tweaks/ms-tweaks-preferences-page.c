@@ -8,6 +8,8 @@
 
 #define G_LOG_DOMAIN "ms-tweaks-preferences-page"
 
+#include "mobile-settings-config.h"
+
 #include "ms-tweaks-preferences-page.h"
 
 #include "backends/ms-tweaks-backend-gsettings.h"
@@ -18,6 +20,11 @@
 #include "ms-tweaks-callback-handlers.h"
 #include "ms-tweaks-mappings.h"
 #include "ms-tweaks-utils.h"
+
+#include <glib/gi18n-lib.h>
+
+#define PRIVILEGE_ESCALATION_PROGRAM "/usr/bin/pkexec"
+#define PKEXEC_CANCELLED_EXIT_CODE 126
 
 
 enum {
@@ -32,7 +39,10 @@ struct _MsTweaksPreferencesPage {
   MsPanel parent_instance;
 
   GtkWidget *page;
+  AdwBanner *banner;
   GtkWidget *toast_overlay;
+
+  GPtrArray *commands_to_run_as_administrator; /* Value type: GStrv. */
 
   const MsTweaksPage *data;
 };
@@ -355,6 +365,294 @@ setting_data_to_number_widget (const MsTweaksSetting *setting_data,
 }
 
 
+typedef struct {
+  MsTweaksPreferencesPage *preferences_page;
+  GArray                  *cmds_to_remove;
+  GPtrArray               *error_array;
+  guint                    running_cmds;
+} ChildExitCbShared;
+
+
+static ChildExitCbShared *
+child_exit_cb_shared_new (MsTweaksPreferencesPage *preferences_page)
+{
+  ChildExitCbShared *child_exit_cb_shared = g_new0 (ChildExitCbShared, 1);
+
+  child_exit_cb_shared->cmds_to_remove = g_array_new (FALSE, FALSE, sizeof (int));
+  child_exit_cb_shared->error_array = g_ptr_array_new_full (0, (GDestroyNotify) g_error_free);
+
+  child_exit_cb_shared->preferences_page = g_object_ref (preferences_page);
+  child_exit_cb_shared->running_cmds = preferences_page->commands_to_run_as_administrator->len;
+
+  return child_exit_cb_shared;
+}
+
+
+static void
+child_exit_cb_shared_free (ChildExitCbShared *self)
+{
+  g_object_unref (self->preferences_page);
+  g_array_unref (self->cmds_to_remove);
+  g_ptr_array_unref (self->error_array);
+
+  g_free (self);
+}
+
+/**
+ * ChildExitCbState:
+ * Wrapper for `ChildExitCbShared` that associates a specific callback with a given command by its
+ * index. This needs to be a separate structure as `running_cmds` in the shared structure only
+ * makes sense if it is shared across all callbacks.
+ */
+typedef struct {
+  guint              command_index;
+  ChildExitCbShared *shared;
+} ChildExitCbState;
+
+/**
+ * handle_process_fate:
+ * @child_exit_cb_state: Should be uniquely allocated to each call of this function.
+ * @success: If there was an error running the command, this should be set to TRUE.
+ * @error: Information about the error running the command. Should only be set if `success` is TRUE.
+ */
+static void
+handle_process_fate (ChildExitCbState *child_exit_cb_state,
+                     gboolean success,
+                     GError *error)
+{
+  ChildExitCbShared *child_exit_cb_shared = child_exit_cb_state->shared;
+
+  /* Only attempt to retry the pkexec invocation if it was cancelled by the user ... */
+  if (success || !g_error_matches (error, G_SPAWN_EXIT_ERROR, PKEXEC_CANCELLED_EXIT_CODE)) {
+    /* Add the command to the list of entries to remove from the command list, but don't actually
+     * remove them yet since the spawn loop may still be running which would cause problems. */
+    g_array_prepend_val (child_exit_cb_shared->cmds_to_remove, child_exit_cb_state->command_index);
+  }
+
+  /* ... and only count it as an error if it wasn't due to user cancellation. */
+  if (!success && !g_error_matches (error, G_SPAWN_EXIT_ERROR, PKEXEC_CANCELLED_EXIT_CODE))
+    g_ptr_array_add (child_exit_cb_shared->error_array, error);
+  else
+    g_clear_error (&error);
+
+  child_exit_cb_shared->running_cmds--;
+
+  if (child_exit_cb_shared->running_cmds == 0) {
+    /* If running_cmds has reached zero, we have run all the commands. Now we need to figure out
+     * how it went and present this to the user. */
+    guint cmd_count = child_exit_cb_shared->preferences_page->commands_to_run_as_administrator->len;
+
+    gtk_widget_set_sensitive (GTK_WIDGET (child_exit_cb_shared->preferences_page->banner), TRUE);
+
+
+    if (child_exit_cb_shared->cmds_to_remove->len == cmd_count) {
+      /* Hide the banner if we are removing all the commands since there will be nothing to run. */
+      adw_banner_set_revealed (child_exit_cb_shared->preferences_page->banner, FALSE);
+    } else {
+      /* If there still are commands left to run, the user must've cancelled the authentication. */
+      adw_toast_overlay_add_toast (ADW_TOAST_OVERLAY (child_exit_cb_shared->preferences_page->toast_overlay),
+                                   adw_toast_new_format (_("Authentication cancelled")));
+    }
+
+    if (child_exit_cb_shared->error_array->len != 0) {
+      /* We had errors while running the commands, so inform the user of this. */
+      AdwToast *error_toast = adw_toast_new_format (ngettext ("%i error occurred while saving",
+                                                              "%i errors occurred while saving",
+                                                              child_exit_cb_shared->error_array->len),
+                                                    child_exit_cb_shared->error_array->len);
+
+      for (guint i = 0; i < child_exit_cb_shared->error_array->len; i++) {
+        GError *error_entry = g_ptr_array_index (child_exit_cb_shared->error_array, i);
+
+        g_warning ("Error %i: %s", i + 1, error_entry->message);
+      }
+
+      adw_toast_overlay_add_toast (ADW_TOAST_OVERLAY (child_exit_cb_shared->preferences_page->toast_overlay),
+                                   error_toast);
+    }
+
+    /* Remove any commands that weren't cancelled so we don't needlessly run them twice if the user
+     * presses the button again to retry. */
+    for (guint i = 0; i < child_exit_cb_shared->cmds_to_remove->len; i++) {
+      g_ptr_array_remove_index_fast (child_exit_cb_shared->preferences_page->commands_to_run_as_administrator,
+                                     g_array_index (child_exit_cb_shared->cmds_to_remove, int, i));
+    }
+
+    child_exit_cb_shared_free (child_exit_cb_shared);
+  }
+
+  g_free (child_exit_cb_state);
+}
+
+
+static void
+on_child_exit (GPid pid, int wait_status, gpointer user_data)
+{
+  ChildExitCbState *child_exit_cb_state = user_data;
+  g_autoptr (GError) error = NULL;
+  gboolean success;
+
+  success = g_spawn_check_wait_status (wait_status, &error);
+
+  handle_process_fate (child_exit_cb_state, success, g_steal_pointer (&error));
+
+  g_spawn_close_pid (pid);
+}
+
+
+static void
+on_save_as_administrator_pressed (AdwBanner *banner, gpointer preferences_page)
+{
+  MsTweaksPreferencesPage *self = MS_TWEAKS_PREFERENCES_PAGE (preferences_page);
+  ChildExitCbShared *child_exit_cb_shared;
+
+  child_exit_cb_shared = child_exit_cb_shared_new (self);
+
+  /* Disable banner button until we have figured out whether the commands succeeded. */
+  gtk_widget_set_sensitive (GTK_WIDGET (banner), FALSE);
+
+  for (guint i = 0; i < self->commands_to_run_as_administrator->len; i++) {
+    GStrv cmd = g_ptr_array_index (self->commands_to_run_as_administrator, i);
+    ChildExitCbState *child_exit_cb_state = NULL;
+    gboolean spawn_success;
+    GError *error = NULL;
+    GPid child_pid;
+
+    child_exit_cb_state = g_new0 (ChildExitCbState, 1);
+
+    child_exit_cb_state->command_index = i;
+    child_exit_cb_state->shared = child_exit_cb_shared;
+
+    spawn_success = g_spawn_async (NULL,
+                                   cmd,
+                                   NULL,
+                                   G_SPAWN_DO_NOT_REAP_CHILD,
+                                   NULL, NULL,
+                                   &child_pid,
+                                   &error);
+
+    if (spawn_success)
+      g_child_watch_add (child_pid, on_child_exit, child_exit_cb_state);
+    else
+      handle_process_fate (child_exit_cb_state, spawn_success, error);
+  }
+}
+
+
+static GString *
+pretty_format_cmd (const GStrv cmd)
+{
+  g_autofree char *joint_cmds = NULL;
+  GString *buf;
+
+  buf = g_string_new ("# ");
+  joint_cmds = g_strjoinv (" ", cmd);
+  g_string_append (buf, joint_cmds);
+
+  return buf;
+}
+
+
+static gboolean
+is_command_queued (GPtrArray *commands_to_run_as_administrator, const char * const *cmd)
+{
+  gboolean match_found = FALSE;
+
+  for (guint i = 0; i < commands_to_run_as_administrator->len; i++) {
+    const char * const *cmd_entry = g_ptr_array_index (commands_to_run_as_administrator, i);
+
+    if (g_strv_equal (cmd, cmd_entry)) {
+      match_found = TRUE;
+      break;
+    }
+  }
+
+  return match_found;
+}
+
+/**
+ * queue_command:
+ * @self: Instance of MsTweaksPreferencesPage.
+ * @cmd: The command to queue.
+ */
+static void
+ms_tweaks_preferences_page_queue_command (MsTweaksPreferencesPage *self, GStrv cmd)
+{
+  g_autoptr (GString) cmd_fmt = NULL;
+
+  /* Ensure we don't queue duplicate commands. */
+  if (is_command_queued (self->commands_to_run_as_administrator, (const char * const *) cmd)) {
+    g_strfreev (cmd);
+    return;
+  }
+
+  g_ptr_array_add (self->commands_to_run_as_administrator, cmd);
+
+  cmd_fmt = pretty_format_cmd (cmd);
+  g_debug ("Queued command: %s\n", cmd_fmt->str);
+}
+
+/**
+ * on_save_as_administrator_requested:
+ * @backend: The backend that sent the request.
+ * @from: Path to move file from.
+ * @to: Path to move file to.
+ * @user_data: Instance of MsTweaksPreferencesPage.
+ *
+ * Queues up the given command to later be run as administrator.
+ */
+static void
+on_save_as_administrator_requested (MsTweaksBackend *backend,
+                                    const char      *from,
+                                    const char      *to,
+                                    gpointer         user_data)
+{
+  MsTweaksPreferencesPage *self = MS_TWEAKS_PREFERENCES_PAGE (user_data);
+  g_autoptr (GStrvBuilder) mv_cmd_builder = NULL;
+  g_autofree char *to_dirname = NULL;
+  gboolean to_dir_exists;
+
+  if (!from || g_utf8_strlen (from, -1) == 0) {
+    g_critical ("Empty 'from' argument to save as administrator, ignoring request");
+    return;
+  }
+
+  if (!to || g_utf8_strlen (to, -1) == 0) {
+    g_critical ("Empty 'to' argument to save as administrator, ignoring request");
+    return;
+  }
+
+  to_dirname = g_path_get_dirname (to);
+  to_dir_exists = g_file_test (to_dirname, G_FILE_TEST_IS_DIR);
+
+  if (!to_dir_exists) {
+    g_autoptr (GStrvBuilder) make_dir_cmd_builder = g_strv_builder_new ();
+
+    g_strv_builder_add_many (make_dir_cmd_builder,
+                             PRIVILEGE_ESCALATION_PROGRAM,
+                             "/usr/bin/mkdir",
+                             "-p",
+                             NULL);
+    g_strv_builder_take (make_dir_cmd_builder, g_steal_pointer (&to_dirname));
+
+    ms_tweaks_preferences_page_queue_command (self, g_strv_builder_end (make_dir_cmd_builder));
+  }
+
+  mv_cmd_builder = g_strv_builder_new ();
+
+  g_strv_builder_add_many (mv_cmd_builder,
+                           PRIVILEGE_ESCALATION_PROGRAM,
+                           "/usr/bin/mv",
+                           from,
+                           to,
+                           NULL);
+
+  ms_tweaks_preferences_page_queue_command (self, g_strv_builder_end (mv_cmd_builder));
+
+  adw_banner_set_revealed (ADW_BANNER (self->banner), TRUE);
+}
+
+
 static gboolean
 ms_tweaks_preferences_page_initable_init (GInitable     *initable,
                                           GCancellable  *cancellable,
@@ -506,6 +804,10 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       if (widget_to_add) {
         adw_preferences_group_add (ADW_PREFERENCES_GROUP (section_preference_group), widget_to_add);
         gtk_string_list_append (search_keywords, setting_data->name_i18n);
+        g_signal_connect (backend_state,
+                          "save-as-administrator",
+                          G_CALLBACK (on_save_as_administrator_requested),
+                          self);
         section_widget_is_valid = TRUE;
       } else
         ms_tweaks_warning (setting_data->name, "Failed to construct widget");
@@ -560,11 +862,27 @@ G_DEFINE_TYPE_WITH_CODE (MsTweaksPreferencesPage,
 static void
 ms_tweaks_preferences_page_init (MsTweaksPreferencesPage *self)
 {
+  GtkWidget *box;
+
+  box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
   self->page = adw_preferences_page_new ();
+  self->banner = ADW_BANNER (adw_banner_new (_("You need to authenticate as administrator to save some settings")));
   self->toast_overlay = adw_toast_overlay_new ();
 
-  adw_toast_overlay_set_child (ADW_TOAST_OVERLAY (self->toast_overlay), self->page);
+  adw_banner_set_button_label (ADW_BANNER (self->banner), "Save");
+  adw_banner_set_button_style (ADW_BANNER (self->banner), ADW_BANNER_BUTTON_SUGGESTED);
+
+  gtk_box_append (GTK_BOX (box), GTK_WIDGET (self->banner));
+  gtk_box_append (GTK_BOX (box), self->page);
+  adw_toast_overlay_set_child (ADW_TOAST_OVERLAY (self->toast_overlay), box);
   adw_bin_set_child (ADW_BIN (self), self->toast_overlay);
+
+  g_signal_connect (self->banner,
+                    "button-clicked",
+                    G_CALLBACK (on_save_as_administrator_pressed),
+                    self);
+
+  self->commands_to_run_as_administrator = g_ptr_array_new_with_free_func ((GDestroyNotify) g_strfreev);
 }
 
 
@@ -607,10 +925,22 @@ ms_tweaks_preferences_page_get_property (GObject    *object,
 
 
 static void
+ms_tweaks_preferences_page_finalize (GObject *object)
+{
+  MsTweaksPreferencesPage *self = MS_TWEAKS_PREFERENCES_PAGE (object);
+
+  g_clear_pointer (&self->commands_to_run_as_administrator, g_ptr_array_unref);
+
+  G_OBJECT_CLASS (ms_tweaks_preferences_page_parent_class)->finalize (object);
+}
+
+
+static void
 ms_tweaks_preferences_page_class_init (MsTweaksPreferencesPageClass *klass)
 {
   GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
+  gobject_class->finalize = ms_tweaks_preferences_page_finalize;
   gobject_class->set_property = ms_tweaks_preferences_page_set_property;
   gobject_class->get_property = ms_tweaks_preferences_page_get_property;
 
