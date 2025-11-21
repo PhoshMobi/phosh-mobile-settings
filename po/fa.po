@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-11-05 16:04+0000\n"
-"PO-Revision-Date: 2025-11-06 16:03+0330\n"
+"POT-Creation-Date: 2025-11-20 21:18+0000\n"
+"PO-Revision-Date: 2025-11-21 05:14+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -688,17 +688,17 @@ msgstr "ترجیح فلاش"
 msgid "Prefer camera flash over status LED when available"
 msgstr "ترجیح فلاش دوربین به چراغ وضعیت هنگام موجود بودن"
 
-#. Translators: Vol- means the 'Lower Volume' key
 #: src/ui/ms-feedback-panel.ui:53
-msgid "Silence on Vol-"
-msgstr "بی‌صدا با کاهش صدا"
+msgid "Silence by volume button press"
+msgstr "خموشی با زدن دکمهٔ صدا"
 
 #: src/ui/ms-feedback-panel.ui:54
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+"When locked put the phone in silent mode when pressing the button that lowers "
+"the volume on incoming calls"
 msgstr ""
-"هنگام قفل بودن تلفن را با فشردن دکمهٔ کاهش حجم صدا در مواقع زنگ خوردن به حالت "
-"بی‌صدا می‌برد"
+"هنگام قفل بودن تلفن را با فشردن دکمهٔ کاهش حجم صدا موقع زنگ خوردن به حالت بی‌صدا "
+"می‌برد"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:60
@@ -1149,6 +1149,9 @@ msgstr "قرار ندادن عنصرهای میانای کاربری زیر رو
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "سازمان دهی تنظیمات سریع اضافیتان"
+
+#~ msgid "Silence on Vol-"
+#~ msgstr "بی‌صدا با کاهش صدا"
 
 #~ msgid "Instant messages"
 #~ msgstr "پیام‌های فوری"
