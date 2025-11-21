@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-11-01 20:27+0000\n"
-"PO-Revision-Date: 2025-11-02 12:39+0100\n"
+"POT-Creation-Date: 2025-11-21 01:45+0000\n"
+"PO-Revision-Date: 2025-11-21 10:46+0100\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -697,17 +697,17 @@ msgstr "Preferă blițul"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Preferă blițul camerei în locul ledului de stare"
 
-#. Translators: Vol- means the 'Lower Volume' key
 #: src/ui/ms-feedback-panel.ui:53
-msgid "Silence on Vol-"
-msgstr "Silențios cu Vol-"
+msgid "Silence by volume button press"
+msgstr "Silențios prin apăsarea butonului de volum"
 
 #: src/ui/ms-feedback-panel.ui:54
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+"When locked put the phone in silent mode when pressing the button that "
+"lowers the volume on incoming calls"
 msgstr ""
-"La apelurile primite, pune în modul silențios telefonul blocat, dacă se "
-"apasă butonul de micșorare a volumului sunetului"
+"Când telefonul este blocat și se primește un apel, poate fi oprită soneria "
+"dacă se apasă butonul de micșorare a volumului sunetului"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:60
