@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2025-10-31 22:03+0000\n"
-"PO-Revision-Date: 2025-11-01 22:26+0200\n"
+"POT-Creation-Date: 2025-11-21 15:27+0000\n"
+"PO-Revision-Date: 2025-11-21 20:29+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -160,7 +160,6 @@ msgid "Notification Volume"
 msgstr "Гучність сповіщень"
 
 #: src/ms-audio-devices.c:182
-#| msgid "Call volume"
 msgid "Voice Call Volume"
 msgstr "Гучність голосового виклику"
 
@@ -695,17 +694,20 @@ msgstr "Перевага спалаху"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Пріоритет спалаху камери над світлодіодом стану, якщо такий доступний"
 
-#. Translators: Vol- means the 'Lower Volume' key
 #: src/ui/ms-feedback-panel.ui:53
-msgid "Silence on Vol-"
-msgstr "Глушити клавішею Гуч-"
+msgid "Silence by volume button press"
+msgstr "Вимикати звук натисканням кнопки гучності"
 
 #: src/ui/ms-feedback-panel.ui:54
+#| msgid ""
+#| "When locked put the phone in silent mode when pressing Vol- on incoming "
+#| "calls"
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+"When locked put the phone in silent mode when pressing the button that "
+"lowers the volume on incoming calls"
 msgstr ""
-"Якщо заблоковано, перевести телефон у беззвучний режим при натисканні Гуч- "
-"при вхідних викликах"
+"Якщо заблоковано, перевести телефон у беззвучний режим при натисканні"
+" кнопки, яка знижує гучність, при вхідних викликах"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:60
@@ -1175,6 +1177,9 @@ msgstr ""
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Упорядковування ваших додаткових швидких параметрів"
+
+#~ msgid "Silence on Vol-"
+#~ msgstr "Глушити клавішею Гуч-"
 
 #~ msgid "Instant messages"
 #~ msgstr "Миттєві повідомлення"
