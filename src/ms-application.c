@@ -18,6 +18,7 @@
 #include "ms-toplevel-tracker.h"
 #include "ms-head-tracker.h"
 #include "ms-debug-info.h"
+#include "ms-panel.h"
 
 #include "wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"
@@ -318,6 +319,9 @@ set_panel_activated (GSimpleAction *action,
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
 
   gtk_window_present (GTK_WINDOW (window));
+
+  if (!ms_panel_handle_options (MS_PANEL (self->active_panel), params))
+    g_debug ("Panel '%s' failed to parse given options", panel);
 }
 
 
