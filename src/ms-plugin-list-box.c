@@ -511,3 +511,20 @@ ms_plugin_list_box_new (void)
 {
   return g_object_new (MS_TYPE_PLUGIN_LIST_BOX, NULL);
 }
+
+
+void
+ms_plugin_list_box_open_plugin_prefs (MsPluginListBox *self, const char *plugin_name)
+{
+  g_assert (MS_IS_PLUGIN_LIST_BOX (self));
+
+  for (uint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (self->store)); i++) {
+    g_autoptr (MsPluginRow) row = g_list_model_get_item (G_LIST_MODEL (self->store), i);
+
+    if (!g_strcmp0 (plugin_name, ms_plugin_row_get_name (row))) {
+      ms_plugin_row_open_prefs (row);
+
+      break;
+    }
+  }
+}
