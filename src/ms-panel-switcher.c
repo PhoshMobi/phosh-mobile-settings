@@ -353,3 +353,12 @@ ms_panel_switcher_refilter (MsPanelSwitcher *self, GtkFilterChange filter_change
 {
   gtk_filter_changed (self->filter, GTK_FILTER_CHANGE_DIFFERENT);
 }
+
+
+GtkStack *
+ms_panel_switcher_get_stack (MsPanelSwitcher *self)
+{
+  g_return_val_if_fail (MS_IS_PANEL_SWITCHER (self), NULL);
+
+  return self->stack;
+}
