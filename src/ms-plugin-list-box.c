@@ -34,22 +34,29 @@ enum {
 static GParamSpec *props[PROP_LAST_PROP];
 
 struct _MsPluginListBox {
-  AdwBin              parent;
+  AdwBin                parent;
 
-  GSettings          *settings;
-  char               *settings_key;
-  GtkWidget          *list_box;
-  GListStore         *store;
+  GSettings            *settings;
+  char                 *settings_key;
+  GtkWidget            *list_box;
+  GListStore           *store;
 
-  MsPluginRow        *selected_row;
+  MsPluginRow          *selected_row;
+  AdwPreferencesDialog *prefs_dialog;
 
-  GSimpleActionGroup *action_group;
+  GSimpleActionGroup   *action_group;
 
-  char               *plugin_type;
-  char               *prefs_extension_point;
+  char                 *plugin_type;
+  char                 *prefs_extension_point;
 };
 G_DEFINE_TYPE (MsPluginListBox, ms_plugin_list_box, ADW_TYPE_BIN)
 
+
+static void
+on_prefs_dialog_closed (MsPluginListBox *self)
+{
+  self->prefs_dialog = NULL;
+}
 
 
 static AdwPreferencesDialog *
@@ -75,7 +82,6 @@ static void
 open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointer data)
 {
   MsPluginListBox *self = MS_PLUGIN_LIST_BOX (data);
-  AdwPreferencesDialog *prefs;
   GtkWindow *parent;
   g_autoptr (GError) error = NULL;
   g_autoptr (GKeyFile) keyfile = g_key_file_new ();
@@ -96,10 +102,18 @@ open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointe
     GTK_APPLICATION (g_application_get_default ()));
   g_assert (parent);
 
-  prefs = load_prefs_window (self, name);
-  g_return_if_fail (ADW_IS_DIALOG (prefs));
+  if (self->prefs_dialog)
+    adw_dialog_close (ADW_DIALOG (self->prefs_dialog));
 
-  adw_dialog_present (ADW_DIALOG (prefs), GTK_WIDGET (parent));
+  self->prefs_dialog = load_prefs_window (self, name);
+  g_return_if_fail (ADW_IS_DIALOG (self->prefs_dialog));
+
+  g_signal_connect_object (self->prefs_dialog,
+                           "closed",
+                           G_CALLBACK (on_prefs_dialog_closed),
+                           self,
+                           G_CONNECT_SWAPPED);
+  adw_dialog_present (ADW_DIALOG (self->prefs_dialog), GTK_WIDGET (parent));
 }
 
 
@@ -400,6 +414,7 @@ ms_plugin_list_box_dispose (GObject *object)
   g_clear_object (&self->settings);
   g_clear_object (&self->store);
   g_clear_object (&self->action_group);
+  g_clear_object (&self->prefs_dialog);
 
   G_OBJECT_CLASS (ms_plugin_list_box_parent_class)->dispose (object);
 }
@@ -502,7 +517,6 @@ ms_plugin_list_box_init (MsPluginListBox *self)
   gtk_widget_insert_action_group (GTK_WIDGET (self),
                                   "plugin-list-box",
                                   G_ACTION_GROUP (self->action_group));
-
 }
 
 
