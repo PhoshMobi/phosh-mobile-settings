@@ -51,8 +51,8 @@ struct _MsAlertsPanel {
   gboolean        has_cbs;
   gboolean        setting_levels;
   GSettings      *settings;
-  MsChannelLevel  levels;
-  MsChannelMode   mode;
+  LcbSeverityLevel levels;
+  LcbChannelMode   mode;
 
   GDBusProxy     *cbd_proxy;
   GCancellable   *cancel;
@@ -145,22 +145,22 @@ has_cbs_to_visible_child_transform (GBinding     *binding,
 }
 
 
-static MsChannelLevel
+static LcbSeverityLevel
 row_pos_to_level (guint pos)
 {
-  MsChannelLevel level;
-  /* The order in level_names matches the order in MsChannelLevels but the later is
+  LcbSeverityLevel level;
+  /* The order in level_names matches the order in LcbSeverityLevels but the later is
      a set of flags and has CHANNEL_LEVEL_UNKONWN as first element */
   level = 1 << (pos + 1);
 
-  g_assert (level <= MS_CHANNEL_LEVEL_TEST);
+  g_assert (level <= LCB_SEVERITY_LEVEL_TEST);
 
   return level;
 }
 
 
 static void
-ms_alerts_panel_set_levels (MsAlertsPanel *self, MsChannelLevel levels)
+ms_alerts_panel_set_levels (MsAlertsPanel *self, LcbSeverityLevel levels)
 {
   if (self->levels == levels)
     return;
@@ -173,7 +173,7 @@ ms_alerts_panel_set_levels (MsAlertsPanel *self, MsChannelLevel levels)
 
   for (guint i = 0; i < G_N_ELEMENTS (level_names); i++) {
     gboolean active;
-    MsChannelLevel level = row_pos_to_level (i);
+    LcbSeverityLevel level = row_pos_to_level (i);
 
     active = self->levels & level;
     adw_switch_row_set_active (self->rows[i], active);
@@ -181,7 +181,7 @@ ms_alerts_panel_set_levels (MsAlertsPanel *self, MsChannelLevel levels)
 }
 
 
-static MsChannelLevel
+static LcbSeverityLevel
 ms_alerts_panel_get_levels (MsAlertsPanel *self)
 {
   return self->levels;
@@ -194,8 +194,8 @@ on_switch_active_changed (MsAlertsPanel *self, GParamSpec *spec, AdwSwitchRow  *
   for (guint i = 0; i < G_N_ELEMENTS (level_names); i++) {
     if (switch_ == self->rows[i]) {
       gboolean active = adw_switch_row_get_active (switch_);
-      MsChannelLevel levels = ms_alerts_panel_get_levels (self);
-      MsChannelLevel changed_level = row_pos_to_level (i);
+      LcbSeverityLevel levels = ms_alerts_panel_get_levels (self);
+      LcbSeverityLevel changed_level = row_pos_to_level (i);
 
       self->setting_levels = TRUE;
 
@@ -206,7 +206,7 @@ on_switch_active_changed (MsAlertsPanel *self, GParamSpec *spec, AdwSwitchRow  *
       }
 
       /* Nation wide/presidential alerts must always be enabled */
-      levels |= MS_CHANNEL_LEVEL_PRESIDENTIAL;
+      levels |= LCB_SEVERITY_LEVEL_PRESIDENTIAL;
       ms_alerts_panel_set_levels (self, levels);
 
       self->setting_levels = FALSE;
@@ -365,8 +365,8 @@ ms_alerts_panel_class_init (MsAlertsPanelClass *klass)
    */
   props[PROP_LEVELS] =
     g_param_spec_flags ("levels", "", "",
-                        MS_TYPE_CHANNEL_LEVEL,
-                        MS_CHANNEL_LEVEL_UNKNOWN,
+                        LCB_TYPE_SEVERITY_LEVEL,
+                        LCB_SEVERITY_LEVEL_UNKNOWN,
                         G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
