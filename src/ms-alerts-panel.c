@@ -10,12 +10,8 @@
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
 #include "ms-alerts-panel.h"
 #include "ms-cb-message-row.h"
-#include "ms-enum-types.h"
-#include "ms-scale-to-fit-row.h"
-#include "ms-util.h"
 
 #include <glib/gi18n-lib.h>
 
