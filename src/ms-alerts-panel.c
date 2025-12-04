@@ -44,20 +44,20 @@ const char *const level_names[] = {
 
 
 struct _MsAlertsPanel {
-  MsPanel         parent;
+  MsPanel          parent;
 
-  GtkStack       *stack;
+  GtkStack        *stack;
 
-  gboolean        has_cbs;
-  gboolean        setting_levels;
-  GSettings      *settings;
+  gboolean         has_cbs;
+  gboolean         setting_levels;
+  GSettings       *settings;
   LcbSeverityLevel levels;
   LcbChannelMode   mode;
 
-  GDBusProxy     *cbd_proxy;
-  GCancellable   *cancel;
+  GDBusProxy      *cbd_proxy;
+  GCancellable    *cancel;
 
-  AdwSwitchRow   *rows[G_N_ELEMENTS (level_names)];
+  AdwSwitchRow    *rows[G_N_ELEMENTS (level_names)];
 
   AdwPreferencesGroup *message_group;
   GtkListBox          *message_list;
