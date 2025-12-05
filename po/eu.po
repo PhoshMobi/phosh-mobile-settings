@@ -6,8 +6,8 @@
 msgid ""
 msgstr "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues\n"
-"POT-Creation-Date: 2025-12-02 16:46+0000\n"
-"PO-Revision-Date: 2025-12-02 16:46+0000\n"
+"POT-Creation-Date: 2025-12-03 12:46+0000\n"
+"PO-Revision-Date: 2025-12-05 16:46+0000\n"
 "Last-Translator: Asier Saratsua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "Language: eu\n"
@@ -18,43 +18,43 @@ msgstr "Project-Id-Version: phosh-mobile-settings main\n"
 #: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
-msgstr ""
+msgstr "Mugikorraren ezarpenak"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
-msgstr ""
+msgstr "Mugikorra;Hobespenak;MugikorHobespenak;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
-msgstr ""
+msgstr "Phosh mugikorraren ezarpenak"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
 msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
-msgstr ""
+msgstr "Aplikazio hau erabiliz, Phosh sistemaren hainbat kontu konfiguratu ditzakezu komando-lerroa erabili gabe."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
-msgstr ""
+msgstr "Phosh duten mugikorren ezarpen aurreratuak"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
-msgstr ""
+msgstr "Panel erabilgarriak"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
 msgid "Compositor panel"
-msgstr ""
+msgstr "Konpositore-panela"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
 msgid "Feedback panel"
-msgstr ""
+msgstr "Iritzien panela"
 
 #: plugins/librem5/ms-plugin-librem5-panel.c:214
 #, c-format
 msgid "Critical temperature is %.2f°C"
-msgstr ""
+msgstr "Tenperatura kritikoa %.2f°C da"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
@@ -96,7 +96,7 @@ msgstr "PUZa"
 #. translators: The video processing unit of a smart phone
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
 msgid "VPU"
-msgstr ""
+msgstr "PUBa"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
 msgid "Fuel Gauge"
@@ -109,7 +109,7 @@ msgstr "Bateria"
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
 #, c-format
 msgid "Something went wrong: %s"
-msgstr ""
+msgstr "Zerbait gaizki joan da: %s"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -128,7 +128,7 @@ msgstr "Irten"
 
 #: src/mobile-settings-application.c:36
 msgid "- Manage your mobile settings"
-msgstr ""
+msgstr "- Kudeatu mugikorraren ezarpenak"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/mobile-settings-application.c:447
@@ -145,52 +145,52 @@ msgstr ""
 
 #: src/ms-audio-devices.c:178
 msgid "Media Volume"
-msgstr ""
+msgstr "Multimediaren bolumena"
 
 #: src/ms-audio-devices.c:180
 msgid "Notification Volume"
-msgstr ""
+msgstr "Jakinarazpenen bolumena"
 
 #: src/ms-audio-devices.c:182
 msgid "Voice Call Volume"
-msgstr ""
+msgstr "Ahots-deien bolumena"
 
 #: src/ms-audio-devices.c:184
 msgid "Ring Tone Volume"
-msgstr ""
+msgstr "Dei-tonuaren bolumena"
 
 #: src/ms-audio-devices.c:186
 msgid "Call volume"
-msgstr ""
+msgstr "Deien bolumena"
 
 #: src/ms-audio-devices.c:188
 msgid "Alarm Volume"
-msgstr ""
+msgstr "Alarmaren bolumena"
 
 #: src/ms-audio-devices.c:190
 msgid "Emergency Alerts Volume"
-msgstr ""
+msgstr "Larrialdi-alerten bolumena"
 
 #: src/ms-cb-message-row.c:114
 msgid "Message of unknown severity"
-msgstr ""
+msgstr "Larritasun ezezaguneko mezua"
 
 #: src/ms-feedback-panel.c:215
 msgid "Sound file does not exist"
-msgstr ""
+msgstr "Soinu-fitxategia ez da existitzen"
 
 #: src/ms-feedback-panel.c:217
 msgid "Sound file is corrupt"
-msgstr ""
+msgstr "Soinu-fitxategia hondatuta dago"
 
 #: src/ms-feedback-panel.c:219
 msgid "Failed to play sound"
-msgstr ""
+msgstr "Soinuaren erreprodukzioak huts egin du"
 
 #: src/ms-feedback-panel.c:258
 #, c-format
 msgid "Playing %s"
-msgstr ""
+msgstr "%s erreproduzitzen"
 
 #. Translators: "low" categorizes notifications with minor importance
 #: src/ms-feedback-panel.c:419
@@ -214,11 +214,11 @@ msgstr "bat ere ez"
 
 #: src/ms-feedback-panel.c:813
 msgid "Mobile Settings Volume Control"
-msgstr ""
+msgstr "Mugikorraren ezarpenen bolumen-kontrola"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
-msgstr ""
+msgstr "Blokeoko horma-papera ezartzeak huts egin du"
 
 #. Translators: The default completer
 #: src/ms-osk-panel.c:746
@@ -227,11 +227,11 @@ msgstr "Lehenetsia"
 
 #: src/ms-osk-panel.c:747
 msgid "The default completer selected by the OSK"
-msgstr ""
+msgstr "Pantailako teklatuak hautatutako osatzaile lehenetsia"
 
 #: src/ms-osk-panel.c:750
 msgid "No information available for this completer"
-msgstr ""
+msgstr "Ez dago informaziorik osatzaile honetarako"
 
 #: src/ms-overview-panel.c:69
 msgid "Reset favorites?"
@@ -239,7 +239,7 @@ msgstr "Berrezarri gogokoak?"
 
 #: src/ms-overview-panel.c:72
 msgid "Reset list of favorite applications to the default?"
-msgstr ""
+msgstr "Berrezarri gogoko aplikazioen zerrenda balio lehenetsietara?"
 
 #: src/ms-overview-panel.c:75
 msgid "_Cancel"
@@ -251,7 +251,7 @@ msgstr "_Berrezarri"
 
 #: src/ms-overview-panel.c:331
 msgid "Failed to set wallpaper for overview"
-msgstr ""
+msgstr "Ikuspegi nagusiaren horma-papera ezartzeak huts egin du"
 
 #. Translators: "Normal" represents the standard or default orientation
 #: src/ms-sensor-panel.c:93
@@ -261,17 +261,17 @@ msgstr "Normala"
 #. Translators: "Bottom up" indicates the orientation is flipped vertically
 #: src/ms-sensor-panel.c:96
 msgid "Bottom up"
-msgstr ""
+msgstr "Behetik gora"
 
 #. Translators: "Left up" indicates the orientation of a device with left side up
 #: src/ms-sensor-panel.c:99
 msgid "Left up"
-msgstr ""
+msgstr "Ezkerretik gora"
 
 #. Translators: "Right up" indicates the orientation of a device with right side up
 #: src/ms-sensor-panel.c:102
 msgid "Right up"
-msgstr ""
+msgstr "Eskuinetik gora"
 
 #. Translators: "Undefined" is shown when the orientation of the device is not recognized
 #: src/ms-sensor-panel.c:105
@@ -336,7 +336,7 @@ msgstr "Isilik"
 
 #: src/ms-util.c:292
 msgid "Choose Wallpaper"
-msgstr "Aukeratu horma-irudia"
+msgstr "Aukeratu horma-papera"
 
 #. Translators: this is a verb.
 #: src/ui/mobile-settings-window.ui:31
@@ -345,7 +345,7 @@ msgstr "Bilatu"
 
 #: src/ui/mobile-settings-window.ui:48
 msgid "Search settings"
-msgstr ""
+msgstr "Bilaketa-ezarpenak"
 
 #: src/ui/mobile-settings-window.ui:98
 msgid "Welcome"
@@ -353,11 +353,11 @@ msgstr "Ongi etorri"
 
 #: src/ui/mobile-settings-window.ui:104
 msgid "Welcome to Mobile Settings"
-msgstr ""
+msgstr "Ongi etorri mugikorraren ezarpenetara"
 
 #: src/ui/mobile-settings-window.ui:105
 msgid "Tweak advanced mobile settings"
-msgstr ""
+msgstr "Doitu mugikorraren ezarpen aurreratuak"
 
 #: src/ui/mobile-settings-window.ui:113
 msgid "Top Bar"
@@ -369,7 +369,7 @@ msgstr "Ezarpen azkarrak"
 
 #: src/ui/mobile-settings-window.ui:122
 msgid "Notches"
-msgstr ""
+msgstr "Koskak"
 
 #: src/ui/mobile-settings-window.ui:133
 msgid "Overview"
@@ -385,11 +385,11 @@ msgstr "Iragazkia"
 
 #: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
 msgid "Wallpaper"
-msgstr "Horma-irudia"
+msgstr "Horma-papera"
 
 #: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
 msgid "Feedback"
-msgstr ""
+msgstr "Iritziak"
 
 #: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
 msgid "Sounds"
@@ -397,7 +397,7 @@ msgstr "Soinuak"
 
 #: src/ui/mobile-settings-window.ui:164
 msgid "Wakeup"
-msgstr ""
+msgstr "Esnatu"
 
 #: src/ui/mobile-settings-window.ui:165
 msgid "Vibra"
@@ -405,15 +405,15 @@ msgstr ""
 
 #: src/ui/mobile-settings-window.ui:166
 msgid "Haptic"
-msgstr ""
+msgstr "Haptikoa"
 
 #: src/ui/mobile-settings-window.ui:167
 msgid "LED"
-msgstr ""
+msgstr "LEDa"
 
 #: src/ui/mobile-settings-window.ui:178
 msgid "Compositor"
-msgstr ""
+msgstr "Konposatzailea"
 
 #: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
 msgid "Scaling"
@@ -449,15 +449,15 @@ msgstr "Teklatua"
 
 #: src/ui/mobile-settings-window.ui:246
 msgid "Unfold"
-msgstr ""
+msgstr "Zabaldu"
 
 #: src/ui/mobile-settings-window.ui:247
 msgid "OSK"
-msgstr ""
+msgstr "Pantailako teklatua"
 
 #: src/ui/mobile-settings-window.ui:248
 msgid "Word Completion"
-msgstr ""
+msgstr "Hitz-osaketa"
 
 #: src/ui/mobile-settings-window.ui:259
 msgid "Emergency Alerts"
@@ -505,7 +505,7 @@ msgstr "Laster_bideak"
 
 #: src/ui/mobile-settings-window.ui:344
 msgid "_About Mobile Settings"
-msgstr ""
+msgstr "Mugikorraren ezarpenei _buruz"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -515,31 +515,31 @@ msgstr "Ezin dira alertak jaso"
 msgid ""
 "Cannot receive Emergency Alerts on this device as no usable cellular modem "
 "is detected."
-msgstr ""
+msgstr "Ezin dira larrialdi-alertak jaso gailu honetan ez duelako modemik."
 
 #: src/ui/ms-alerts-panel.ui:30
 msgid "Emergency and Governmental Alerts"
-msgstr ""
+msgstr "Larrialdi- eta gobernu-alertak"
 
 #: src/ui/ms-alerts-panel.ui:33
 msgid "Extreme Threat Alerts"
-msgstr ""
+msgstr "Muturreko arriskuen alertak"
 
 #: src/ui/ms-alerts-panel.ui:35
 msgid "Display alerts for extreme threats to life and safety"
-msgstr ""
+msgstr "Bistaratu bizitzarako eta segurtasunerako muturreko arriskuak diren alertak"
 
 #: src/ui/ms-alerts-panel.ui:41
 msgid "Severe Threat Alerts"
-msgstr ""
+msgstr "Arrisku larrien alertak"
 
 #: src/ui/ms-alerts-panel.ui:43
 msgid "Display alerts for severe threats to life and safety"
-msgstr ""
+msgstr "Bistaratu bizitzarako eta segurtasunerako arrisku larriak diren alertak"
 
 #: src/ui/ms-alerts-panel.ui:49
 msgid "Public Safety Alerts"
-msgstr ""
+msgstr "Segurtasun publikoko alertak"
 
 #: src/ui/ms-alerts-panel.ui:51
 msgid "Show recommended actions to take in situations with a risk to safety"
@@ -551,23 +551,23 @@ msgstr "Probako alertak"
 
 #: src/ui/ms-alerts-panel.ui:59
 msgid "Show periodic messages to test the alert system"
-msgstr ""
+msgstr "Erakutsi mezuak aldian behin alerta-sistema probatzeko"
 
 #: src/ui/ms-alerts-panel.ui:65
 msgid "Amber alerts"
-msgstr ""
+msgstr "Alerta laranjak"
 
 #: src/ui/ms-alerts-panel.ui:67
 msgid "Show messages about child abduction emergencies"
-msgstr ""
+msgstr "Erakutsi haurren bahiketaren alorreko larrialdi-mezuak"
 
 #: src/ui/ms-alerts-panel.ui:76
 msgid "History of Emergency and Governmental Alerts"
-msgstr ""
+msgstr "Larrialdi- eta gobernu-alerten historia"
 
 #: src/ui/ms-alerts-panel.ui:82
 msgid "No emergency alerts yet"
-msgstr ""
+msgstr "Ez dago larrialdi-alertarik momentuz"
 
 #: src/ui/ms-audio-device-row.ui:32
 msgid "Volume"
@@ -575,23 +575,23 @@ msgstr "Bolumena"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
-msgstr ""
+msgstr "Exekuzioan dauden aplikazioen tamaina txikiagotzea"
 
 #: src/ui/ms-compositor-panel.ui:12
 msgid "Only enable this for broken apps that don't fit the screen"
-msgstr ""
+msgstr "Pantailan sartzen ez diren aplikazio akastunetarako soilik erabili hau"
 
 #: src/ui/ms-compositor-panel.ui:25
 msgid "Scale down all applications"
-msgstr ""
+msgstr "Txikiagotu aplikazio guztiak"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
-msgstr ""
+msgstr "Behartu aplikazio guztiak txikiagotzea. Erabili hau azken aukera gisa soilik."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
-msgstr ""
+msgstr "Txikiagotu aplikazio guztiak"
 
 #. Translators: setting to scale down all applications
 #. Translators: setting to scale down a single application
@@ -616,21 +616,21 @@ msgstr "Gaituta"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
-msgstr ""
+msgstr "Eginbide esperimentalak"
 
 #: src/ui/ms-features-panel.ui:12
 msgid "Features not yet deemed fully stable"
-msgstr ""
+msgstr "Oraindik egonkorrak ez diren eginbideak"
 
 #: src/ui/ms-features-panel.ui:16
 msgid "Emergency Calls"
-msgstr ""
+msgstr "Larrialdi-deiak"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure "
 "that it's working with your provider."
-msgstr ""
+msgstr "Gaitu larrialdi-deiak. Gaitu hau zure hornitzailearekin ondo funtzionatzen duela ziurtatu ondoren."
 
 #. Translators: setting to enable emergency calls
 #: src/ui/ms-features-panel.ui:24
@@ -640,7 +640,7 @@ msgstr "Gaituta"
 
 #: src/ui/ms-features-panel.ui:32
 msgid "Enable suspend via the system menu"
-msgstr ""
+msgstr "Gaitu sistema-menuaren bidez esekitzea"
 
 #: src/ui/ms-features-panel.ui:34
 msgid ""
@@ -660,11 +660,11 @@ msgstr "Soinu-ezarpenak"
 
 #: src/ui/ms-feedback-panel.ui:27
 msgid "Feedback Settings"
-msgstr ""
+msgstr "Iritzien ezarpenak"
 
 #: src/ui/ms-feedback-panel.ui:30
 msgid "Feedback profile"
-msgstr ""
+msgstr "Iritzietarako profila"
 
 #: src/ui/ms-feedback-panel.ui:31
 msgid "The global maximum feedback profile"
@@ -672,15 +672,15 @@ msgstr ""
 
 #: src/ui/ms-feedback-panel.ui:46
 msgid "Prefer flash"
-msgstr ""
+msgstr "Hobetsi flasha"
 
 #: src/ui/ms-feedback-panel.ui:47
 msgid "Prefer camera flash over status LED when available"
-msgstr ""
+msgstr "Hobetsi kameraren flasha egoerako LEDaren gainetik, erabilgarri dagoenean"
 
 #: src/ui/ms-feedback-panel.ui:53
 msgid "Silence by volume button press"
-msgstr ""
+msgstr "Isildu bolumen-botoia sakatuz"
 
 #: src/ui/ms-feedback-panel.ui:54
 msgid ""
@@ -691,7 +691,7 @@ msgstr ""
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:60
 msgid "Haptic strength"
-msgstr ""
+msgstr "Sendotasun haptikoa"
 
 #: src/ui/ms-feedback-panel.ui:61
 msgid "Maximum haptic feedback strength percentage"
@@ -699,11 +699,11 @@ msgstr ""
 
 #: src/ui/ms-feedback-panel.ui:80
 msgid "Per Application settings"
-msgstr ""
+msgstr "Aplikazioaren araberako ezarpenak"
 
 #: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
-msgstr ""
+msgstr "Zenbait gertaeratarako erabiliko den soinua"
 
 #: src/ui/ms-feedback-panel.ui:102
 msgid "Phone Calls"
@@ -719,11 +719,11 @@ msgstr "Berehalako mezuak"
 
 #: src/ui/ms-feedback-panel.ui:121
 msgid "Alarm Clock"
-msgstr ""
+msgstr "Iratzargailua"
 
 #: src/ui/ms-feedback-panel.ui:132
 msgid "Screen Wakeup"
-msgstr ""
+msgstr "Pantailaren esnatzea"
 
 #: src/ui/ms-feedback-panel.ui:135
 msgid "Notification urgency that lights up the screen"
@@ -745,11 +745,11 @@ msgstr ""
 
 #: src/ui/ms-feedback-panel.ui:163
 msgid "Device events"
-msgstr ""
+msgstr "Gailu-gertaerak"
 
 #: src/ui/ms-feedback-panel.ui:164
 msgid "A generic device-related notification"
-msgstr ""
+msgstr "Gailuari lotutako jakinarazpen orokorra"
 
 #: src/ui/ms-feedback-panel.ui:170
 msgid "Emails"
@@ -769,7 +769,7 @@ msgstr "Sareko gertaerak"
 
 #: src/ui/ms-feedback-panel.ui:185
 msgid "A generic network notification"
-msgstr "Sareko jakinarazpen generikoa"
+msgstr "Sareko jakinarazpen orokorra"
 
 #: src/ui/ms-feedback-panel.ui:191
 msgid "Presence changes"
@@ -821,19 +821,19 @@ msgstr "Atzeko planoa"
 
 #: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
 msgid "_Select Wallpaper…"
-msgstr "_Hautatu horma-irudia…"
+msgstr "_Hautatu horma-papera…"
 
 #: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
 msgid "Use wallpaper"
-msgstr "Erabili horma-irudia"
+msgstr "Erabili horma-papera"
 
 #: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
 msgid "Whether to show a colorful wallpaper"
-msgstr "Horma-irudi koloretsua erakutsiko den ala ez"
+msgstr "Horma-papera koloretsu bat erakutsiko den ala ez"
 
 #: src/ui/ms-lockscreen-panel.ui:80
 msgid "Additional widgets for the lock screen"
-msgstr ""
+msgstr "Blokeo-pantailarako trepeta gehigarriak"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
 #. Translators: Label for a button that allows the user to add a new keyboard layout
@@ -875,7 +875,7 @@ msgstr "Sartu laster-tekla"
 
 #: src/ui/ms-osk-add-shortcut-dialog.ui:141
 msgid "Type a key such as letters (like C or V), etc."
-msgstr ""
+msgstr " "
 
 #: src/ui/ms-osk-add-shortcut-dialog.ui:144
 msgid "_Shortcut Key"
