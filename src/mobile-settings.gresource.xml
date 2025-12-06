@@ -22,6 +22,7 @@
     <file>ui/ms-sensor-panel.ui</file>
     <file>ui/ms-sound-row.ui</file>
     <file>ui/ms-topbar-panel.ui</file>
+    <file>ui/ms-welcome-panel.ui</file>
     <file>ui/ms-window.ui</file>
     <file>gtk/help-overlay.ui</file>
     <file alias="metainfo.xml">../data/mobi.phosh.MobileSettings.metainfo.xml.in</file>

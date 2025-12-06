@@ -80,6 +80,8 @@ mobile_settings_sources = [
   'ms-toplevel-tracker.h',
   'ms-util.c',
   'ms-util.h',
+  'ms-welcome-panel.c',
+  'ms-welcome-panel.h',
   'ms-window.c',
   'ms-window.h',
 ]
