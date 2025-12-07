@@ -9,7 +9,7 @@
 #include <glib/gi18n.h>
 
 #include "mobile-settings-config.h"
-#include "mobile-settings-application.h"
+#include "ms-application.h"
 #include "ms-main.h"
 
 

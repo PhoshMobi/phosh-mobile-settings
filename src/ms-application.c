@@ -7,17 +7,17 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
-#define G_LOG_DOMAIN "mobile-settings-application"
+#define G_LOG_DOMAIN "ms-application"
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
-#include "mobile-settings-window.h"
-#include "mobile-settings-plugin.h"
+#include "ms-application.h"
+#include "ms-window.h"
+#include "ms-plugin.h"
 #include "ms-plugin-loader.h"
 #include "ms-toplevel-tracker.h"
 #include "ms-head-tracker.h"
-#include "mobile-settings-debug-info.h"
+#include "ms-debug-info.h"
 
 #include "wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"

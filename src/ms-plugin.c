@@ -6,7 +6,7 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
-#include "mobile-settings-plugin.h"
+#include "ms-plugin.h"
 
 #define DEVICE_TREE_COMPATIBLE_PATH "/sys/firmware/devicetree/base/compatible"
 

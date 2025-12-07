@@ -7,12 +7,12 @@
  */
 
 
-#define G_LOG_DOMAIN "mobile-settings-window"
+#define G_LOG_DOMAIN "ms-window"
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
-#include "mobile-settings-window.h"
+#include "ms-application.h"
+#include "ms-window.h"
 
 #include "ms-plugin-panel.h"
 
@@ -186,7 +186,7 @@ ms_window_class_init (MsWindowClass *klass)
   object_class->dispose = ms_settings_window_dispose;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/mobile-settings-window.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-window.ui");
   gtk_widget_class_bind_template_child (widget_class, MsWindow, search_bar);
   gtk_widget_class_bind_template_child (widget_class, MsWindow, search_entry);
   gtk_widget_class_bind_template_child (widget_class, MsWindow, split_view);

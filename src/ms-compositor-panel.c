@@ -10,7 +10,7 @@
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
+#include "ms-application.h"
 #include "ms-compositor-panel.h"
 #include "ms-scale-to-fit-row.h"
 #include "ms-util.h"

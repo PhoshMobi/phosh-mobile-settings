@@ -12,7 +12,7 @@
 
 #include "mobile-settings-config.h"
 #include "mobile-settings-resources.h"
-#include "mobile-settings-window.h"
+#include "ms-window.h"
 #include "ms-alerts-panel.h"
 #include "ms-compositor-panel.h"
 #include "ms-convergence-panel.h"

@@ -7,19 +7,19 @@ mobile_settings_enum_sources = gnome.mkenums_simple(
 )
 
 mobile_settings_plugin_sources = [
-  'mobile-settings-plugin.h',
-  'mobile-settings-plugin.c',
+  'ms-plugin.h',
+  'ms-plugin.c',
   'ms-plugin-panel.h',
   'ms-plugin-panel.c',
 ]
 
 mobile_settings_sources = [
-  'mobile-settings-window.h',
-  'mobile-settings-window.c',
-  'mobile-settings-application.h',
-  'mobile-settings-application.c',
-  'mobile-settings-debug-info.h',
-  'mobile-settings-debug-info.c',
+  'ms-window.h',
+  'ms-window.c',
+  'ms-application.h',
+  'ms-application.c',
+  'ms-debug-info.h',
+  'ms-debug-info.c',
   'ms-alerts-panel.c',
   'ms-alerts-panel.h',
   'ms-audio-device.c',

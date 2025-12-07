@@ -8,8 +8,8 @@
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
-#include "mobile-settings-debug-info.h"
+#include "ms-application.h"
+#include "ms-debug-info.h"
 
 #include <gmobile.h>
 
