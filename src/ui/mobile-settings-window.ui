@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
-  <template class="MobileSettingsWindow" parent="AdwApplicationWindow">
+  <template class="MsWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Mobile Settings</property>
     <property name="default-width">800</property>
     <property name="default-height">576</property>
@@ -20,7 +20,7 @@
         <!-- side bar start -->
         <property name="sidebar">
           <object class="AdwNavigationPage">
-            <property name="title" bind-source="MobileSettingsWindow" bind-property="title" bind-flags="sync-create"/>
+            <property name="title" bind-source="MsWindow" bind-property="title" bind-flags="sync-create"/>
             <property name="child">
               <object class="AdwToolbarView">
                 <child type="top">

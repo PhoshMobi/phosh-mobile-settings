@@ -14,11 +14,11 @@
 
 G_BEGIN_DECLS
 
-#define MOBILE_SETTINGS_TYPE_WINDOW (mobile_settings_window_get_type ())
+#define MS_TYPE_WINDOW (ms_window_get_type ())
 
-G_DECLARE_FINAL_TYPE (MobileSettingsWindow, mobile_settings_window, MOBILE_SETTINGS, WINDOW, AdwApplicationWindow)
+G_DECLARE_FINAL_TYPE (MsWindow, ms_window, MS, WINDOW, AdwApplicationWindow)
 
-GtkSelectionModel *mobile_settings_window_get_stack_pages (MobileSettingsWindow *self);
-MsPanelSwitcher   *mobile_settings_window_get_panel_switcher (MobileSettingsWindow *self);
+GtkSelectionModel *  ms_window_get_stack_pages    (MsWindow *self);
+MsPanelSwitcher *    ms_window_get_panel_switcher (MsWindow *self);
 
 G_END_DECLS

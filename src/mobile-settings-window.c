@@ -22,7 +22,7 @@
 #include <glib/gi18n.h>
 
 
-struct _MobileSettingsWindow {
+struct _MsWindow {
   AdwApplicationWindow     parent_instance;
 
   GtkSearchBar            *search_bar;
@@ -36,12 +36,12 @@ struct _MobileSettingsWindow {
   MsTweaksParser          *ms_tweaks_parser;
 };
 
-G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE (MsWindow, ms_window, ADW_TYPE_APPLICATION_WINDOW)
 
 
 static void
 on_search_entry_changed (GtkSearchEntry *search_entry,
-                         MobileSettingsWindow *self)
+                         MsWindow       *self)
 {
   ms_panel_switcher_set_search_query (self->panel_switcher,
                                       gtk_editable_get_text (GTK_EDITABLE (search_entry)));
@@ -50,14 +50,14 @@ on_search_entry_changed (GtkSearchEntry *search_entry,
 
 static void
 on_search_entry_activated (GtkSearchEntry *search_entry,
-                           MobileSettingsWindow *self)
+                           MsWindow       *self)
 {
   ms_panel_switcher_set_active_panel_index (self->panel_switcher, 0);
 }
 
 
 static void
-show_content_cb (MobileSettingsWindow *self)
+show_content_cb (MsWindow *self)
 {
   const char *panelname;
 
@@ -96,7 +96,7 @@ stack_child_to_tile (gpointer target, GtkStack *stack, GtkWidget *child)
 static void
 add_ms_tweaks_page (gpointer value, gpointer user_data)
 {
-  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (user_data);
+  MsWindow *self = MS_WINDOW (user_data);
   MsTweaksPage *page_data = (MsTweaksPage *) value;
   MsTweaksPreferencesPage *page_widget = ms_tweaks_preferences_page_new (page_data);
 
@@ -113,7 +113,7 @@ add_ms_tweaks_page (gpointer value, gpointer user_data)
 static void
 do_toggle_conf_tweaks (GSettings *settings, char *key, gpointer user_data)
 {
-  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (user_data);
+  MsWindow *self = MS_WINDOW (user_data);
   gboolean conf_tweaks_enabled = g_settings_get_boolean (settings, key);
 
   /* Flip! */
@@ -127,12 +127,12 @@ do_toggle_conf_tweaks (GSettings *settings, char *key, gpointer user_data)
 static void
 ms_settings_window_constructed (GObject *object)
 {
-  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (object);
+  MsWindow *self = MS_WINDOW (object);
   MsApplication *app = MS_APPLICATION (g_application_get_default ());
   GtkWidget *device_panel;
   GHashTable *parser_page_table = NULL;
 
-  G_OBJECT_CLASS (mobile_settings_window_parent_class)->constructed (object);
+  G_OBJECT_CLASS (ms_window_parent_class)->constructed (object);
 
   if (gtk_stack_get_child_by_name (self->stack, "device") == NULL) {
     const char *title;
@@ -167,17 +167,17 @@ ms_settings_window_constructed (GObject *object)
 static void
 ms_settings_window_dispose (GObject *object)
 {
-  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (object);
+  MsWindow *self = MS_WINDOW (object);
 
   g_clear_object (&self->settings);
   g_clear_object (&self->ms_tweaks_parser);
 
-  G_OBJECT_CLASS (mobile_settings_window_parent_class)->dispose (object);
+  G_OBJECT_CLASS (ms_window_parent_class)->dispose (object);
 }
 
 
 static void
-mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
+ms_window_class_init (MsWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -187,11 +187,11 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/mobile-settings-window.ui");
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, search_bar);
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, search_entry);
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, split_view);
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, stack);
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, panel_switcher);
+  gtk_widget_class_bind_template_child (widget_class, MsWindow, search_bar);
+  gtk_widget_class_bind_template_child (widget_class, MsWindow, search_entry);
+  gtk_widget_class_bind_template_child (widget_class, MsWindow, split_view);
+  gtk_widget_class_bind_template_child (widget_class, MsWindow, stack);
+  gtk_widget_class_bind_template_child (widget_class, MsWindow, panel_switcher);
 
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_changed);
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_activated);
@@ -200,7 +200,7 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 }
 
 static void
-mobile_settings_window_init (MobileSettingsWindow *self)
+ms_window_init (MsWindow *self)
 {
   self->settings = g_settings_new ("mobi.phosh.MobileSettings");
   self->ms_tweaks_parser = ms_tweaks_parser_new ();
@@ -213,18 +213,18 @@ mobile_settings_window_init (MobileSettingsWindow *self)
 
 
 GtkSelectionModel *
-mobile_settings_window_get_stack_pages (MobileSettingsWindow *self)
+ms_window_get_stack_pages (MsWindow *self)
 {
-  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+  g_assert (MS_IS_WINDOW (self));
 
   return gtk_stack_get_pages (self->stack);
 }
 
 
 MsPanelSwitcher *
-mobile_settings_window_get_panel_switcher (MobileSettingsWindow *self)
+ms_window_get_panel_switcher (MsWindow *self)
 {
-  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+  g_assert (MS_IS_WINDOW (self));
 
   return self->panel_switcher;
 }

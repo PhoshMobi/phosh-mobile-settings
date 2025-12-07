@@ -181,7 +181,7 @@ get_active_window (MsApplication *self)
   GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
   if (window == NULL)
-    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, "application", self, NULL);
+    window = g_object_new (MS_TYPE_WINDOW, "application", self, NULL);
 
   return window;
 }
@@ -218,7 +218,7 @@ print_system_information (GApplication *app)
 static void
 list_available_panels (GApplication *app)
 {
-  MobileSettingsWindow *window;
+  MsWindow *window;
   g_autoptr (GListModel) list = NULL;
   g_autoptr (GtkStackPage) page = NULL;
   const char *name;
@@ -226,8 +226,8 @@ list_available_panels (GApplication *app)
   /* Since we're in the local instance, just get us a window */
   adw_init ();
 
-  window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, NULL);
-  list = G_LIST_MODEL (mobile_settings_window_get_stack_pages (window));
+  window = g_object_new (MS_TYPE_WINDOW, NULL);
+  list = G_LIST_MODEL (ms_window_get_stack_pages (window));
 
   g_print ("Available panels:\n");
 
@@ -248,7 +248,7 @@ set_panel_activated (GSimpleAction *action,
                      gpointer       user_data)
 {
   MsApplication *self = MS_APPLICATION (user_data);
-  MobileSettingsWindow *window;
+  MsWindow *window;
   MsPanelSwitcher *panel_switcher;
   char *panel;
   g_autoptr (GVariant) params = NULL;
@@ -257,8 +257,8 @@ set_panel_activated (GSimpleAction *action,
 
   g_debug ("'set-panel' '%s'", panel);
 
-  window = MOBILE_SETTINGS_WINDOW (get_active_window (self));
-  panel_switcher = mobile_settings_window_get_panel_switcher (window);
+  window = MS_WINDOW (get_active_window (self));
+  panel_switcher = ms_window_get_panel_switcher (window);
 
   if (!ms_panel_switcher_set_active_panel_name (panel_switcher, panel))
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
