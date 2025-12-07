@@ -51,7 +51,7 @@ get_gtk_info (const char **backend,
   gdk_surface_destroy (surface);
 }
 
-#ifndef G_OS_WIN32
+
 static char *
 get_flatpak_info (const char *group,
                   const char *key)
@@ -66,7 +66,7 @@ get_flatpak_info (const char *group,
 
   return ret;
 }
-#endif
+
 
 static char *
 get_phosh_session_version (void)
@@ -198,9 +198,7 @@ char *
 mobile_settings_generate_debug_info (void)
 {
   GString *string = g_string_new (NULL);
-#ifndef G_OS_WIN32
   gboolean flatpak = g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
-#endif
 
   g_string_append_printf (string, "Mobile Settings: %s\n", MOBILE_SETTINGS_VERSION);
   g_string_append (string, "Compiled against:\n");
@@ -251,7 +249,6 @@ mobile_settings_generate_debug_info (void)
     g_string_append (string, "\n");
   }
 
-#ifndef G_OS_WIN32
   if (flatpak) {
     g_autofree char *runtime = get_flatpak_info ("Application", "runtime");
     g_autofree char *runtime_commit = get_flatpak_info ("Instance", "runtime-commit");
@@ -267,7 +264,6 @@ mobile_settings_generate_debug_info (void)
     g_string_append_printf (string, "- Devel: %s\n", devel ? "yes" : "no");
     g_string_append (string, "\n");
   }
-#endif
 
   {
     const char *desktop = g_getenv ("XDG_CURRENT_DESKTOP");
