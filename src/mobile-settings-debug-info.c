@@ -120,12 +120,12 @@ get_os_info (void)
 static void
 append_display_configuration (GString *string)
 {
-  MobileSettingsApplication *app = NULL;
+  MsApplication *app = NULL;
   MsHeadTracker *tracker = NULL;
   GPtrArray *heads = NULL;
 
-  app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
-  tracker = mobile_settings_application_get_head_tracker (app);
+  app = MS_APPLICATION (g_application_get_default ());
+  tracker = ms_application_get_head_tracker (app);
 
   if (tracker == NULL) {
     g_string_append_printf (string, "No head tracker available\n");
@@ -347,15 +347,15 @@ mobile_settings_generate_debug_info (void)
 
   g_string_append_printf (string, "Wayland Protocols\n");
   {
-    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+    MsApplication *app = MS_APPLICATION (g_application_get_default ());
     g_auto (GStrv) wayland_protcols = NULL;
 
-    wayland_protcols = mobile_settings_application_get_wayland_protocols (app);
+    wayland_protcols = ms_application_get_wayland_protocols (app);
     for (int i = 0; wayland_protcols[i]; i++) {
       const char *protocol = wayland_protcols[i];
       guint32 version;
 
-      version = mobile_settings_application_get_wayland_protocol_version (app, protocol);
+      version = ms_application_get_wayland_protocol_version (app, protocol);
       g_string_append_printf (string, "- %s: %d\n", protocol, version);
     }
   }

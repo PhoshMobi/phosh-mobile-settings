@@ -128,7 +128,7 @@ static void
 ms_settings_window_constructed (GObject *object)
 {
   MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (object);
-  MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+  MsApplication *app = MS_APPLICATION (g_application_get_default ());
   GtkWidget *device_panel;
   GHashTable *parser_page_table = NULL;
 
@@ -138,7 +138,7 @@ ms_settings_window_constructed (GObject *object)
     const char *title;
 
     g_assert (GTK_IS_APPLICATION (app));
-    device_panel = mobile_settings_application_get_device_panel (app);
+    device_panel = ms_application_get_device_panel (app);
     if (device_panel) {
       GtkStackPage *page;
 

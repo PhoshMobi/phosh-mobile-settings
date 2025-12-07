@@ -16,7 +16,7 @@
 int
 main (int argc, char *argv[])
 {
-  g_autoptr (MobileSettingsApplication) app = NULL;
+  g_autoptr (MsApplication) app = NULL;
   g_autoptr (GError) err = NULL;
   int ret;
 
@@ -26,7 +26,7 @@ main (int argc, char *argv[])
 
   ms_init ();
 
-  app = mobile_settings_application_new (MOBILE_SETTINGS_APP_ID);
+  app = ms_application_new (MOBILE_SETTINGS_APP_ID);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
 
   ms_uninit ();

@@ -15,16 +15,16 @@
 
 G_BEGIN_DECLS
 
-#define MOBILE_SETTINGS_TYPE_APPLICATION (mobile_settings_application_get_type ())
+#define MS_TYPE_APPLICATION (ms_application_get_type ())
 
-G_DECLARE_FINAL_TYPE (MobileSettingsApplication, mobile_settings_application, MOBILE_SETTINGS, APPLICATION, AdwApplication)
+G_DECLARE_FINAL_TYPE (MsApplication, ms_application, MS, APPLICATION, AdwApplication)
 
-MobileSettingsApplication *mobile_settings_application_new (char *application_id);
-GtkWidget *mobile_settings_application_get_device_panel  (MobileSettingsApplication *self);
-MsToplevelTracker *mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *self);
-MsHeadTracker     *mobile_settings_application_get_head_tracker (MobileSettingsApplication *self);
-GStrv mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *self);
-guint32 mobile_settings_application_get_wayland_protocol_version (MobileSettingsApplication *self,
-                                                                  const char *protocol);
+MsApplication *    ms_application_new                          (char *application_id);
+GtkWidget *        ms_application_get_device_panel             (MsApplication *self);
+MsToplevelTracker *ms_application_get_toplevel_tracker         (MsApplication *self);
+MsHeadTracker *    ms_application_get_head_tracker             (MsApplication *self);
+GStrv              ms_application_get_wayland_protocols        (MsApplication *self);
+guint32            ms_application_get_wayland_protocol_version (MsApplication *self,
+                                                                const char    *protocol);
 
 G_END_DECLS
