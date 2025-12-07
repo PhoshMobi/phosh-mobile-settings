@@ -210,7 +210,7 @@ print_system_information (GApplication *app)
   wl_display_roundtrip (self->wl_display);
   wl_display_dispatch (self->wl_display);
 
-  debug_info = mobile_settings_generate_debug_info ();
+  debug_info = ms_generate_debug_info ();
   g_print ("Debugging information:\n%s", debug_info);
 }
 
@@ -445,7 +445,7 @@ ms_application_show_about (GSimpleAction *action,
   adw_about_dialog_set_translator_credits (about_dialog,
                /* Translators: Replace "translator-credits" with your names, one name per line */
                                            _("translator-credits"));
-  adw_about_dialog_set_debug_info (about_dialog, mobile_settings_generate_debug_info ());
+  adw_about_dialog_set_debug_info (about_dialog, ms_generate_debug_info ());
 
   window = gtk_application_get_active_window (GTK_APPLICATION (self));
   adw_dialog_present (ADW_DIALOG (about_dialog), GTK_WIDGET (window));

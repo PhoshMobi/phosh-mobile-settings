@@ -195,7 +195,7 @@ append_display_configuration (GString *string)
 
 
 char *
-mobile_settings_generate_debug_info (void)
+ms_generate_debug_info (void)
 {
   GString *string = g_string_new (NULL);
   gboolean flatpak = g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
