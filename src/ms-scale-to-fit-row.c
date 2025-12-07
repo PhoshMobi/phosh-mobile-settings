@@ -9,8 +9,6 @@
 #define G_LOG_DOMAIN "ms-scale_to_fit-row"
 
 #include "mobile-settings-config.h"
-#include "mobile-settings-enums.h"
-#include "ms-enum-types.h"
 #include "ms-util.h"
 #include "ms-scale-to-fit-row.h"
 

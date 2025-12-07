@@ -9,9 +9,7 @@
 #define G_LOG_DOMAIN "ms-osk-panel"
 
 #include "mobile-settings-config.h"
-#include "mobile-settings-enums.h"
 #include "ms-completer-info.h"
-#include "ms-enum-types.h"
 #include "ms-osk-layout-prefs.h"
 #include "ms-osk-add-shortcut-dialog.h"
 #include "ms-osk-panel.h"
