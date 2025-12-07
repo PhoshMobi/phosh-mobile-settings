@@ -19,8 +19,8 @@
 #include "ms-head-tracker.h"
 #include "mobile-settings-debug-info.h"
 
-#include "protocols/wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
-#include "protocols/wlr-output-management-unstable-v1-client-protocol.h"
+#include "wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
+#include "wlr-output-management-unstable-v1-client-protocol.h"
 
 #include <phosh-plugin.h>
 
