@@ -10,16 +10,14 @@
 #define G_LOG_DOMAIN "mobile-settings-window"
 
 #include "mobile-settings-config.h"
+
 #include "mobile-settings-application.h"
 #include "mobile-settings-window.h"
 
-#include "ms-compositor-panel.h"
-#include "ms-feedback-panel.h"
 #include "ms-plugin-panel.h"
 
 #include "conf-tweaks/ms-tweaks-parser.h"
 #include "conf-tweaks/ms-tweaks-preferences-page.h"
-#include "conf-tweaks/ms-tweaks-utils.h"
 
 #include <glib/gi18n.h>
 
