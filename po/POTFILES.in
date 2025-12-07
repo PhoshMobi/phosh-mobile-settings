@@ -4,9 +4,8 @@ plugins/librem5/ms-plugin-librem5-panel.c
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
 src/conf-tweaks/ms-tweaks-callback-handlers.c
 src/gtk/help-overlay.ui
-src/mobile-settings-application.c
-src/mobile-settings-window.c
 src/ms-alerts-panel.c
+src/ms-application.c
 src/ms-audio-devices.c
 src/ms-cb-message-row.c
 src/ms-feedback-panel.c
@@ -16,7 +15,7 @@ src/ms-overview-panel.c
 src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c
-src/ui/mobile-settings-window.ui
+src/ms-window.c
 src/ui/ms-alerts-panel.ui
 src/ui/ms-audio-device-row.ui
 src/ui/ms-compositor-panel.ui
@@ -35,3 +34,4 @@ src/ui/ms-scale-to-fit-row.ui
 src/ui/ms-sensor-panel.ui
 src/ui/ms-sound-row.ui
 src/ui/ms-topbar-panel.ui
+src/ui/ms-window.ui

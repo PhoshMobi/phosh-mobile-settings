@@ -8,8 +8,8 @@
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
-#include "mobile-settings-debug-info.h"
+#include "ms-application.h"
+#include "ms-debug-info.h"
 
 #include <gmobile.h>
 
@@ -51,7 +51,7 @@ get_gtk_info (const char **backend,
   gdk_surface_destroy (surface);
 }
 
-#ifndef G_OS_WIN32
+
 static char *
 get_flatpak_info (const char *group,
                   const char *key)
@@ -66,7 +66,7 @@ get_flatpak_info (const char *group,
 
   return ret;
 }
-#endif
+
 
 static char *
 get_phosh_session_version (void)
@@ -120,12 +120,12 @@ get_os_info (void)
 static void
 append_display_configuration (GString *string)
 {
-  MobileSettingsApplication *app = NULL;
+  MsApplication *app = NULL;
   MsHeadTracker *tracker = NULL;
   GPtrArray *heads = NULL;
 
-  app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
-  tracker = mobile_settings_application_get_head_tracker (app);
+  app = MS_APPLICATION (g_application_get_default ());
+  tracker = ms_application_get_head_tracker (app);
 
   if (tracker == NULL) {
     g_string_append_printf (string, "No head tracker available\n");
@@ -195,12 +195,10 @@ append_display_configuration (GString *string)
 
 
 char *
-mobile_settings_generate_debug_info (void)
+ms_generate_debug_info (void)
 {
   GString *string = g_string_new (NULL);
-#ifndef G_OS_WIN32
   gboolean flatpak = g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
-#endif
 
   g_string_append_printf (string, "Mobile Settings: %s\n", MOBILE_SETTINGS_VERSION);
   g_string_append (string, "Compiled against:\n");
@@ -251,7 +249,6 @@ mobile_settings_generate_debug_info (void)
     g_string_append (string, "\n");
   }
 
-#ifndef G_OS_WIN32
   if (flatpak) {
     g_autofree char *runtime = get_flatpak_info ("Application", "runtime");
     g_autofree char *runtime_commit = get_flatpak_info ("Instance", "runtime-commit");
@@ -267,7 +264,6 @@ mobile_settings_generate_debug_info (void)
     g_string_append_printf (string, "- Devel: %s\n", devel ? "yes" : "no");
     g_string_append (string, "\n");
   }
-#endif
 
   {
     const char *desktop = g_getenv ("XDG_CURRENT_DESKTOP");
@@ -351,15 +347,15 @@ mobile_settings_generate_debug_info (void)
 
   g_string_append_printf (string, "Wayland Protocols\n");
   {
-    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+    MsApplication *app = MS_APPLICATION (g_application_get_default ());
     g_auto (GStrv) wayland_protcols = NULL;
 
-    wayland_protcols = mobile_settings_application_get_wayland_protocols (app);
+    wayland_protcols = ms_application_get_wayland_protocols (app);
     for (int i = 0; wayland_protcols[i]; i++) {
       const char *protocol = wayland_protcols[i];
       guint32 version;
 
-      version = mobile_settings_application_get_wayland_protocol_version (app, protocol);
+      version = ms_application_get_wayland_protocol_version (app, protocol);
       g_string_append_printf (string, "- %s: %d\n", protocol, version);
     }
   }

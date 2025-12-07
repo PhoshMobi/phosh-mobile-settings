@@ -10,6 +10,6 @@
 
 G_BEGIN_DECLS
 
-char *mobile_settings_generate_debug_info (void);
+char *ms_generate_debug_info (void);
 
 G_END_DECLS

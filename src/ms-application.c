@@ -7,20 +7,20 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
-#define G_LOG_DOMAIN "mobile-settings-application"
+#define G_LOG_DOMAIN "ms-application"
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
-#include "mobile-settings-window.h"
-#include "mobile-settings-plugin.h"
+#include "ms-application.h"
+#include "ms-window.h"
+#include "ms-plugin.h"
 #include "ms-plugin-loader.h"
 #include "ms-toplevel-tracker.h"
 #include "ms-head-tracker.h"
-#include "mobile-settings-debug-info.h"
+#include "ms-debug-info.h"
 
-#include "protocols/wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
-#include "protocols/wlr-output-management-unstable-v1-client-protocol.h"
+#include "wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
+#include "wlr-output-management-unstable-v1-client-protocol.h"
 
 #include <phosh-plugin.h>
 
@@ -44,7 +44,7 @@ enum {
 static GParamSpec *props[PROP_LAST_PROP];
 
 
-struct _MobileSettingsApplication {
+struct _MsApplication {
   AdwApplication  parent_instance;
 
   MsPluginLoader *device_plugin_loader;
@@ -60,7 +60,7 @@ struct _MobileSettingsApplication {
   GHashTable        *wayland_protocols;
 };
 
-G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
+G_DEFINE_TYPE (MsApplication, ms_application, ADW_TYPE_APPLICATION)
 
 static const GOptionEntry entries[] = {
   {
@@ -88,12 +88,12 @@ static const GOptionEntry entries[] = {
 
 
 static void
-mobile_settings_application_get_property (GObject    *object,
-                                          guint       property_id,
-                                          GValue     *value,
-                                          GParamSpec *pspec)
+ms_application_get_property (GObject    *object,
+                             guint       property_id,
+                             GValue     *value,
+                             GParamSpec *pspec)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (object);
+  MsApplication *self = MS_APPLICATION (object);
 
   switch (property_id) {
   case PROP_TOPLEVEL_TRACKER:
@@ -117,7 +117,7 @@ registry_handle_global (void               *data,
                         const char         *interface,
                         uint32_t            version)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (data);
+  MsApplication *self = MS_APPLICATION (data);
 
   if (strcmp (interface, zwlr_foreign_toplevel_manager_v1_interface.name) == 0) {
     self->foreign_toplevel_manager =
@@ -158,7 +158,7 @@ static const struct wl_registry_listener registry_listener = {
 
 
 static void
-setup_wayland (MobileSettingsApplication *self)
+setup_wayland (MsApplication *self)
 {
   GdkDisplay *gdk_display;
 
@@ -176,12 +176,12 @@ setup_wayland (MobileSettingsApplication *self)
 
 
 static GtkWindow *
-get_active_window (MobileSettingsApplication *self)
+get_active_window (MsApplication *self)
 {
   GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
   if (window == NULL)
-    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, "application", self, NULL);
+    window = g_object_new (MS_TYPE_WINDOW, "application", self, NULL);
 
   return window;
 }
@@ -200,7 +200,7 @@ static void
 print_system_information (GApplication *app)
 {
   g_autofree char *debug_info = NULL;
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+  MsApplication *self = MS_APPLICATION (app);
 
   /* We need this to init components and generate debug info */
   adw_init ();
@@ -210,7 +210,7 @@ print_system_information (GApplication *app)
   wl_display_roundtrip (self->wl_display);
   wl_display_dispatch (self->wl_display);
 
-  debug_info = mobile_settings_generate_debug_info ();
+  debug_info = ms_generate_debug_info ();
   g_print ("Debugging information:\n%s", debug_info);
 }
 
@@ -218,7 +218,7 @@ print_system_information (GApplication *app)
 static void
 list_available_panels (GApplication *app)
 {
-  MobileSettingsWindow *window;
+  MsWindow *window;
   g_autoptr (GListModel) list = NULL;
   g_autoptr (GtkStackPage) page = NULL;
   const char *name;
@@ -226,8 +226,8 @@ list_available_panels (GApplication *app)
   /* Since we're in the local instance, just get us a window */
   adw_init ();
 
-  window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, NULL);
-  list = G_LIST_MODEL (mobile_settings_window_get_stack_pages (window));
+  window = g_object_new (MS_TYPE_WINDOW, NULL);
+  list = G_LIST_MODEL (ms_window_get_stack_pages (window));
 
   g_print ("Available panels:\n");
 
@@ -247,8 +247,8 @@ set_panel_activated (GSimpleAction *action,
                      GVariant      *parameter,
                      gpointer       user_data)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
-  MobileSettingsWindow *window;
+  MsApplication *self = MS_APPLICATION (user_data);
+  MsWindow *window;
   MsPanelSwitcher *panel_switcher;
   char *panel;
   g_autoptr (GVariant) params = NULL;
@@ -257,8 +257,8 @@ set_panel_activated (GSimpleAction *action,
 
   g_debug ("'set-panel' '%s'", panel);
 
-  window = MOBILE_SETTINGS_WINDOW (get_active_window (self));
-  panel_switcher = mobile_settings_window_get_panel_switcher (window);
+  window = MS_WINDOW (get_active_window (self));
+  panel_switcher = ms_window_get_panel_switcher (window);
 
   if (!ms_panel_switcher_set_active_panel_name (panel_switcher, panel))
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
@@ -267,24 +267,24 @@ set_panel_activated (GSimpleAction *action,
 }
 
 
-MobileSettingsApplication *
-mobile_settings_application_new (char *application_id)
+MsApplication *
+ms_application_new (char *application_id)
 {
-  return g_object_new (MOBILE_SETTINGS_TYPE_APPLICATION,
+  return g_object_new (MS_TYPE_APPLICATION,
                        "application-id", application_id,
                        "flags", G_APPLICATION_DEFAULT_FLAGS,
                        NULL);
 }
 
 /**
- * mobile_settings_application_set_panel:
+ * ms_application_set_panel:
  * @self: the application
  * @panel: the panel to set
  *
  * Convenience wrapper to activate the given panel via the `set-panel` action.
  */
 static void
-mobile_settings_application_set_panel (MobileSettingsApplication *self, const char *panel)
+ms_application_set_panel (MsApplication *self, const char *panel)
 {
   GVariantBuilder builder;
   g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
@@ -297,11 +297,11 @@ mobile_settings_application_set_panel (MobileSettingsApplication *self, const ch
 
 
 static int
-mobile_settings_application_handle_local_options (GApplication *app, GVariantDict *options)
+ms_application_handle_local_options (GApplication *app, GVariantDict *options)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+  MsApplication *self = MS_APPLICATION (app);
   g_autofree GStrv panels = NULL;
-  GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
+  GApplicationClass *app_class = G_APPLICATION_CLASS (ms_application_parent_class);
   g_autofree char *panel = NULL;
 
   if (g_variant_dict_contains (options, "version")) {
@@ -330,7 +330,7 @@ mobile_settings_application_handle_local_options (GApplication *app, GVariantDic
 
   if (!gm_str_is_null_or_empty (panel)) {
     g_application_register (G_APPLICATION (app), NULL, NULL);
-    mobile_settings_application_set_panel (self, panel);
+    ms_application_set_panel (self, panel);
   }
 
   return app_class->handle_local_options (app, options);
@@ -338,10 +338,10 @@ mobile_settings_application_handle_local_options (GApplication *app, GVariantDic
 
 
 static void
-mobile_settings_application_activate (GApplication *app)
+ms_application_activate (GApplication *app)
 {
   GtkWindow *window;
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+  MsApplication *self = MS_APPLICATION (app);
 
   g_assert (GTK_IS_APPLICATION (app));
 
@@ -359,10 +359,10 @@ static const GActionEntry actions[] = {
 
 
 static void
-mobile_settings_application_startup (GApplication *app)
+ms_application_startup (GApplication *app)
 {
   g_autoptr (GError) err = NULL;
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+  MsApplication *self = MS_APPLICATION (app);
 
   if (!lfb_init (MOBILE_SETTINGS_APP_ID, &err))
     g_warning ("Failed to init libfeedback: %s", err->message);
@@ -372,44 +372,44 @@ mobile_settings_application_startup (GApplication *app)
                                    G_N_ELEMENTS (actions),
                                    self);
 
-  G_APPLICATION_CLASS (mobile_settings_application_parent_class)->startup (app);
+  G_APPLICATION_CLASS (ms_application_parent_class)->startup (app);
 }
 
 
 static void
-mobile_settings_application_shutdown (GApplication *app)
+ms_application_shutdown (GApplication *app)
 {
-  G_APPLICATION_CLASS (mobile_settings_application_parent_class)->shutdown (app);
+  G_APPLICATION_CLASS (ms_application_parent_class)->shutdown (app);
 
   lfb_uninit ();
 }
 
 
 static void
-mobile_settings_application_finalize (GObject *object)
+ms_application_finalize (GObject *object)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (object);
+  MsApplication *self = MS_APPLICATION (object);
 
   g_clear_object (&self->device_plugin_loader);
   g_clear_pointer (&self->wayland_protocols, g_hash_table_destroy);
 
-  G_OBJECT_CLASS (mobile_settings_application_parent_class)->finalize (object);
+  G_OBJECT_CLASS (ms_application_parent_class)->finalize (object);
 }
 
 
 static void
-mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
+ms_application_class_init (MsApplicationClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
-  object_class->finalize = mobile_settings_application_finalize;
-  object_class->get_property = mobile_settings_application_get_property;
+  object_class->finalize = ms_application_finalize;
+  object_class->get_property = ms_application_get_property;
 
-  app_class->activate = mobile_settings_application_activate;
-  app_class->startup = mobile_settings_application_startup;
-  app_class->shutdown = mobile_settings_application_shutdown;
-  app_class->handle_local_options = mobile_settings_application_handle_local_options;
+  app_class->activate = ms_application_activate;
+  app_class->startup = ms_application_startup;
+  app_class->shutdown = ms_application_shutdown;
+  app_class->handle_local_options = ms_application_handle_local_options;
 
   props[PROP_TOPLEVEL_TRACKER] =
     g_param_spec_object ("toplevel-tracker", "", "",
@@ -425,17 +425,17 @@ mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
 }
 
 static void
-mobile_settings_application_show_about (GSimpleAction *action,
-                                        GVariant      *parameter,
-                                        gpointer       user_data)
+ms_application_show_about (GSimpleAction *action,
+                           GVariant      *parameter,
+                           gpointer       user_data)
 {
-  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
+  MsApplication *self = MS_APPLICATION (user_data);
   GtkWindow *window;
   AdwAboutDialog *about_dialog;
   const char *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
   const char *artists[] = {"Sam Hewitt", NULL};
 
-  g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
+  g_return_if_fail (MS_APPLICATION (self));
 
   about_dialog = ADW_ABOUT_DIALOG (adw_about_dialog_new_from_appdata ("/mobi/phosh/MobileSettings/"
                                                                       "metainfo.xml",
@@ -445,7 +445,7 @@ mobile_settings_application_show_about (GSimpleAction *action,
   adw_about_dialog_set_translator_credits (about_dialog,
                /* Translators: Replace "translator-credits" with your names, one name per line */
                                            _("translator-credits"));
-  adw_about_dialog_set_debug_info (about_dialog, mobile_settings_generate_debug_info ());
+  adw_about_dialog_set_debug_info (about_dialog, ms_generate_debug_info ());
 
   window = gtk_application_get_active_window (GTK_APPLICATION (self));
   adw_dialog_present (ADW_DIALOG (about_dialog), GTK_WIDGET (window));
@@ -453,7 +453,7 @@ mobile_settings_application_show_about (GSimpleAction *action,
 
 
 static void
-mobile_settings_application_init (MobileSettingsApplication *self)
+ms_application_init (MsApplication *self)
 {
   const char *plugin_dirs[] = { MOBILE_SETTINGS_PLUGINS_DIR, NULL };
   g_autoptr (GSimpleAction) about_action = NULL;
@@ -464,7 +464,7 @@ mobile_settings_application_init (MobileSettingsApplication *self)
   g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (quit_action));
 
   about_action = g_simple_action_new ("about", NULL);
-  g_signal_connect (about_action, "activate", G_CALLBACK (mobile_settings_application_show_about), self);
+  g_signal_connect (about_action, "activate", G_CALLBACK (ms_application_show_about), self);
   g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (about_action));
 
   gtk_application_set_accels_for_action (GTK_APPLICATION (self),
@@ -490,7 +490,7 @@ mobile_settings_application_init (MobileSettingsApplication *self)
 
 
 GtkWidget *
-mobile_settings_application_get_device_panel (MobileSettingsApplication *self)
+ms_application_get_device_panel (MsApplication *self)
 {
   if (self->device_panel)
     return self->device_panel;
@@ -501,30 +501,30 @@ mobile_settings_application_get_device_panel (MobileSettingsApplication *self)
 
 
 MsToplevelTracker *
-mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *self)
+ms_application_get_toplevel_tracker (MsApplication *self)
 {
-  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+  g_assert (MS_APPLICATION (self));
 
   return self->toplevel_tracker;
 }
 
 
 MsHeadTracker *
-mobile_settings_application_get_head_tracker (MobileSettingsApplication *self)
+ms_application_get_head_tracker (MsApplication *self)
 {
-  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+  g_assert (MS_APPLICATION (self));
 
   return self->head_tracker;
 }
 
 
 GStrv
-mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *self)
+ms_application_get_wayland_protocols (MsApplication *self)
 {
   g_autoptr (GList) keys = NULL;
   g_autoptr (GStrvBuilder) protocols = g_strv_builder_new ();
 
-  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+  g_assert (MS_APPLICATION (self));
 
   keys = g_hash_table_get_keys (self->wayland_protocols);
   g_assert (keys);
@@ -537,12 +537,11 @@ mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *se
 
 
 guint32
-mobile_settings_application_get_wayland_protocol_version (MobileSettingsApplication *self,
-                                                          const char                *protocol)
+ms_application_get_wayland_protocol_version (MsApplication *self, const char *protocol)
 {
   gpointer *version;
 
-  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+  g_assert (MS_APPLICATION (self));
 
   version = g_hash_table_lookup (self->wayland_protocols, protocol);
 

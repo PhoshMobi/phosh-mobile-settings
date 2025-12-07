@@ -10,10 +10,7 @@
 #define G_LOG_DOMAIN "ms-overview-panel"
 
 #include "mobile-settings-config.h"
-#include "mobile-settings-application.h"
-#include "mobile-settings-enums.h"
-#include "ms-enum-types.h"
-#include "ms-feedback-row.h"
+
 #include "ms-overview-panel.h"
 #include "ms-util.h"
 

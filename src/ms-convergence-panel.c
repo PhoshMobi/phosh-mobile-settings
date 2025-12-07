@@ -10,7 +10,7 @@
 
 #include "mobile-settings-config.h"
 
-#include "mobile-settings-application.h"
+#include "ms-application.h"
 #include "ms-convergence-panel.h"
 #include "ms-scale-to-fit-row.h"
 #include "ms-util.h"
@@ -228,9 +228,9 @@ on_head_removed (MsConvergencePanel *self,
 
 
 static void
-on_head_tracker_changed (MsConvergencePanel *self, GParamSpec *spec, MobileSettingsApplication *app)
+on_head_tracker_changed (MsConvergencePanel *self, GParamSpec *spec, MsApplication *app)
 {
-  MsHeadTracker *tracker = mobile_settings_application_get_head_tracker (app);
+  MsHeadTracker *tracker = ms_application_get_head_tracker (app);
   GPtrArray *heads;
 
   if (tracker == NULL)
@@ -287,15 +287,14 @@ ms_convergence_panel_class_init (MsConvergencePanelClass *klass)
 static void
 ms_convergence_panel_init (MsConvergencePanel *self)
 {
-  MobileSettingsApplication *app;
+  MsApplication *app;
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+  app = MS_APPLICATION (g_application_get_default ());
   g_signal_connect_swapped (app, "notify::head-tracker",
                             G_CALLBACK (on_head_tracker_changed), self);
-  on_head_tracker_changed(self, NULL,
-                          MOBILE_SETTINGS_APPLICATION (g_application_get_default ()));
+  on_head_tracker_changed(self, NULL, MS_APPLICATION (g_application_get_default ()));
 }
 
 

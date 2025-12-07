@@ -1,31 +1,24 @@
 subdir('dbus')
 subdir('conf-tweaks')
 
-mobile_settings_enum_sources = gnome.mkenums_simple(
-  'ms-enum-types',
-  sources: files('mobile-settings-enums.h'),
-)
+mobile_settings_enum_sources = gnome.mkenums_simple('ms-enum-types', sources: files('ms-enums.h'))
 
 mobile_settings_plugin_sources = [
-  'mobile-settings-plugin.h',
-  'mobile-settings-plugin.c',
+  'ms-plugin.h',
+  'ms-plugin.c',
   'ms-plugin-panel.h',
   'ms-plugin-panel.c',
 ]
 
 mobile_settings_sources = [
-  'mobile-settings-window.h',
-  'mobile-settings-window.c',
-  'mobile-settings-application.h',
-  'mobile-settings-application.c',
-  'mobile-settings-debug-info.h',
-  'mobile-settings-debug-info.c',
   'ms-alerts-panel.c',
   'ms-alerts-panel.h',
-  'ms-audio-device.c',
-  'ms-audio-device.h',
+  'ms-application.c',
+  'ms-application.h',
   'ms-audio-device-row.c',
   'ms-audio-device-row.h',
+  'ms-audio-device.c',
+  'ms-audio-device.h',
   'ms-audio-devices.c',
   'ms-audio-devices.h',
   'ms-cb-message-row.c',
@@ -36,12 +29,14 @@ mobile_settings_sources = [
   'ms-compositor-panel.h',
   'ms-convergence-panel.c',
   'ms-convergence-panel.h',
+  'ms-debug-info.c',
+  'ms-debug-info.h',
   'ms-features-panel.c',
   'ms-features-panel.h',
-  'ms-feedback-row.c',
-  'ms-feedback-row.h',
   'ms-feedback-panel.c',
   'ms-feedback-panel.h',
+  'ms-feedback-row.c',
+  'ms-feedback-row.h',
   'ms-head-tracker.c',
   'ms-head-tracker.h',
   'ms-lockscreen-panel.c',
@@ -52,24 +47,24 @@ mobile_settings_sources = [
   'ms-osk-add-layout-dialog.h',
   'ms-osk-add-shortcut-dialog.c',
   'ms-osk-add-shortcut-dialog.h',
-  'ms-osk-layout.c',
-  'ms-osk-layout.h',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout-prefs.h',
   'ms-osk-layout-row.c',
   'ms-osk-layout-row.h',
+  'ms-osk-layout.c',
+  'ms-osk-layout.h',
   'ms-osk-panel.c',
   'ms-osk-panel.h',
   'ms-overview-panel.c',
   'ms-overview-panel.h',
-  'ms-panel.c',
-  'ms-panel.h',
   'ms-panel-switcher.c',
   'ms-panel-switcher.h',
-  'ms-plugin-loader.h',
+  'ms-panel.c',
+  'ms-panel.h',
   'ms-plugin-list-box.c',
   'ms-plugin-list-box.h',
   'ms-plugin-loader.c',
+  'ms-plugin-loader.h',
   'ms-plugin-loader.h',
   'ms-plugin-row.c',
   'ms-plugin-row.h',
@@ -85,6 +80,8 @@ mobile_settings_sources = [
   'ms-toplevel-tracker.h',
   'ms-util.c',
   'ms-util.h',
+  'ms-window.c',
+  'ms-window.h',
 ]
 
 mobile_settings_deps = [
@@ -134,7 +131,7 @@ ms_lib = static_library(
   mobile_settings_sources,
   conf_tweaks_sources,
   mobile_settings_generated_sources,
-  include_directories: [conf_tweaks_inc],
+  include_directories: [conf_tweaks_inc, proto_inc],
   dependencies: mobile_settings_deps,
   install: false,
 )
