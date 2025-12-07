@@ -1,10 +1,7 @@
 subdir('dbus')
 subdir('conf-tweaks')
 
-mobile_settings_enum_sources = gnome.mkenums_simple(
-  'ms-enum-types',
-  sources: files('mobile-settings-enums.h'),
-)
+mobile_settings_enum_sources = gnome.mkenums_simple('ms-enum-types', sources: files('ms-enums.h'))
 
 mobile_settings_plugin_sources = [
   'ms-plugin.h',

@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include "mobile-settings-enums.h"
+#include "ms-enums.h"
 
 #include <adwaita.h>
 

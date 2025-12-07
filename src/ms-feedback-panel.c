@@ -10,7 +10,7 @@
 #define G_LOG_DOMAIN "ms-feedback-panel"
 
 #include "mobile-settings-config.h"
-#include "mobile-settings-enums.h"
+#include "ms-enums.h"
 #include "ms-audio-devices.h"
 #include "ms-audio-device-row.h"
 #include "ms-enum-types.h"
