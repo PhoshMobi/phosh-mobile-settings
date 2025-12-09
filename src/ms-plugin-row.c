@@ -64,9 +64,7 @@ on_open_prefs_activated (GSimpleAction *action,
 {
   MsPluginRow *self = MS_PLUGIN_ROW (data);
 
-  gtk_widget_activate_action (GTK_WIDGET (self),
-                              "plugin-list-box.open-plugin-prefs",
-                              "s", self->filename);
+  ms_plugin_row_open_prefs (self);
 }
 
 
@@ -412,4 +410,19 @@ ms_plugin_row_get_enabled (MsPluginRow *self)
   g_return_val_if_fail (MS_IS_PLUGIN_ROW (self), FALSE);
 
   return self->enabled;
+}
+
+
+void
+ms_plugin_row_open_prefs (MsPluginRow *self)
+{
+  g_assert (MS_IS_PLUGIN_ROW (self));
+
+  if (!self->has_prefs)
+    return;
+
+  gtk_widget_activate_action (GTK_WIDGET (self),
+                              "plugin-list-box.open-plugin-prefs",
+                              "s",
+                              self->filename);
 }

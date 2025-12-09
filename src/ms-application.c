@@ -18,6 +18,7 @@
 #include "ms-toplevel-tracker.h"
 #include "ms-head-tracker.h"
 #include "ms-debug-info.h"
+#include "ms-panel.h"
 
 #include "wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"
@@ -39,6 +40,7 @@ enum {
   PROP_0,
   PROP_TOPLEVEL_TRACKER,
   PROP_HEAD_TRACKER,
+  PROP_ACTIVE_PANEL,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -58,6 +60,8 @@ struct _MsApplication {
   MsHeadTracker     *head_tracker;
 
   GHashTable        *wayland_protocols;
+
+  GtkWidget         *active_panel;
 };
 
 G_DEFINE_TYPE (MsApplication, ms_application, ADW_TYPE_APPLICATION)
@@ -101,6 +105,28 @@ ms_application_get_property (GObject    *object,
     break;
   case PROP_HEAD_TRACKER:
     g_value_set_object (value, self->head_tracker);
+    break;
+  case PROP_ACTIVE_PANEL:
+    g_value_set_object (value, self->active_panel);
+    break;
+  default:
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    break;
+  }
+}
+
+
+static void
+ms_application_set_property (GObject      *object,
+                             guint         property_id,
+                             const GValue *value,
+                             GParamSpec   *pspec)
+{
+  MsApplication *self = MS_APPLICATION (object);
+
+  switch (property_id) {
+  case PROP_ACTIVE_PANEL:
+    self->active_panel = g_value_get_object (value);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -175,13 +201,42 @@ setup_wayland (MsApplication *self)
 }
 
 
+static gboolean
+transform_to_active_panel (GBinding     *binding,
+                           const GValue *from,
+                           GValue       *to,
+                           gpointer      user_data)
+{
+  GtkStack *stack = GTK_STACK (g_binding_dup_source (binding));
+  GtkWidget *stack_child = g_value_get_object (from);
+  GtkStackPage *page = gtk_stack_get_page (stack, stack_child);
+
+  g_value_set_object (to, gtk_stack_page_get_child (page));
+
+  return TRUE;
+}
+
+
 static GtkWindow *
 get_active_window (MsApplication *self)
 {
   GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-  if (window == NULL)
+  if (window == NULL) {
+    GtkStack *panel_stack;
+    MsPanelSwitcher *panel_switcher;
+
     window = g_object_new (MS_TYPE_WINDOW, "application", self, NULL);
+    panel_switcher = ms_window_get_panel_switcher (MS_WINDOW (window));
+    panel_stack = ms_panel_switcher_get_stack (panel_switcher);
+
+    /* Bind here so that we do it just once per window */
+    g_object_bind_property_full (panel_stack, "visible-child",
+                                 self, "active-panel",
+                                 G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
+                                 transform_to_active_panel, NULL,
+                                 NULL, NULL);
+  }
 
   return window;
 }
@@ -264,6 +319,9 @@ set_panel_activated (GSimpleAction *action,
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
 
   gtk_window_present (GTK_WINDOW (window));
+
+  if (!ms_panel_handle_options (MS_PANEL (self->active_panel), params))
+    g_debug ("Panel '%s' failed to parse given options", panel);
 }
 
 
@@ -405,6 +463,7 @@ ms_application_class_init (MsApplicationClass *klass)
 
   object_class->finalize = ms_application_finalize;
   object_class->get_property = ms_application_get_property;
+  object_class->set_property = ms_application_set_property;
 
   app_class->activate = ms_application_activate;
   app_class->startup = ms_application_startup;
@@ -420,6 +479,11 @@ ms_application_class_init (MsApplicationClass *klass)
     g_param_spec_object ("head-tracker", "", "",
                          MS_TYPE_HEAD_TRACKER,
                          G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY);
+
+  props[PROP_ACTIVE_PANEL] =
+    g_param_spec_object ("active-panel", "", "",
+                         GTK_TYPE_WIDGET,
+                         G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 }

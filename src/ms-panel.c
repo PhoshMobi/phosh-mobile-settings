@@ -140,3 +140,19 @@ ms_panel_set_keywords (MsPanel *self, GtkStringList *keywords)
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_KEYWORDS]);
 }
+
+
+gboolean
+ms_panel_handle_options (MsPanel *self, GVariant *params)
+{
+  MsPanelClass *klass;
+
+  g_return_val_if_fail (MS_IS_PANEL (self), FALSE);
+
+  klass = MS_PANEL_GET_CLASS (self);
+
+  if (klass->handle_options == NULL)
+    return TRUE;
+
+  return klass->handle_options (self, params);
+}
