@@ -326,7 +326,8 @@ set_effect_name (MsSoundRow *self, const char *effect_name)
 {
   g_autofree char *target = NULL;
 
-  self->effect_name = g_strdup (effect_name);
+  if (!g_set_str (&self->effect_name, effect_name))
+    return;
 
   if (gm_str_is_null_or_empty (self->effect_name))
     target = NULL;
@@ -334,6 +335,9 @@ set_effect_name (MsSoundRow *self, const char *effect_name)
     target = ms_sound_row_get_target (self);
 
   ms_sound_row_set_filename (self, target);
+
+  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_EFFECT_NAME]);
+
 }
 
 
@@ -421,7 +425,7 @@ ms_sound_row_class_init (MsSoundRowClass *klass)
   props[PROP_EFFECT_NAME] =
     g_param_spec_string ("effect-name", "", "",
                          NULL,
-                         G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
+                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_EXPLICIT_NOTIFY);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
