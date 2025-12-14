@@ -16,6 +16,8 @@
 #include "ms-feedback-panel.h"
 #include "ms-sound-row.h"
 
+#include "gmobile.h"
+
 #include <gsound.h>
 #include <glib/gi18n.h>
 
@@ -325,7 +327,12 @@ set_effect_name (MsSoundRow *self, const char *effect_name)
   g_autofree char *target = NULL;
 
   self->effect_name = g_strdup (effect_name);
-  target = ms_sound_row_get_target (self);
+
+  if (gm_str_is_null_or_empty (self->effect_name))
+    target = NULL;
+  else
+    target = ms_sound_row_get_target (self);
+
   ms_sound_row_set_filename (self, target);
 }
 
