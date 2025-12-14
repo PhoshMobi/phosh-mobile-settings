@@ -30,14 +30,17 @@
   <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
     <file alias="applications-symbolic.svg">../data/icons/applications-symbolic.svg</file>
     <file alias="call-ring-symbolic.svg">../data/icons/call-ring-symbolic.svg</file>
+    <file alias="chat-bubbles-empty-symbolic.svg">../data/icons/chat-bubbles-empty-symbolic.svg</file>
+    <file alias="chat-bubbles-text-symbolic.svg">../data/icons/chat-bubbles-text-symbolic.svg</file>
     <file alias="computer-chip-symbolic.svg">../data/icons/computer-chip-symbolic.svg</file>
+    <file alias="conf-tweaks-symbolic.svg">../data/icons/conf-tweaks-symbolic.svg</file>
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
     <file alias="focus-top-bar-symbolic.svg">../data/icons/focus-top-bar-symbolic.svg</file>
     <file alias="mobi.phosh.MobileSettings.svg">../data/icons/hicolor/scalable/apps/mobi.phosh.MobileSettings.svg</file>
-    <file alias="conf-tweaks-symbolic.svg">../data/icons/conf-tweaks-symbolic.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
-    <file alias="phone-ongoing-call-symbolic.svg">../data/icons/phone-ongoing-call-symbolic.svg</file>
     <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
+    <file alias="phone-ongoing-call-symbolic.svg">../data/icons/phone-ongoing-call-symbolic.svg</file>
+    <file alias="phone-right-facing-symbolic.svg">../data/icons/phone-right-facing-symbolic.svg</file>
     <file alias="phonelink2-symbolic.svg">../data/icons/phonelink2-symbolic.svg</file>
   </gresource>
 </gresources>
