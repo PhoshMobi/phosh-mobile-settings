@@ -99,24 +99,48 @@
                         </style>
                         <child>
                           <object class="MsSoundRow">
+                            <child type="prefix">
+                              <object class="GtkImage">
+                                <property name="icon-name">phone-right-facing-symbolic</property>
+                                <property name="icon-size">large</property>
+                              </object>
+                            </child>
                             <property name="title" translatable="yes">Phone Calls</property>
                             <property name="effect-name">phone-incoming-call</property>
                           </object>
                         </child>
                         <child>
                           <object class="MsSoundRow">
+                            <child type="prefix">
+                              <object class="GtkImage">
+                                <property name="icon-name">chat-bubbles-text-symbolic</property>
+                                <property name="icon-size">large</property>
+                              </object>
+                            </child>
                             <property name="title" translatable="yes">SMS</property>
                             <property name="effect-name">message-new-sms</property>
                           </object>
                         </child>
                         <child>
                           <object class="MsSoundRow">
+                            <child type="prefix">
+                              <object class="GtkImage">
+                                <property name="icon-name">chat-bubbles-empty-symbolic</property>
+                                <property name="icon-size">large</property>
+                              </object>
+                            </child>
                             <property name="title" translatable="yes">Instant Messages</property>
                             <property name="effect-name">message-new-instant</property>
                           </object>
                         </child>
                         <child>
                           <object class="MsSoundRow" id="alarm_clock_sound_row">
+                            <child type="prefix">
+                              <object class="GtkImage">
+                                <property name="icon-name">alarm-symbolic</property>
+                                <property name="icon-size">large</property>
+                              </object>
+                            </child>
                             <property name="visible">0</property>
                             <property name="title" translatable="yes">Alarm Clock</property>
                             <property name="effect-name">alarm-clock-elapsed</property>
