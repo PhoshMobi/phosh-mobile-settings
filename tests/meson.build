@@ -20,9 +20,6 @@ subdir('utils')
 
 phoc = find_program('phoc', required: false)
 
-test_env_gui = test_env_common
-test_env_gui.set('XDG_RUNTIME_DIR', meson.current_build_dir())
-
 unit_tests = [
   'tweaks-backend-gsettings',
   'tweaks-backend-gtk3settings',
@@ -43,11 +40,11 @@ foreach test : unit_tests
     dependencies: libms_dep,
     include_directories: [conf_tweaks_inc, ms_plugin_inc, dbus_inc],
   )
-  test(test, t, env: test_env_gui, suite: ['unit'])
+  test(test, t, env: test_env_common, suite: ['unit'])
 endforeach
 
 if phoc.found()
-  test_env_phoc = test_env_gui
+  test_env_phoc = test_env_common
   test_env_phoc.set('WLR_RENDERER', 'pixman')
   test_env_phoc.set('WLR_BACKENDS', 'headless')
 
