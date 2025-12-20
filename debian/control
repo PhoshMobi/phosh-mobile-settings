@@ -27,9 +27,6 @@ Build-Depends:
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
  phosh-plugins (>= 0.40.0~) <!nocheck>,
- xauth <!nocheck>,
- xvfb <!nocheck>,
- xwayland <!nocheck>,
 Standards-Version: 4.6.0
 Homepage: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/
 Rules-Requires-Root: no
