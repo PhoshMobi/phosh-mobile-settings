@@ -31,8 +31,6 @@ G_DECLARE_INTERFACE (MsTweaksBackend, ms_tweaks_backend, MS, TWEAKS_BACKEND, GOb
  *           backend picking one key that it is going to use out of the ones specified. However, the
  *           string representation may also include other transformations, such as expanding tildes
  *           into full home directory paths.
- * @get_name: Should return the name from the `MsTweaksSetting` instance that was provided in the
- *            constructor.
  * @set_source_ext: Should set the `source_ext` property.
  *
  * All virtual functions but `set_source_ext ()` need to be implemented by backends. Additionally,
@@ -52,7 +50,6 @@ struct _MsTweaksBackendInterface
   const MsTweaksSetting * (* get_setting_data) (MsTweaksBackend *self);
 
   char *                  (* get_key) (MsTweaksBackend *self);
-  char *                  (* get_name) (MsTweaksBackend *self);
 };
 
 G_END_DECLS
