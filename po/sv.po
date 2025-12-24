@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-31 21:20+0000\n"
-"PO-Revision-Date: 2025-11-01 12:12+0100\n"
+"POT-Creation-Date: 2025-12-15 13:37+0000\n"
+"PO-Revision-Date: 2025-12-24 12:44+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,8 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.8\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:2
-#: src/ui/mobile-settings-window.ui:6
+#: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
 msgstr "Mobilinställningar"
 
@@ -133,24 +132,20 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: src/mobile-settings-application.c:36
+#: src/ms-alerts-panel.c:238
+msgid "Could not get list of cell broadcast messages"
+msgstr "Kunde inte erhålla lista över cell broadcast-meddelanden"
+
+#: src/ms-application.c:37
 msgid "- Manage your mobile settings"
 msgstr "- Hantera dina mobilinställningar"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:447
+#: src/ms-application.c:511
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Luna Jernberg <droidbittin@gmail.com>"
-
-#: src/mobile-settings-window.c:148
-msgid "Device"
-msgstr "Enhet"
-
-#: src/ms-alerts-panel.c:242
-msgid "Could not get list of cell broadcast messages"
-msgstr "Kunde inte erhålla lista över cell broadcast-meddelanden"
 
 #: src/ms-audio-devices.c:178
 msgid "Media Volume"
@@ -230,35 +225,35 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Misslyckades med att ställa in låsskärmens bakgrund"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:746
+#: src/ms-osk-panel.c:744
 msgid "Default"
 msgstr "Standard"
 
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:745
 msgid "The default completer selected by the OSK"
 msgstr "Standardkompletteraren vald av tangentbordet"
 
-#: src/ms-osk-panel.c:750
+#: src/ms-osk-panel.c:748
 msgid "No information available for this completer"
 msgstr "Ingen information tillgänglig för denna kompletterare"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:66
 msgid "Reset favorites?"
 msgstr "Återställ favoriter?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:69
 msgid "Reset list of favorite applications to the default?"
 msgstr "Återställ listan över favoritappar till standardvärdet?"
 
-#: src/ms-overview-panel.c:75
+#: src/ms-overview-panel.c:72
 msgid "_Cancel"
 msgstr "A_vbryt"
 
-#: src/ms-overview-panel.c:76
+#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "Å_terställ"
 
-#: src/ms-overview-panel.c:331
+#: src/ms-overview-panel.c:328
 msgid "Failed to set wallpaper for overview"
 msgstr "Misslyckades med att ställa in översiktens bakgrund"
 
@@ -320,11 +315,11 @@ msgid "Not available"
 msgstr "Inte tillgängliga"
 
 #. Translators: "Custom" is the name of a user-defined sound theme
-#: src/ms-sound-row.c:128
+#: src/ms-sound-row.c:130
 msgid "Custom"
 msgstr "Anpassad"
 
-#: src/ms-sound-row.c:309
+#: src/ms-sound-row.c:311
 msgid "Choose sound file"
 msgstr "Välj ljudfil"
 
@@ -347,174 +342,9 @@ msgstr "Ljudlös"
 msgid "Choose Wallpaper"
 msgstr "Välj bakgrundsbild"
 
-#. Translators: this is a verb.
-#: src/ui/mobile-settings-window.ui:31
-msgid "Search"
-msgstr "Sök"
-
-#: src/ui/mobile-settings-window.ui:48
-msgid "Search settings"
-msgstr "Sök inställningar"
-
-#: src/ui/mobile-settings-window.ui:98
-msgid "Welcome"
-msgstr "Välkommen"
-
-#: src/ui/mobile-settings-window.ui:104
-msgid "Welcome to Mobile Settings"
-msgstr "Välkommen till Mobilinställningar"
-
-#: src/ui/mobile-settings-window.ui:105
-msgid "Tweak advanced mobile settings"
-msgstr "Justera avancerade mobilinställningar"
-
-#: src/ui/mobile-settings-window.ui:113
-msgid "Top Bar"
-msgstr "Systemrad"
-
-#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
-msgid "Quick Settings"
-msgstr "Snabbinställningar"
-
-#: src/ui/mobile-settings-window.ui:122
-msgid "Notches"
-msgstr "Skåror"
-
-#: src/ui/mobile-settings-window.ui:133
-msgid "Overview"
-msgstr "Översikt"
-
-#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
-msgid "Favorites"
-msgstr "Favoriter"
-
-#: src/ui/mobile-settings-window.ui:142
-msgid "Filter"
-msgstr "Filter"
-
-#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
-msgid "Wallpaper"
-msgstr "Bakgrundsbild"
-
-#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
-msgid "Feedback"
-msgstr "Återkoppling"
-
-#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
-msgid "Sounds"
-msgstr "Ljud"
-
-#: src/ui/mobile-settings-window.ui:164
-msgid "Wakeup"
-msgstr "Väckning"
-
-#: src/ui/mobile-settings-window.ui:165
-msgid "Vibra"
-msgstr "Vibration"
-
-#: src/ui/mobile-settings-window.ui:166
-msgid "Haptic"
-msgstr "Haptik"
-
-#: src/ui/mobile-settings-window.ui:167
-msgid "LED"
-msgstr "LED"
-
-#: src/ui/mobile-settings-window.ui:178
-msgid "Compositor"
-msgstr "Kompositionshanterare"
-
-#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
-msgid "Scaling"
-msgstr "Skalning"
-
-#: src/ui/mobile-settings-window.ui:197
-msgid "Lockscreen"
-msgstr "Låsskärm"
-
-#: src/ui/mobile-settings-window.ui:206
-msgid "Shuffle"
-msgstr "Växla"
-
-#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
-msgid "Widgets"
-msgstr "Komponenter"
-
-#: src/ui/mobile-settings-window.ui:208
-msgid "Password"
-msgstr "Lösenord"
-
-#: src/ui/mobile-settings-window.ui:219
-msgid "Convergence"
-msgstr "Konvergens"
-
-#: src/ui/mobile-settings-window.ui:237
-msgid "On Screen Keyboard"
-msgstr "Skärmtangentbord"
-
-#: src/ui/mobile-settings-window.ui:245
-msgid "Keyboard"
-msgstr "Tangentbord"
-
-#: src/ui/mobile-settings-window.ui:246
-msgid "Unfold"
-msgstr "Bred ut"
-
-#: src/ui/mobile-settings-window.ui:247
-msgid "OSK"
-msgstr "Skärmtangentbord"
-
-#: src/ui/mobile-settings-window.ui:248
-msgid "Word Completion"
-msgstr "Ordkomplettering"
-
-#: src/ui/mobile-settings-window.ui:259
-msgid "Emergency Alerts"
-msgstr "Nödmeddelanden"
-
-#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
-msgid "Emergency"
-msgstr "Nödläge"
-
-#: src/ui/mobile-settings-window.ui:268
-msgid "Cell Broadcast"
-msgstr "Cell Broadcast"
-
-#: src/ui/mobile-settings-window.ui:269
-msgid "Danger"
-msgstr "Fara"
-
-#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
-msgid "Sensors"
-msgstr "Sensorer"
-
-#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
-msgid "High Contrast"
-msgstr "Hög kontrast"
-
-#: src/ui/mobile-settings-window.ui:299
-msgid "Experimental features"
-msgstr "Experimentella funktioner"
-
-#: src/ui/mobile-settings-window.ui:308
-msgid "Suspend"
-msgstr "Försätt i vänteläge"
-
-#: src/ui/mobile-settings-window.ui:309
-msgid "Experimental"
-msgstr "Experimentellt"
-
-#: src/ui/mobile-settings-window.ui:333
-msgid "_Show Configurable Tweaks"
-msgstr "_Visa konfigurerbara justeringar"
-
-#: src/ui/mobile-settings-window.ui:340
-msgid "_Keyboard Shortcuts"
-msgstr "_Tangentbordsgenvägar"
-
-#: src/ui/mobile-settings-window.ui:344
-msgid "_About Mobile Settings"
-msgstr "_Om Mobilinställningar"
+#: src/ms-window.c:146
+msgid "Device"
+msgstr "Enhet"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -695,15 +525,17 @@ msgstr "Föredra blixt"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Föredra kamerablixt över status-LED när tillgänglig"
 
-#. Translators: Vol- means the 'Lower Volume' key
 #: src/ui/ms-feedback-panel.ui:53
-msgid "Silence on Vol-"
-msgstr "Tysta med Vol-"
+msgid "Silence by volume button press"
+msgstr "Tysta med tryck på volymknappen"
 
 #: src/ui/ms-feedback-panel.ui:54
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming calls"
-msgstr "När låst, sätt telefonen i tyst läge med Vol- vid inkommande samtal"
+"When locked put the phone in silent mode when pressing the button that "
+"lowers the volume on incoming calls"
+msgstr ""
+"När låst, sätt telefonen i tyst läge med knappen som sänker volymen vid "
+"inkommande samtal"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:60
@@ -718,90 +550,94 @@ msgstr "Maximal styrka i procent för haptisk återkoppling"
 msgid "Per Application settings"
 msgstr "Inställningar per program"
 
+#: src/ui/ms-feedback-panel.ui:93 src/ui/ms-window.ui:159
+msgid "Sounds"
+msgstr "Ljud"
+
 #: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
 msgstr "Ljudet att använda för vissa händelser"
 
-#: src/ui/ms-feedback-panel.ui:102
+#: src/ui/ms-feedback-panel.ui:108
 msgid "Phone Calls"
 msgstr "Telefonsamtal"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:120
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:132 src/ui/ms-feedback-panel.ui:201
 msgid "Instant Messages"
 msgstr "Snabbmeddelanden"
 
-#: src/ui/ms-feedback-panel.ui:121
+#: src/ui/ms-feedback-panel.ui:145
 msgid "Alarm Clock"
 msgstr "Alarmklocka"
 
-#: src/ui/ms-feedback-panel.ui:132
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Screen Wakeup"
 msgstr "Skärmväckning"
 
-#: src/ui/ms-feedback-panel.ui:135
+#: src/ui/ms-feedback-panel.ui:159
 msgid "Notification urgency that lights up the screen"
 msgstr "Aviseringsgrad som lyser upp skärmen"
 
-#: src/ui/ms-feedback-panel.ui:153
+#: src/ui/ms-feedback-panel.ui:177
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "Aviseringskategorier som väcker skärmen oberoende av hur brådskande de är"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:180
 msgid "Calls"
 msgstr "Samtal"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:181
 msgid "A generic audio or video call notification"
 msgstr "En generisk avisering för ljud- eller videosamtal"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:187
 msgid "Device events"
 msgstr "Enhetshändelser"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:188
 msgid "A generic device-related notification"
 msgstr "En generisk enhetsrelaterad avisering"
 
-#: src/ui/ms-feedback-panel.ui:170
+#: src/ui/ms-feedback-panel.ui:194
 msgid "Emails"
 msgstr "E-postmeddelanden"
 
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:195
 msgid "A generic e-mail-related notification"
 msgstr "En generisk e-postrelaterad avisering"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:202
 msgid "A generic instant message-related notification"
 msgstr "En generisk snabbmeddelanderelaterad avisering"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:208
 msgid "Network events"
 msgstr "Nätverkshändelser"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:209
 msgid "A generic network notification"
 msgstr "En generisk nätverksavisering"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:215
 msgid "Presence changes"
 msgstr "Ändringar i närvaro"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:216
 msgid "A generic presence change notification"
 msgstr "En generisk avisering för ändring i närvaro"
 
-#: src/ui/ms-feedback-panel.ui:198
+#: src/ui/ms-feedback-panel.ui:222
 msgid "File transfers"
 msgstr "Filöverföringar"
 
-#: src/ui/ms-feedback-panel.ui:199
+#: src/ui/ms-feedback-panel.ui:223
 msgid "A generic file transfer or download notification"
 msgstr "En generisk avisering för filöverföring eller hämtning"
 
@@ -848,6 +684,10 @@ msgstr "Använd bakgrundsbild"
 #: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
 msgid "Whether to show a colorful wallpaper"
 msgstr "Huruvida en färgglad bakgrundsbild ska visas"
+
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+msgid "Widgets"
+msgstr "Komponenter"
 
 #: src/ui/ms-lockscreen-panel.ui:80
 msgid "Additional widgets for the lock screen"
@@ -1001,6 +841,10 @@ msgstr "Tangentbordshöjd i liggande läge"
 msgid "When the screen is wider than tall"
 msgstr "När skärmen är bredare än den är hög"
 
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+msgid "Scaling"
+msgstr "Skalning"
+
 #: src/ui/ms-osk-panel.ui:104
 msgid "Keep physical size constant"
 msgstr "Håll den fysiska storleken konstant"
@@ -1060,6 +904,10 @@ msgstr "Kortkommandon"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Kortkommandona som är tillgängliga i kortkommandoraden"
 
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+msgid "Favorites"
+msgstr "Favoriter"
+
 #: src/ui/ms-overview-panel.ui:22
 msgid "Organize Favorites"
 msgstr "Organisera favoriter"
@@ -1108,6 +956,10 @@ msgstr ""
 "Antingen finns inga sensorer installerade på din enhet eller så har de "
 "inaktiverats av en brytare."
 
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+msgid "Sensors"
+msgstr "Sensorer"
+
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
 msgstr "Sensorvärden"
@@ -1123,6 +975,10 @@ msgstr "Ljus"
 #: src/ui/ms-sensor-panel.ui:58
 msgid "Orientation"
 msgstr "Orientering"
+
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+msgid "High Contrast"
+msgstr "Hög kontrast"
 
 #: src/ui/ms-sensor-panel.ui:72
 msgid "Automatic High Contrast"
@@ -1165,9 +1021,157 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Placera inte användargränssnittselement under skåror och hål i skärmytan"
 
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+msgid "Quick Settings"
+msgstr "Snabbinställningar"
+
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Organisera dina ytterligare snabbinställningar"
+
+#: src/ui/ms-welcome-panel.ui:8
+msgid "Welcome to Mobile Settings"
+msgstr "Välkommen till Mobilinställningar"
+
+#: src/ui/ms-welcome-panel.ui:9
+msgid "Tweak advanced mobile settings"
+msgstr "Justera avancerade mobilinställningar"
+
+#. Translators: this is a verb.
+#: src/ui/ms-window.ui:31
+msgid "Search"
+msgstr "Sök"
+
+#: src/ui/ms-window.ui:48
+msgid "Search settings"
+msgstr "Sök inställningar"
+
+#: src/ui/ms-window.ui:98
+msgid "Welcome"
+msgstr "Välkommen"
+
+#: src/ui/ms-window.ui:109
+msgid "Top Bar"
+msgstr "Systemrad"
+
+#: src/ui/ms-window.ui:118
+msgid "Notches"
+msgstr "Skåror"
+
+#: src/ui/ms-window.ui:129
+msgid "Overview"
+msgstr "Översikt"
+
+#: src/ui/ms-window.ui:138
+msgid "Filter"
+msgstr "Filter"
+
+#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+msgid "Wallpaper"
+msgstr "Bakgrundsbild"
+
+#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+msgid "Feedback"
+msgstr "Återkoppling"
+
+#: src/ui/ms-window.ui:160
+msgid "Wakeup"
+msgstr "Väckning"
+
+#: src/ui/ms-window.ui:161
+msgid "Vibra"
+msgstr "Vibration"
+
+#: src/ui/ms-window.ui:162
+msgid "Haptic"
+msgstr "Haptik"
+
+#: src/ui/ms-window.ui:163
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/ms-window.ui:174
+msgid "Compositor"
+msgstr "Kompositionshanterare"
+
+#: src/ui/ms-window.ui:193
+msgid "Lockscreen"
+msgstr "Låsskärm"
+
+#: src/ui/ms-window.ui:202
+msgid "Shuffle"
+msgstr "Växla"
+
+#: src/ui/ms-window.ui:204
+msgid "Password"
+msgstr "Lösenord"
+
+#: src/ui/ms-window.ui:215
+msgid "Convergence"
+msgstr "Konvergens"
+
+#: src/ui/ms-window.ui:233
+msgid "On Screen Keyboard"
+msgstr "Skärmtangentbord"
+
+#: src/ui/ms-window.ui:241
+msgid "Keyboard"
+msgstr "Tangentbord"
+
+#: src/ui/ms-window.ui:242
+msgid "Unfold"
+msgstr "Bred ut"
+
+#: src/ui/ms-window.ui:243
+msgid "OSK"
+msgstr "Skärmtangentbord"
+
+#: src/ui/ms-window.ui:244
+msgid "Word Completion"
+msgstr "Ordkomplettering"
+
+#: src/ui/ms-window.ui:255
+msgid "Emergency Alerts"
+msgstr "Nödmeddelanden"
+
+#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+msgid "Emergency"
+msgstr "Nödläge"
+
+#: src/ui/ms-window.ui:264
+msgid "Cell Broadcast"
+msgstr "Cell Broadcast"
+
+#: src/ui/ms-window.ui:265
+msgid "Danger"
+msgstr "Fara"
+
+#: src/ui/ms-window.ui:295
+msgid "Experimental features"
+msgstr "Experimentella funktioner"
+
+#: src/ui/ms-window.ui:304
+msgid "Suspend"
+msgstr "Försätt i vänteläge"
+
+#: src/ui/ms-window.ui:305
+msgid "Experimental"
+msgstr "Experimentellt"
+
+#: src/ui/ms-window.ui:329
+msgid "_Show Configurable Tweaks"
+msgstr "_Visa konfigurerbara justeringar"
+
+#: src/ui/ms-window.ui:336
+msgid "_Keyboard Shortcuts"
+msgstr "_Tangentbordsgenvägar"
+
+#: src/ui/ms-window.ui:340
+msgid "_About Mobile Settings"
+msgstr "_Om Mobilinställningar"
+
+#~ msgid "Silence on Vol-"
+#~ msgstr "Tysta med Vol-"
 
 #~ msgid "Instant messages"
 #~ msgstr "Snabbmeddelanden"
