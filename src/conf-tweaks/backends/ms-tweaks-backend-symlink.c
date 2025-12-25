@@ -259,7 +259,7 @@ ms_tweaks_backend_symlink_set_value (MsTweaksBackend *backend,
 }
 
 
-static char *
+static const char *
 ms_tweaks_backend_symlink_get_key (MsTweaksBackend *backend)
 {
   MsTweaksBackendSymlink *self = MS_TWEAKS_BACKEND_SYMLINK (backend);

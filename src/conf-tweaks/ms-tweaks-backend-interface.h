@@ -48,7 +48,7 @@ struct _MsTweaksBackendInterface
 
   const MsTweaksSetting * (* get_setting_data) (MsTweaksBackend *self);
 
-  char *                  (* get_key) (MsTweaksBackend *self);
+  const char *            (* get_key) (MsTweaksBackend *self);
 };
 
 G_END_DECLS

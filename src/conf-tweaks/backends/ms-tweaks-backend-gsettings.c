@@ -113,7 +113,7 @@ backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **e
 }
 
 
-static char *
+static const char *
 ms_tweaks_backend_gsettings_get_key (MsTweaksBackend *backend)
 {
   MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
