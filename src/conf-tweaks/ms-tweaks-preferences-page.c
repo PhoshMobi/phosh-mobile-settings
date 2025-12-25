@@ -197,7 +197,6 @@ static const char *none_selected_label = "(None selected)";
 static void
 file_widget_unset (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *metadata)
 {
-  MsTweaksBackendInterface *backend;
   GError *error = NULL;
   gboolean success;
 
@@ -206,11 +205,7 @@ file_widget_unset (GtkButton *widget, MsTweaksPreferencesPageFilePickerMeta *met
   g_assert (GTK_IS_LABEL (metadata->file_picker_label));
   g_assert (MS_IS_TWEAKS_BACKEND (metadata->backend_state));
 
-  backend = MS_TWEAKS_BACKEND_GET_IFACE (metadata->backend_state);
-
-  g_assert (backend->set_value);
-
-  success = backend->set_value (metadata->backend_state, NULL, &error);
+  success = ms_tweaks_backend_set_value (metadata->backend_state, NULL, &error);
 
   if (success)
     gtk_label_set_label (GTK_LABEL (metadata->file_picker_label), none_selected_label);
@@ -725,8 +720,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       }
 
       /* Get widget value. */
-      if (MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_value != NULL)
-        widget_value = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_value (backend_state);
+      widget_value = ms_tweaks_backend_get_value (backend_state);
 
       /* Handle mappings. */
       if (widget_value) {

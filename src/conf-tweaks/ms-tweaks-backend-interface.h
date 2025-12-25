@@ -51,4 +51,9 @@ struct _MsTweaksBackendInterface
   const char *            (* get_key) (MsTweaksBackend *self);
 };
 
+GValue *ms_tweaks_backend_get_value (MsTweaksBackend *self);
+gboolean ms_tweaks_backend_set_value (MsTweaksBackend *self, GValue *value, GError **error);
+const MsTweaksSetting *ms_tweaks_backend_get_setting_data (MsTweaksBackend *self);
+const char *ms_tweaks_backend_get_key (MsTweaksBackend *self);
+
 G_END_DECLS
