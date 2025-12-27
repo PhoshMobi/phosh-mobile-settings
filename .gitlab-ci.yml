@@ -150,5 +150,5 @@ check-meson:
 check-markdown:
   stage: style-checks
   variables:
-    PHOSH_MARKDOWN_PATHS: "*.md"
+    PHOSH_MARKDOWN_PATHS: "*.md src/conf-tweaks/*.md"
   extends: .phosh-check-markdown
