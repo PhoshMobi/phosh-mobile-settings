@@ -44,6 +44,7 @@ map:
   true: "1"
   false: "0"
 ```
+
 This is a backend for modifying the `~/.config/gtk-3.0/settings.ini` file. The
 key is the name of the setting inside the `[Settings]` section.
 
