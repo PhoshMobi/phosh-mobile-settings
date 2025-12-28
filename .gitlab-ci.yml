@@ -1,6 +1,6 @@
 include:
  - project: 'World/Phosh/meta-phosh'
-   ref: '08786b52b234ddac22ff96517ef1e007f25f15f3'
+   ref: '38648e8c4caeea0293e1a724fc171875f6b591e5'
    file: '/ci/phosh-common-jobs.yml'
  - project: 'Infrastructure/freedesktop-ci-templates'
    ref: 'd03cddbcff35f26861429fc816c00323f48e99af'
