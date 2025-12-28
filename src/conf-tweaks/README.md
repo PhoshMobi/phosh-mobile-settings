@@ -44,6 +44,7 @@ map:
   true: "1"
   false: "0"
 ```
+
 This is a backend for modifying the `~/.config/gtk-3.0/settings.ini` file. The
 key is the name of the setting inside the `[Settings]` section.
 
@@ -77,3 +78,63 @@ default: #BBBBBB
 Reads and writes to ~/.Xresources. If a given key is available in that file, it
 will be read on program startup, otherwise the default value from the setting
 definition is used.
+
+## Differences from postmarketOS Tweaks
+
+### Distributions ship their own settings definitions
+
+Settings definitions are expected to be shipped by distributions instead of
+including them in the application itself like postmarketOS Tweaks did. This
+makes it easier to only include certain settings definitions on e.g. a user
+interface-basis. Distributions are also able to configure the exact path they
+want files to be searched for through the `tweaks-data-dir` build option.
+
+### Parser handles setting gtype to type if relevant
+
+In postmarketOS Twekas, if gtype was omitted, the GSettings backend would fall
+back to the type property. This implementation handles that in the parser
+instead, so backends can rely on type being set properly.
+
+### Parser sets GSettings as backend if none is specified
+
+While postmarketOS Tweaks sets GSettings as the value of the `backend` setting
+definition property if none was specified when parsing, this implementation
+instead sets it as the default value for the backend property in the parser. As
+such, setting definitions always have the backend property set in the code even
+if they don't in the conf-tweaks files.
+
+### Parser sets `map` property based on datasource
+
+Backends shouldn't normally have to access the datasource property as the
+parser handles setting the `map` property to the data provided by the
+datasource.
+
+### Hardwareinfo, environment, osksdl, and soundtheme backends are omitted
+
+The hardwareinfo backend was never documented in postmarketOS Tweaks, and is
+not as useful as it once was with both GNOME's and Plasma's settings
+applications supporting mostly all of the properties it supported. Additionally,
+it carried its own list of CPU and System on a Chip names, vendors, et cetera
+which quickly became outdated and would have needed constant updating (which
+didn't happen). This is better handled by external libraries such as KDE's Solid
+framework.
+
+Similarly, the osksdl backend was also never documented. However, its reason for
+omission is different and rather due to the fact that [osk-sdl was deprecated in
+favour of unl0kr][2]. As such, there is little point in supporting configuration
+for it, and if anything misleading.
+
+To clarify, the parser still recognises the hardwareinfo, osksdl, and
+soundtheme backend types, but any setting using it gets marked as invalid
+by the page builder and consequently is hidden.
+
+The environment backend too was undocumented, however unlike the others there
+do not seem to be any instances of it actually being used. As such, it has been
+omitted. However, unlike the hardwareinfo and osksdl backend which have
+fundamental flaws that resulted in their exclusion, the environment backed is
+only excluded due to being undocumented and apparently unused.
+
+Finally, the soundtheme backend is only excluded because all of the functions
+it served in the original have been replaced by native settings in
+Phosh Mobile Settings. If there is interest in including it, e.g. if you have a
+personal use-case, feel free to make an issue.
