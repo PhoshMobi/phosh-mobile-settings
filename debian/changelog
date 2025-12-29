@@ -1,3 +1,114 @@
+phosh-mobile-settings (0.52~rc1) experimental; urgency=medium
+
+  [ Evangelos Ribeiro Tzaras ]
+  * feedback-panel: Rephrase silencing calls.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/65
+  * alerts-panel: Drop enums in favor of libcellbroadcast types.
+    We're using the library since some time now.
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Rafael Fontenelle ]
+  * Update Brazilian Portuguese translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Asier Saratsua Garmendia ]
+  * Add Basque translation
+  * Update Basque translation
+  * Update Basque translation
+
+  [ Jürgen Benvenuti ]
+  * Update German translation
+
+  [ Guido Günther ]
+  * settings-application: Simplify include paths.
+    We set proto_inc, so let's use it
+  * debug-info: Remove pointless WIN32 compile guards.
+    Fixes: 8e9df9d ("Add Troubleshooting Tab")
+  * mobile-settings-window: Remove unused includes
+  * ms-application: Rename application singleton.
+    This was incorrectly named from the beginning
+    Fixes: b5788fd ("Initial commit")
+  * ms-window: Rename main window.
+    This was incorrectly named from the beginning
+    Fixes: b5788fd ("Initial commit")
+  * ms-settings-debug-info: Use correct namespace.
+    Fixes: 8e9df9d ("Add Troubleshooting Tab")
+  * treewide: Remove unused enum headers.
+    We'll rename the file so lets drop it (as well as other unused
+    ones).
+  * build: Rename enum header.
+    Fixes: b5788fd ("Initial commit")
+  * sound-row: Handle NULL filename.
+    Otherwise we might pick up a `(null).ogg`.
+  * ms-sound-row: Prop can't be construct only.
+    That way it never gets filled with a proper effect
+    Fixes: 8c47656 ("Allow to configure ring tone and sms sounds")
+  * feedback-panel: Show icons for sound file selection rows.
+    This makes it easier to spot what they're for.
+    The nice icons were taken from org.gnome.design.IconLibrary
+  * ci: Update shared scripts to 08786b5
+  * tests: Don't set XDG_RUNTIME_DIR.
+    Otherwise GTK won't find the Wayland socket
+  * ci: Switch to phoc.
+    No need for any X11 so we sidestep the ASAN failure.
+  * ci: Update shared scripts to 38648e8
+
+  [ Rudra Pratap Singh ]
+  * welcome-panel: Make 'Welcome' panel an MsPanel.
+    This then makes it easier as we no longer need
+    to handle the panel specially.
+  * ms-panel: Add public virtual function for handling options.
+    With this, panels can handle options passed
+    to them via custom logic by overriding
+    `handle_options`.
+  * panel-switcher: Add API to get stack
+  * mobile-settings-application: Add 'active-panel' property.
+    This way we can keep track of the currently
+    acitve panel in the window.
+  * application: Handle options for active panel.
+    These options can be sent via e.g., a dbus method
+    call and the active panel would handle them
+    appropriately.
+  * plugin-row: Add API for opening preferences dialog
+  * plugin-list-box: Add API to open prefs dialog for a plugin
+  * topbar-panel: Override `handle_options` virtual function.
+    Currently, topbar panel allows managing the
+    quick-settings plugins. For now, we handle opening
+    of the prefs dialog box for a given plugin.
+  * plugin-list-box: Open one prefs dialog window at a time.
+    As otherwise, dialog windows get stacked on top
+    without closing previous ones.
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Document differences from postmarketOS Tweaks
+  * ci: Add src/conf-tweaks/*.md to MARKDOWN_PATHS
+  * doc: Link to conf-tweaks documentation
+  * conf-tweaks: Fix linter error
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 29 Dec 2025 18:17:53 +0100
+
 phosh-mobile-settings (0.51.0) experimental; urgency=medium
 
   [ Stefan Hansson ]
