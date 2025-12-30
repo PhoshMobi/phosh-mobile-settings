@@ -1567,7 +1567,7 @@ ms_tweaks_parser_parse_definition_files (MsTweaksParser *self, const char *tweak
   }
 
   while ((yaml_filename_current = g_dir_read_name (yaml_directory)) != NULL) {
-    char *yaml_filepath_current = NULL;
+    g_autofree char *yaml_filepath_current = NULL;
     const char *file_extension = NULL;
     g_autofree char *contents = NULL;
     gsize contents_length = 0;
