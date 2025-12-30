@@ -525,7 +525,7 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
 
   if (page_widget_is_valid) {
     gtk_string_list_append (search_keywords, self->data->name_i18n);
-    ms_panel_set_keywords (MS_PANEL (self), g_steal_pointer (&search_keywords));
+    ms_panel_set_keywords (MS_PANEL (self), search_keywords);
   }
 
   /* In case of failure g_initable_new will drop a ref so make this non-floating */
