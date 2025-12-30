@@ -508,8 +508,8 @@ merge_sections (MsTweaksSection *into, const MsTweaksSection *from)
   /* Merge settings. */
   g_hash_table_iter_init (&iter, from->setting_table);
   while (g_hash_table_iter_next (&iter, &setting_to_insert_name, &setting_to_insert)) {
-    gpointer setting_to_merge_into = g_hash_table_lookup (into->setting_table,
-                                                          setting_to_insert_name);
+    MsTweaksSetting *setting_to_merge_into = g_hash_table_lookup (into->setting_table,
+                                                                  setting_to_insert_name);
     MsTweaksSetting *setting_to_insert_copy = ms_tweaks_setting_copy (setting_to_insert);
 
     if (setting_to_merge_into) {
@@ -544,8 +544,8 @@ merge_pages (MsTweaksPage *into, const MsTweaksPage *from)
   /* Merge sections. */
   g_hash_table_iter_init (&iter, from->section_table);
   while (g_hash_table_iter_next (&iter, &section_to_insert_name, &section_to_insert)) {
-    gpointer section_to_merge_into = g_hash_table_lookup (into->section_table,
-                                                          section_to_insert_name);
+    MsTweaksSection *section_to_merge_into = g_hash_table_lookup (into->section_table,
+                                                                  section_to_insert_name);
     MsTweaksSection *section_to_insert_copy = ms_tweaks_section_copy (section_to_insert);
 
     if (section_to_merge_into) {
