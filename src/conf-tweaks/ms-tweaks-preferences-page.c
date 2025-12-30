@@ -655,13 +655,13 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
                                           GError       **error)
 {
   MsTweaksPreferencesPage *self = MS_TWEAKS_PREFERENCES_PAGE (initable);
-  const GList *section_list = ms_tweaks_parser_sort_by_weight (self->data->section_table);
+  g_autoptr (GList) section_list = ms_tweaks_parser_sort_by_weight (self->data->section_table);
   g_autoptr (GtkStringList) search_keywords = gtk_string_list_new (NULL);
   gboolean page_widget_is_valid = FALSE;
 
   for (const GList *section_iter = section_list; section_iter; section_iter = section_iter->next) {
     const MsTweaksSection *section_data = section_iter->data;
-    const GList *setting_list = ms_tweaks_parser_sort_by_weight (section_data->setting_table);
+    g_autoptr (GList) setting_list = ms_tweaks_parser_sort_by_weight (section_data->setting_table);
     GtkWidget *section_preference_group = adw_preferences_group_new ();
     gboolean section_widget_is_valid = FALSE;
 
