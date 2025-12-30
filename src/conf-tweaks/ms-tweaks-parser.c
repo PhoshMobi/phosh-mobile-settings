@@ -193,6 +193,7 @@ ms_tweaks_setting_copy (const MsTweaksSetting *setting)
 
   new_setting->weight = setting->weight;
   new_setting->name = g_strdup (setting->name);
+  new_setting->name_i18n = g_strdup (setting->name_i18n);
   new_setting->type = setting->type;
   new_setting->gtype = setting->gtype;
   new_setting->stype = setting->stype;
@@ -200,6 +201,7 @@ ms_tweaks_setting_copy (const MsTweaksSetting *setting)
     new_setting->map = g_hash_table_ref (setting->map);
   new_setting->backend = setting->backend;
   new_setting->help = g_strdup (setting->help);
+  new_setting->help_i18n = g_strdup (setting->help_i18n);
   new_setting->default_ = g_strdup (setting->default_);
   new_setting->key = g_ptr_array_ref (setting->key);
   new_setting->readonly = setting->readonly;
@@ -224,6 +226,7 @@ ms_tweaks_section_copy (const MsTweaksSection *section)
 
   new_section->weight = section->weight;
   new_section->name = g_strdup (section->name);
+  new_section->name_i18n = g_strdup (section->name_i18n);
   if (section->setting_table)
     new_section->setting_table = g_hash_table_ref (section->setting_table);
 
@@ -238,6 +241,7 @@ ms_tweaks_page_copy (const MsTweaksPage *page)
 
   new_page->weight = page->weight;
   new_page->name = g_strdup (page->name);
+  new_page->name_i18n = g_strdup (page->name_i18n);
   if (page->section_table)
     new_page->section_table = g_hash_table_ref (page->section_table);
 
