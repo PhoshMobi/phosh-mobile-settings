@@ -152,7 +152,7 @@ ms_settings_window_constructed (GObject *object)
   parser_page_table = ms_tweaks_parser_get_page_table (self->ms_tweaks_parser);
 
   if (g_hash_table_size (parser_page_table) != 0) {
-    GList *pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
+    g_autoptr (GList) pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
     g_autoptr (GAction) toggle_conf_tweaks;
 
     g_list_foreach (pages_sorted_by_weight, add_ms_tweaks_page, self);
