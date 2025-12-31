@@ -69,40 +69,53 @@ get_keys_from_hashtable (GHashTable *hashtable)
 }
 
 
-static GtkWidget *
-setting_data_to_boolean_widget (const MsTweaksSetting *setting_data,
-                                GValue                *widget_value,
-                                MsTweaksCallbackMeta  *callback_meta)
+static void
+destroy_callback_meta (gpointer data, GClosure *closure)
 {
+  ms_tweaks_callback_meta_free (data);
+}
+
+
+static GtkWidget *
+setting_data_to_boolean_widget (MsTweaksBackend       *backend,
+                                AdwToastOverlay       *toast_overlay,
+                                const MsTweaksSetting *setting_data,
+                                GValue                *widget_value)
+{
+  MsTweaksCallbackMeta *callback_meta = ms_tweaks_callback_meta_new (backend, toast_overlay);
   GtkWidget *switch_row = adw_switch_row_new ();
 
   g_assert (setting_data);
-  g_assert (MS_IS_TWEAKS_BACKEND (callback_meta->backend_state));
+  g_assert (MS_IS_TWEAKS_BACKEND (backend));
 
   set_title_and_subtitle (switch_row, setting_data);
 
   if (widget_value)
     adw_switch_row_set_active (ADW_SWITCH_ROW (switch_row), g_value_get_boolean (widget_value));
 
-  g_signal_connect (switch_row,
-                    "notify::active",
-                    G_CALLBACK (ms_tweaks_callback_handlers_type_boolean),
-                    callback_meta);
+  g_signal_connect_data (switch_row,
+                         "notify::active",
+                         G_CALLBACK (ms_tweaks_callback_handlers_type_boolean),
+                         callback_meta,
+                         destroy_callback_meta,
+                         G_CONNECT_DEFAULT);
 
   return switch_row;
 }
 
 
 static GtkWidget *
-setting_data_to_choice_widget (const MsTweaksSetting *setting_data,
-                               GValue                *widget_value,
-                               MsTweaksCallbackMeta  *callback_meta)
+setting_data_to_choice_widget (MsTweaksBackend       *backend,
+                               AdwToastOverlay       *toast_overlay,
+                               const MsTweaksSetting *setting_data,
+                               GValue                *widget_value)
 {
   GtkWidget *combo_row = adw_combo_row_new ();
+  MsTweaksCallbackMeta *callback_meta;
   GtkStringList *choice_model = NULL;
 
   g_assert (setting_data);
-  g_assert (MS_IS_TWEAKS_BACKEND (callback_meta->backend_state));
+  g_assert (MS_IS_TWEAKS_BACKEND (backend));
 
   if (setting_data->map) {
     choice_model = get_keys_from_hashtable (setting_data->map);
@@ -138,28 +151,34 @@ setting_data_to_choice_widget (const MsTweaksSetting *setting_data,
 
   set_title_and_subtitle (combo_row, setting_data);
 
-  g_signal_connect (combo_row,
-                    "notify::selected",
-                    G_CALLBACK (ms_tweaks_callback_handlers_type_choice),
-                    callback_meta);
+  callback_meta = ms_tweaks_callback_meta_new (backend, toast_overlay);
+
+  g_signal_connect_data (combo_row,
+                         "notify::selected",
+                         G_CALLBACK (ms_tweaks_callback_handlers_type_choice),
+                         callback_meta,
+                         destroy_callback_meta,
+                         G_CONNECT_DEFAULT);
 
   return combo_row;
 }
 
 
 static GtkWidget *
-setting_data_to_color_widget (const MsTweaksSetting *setting_data,
-                              GValue                *widget_value,
-                              MsTweaksCallbackMeta  *callback_meta)
+setting_data_to_color_widget (MsTweaksBackend       *backend,
+                              AdwToastOverlay       *toast_overlay,
+                              const MsTweaksSetting *setting_data,
+                              GValue                *widget_value)
 {
   GdkRGBA widget_colour;
   GtkWidget *action_row = adw_action_row_new ();
   GtkColorDialog *color_dialog = gtk_color_dialog_new ();
   const char *colour_from_backend = g_value_get_string (widget_value);
   GtkWidget *color_dialog_button = gtk_color_dialog_button_new (color_dialog);
+  MsTweaksCallbackMeta *callback_meta = ms_tweaks_callback_meta_new (backend, toast_overlay);
 
   g_assert (setting_data);
-  g_assert (MS_IS_TWEAKS_BACKEND (callback_meta->backend_state));
+  g_assert (MS_IS_TWEAKS_BACKEND (backend));
 
   set_title_and_subtitle (action_row, setting_data);
   adw_action_row_add_suffix (ADW_ACTION_ROW (action_row), color_dialog_button);
@@ -170,10 +189,12 @@ setting_data_to_color_widget (const MsTweaksSetting *setting_data,
 
   /* Set up listener for listening to colours picked by the widget and setting them in the
    * backend. */
-  g_signal_connect (color_dialog_button,
-                    "notify::rgba",
-                    G_CALLBACK (ms_tweaks_callback_handlers_type_color),
-                    callback_meta);
+  g_signal_connect_data (color_dialog_button,
+                         "notify::rgba",
+                         G_CALLBACK (ms_tweaks_callback_handlers_type_color),
+                         callback_meta,
+                         destroy_callback_meta,
+                         G_CONNECT_DEFAULT);
 
   return action_row;
 }
@@ -271,16 +292,18 @@ setting_data_to_file_widget (const MsTweaksSetting                 *setting_data
 
 
 static GtkWidget *
-setting_data_to_font_widget (const MsTweaksSetting *setting_data,
-                             const GValue          *widget_value,
-                             MsTweaksCallbackMeta  *callback_meta)
+setting_data_to_font_widget (MsTweaksBackend       *backend,
+                             AdwToastOverlay       *toast_overlay,
+                             const MsTweaksSetting *setting_data,
+                             const GValue          *widget_value)
 {
   GtkWidget *action_row = adw_action_row_new ();
   GtkFontDialog *font_dialog = gtk_font_dialog_new ();
   GtkWidget *font_dialog_button = gtk_font_dialog_button_new (font_dialog);
+  MsTweaksCallbackMeta *callback_meta = ms_tweaks_callback_meta_new (backend, toast_overlay);
 
   g_assert (setting_data);
-  g_assert (MS_IS_TWEAKS_BACKEND (callback_meta->backend_state));
+  g_assert (MS_IS_TWEAKS_BACKEND (backend));
 
   set_title_and_subtitle (action_row, setting_data);
   gtk_widget_set_valign (font_dialog_button, GTK_ALIGN_CENTER);
@@ -293,18 +316,19 @@ setting_data_to_font_widget (const MsTweaksSetting *setting_data,
     gtk_font_dialog_button_set_font_desc (GTK_FONT_DIALOG_BUTTON (font_dialog_button), font_desc);
   }
 
-  g_signal_connect (font_dialog_button,
-                    "notify::font-desc",
-                    G_CALLBACK (ms_tweaks_callback_handlers_type_font),
-                    callback_meta);
+  g_signal_connect_data (font_dialog_button,
+                         "notify::font-desc",
+                         G_CALLBACK (ms_tweaks_callback_handlers_type_font),
+                         callback_meta,
+                         destroy_callback_meta,
+                         G_CONNECT_DEFAULT);
 
   return action_row;
 }
 
 
 static GtkWidget *
-setting_data_to_info_widget (const MsTweaksSetting *setting_data,
-                             const GValue          *widget_value)
+setting_data_to_info_widget (const MsTweaksSetting *setting_data, const GValue *widget_value)
 {
   g_assert (setting_data);
 
@@ -327,20 +351,21 @@ setting_data_to_info_widget (const MsTweaksSetting *setting_data,
 
 
 static GtkWidget *
-setting_data_to_number_widget (const MsTweaksSetting *setting_data,
-                               const GValue          *widget_value,
-                               MsTweaksCallbackMeta  *callback_meta)
+setting_data_to_number_widget (MsTweaksBackend       *backend,
+                               AdwToastOverlay       *toast_overlay,
+                               const MsTweaksSetting *setting_data,
+                               const GValue          *widget_value)
 {
+  MsTweaksCallbackMeta *callback_meta;
   GtkWidget *spin_row;
 
   g_assert (setting_data);
-  g_assert (MS_IS_TWEAKS_BACKEND (callback_meta->backend_state));
+  g_assert (MS_IS_TWEAKS_BACKEND (backend));
 
   if (G_APPROX_VALUE (setting_data->step, 0, DBL_EPSILON)) {
     ms_tweaks_warning (setting_data->name,
                        "step was %f in number widget, too close to 0",
                        setting_data->step);
-    g_free (callback_meta);
 
     return NULL;
   }
@@ -352,10 +377,14 @@ setting_data_to_number_widget (const MsTweaksSetting *setting_data,
   if (widget_value)
     adw_spin_row_set_value (ADW_SPIN_ROW (spin_row), g_value_get_double (widget_value));
 
-  g_signal_connect (spin_row,
-                    "changed",
-                    G_CALLBACK (ms_tweaks_callback_handlers_type_number),
-                    callback_meta);
+  callback_meta = ms_tweaks_callback_meta_new (backend, toast_overlay);
+
+  g_signal_connect_data (spin_row,
+                         "changed",
+                         G_CALLBACK (ms_tweaks_callback_handlers_type_number),
+                         callback_meta,
+                         destroy_callback_meta,
+                         G_CONNECT_DEFAULT);
 
   return spin_row;
 }
@@ -741,28 +770,24 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
       }
 
       if (setting_widget_is_valid) {
-        MsTweaksCallbackMeta *callback_meta;
-
         switch (setting_data->type) {
         case MS_TWEAKS_TYPE_BOOLEAN:
-          callback_meta = g_new (MsTweaksCallbackMeta, 1);
-          callback_meta->backend_state = backend_state;
-          callback_meta->toast_overlay = ADW_TOAST_OVERLAY (self->toast_overlay);
-          widget_to_add = setting_data_to_boolean_widget (setting_data,
-                                                          widget_value,
-                                                          callback_meta);
+          widget_to_add = setting_data_to_boolean_widget (backend_state,
+                                                          ADW_TOAST_OVERLAY (self->toast_overlay),
+                                                          setting_data,
+                                                          widget_value);
           break;
         case MS_TWEAKS_TYPE_CHOICE:
-          callback_meta = g_new (MsTweaksCallbackMeta, 1);
-          callback_meta->backend_state = backend_state;
-          callback_meta->toast_overlay = ADW_TOAST_OVERLAY (self->toast_overlay);
-          widget_to_add = setting_data_to_choice_widget (setting_data, widget_value, callback_meta);
+          widget_to_add = setting_data_to_choice_widget (backend_state,
+                                                         ADW_TOAST_OVERLAY (self->toast_overlay),
+                                                         setting_data,
+                                                         widget_value);
           break;
         case MS_TWEAKS_TYPE_COLOR:
-          callback_meta = g_new (MsTweaksCallbackMeta, 1);
-          callback_meta->backend_state = backend_state;
-          callback_meta->toast_overlay = ADW_TOAST_OVERLAY (self->toast_overlay);
-          widget_to_add = setting_data_to_color_widget (setting_data, widget_value, callback_meta);
+          widget_to_add = setting_data_to_color_widget (backend_state,
+                                                        ADW_TOAST_OVERLAY (self->toast_overlay),
+                                                        setting_data,
+                                                        widget_value);
           break;
         case MS_TWEAKS_TYPE_FILE:
           MsTweaksPreferencesPageFilePickerMeta *metadata = g_new (MsTweaksPreferencesPageFilePickerMeta, 1);
@@ -773,19 +798,19 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
                                                        metadata);
           break;
         case MS_TWEAKS_TYPE_FONT:
-          callback_meta = g_new (MsTweaksCallbackMeta, 1);
-          callback_meta->backend_state = backend_state;
-          callback_meta->toast_overlay = ADW_TOAST_OVERLAY (self->toast_overlay);
-          widget_to_add = setting_data_to_font_widget (setting_data, widget_value, callback_meta);
+          widget_to_add = setting_data_to_font_widget (backend_state,
+                                                       ADW_TOAST_OVERLAY (self->toast_overlay),
+                                                       setting_data,
+                                                       widget_value);
           break;
         case MS_TWEAKS_TYPE_INFO:
           widget_to_add = setting_data_to_info_widget (setting_data, widget_value);
           break;
         case MS_TWEAKS_TYPE_NUMBER:
-          callback_meta = g_new (MsTweaksCallbackMeta, 1);
-          callback_meta->backend_state = backend_state;
-          callback_meta->toast_overlay = ADW_TOAST_OVERLAY (self->toast_overlay);
-          widget_to_add = setting_data_to_number_widget (setting_data, widget_value, callback_meta);
+          widget_to_add = setting_data_to_number_widget (backend_state,
+                                                         ADW_TOAST_OVERLAY (self->toast_overlay),
+                                                         setting_data,
+                                                         widget_value);
           break;
         case MS_TWEAKS_TYPE_UNKNOWN:
           ms_tweaks_warning (setting_data->name,
