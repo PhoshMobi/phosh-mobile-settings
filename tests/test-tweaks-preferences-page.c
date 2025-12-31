@@ -108,6 +108,24 @@ test_get_keys_from_hash_table (void)
 
 
 static void
+test_pretty_format_cmd (void)
+{
+  g_autoptr (GStrvBuilder) ugly_cmd_builder = NULL;
+  g_autoptr (GString) pretty_cmd = NULL;
+  g_auto (GStrv) ugly_cmd = NULL;
+
+  ugly_cmd_builder = g_strv_builder_new ();
+  g_strv_builder_add (ugly_cmd_builder, "echo");
+  g_strv_builder_add (ugly_cmd_builder, "six-seven");
+
+  ugly_cmd = g_strv_builder_end (ugly_cmd_builder);
+  pretty_cmd = pretty_format_cmd (ugly_cmd);
+
+  g_assert_cmpstr ("# echo six-seven", ==, pretty_cmd->str);
+}
+
+
+static void
 test_setting_data_to_boolean_widget (PreferencesPageTestFixture *fixture, gconstpointer unused)
 {
   GtkWidget *widget = setting_data_to_boolean_widget (fixture->setting,
@@ -350,6 +368,8 @@ main (int argc, char *argv[])
 
   g_test_add_func ("/phosh-mobile-settings/test-get-keys-from-hash-table",
                    test_get_keys_from_hash_table);
+  g_test_add_func ("/phosh-mobile-settings/test-pretty-format-cmd",
+                   test_pretty_format_cmd);
   PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget",
                              test_setting_data_to_boolean_widget);
   PREFERENCES_PAGE_TEST_ADD ("/phosh-mobile-settings/test-tweaks-setting-data-to-boolean-widget-with-value",

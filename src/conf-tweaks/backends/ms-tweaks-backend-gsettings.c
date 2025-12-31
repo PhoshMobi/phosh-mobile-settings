@@ -113,7 +113,7 @@ backend_gsettings_set_value (MsTweaksBackend *backend, GValue *value, GError **e
 }
 
 
-static char *
+static const char *
 ms_tweaks_backend_gsettings_get_key (MsTweaksBackend *backend)
 {
   MsTweaksBackendGsettings *self = MS_TWEAKS_BACKEND_GSETTINGS (backend);
@@ -237,6 +237,7 @@ ms_tweaks_backend_gsettings_initialise (GInitable *initable,
     g_autoptr (GSettingsSchema) schema = NULL;
     g_autofree char *base_key = NULL;
     gboolean schema_found = FALSE;
+    g_autofree char *key = NULL;
     char **schema_keys = NULL;
 
     if (parts_length < 3) {
@@ -247,7 +248,7 @@ ms_tweaks_backend_gsettings_initialise (GInitable *initable,
       continue;
     }
 
-    self->key = g_strdup (parts[parts_length - 1]);
+    key = g_strdup (parts[parts_length - 1]);
     /* We don't want the last segment in the "base key", so replace it with NULL. */
     g_free (g_steal_pointer (&parts[parts_length - 1]));
 
@@ -265,7 +266,7 @@ ms_tweaks_backend_gsettings_initialise (GInitable *initable,
     schema_keys = g_settings_schema_list_keys (schema);
 
     for (guint j = 0; j < g_strv_length (schema_keys); j++)
-      if (strcmp (schema_keys[j], self->key) == 0)
+      if (strcmp (schema_keys[j], key) == 0)
         schema_found = true;
 
     g_strfreev (schema_keys);
@@ -273,11 +274,12 @@ ms_tweaks_backend_gsettings_initialise (GInitable *initable,
     if (!schema_found) {
       ms_tweaks_debug (self->setting_data->name,
                        "Schema key '%s' was not found in schema '%s' (this may be okay if there are multiple ones specified)",
-                       self->key,
+                       key,
                        base_key);
       continue;
     }
 
+    self->key = g_steal_pointer (&key);
     self->settings = g_settings_new (base_key);
     break;
   }

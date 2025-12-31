@@ -24,6 +24,7 @@ unit_tests = [
   'tweaks-backend-gsettings',
   'tweaks-backend-gtk3settings',
   'tweaks-backend-symlink',
+  'tweaks-backend-sysfs',
   'tweaks-backend-xresources',
   'tweaks-datasources',
   'tweaks-gtk-utils',

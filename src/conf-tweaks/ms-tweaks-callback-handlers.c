@@ -23,17 +23,9 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
   GError *error = NULL;
   gboolean success;
 
-  g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
-  g_assert (MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_setting_data);
-  g_assert (MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->set_value);
-
-  setting_data = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_setting_data (backend_state);
-
+  setting_data = ms_tweaks_backend_get_setting_data (backend_state);
   ms_tweaks_mappings_handle_set (value_to_set, setting_data);
-
-  success = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->set_value (backend_state,
-                                                                    value_to_set,
-                                                                    &error);
+  success = ms_tweaks_backend_set_value (backend_state, value_to_set, &error);
 
   if (!success)
     ms_tweaks_callback_handlers_show_error_toast (toast_overlay, error->message);
@@ -96,10 +88,7 @@ ms_tweaks_callback_handlers_type_choice (AdwComboRow          *combo_row,
   GValue value_container = G_VALUE_INIT;
   char *value = NULL;
 
-  g_assert (MS_IS_TWEAKS_BACKEND (backend_state));
-  g_assert (MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_setting_data);
-
-  setting_data = MS_TWEAKS_BACKEND_GET_IFACE (backend_state)->get_setting_data (backend_state);
+  setting_data = ms_tweaks_backend_get_setting_data (backend_state);
   value = g_hash_table_lookup (setting_data->map, string_repr);
 
   if (!value) {
