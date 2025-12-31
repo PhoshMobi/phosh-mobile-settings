@@ -32,7 +32,6 @@ struct _MsPanelSwitcher {
   AdwBin              parent;
 
   GtkListBox         *panels_listbox;
-  GtkFilter          *filter;
   GtkFilterListModel *filtered_panels;
   GtkStack           *stack;
   GSettings          *settings;
@@ -251,10 +250,6 @@ ms_panel_switcher_init (MsPanelSwitcher *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  self->filter = GTK_FILTER (gtk_custom_filter_new ((GtkCustomFilterFunc)panels_filter_func,
-                                                    self,
-                                                    NULL));
-
   self->settings = g_settings_new ("mobi.phosh.MobileSettings");
 }
 
@@ -279,9 +274,12 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, GtkStack *stack)
 
   if (stack) {
     GListModel *pages = G_LIST_MODEL (gtk_stack_get_pages (stack));
+    GtkFilter *filter = GTK_FILTER (gtk_custom_filter_new ((GtkCustomFilterFunc)panels_filter_func,
+                                                           self,
+                                                           NULL));
 
     g_clear_object (&self->filtered_panels);
-    self->filtered_panels = gtk_filter_list_model_new (pages, self->filter);
+    self->filtered_panels = gtk_filter_list_model_new (pages, filter);
 
     gtk_list_box_bind_model (self->panels_listbox,
                              G_LIST_MODEL (self->filtered_panels),
@@ -331,9 +329,11 @@ ms_panel_switcher_set_search_query (MsPanelSwitcher *self, const char *cur_query
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
   if (g_strcmp0 (self->query, cur_query) != 0) {
+    GtkFilter *filter = gtk_filter_list_model_get_filter (self->filtered_panels);
+
     g_set_str (&self->query, cur_query);
 
-    gtk_filter_changed (self->filter, GTK_FILTER_CHANGE_DIFFERENT);
+    gtk_filter_changed (filter, GTK_FILTER_CHANGE_DIFFERENT);
 
     /* Search was just closed so sync filter change with correct row selection */
     if (g_strcmp0 (cur_query, "") == 0) {
@@ -349,7 +349,9 @@ ms_panel_switcher_set_search_query (MsPanelSwitcher *self, const char *cur_query
 void
 ms_panel_switcher_refilter (MsPanelSwitcher *self, GtkFilterChange filter_change_hint)
 {
-  gtk_filter_changed (self->filter, GTK_FILTER_CHANGE_DIFFERENT);
+  GtkFilter *filter = gtk_filter_list_model_get_filter (self->filtered_panels);
+
+  gtk_filter_changed (filter, GTK_FILTER_CHANGE_DIFFERENT);
 }
 
 
