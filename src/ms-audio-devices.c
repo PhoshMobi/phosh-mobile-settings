@@ -136,7 +136,7 @@ on_device_added (MsAudioDevices *self, guint id)
 {
   GvcMixerUIDevice *device = NULL;
   GvcMixerStream *stream = NULL;
-  const char *description = NULL;
+  g_autofree char *description = NULL;
   const char *icon_name;
   const char *origin;
   const char *name;
