@@ -248,6 +248,7 @@ ms_audio_devices_dispose (GObject *object)
   if (self->mixer_control)
     g_signal_handlers_disconnect_by_data (self->mixer_control, self);
   g_clear_object (&self->mixer_control);
+  g_clear_object (&self->devices);
 
   G_OBJECT_CLASS (ms_audio_devices_parent_class)->dispose (object);
 }
