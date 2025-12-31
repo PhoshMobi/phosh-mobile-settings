@@ -59,7 +59,7 @@ on_row_activated (MsPanelSwitcher *self, GtkListBoxRow *row, GtkListBox *listbox
 
 
 static gboolean
-panels_filter_func (GObject *item, gpointer user_data)
+panels_filter_func (gpointer item, gpointer user_data)
 {
   MsPanelSwitcher *self = MS_PANEL_SWITCHER (user_data);
   GtkStackPage *page = GTK_STACK_PAGE (item);
@@ -274,7 +274,7 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, GtkStack *stack)
 
   if (stack) {
     GListModel *pages = G_LIST_MODEL (gtk_stack_get_pages (stack));
-    GtkFilter *filter = GTK_FILTER (gtk_custom_filter_new ((GtkCustomFilterFunc)panels_filter_func,
+    GtkFilter *filter = GTK_FILTER (gtk_custom_filter_new (panels_filter_func,
                                                            self,
                                                            NULL));
 
