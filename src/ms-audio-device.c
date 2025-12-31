@@ -100,6 +100,7 @@ ms_audio_device_finalize (GObject *object)
 {
   MsAudioDevice *self = MS_AUDIO_DEVICE (object);
 
+  g_clear_object (&self->stream);
   g_clear_pointer (&self->icon_name, g_free);
   g_clear_pointer (&self->description, g_free);
 
