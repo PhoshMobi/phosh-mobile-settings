@@ -32,6 +32,28 @@ do_set_value (MsTweaksBackend *backend_state, GValue *value_to_set, AdwToastOver
 }
 
 
+MsTweaksCallbackMeta *
+ms_tweaks_callback_meta_new (MsTweaksBackend *backend_state, AdwToastOverlay *toast_overlay)
+{
+  MsTweaksCallbackMeta *self = g_new (MsTweaksCallbackMeta, 1);
+
+  self->backend_state = g_object_ref (backend_state);
+  self->toast_overlay = g_object_ref (toast_overlay);
+
+  return self;
+}
+
+
+void
+ms_tweaks_callback_meta_free (MsTweaksCallbackMeta *self)
+{
+  g_object_unref (self->backend_state);
+  g_object_unref (self->toast_overlay);
+
+  g_free (self);
+}
+
+
 void
 ms_tweaks_callback_handlers_show_error_toast (AdwToastOverlay *toast_overlay,
                                               const char      *error_message)
