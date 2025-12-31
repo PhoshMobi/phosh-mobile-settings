@@ -193,6 +193,7 @@ ms_tweaks_setting_copy (const MsTweaksSetting *setting)
 
   new_setting->weight = setting->weight;
   new_setting->name = g_strdup (setting->name);
+  new_setting->name_i18n = g_strdup (setting->name_i18n);
   new_setting->type = setting->type;
   new_setting->gtype = setting->gtype;
   new_setting->stype = setting->stype;
@@ -200,6 +201,7 @@ ms_tweaks_setting_copy (const MsTweaksSetting *setting)
     new_setting->map = g_hash_table_ref (setting->map);
   new_setting->backend = setting->backend;
   new_setting->help = g_strdup (setting->help);
+  new_setting->help_i18n = g_strdup (setting->help_i18n);
   new_setting->default_ = g_strdup (setting->default_);
   new_setting->key = g_ptr_array_ref (setting->key);
   new_setting->readonly = setting->readonly;
@@ -224,6 +226,7 @@ ms_tweaks_section_copy (const MsTweaksSection *section)
 
   new_section->weight = section->weight;
   new_section->name = g_strdup (section->name);
+  new_section->name_i18n = g_strdup (section->name_i18n);
   if (section->setting_table)
     new_section->setting_table = g_hash_table_ref (section->setting_table);
 
@@ -238,6 +241,7 @@ ms_tweaks_page_copy (const MsTweaksPage *page)
 
   new_page->weight = page->weight;
   new_page->name = g_strdup (page->name);
+  new_page->name_i18n = g_strdup (page->name_i18n);
   if (page->section_table)
     new_page->section_table = g_hash_table_ref (page->section_table);
 
@@ -504,8 +508,8 @@ merge_sections (MsTweaksSection *into, const MsTweaksSection *from)
   /* Merge settings. */
   g_hash_table_iter_init (&iter, from->setting_table);
   while (g_hash_table_iter_next (&iter, &setting_to_insert_name, &setting_to_insert)) {
-    gpointer setting_to_merge_into = g_hash_table_lookup (into->setting_table,
-                                                          setting_to_insert_name);
+    MsTweaksSetting *setting_to_merge_into = g_hash_table_lookup (into->setting_table,
+                                                                  setting_to_insert_name);
     MsTweaksSetting *setting_to_insert_copy = ms_tweaks_setting_copy (setting_to_insert);
 
     if (setting_to_merge_into) {
@@ -540,8 +544,8 @@ merge_pages (MsTweaksPage *into, const MsTweaksPage *from)
   /* Merge sections. */
   g_hash_table_iter_init (&iter, from->section_table);
   while (g_hash_table_iter_next (&iter, &section_to_insert_name, &section_to_insert)) {
-    gpointer section_to_merge_into = g_hash_table_lookup (into->section_table,
-                                                          section_to_insert_name);
+    MsTweaksSection *section_to_merge_into = g_hash_table_lookup (into->section_table,
+                                                                  section_to_insert_name);
     MsTweaksSection *section_to_insert_copy = ms_tweaks_section_copy (section_to_insert);
 
     if (section_to_merge_into) {
