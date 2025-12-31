@@ -207,7 +207,7 @@ transform_to_active_panel (GBinding     *binding,
                            GValue       *to,
                            gpointer      user_data)
 {
-  GtkStack *stack = GTK_STACK (g_binding_dup_source (binding));
+  g_autoptr (GtkStack) stack = GTK_STACK (g_binding_dup_source (binding));
   GtkWidget *stack_child = g_value_get_object (from);
   GtkStackPage *page = gtk_stack_get_page (stack, stack_child);
 
