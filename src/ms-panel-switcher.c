@@ -272,20 +272,21 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, GtkStack *stack)
 
   g_set_object (&self->stack, stack);
 
-  if (stack) {
-    GListModel *pages = G_LIST_MODEL (gtk_stack_get_pages (stack));
+  g_clear_object (&self->filtered_panels);
+  if (self->stack) {
+    GListModel *pages = G_LIST_MODEL (gtk_stack_get_pages (self->stack));
     GtkFilter *filter = GTK_FILTER (gtk_custom_filter_new (panels_filter_func,
                                                            self,
                                                            NULL));
 
-    g_clear_object (&self->filtered_panels);
     self->filtered_panels = gtk_filter_list_model_new (pages, filter);
-
-    gtk_list_box_bind_model (self->panels_listbox,
-                             G_LIST_MODEL (self->filtered_panels),
-                             create_panel_row,
-                             NULL, NULL);
   }
+
+
+  gtk_list_box_bind_model (self->panels_listbox,
+                           G_LIST_MODEL (self->filtered_panels),
+                           create_panel_row,
+                           NULL, NULL);
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_STACK]);
 }
