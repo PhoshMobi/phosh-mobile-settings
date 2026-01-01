@@ -1,15 +1,15 @@
 # Romanian translation for phosh-mobile-settings.
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Antonio Marin <gnmer.6qxyg@slmail.me>, 2024-2025.
+# Antonio Marin <gnmer.6qxyg@slmail.me>, 2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-11-21 01:45+0000\n"
-"PO-Revision-Date: 2025-11-21 10:46+0100\n"
+"POT-Creation-Date: 2025-12-31 13:23+0000\n"
+"PO-Revision-Date: 2026-01-01 15:27+0100\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -20,8 +20,7 @@ msgstr ""
 "20)) ? 1 : 2);\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:2
-#: src/ui/mobile-settings-window.ui:6
+#: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
 msgstr "Reglări Mobil"
 
@@ -39,7 +38,7 @@ msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
 msgstr ""
-"Această aplicație permite configurarea unor aspecte din Phosh pentru care "
+"Această aplicație permite schimbarea unor aspecte din Phosh pentru care "
 "altfel ar trebui folosită linia de comandă."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
@@ -111,12 +110,29 @@ msgstr "Indicator de energie"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
 msgid "Battery"
-msgstr "Baterie"
+msgstr "Bateria"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "Ceva nu a funcționat bine: %s"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:479
+msgid "Authentication cancelled"
+msgstr "Autentificare anulată"
+
+#. We had errors while running the commands, so inform the user of this.
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:484
+#, c-format
+msgid "%i error occurred while saving"
+msgid_plural "%i errors occurred while saving"
+msgstr[0] "A apărut %i eroare la salvare"
+msgstr[1] "Au apărut %i erori la salvare"
+msgstr[2] "Au apărut %i de erori la salvare"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+msgid "You need to authenticate as administrator to save some settings"
+msgstr "Doar administratorul poate salva unele schimbări"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -133,22 +149,18 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Închide"
 
-#: src/mobile-settings-application.c:36
+#: src/ms-alerts-panel.c:238
+msgid "Could not get list of cell broadcast messages"
+msgstr "Nu s-a putut obține lista mesajelor de alertă publică"
+
+#: src/ms-application.c:37
 msgid "- Manage your mobile settings"
 msgstr "- Gestionează reglările pentru mobil"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:447
+#: src/ms-application.c:511
 msgid "translator-credits"
-msgstr "libre (Antonio Marin)"
-
-#: src/mobile-settings-window.c:148
-msgid "Device"
-msgstr "Aparat"
-
-#: src/ms-alerts-panel.c:242
-msgid "Could not get list of cell broadcast messages"
-msgstr "Nu s-a putut obține lista mesajelor de alertă publică"
+msgstr "Antonio Marin"
 
 #: src/ms-audio-devices.c:178
 msgid "Media Volume"
@@ -228,35 +240,35 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Nu s-a reușit stabilirea fundalului pentru ecranul blocat"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:746
+#: src/ms-osk-panel.c:744
 msgid "Default"
 msgstr "Prestabilită"
 
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:745
 msgid "The default completer selected by the OSK"
 msgstr "Completarea prestabilită aleasă de tastatura de pe ecran"
 
-#: src/ms-osk-panel.c:750
+#: src/ms-osk-panel.c:748
 msgid "No information available for this completer"
 msgstr "Nicio informație disponibilă pentru această completare"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:66
 msgid "Reset favorites?"
 msgstr "Să fie restabilite preferatele?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:69
 msgid "Reset list of favorite applications to the default?"
 msgstr "Să fie restabilită starea inițială a listei de aplicații preferate?"
 
-#: src/ms-overview-panel.c:75
+#: src/ms-overview-panel.c:72
 msgid "_Cancel"
 msgstr "_Anulează"
 
-#: src/ms-overview-panel.c:76
+#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "_Restabilește"
 
-#: src/ms-overview-panel.c:331
+#: src/ms-overview-panel.c:328
 msgid "Failed to set wallpaper for overview"
 msgstr "Nu s-a reușit stabilirea fundalului pentru prezentare"
 
@@ -318,11 +330,11 @@ msgid "Not available"
 msgstr "Indisponibil"
 
 #. Translators: "Custom" is the name of a user-defined sound theme
-#: src/ms-sound-row.c:128
+#: src/ms-sound-row.c:130
 msgid "Custom"
 msgstr "Personalizat"
 
-#: src/ms-sound-row.c:309
+#: src/ms-sound-row.c:311
 msgid "Choose sound file"
 msgstr "Alege fișierul audio"
 
@@ -345,174 +357,9 @@ msgstr "Silențios"
 msgid "Choose Wallpaper"
 msgstr "Alege fundalul"
 
-#. Translators: this is a verb.
-#: src/ui/mobile-settings-window.ui:31
-msgid "Search"
-msgstr "Caută"
-
-#: src/ui/mobile-settings-window.ui:48
-msgid "Search settings"
-msgstr "Caută reglări"
-
-#: src/ui/mobile-settings-window.ui:98
-msgid "Welcome"
-msgstr "Bun venit"
-
-#: src/ui/mobile-settings-window.ui:104
-msgid "Welcome to Mobile Settings"
-msgstr "Bun venit în Reglări Mobil"
-
-#: src/ui/mobile-settings-window.ui:105
-msgid "Tweak advanced mobile settings"
-msgstr "Modifică reglările avansate pentru mobil"
-
-#: src/ui/mobile-settings-window.ui:113
-msgid "Top Bar"
-msgstr "Bara de sus"
-
-#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
-msgid "Quick Settings"
-msgstr "Reglări rapide"
-
-#: src/ui/mobile-settings-window.ui:122
-msgid "Notches"
-msgstr "Orificii"
-
-#: src/ui/mobile-settings-window.ui:133
-msgid "Overview"
-msgstr "Prezentare"
-
-#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
-msgid "Favorites"
-msgstr "Preferate"
-
-#: src/ui/mobile-settings-window.ui:142
-msgid "Filter"
-msgstr "Filtru"
-
-#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
-msgid "Wallpaper"
-msgstr "Fundal"
-
-#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
-msgid "Feedback"
-msgstr "Reacții"
-
-#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
-msgid "Sounds"
-msgstr "Sunete"
-
-#: src/ui/mobile-settings-window.ui:164
-msgid "Wakeup"
-msgstr "Iluminare"
-
-#: src/ui/mobile-settings-window.ui:165
-msgid "Vibra"
-msgstr "Vibrații"
-
-#: src/ui/mobile-settings-window.ui:166
-msgid "Haptic"
-msgstr "Tactil"
-
-#: src/ui/mobile-settings-window.ui:167
-msgid "LED"
-msgstr "LED"
-
-#: src/ui/mobile-settings-window.ui:178
-msgid "Compositor"
-msgstr "Compozitor"
-
-#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
-msgid "Scaling"
-msgstr "Redimensionare"
-
-#: src/ui/mobile-settings-window.ui:197
-msgid "Lockscreen"
-msgstr "Ecranul blocat"
-
-#: src/ui/mobile-settings-window.ui:206
-msgid "Shuffle"
-msgstr "Aleatorie"
-
-#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
-msgid "Widgets"
-msgstr "Miniaturi"
-
-#: src/ui/mobile-settings-window.ui:208
-msgid "Password"
-msgstr "Parola"
-
-#: src/ui/mobile-settings-window.ui:219
-msgid "Convergence"
-msgstr "Convergență"
-
-#: src/ui/mobile-settings-window.ui:237
-msgid "On Screen Keyboard"
-msgstr "Tastatură pe ecran"
-
-#: src/ui/mobile-settings-window.ui:245
-msgid "Keyboard"
-msgstr "Tastatură"
-
-#: src/ui/mobile-settings-window.ui:246
-msgid "Unfold"
-msgstr "Să apară"
-
-#: src/ui/mobile-settings-window.ui:247
-msgid "OSK"
-msgstr "OSK"
-
-#: src/ui/mobile-settings-window.ui:248
-msgid "Word Completion"
-msgstr "Completarea cuvintelor"
-
-#: src/ui/mobile-settings-window.ui:259
-msgid "Emergency Alerts"
-msgstr "Alerte de urgență"
-
-#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
-msgid "Emergency"
-msgstr "Urgență"
-
-#: src/ui/mobile-settings-window.ui:268
-msgid "Cell Broadcast"
-msgstr "Alertă publică"
-
-#: src/ui/mobile-settings-window.ui:269
-msgid "Danger"
-msgstr "Pericol"
-
-#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
-msgid "Sensors"
-msgstr "Senzori"
-
-#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
-msgid "High Contrast"
-msgstr "Contrast mare"
-
-#: src/ui/mobile-settings-window.ui:299
-msgid "Experimental features"
-msgstr "Caracteristici experimentale"
-
-#: src/ui/mobile-settings-window.ui:308
-msgid "Suspend"
-msgstr "Suspendă"
-
-#: src/ui/mobile-settings-window.ui:309
-msgid "Experimental"
-msgstr "Experimental"
-
-#: src/ui/mobile-settings-window.ui:333
-msgid "_Show Configurable Tweaks"
-msgstr "_Arată reglări personalizabile"
-
-#: src/ui/mobile-settings-window.ui:340
-msgid "_Keyboard Shortcuts"
-msgstr "Scur_tături"
-
-#: src/ui/mobile-settings-window.ui:344
-msgid "_About Mobile Settings"
-msgstr "_Despre Reglări Mobil"
+#: src/ms-window.c:146
+msgid "Device"
+msgstr "Aparat"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -558,11 +405,11 @@ msgstr "Arată acțiunile recomandate în situații cu risc pentru siguranță"
 
 #: src/ui/ms-alerts-panel.ui:57
 msgid "Test alerts"
-msgstr "Alerte de testare"
+msgstr "Alerte de probă"
 
 #: src/ui/ms-alerts-panel.ui:59
 msgid "Show periodic messages to test the alert system"
-msgstr "Arată mesaje periodice pentru a testa sistemul de alertă"
+msgstr "Arată mesaje periodice de testare a sistemului de alertă"
 
 #: src/ui/ms-alerts-panel.ui:65
 msgid "Amber alerts"
@@ -722,90 +569,94 @@ msgstr "Procentul maxim al forței de reacție tactilă"
 msgid "Per Application settings"
 msgstr "Reglări per aplicație"
 
+#: src/ui/ms-feedback-panel.ui:93 src/ui/ms-window.ui:159
+msgid "Sounds"
+msgstr "Sunete"
+
 #: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
 msgstr "Sunetul de utilizat pentru anumite evenimente"
 
-#: src/ui/ms-feedback-panel.ui:102
+#: src/ui/ms-feedback-panel.ui:108
 msgid "Phone Calls"
 msgstr "Apeluri"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:120
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:114 src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:132 src/ui/ms-feedback-panel.ui:201
 msgid "Instant Messages"
 msgstr "Mesaje instantanee"
 
-#: src/ui/ms-feedback-panel.ui:121
+#: src/ui/ms-feedback-panel.ui:145
 msgid "Alarm Clock"
 msgstr "Soneria ceasului"
 
-#: src/ui/ms-feedback-panel.ui:132
+#: src/ui/ms-feedback-panel.ui:156
 msgid "Screen Wakeup"
 msgstr "Iluminarea ecranului"
 
-#: src/ui/ms-feedback-panel.ui:135
+#: src/ui/ms-feedback-panel.ui:159
 msgid "Notification urgency that lights up the screen"
 msgstr "Notificare de urgență care iluminează ecranul"
 
-#: src/ui/ms-feedback-panel.ui:153
+#: src/ui/ms-feedback-panel.ui:177
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "Categorii de notificări care activează ecranul independent de urgența lor"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:180
 msgid "Calls"
 msgstr "Apeluri"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:181
 msgid "A generic audio or video call notification"
 msgstr "O notificare standard pentru apeluri audio sau video"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:187
 msgid "Device events"
 msgstr "Evenimentele aparatului"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:188
 msgid "A generic device-related notification"
 msgstr "O notificare standard referitoare la aparat"
 
-#: src/ui/ms-feedback-panel.ui:170
+#: src/ui/ms-feedback-panel.ui:194
 msgid "Emails"
 msgstr "Scrisori"
 
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:195
 msgid "A generic e-mail-related notification"
 msgstr "O notificare standard pentru scrisori"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:202
 msgid "A generic instant message-related notification"
 msgstr "O notificare standard pentru mesajele instantanee"
 
-#: src/ui/ms-feedback-panel.ui:184
+#: src/ui/ms-feedback-panel.ui:208
 msgid "Network events"
 msgstr "Evenimentele rețelei"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:209
 msgid "A generic network notification"
 msgstr "O notificare standard referitoare la rețea"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:215
 msgid "Presence changes"
 msgstr "Schimbări de prezență"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:216
 msgid "A generic presence change notification"
 msgstr "O notificare standard referitoare la schimbarea stării de prezență"
 
-#: src/ui/ms-feedback-panel.ui:198
+#: src/ui/ms-feedback-panel.ui:222
 msgid "File transfers"
 msgstr "Transferuri de fișiere"
 
-#: src/ui/ms-feedback-panel.ui:199
+#: src/ui/ms-feedback-panel.ui:223
 msgid "A generic file transfer or download notification"
 msgstr "O notificare standard pentru transferuri de fișiere sau descărcări"
 
@@ -852,6 +703,10 @@ msgstr "Folosește un fundal"
 #: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
 msgid "Whether to show a colorful wallpaper"
 msgstr "Dacă să se afișeze un fundal colorat"
+
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+msgid "Widgets"
+msgstr "Miniaturi"
 
 #: src/ui/ms-lockscreen-panel.ui:80
 msgid "Additional widgets for the lock screen"
@@ -961,7 +816,7 @@ msgstr "scurtă"
 #: src/ui/ms-osk-panel.ui:28
 msgctxt "press interval"
 msgid "normal"
-msgstr "normal"
+msgstr "normală"
 
 #. Translators: abbreviation for greater than or equal to 1.5 second interval of time
 #: src/ui/ms-osk-panel.ui:30
@@ -1003,6 +858,10 @@ msgstr "Înălțimea tastaturii în modul orizontal"
 #: src/ui/ms-osk-panel.ui:77
 msgid "When the screen is wider than tall"
 msgstr "Când ecranul este mai lat decât înalt"
+
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+msgid "Scaling"
+msgstr "Redimensionare"
 
 #: src/ui/ms-osk-panel.ui:104
 msgid "Keep physical size constant"
@@ -1067,6 +926,10 @@ msgstr "Scurtături"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Scurtături disponibile în spațiul scurtăturilor"
 
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+msgid "Favorites"
+msgstr "Preferate"
+
 #: src/ui/ms-overview-panel.ui:22
 msgid "Organize Favorites"
 msgstr "Organizare Preferate"
@@ -1117,6 +980,10 @@ msgstr ""
 "Fie nu există senzori instalați în aparat, fie aceștia sunt dezactivați de "
 "un întrerupător."
 
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+msgid "Sensors"
+msgstr "Senzori"
+
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
 msgstr "Măsurătorile senzorilor"
@@ -1132,6 +999,10 @@ msgstr "Lumină"
 #: src/ui/ms-sensor-panel.ui:58
 msgid "Orientation"
 msgstr "Orientare"
+
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+msgid "High Contrast"
+msgstr "Contrast mare"
 
 #: src/ui/ms-sensor-panel.ui:72
 msgid "Automatic High Contrast"
@@ -1174,6 +1045,151 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Nu poziționa elementele interfeței sub orificiile și decupajul ecranului"
 
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+msgid "Quick Settings"
+msgstr "Reglări rapide"
+
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Organizează reglările rapide suplimentare"
+
+#: src/ui/ms-welcome-panel.ui:8
+msgid "Welcome to Mobile Settings"
+msgstr "Bun venit în Reglări Mobil"
+
+#: src/ui/ms-welcome-panel.ui:9
+msgid "Tweak advanced mobile settings"
+msgstr "Modifică reglările avansate pentru mobil"
+
+#. Translators: this is a verb.
+#: src/ui/ms-window.ui:31
+msgid "Search"
+msgstr "Caută"
+
+#: src/ui/ms-window.ui:48
+msgid "Search settings"
+msgstr "Caută reglări"
+
+#: src/ui/ms-window.ui:98
+msgid "Welcome"
+msgstr "Bun venit"
+
+#: src/ui/ms-window.ui:109
+msgid "Top Bar"
+msgstr "Bara de sus"
+
+#: src/ui/ms-window.ui:118
+msgid "Notches"
+msgstr "Orificii"
+
+#: src/ui/ms-window.ui:129
+msgid "Overview"
+msgstr "Prezentare"
+
+#: src/ui/ms-window.ui:138
+msgid "Filter"
+msgstr "Filtru"
+
+#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+msgid "Wallpaper"
+msgstr "Fundal"
+
+#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+msgid "Feedback"
+msgstr "Reacții"
+
+#: src/ui/ms-window.ui:160
+msgid "Wakeup"
+msgstr "Iluminare"
+
+#: src/ui/ms-window.ui:161
+msgid "Vibra"
+msgstr "Vibrații"
+
+#: src/ui/ms-window.ui:162
+msgid "Haptic"
+msgstr "Tactil"
+
+#: src/ui/ms-window.ui:163
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/ms-window.ui:174
+msgid "Compositor"
+msgstr "Compozitor"
+
+#: src/ui/ms-window.ui:193
+msgid "Lockscreen"
+msgstr "Ecranul blocat"
+
+#: src/ui/ms-window.ui:202
+msgid "Shuffle"
+msgstr "Aleatorie"
+
+#: src/ui/ms-window.ui:204
+msgid "Password"
+msgstr "Parola"
+
+#: src/ui/ms-window.ui:215
+msgid "Convergence"
+msgstr "Convergență"
+
+#: src/ui/ms-window.ui:233
+msgid "On Screen Keyboard"
+msgstr "Tastatură pe ecran"
+
+#: src/ui/ms-window.ui:241
+msgid "Keyboard"
+msgstr "Tastatură"
+
+#: src/ui/ms-window.ui:242
+msgid "Unfold"
+msgstr "Să apară"
+
+#: src/ui/ms-window.ui:243
+msgid "OSK"
+msgstr "OSK"
+
+#: src/ui/ms-window.ui:244
+msgid "Word Completion"
+msgstr "Completarea cuvintelor"
+
+#: src/ui/ms-window.ui:255
+msgid "Emergency Alerts"
+msgstr "Alerte de urgență"
+
+#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+msgid "Emergency"
+msgstr "Urgență"
+
+#: src/ui/ms-window.ui:264
+msgid "Cell Broadcast"
+msgstr "Alertă publică"
+
+#: src/ui/ms-window.ui:265
+msgid "Danger"
+msgstr "Pericol"
+
+#: src/ui/ms-window.ui:295
+msgid "Experimental features"
+msgstr "Caracteristici experimentale"
+
+#: src/ui/ms-window.ui:304
+msgid "Suspend"
+msgstr "Suspendă"
+
+#: src/ui/ms-window.ui:305
+msgid "Experimental"
+msgstr "Experimental"
+
+#: src/ui/ms-window.ui:329
+msgid "_Show Configurable Tweaks"
+msgstr "_Arată reglări personalizabile"
+
+#: src/ui/ms-window.ui:336
+msgid "_Keyboard Shortcuts"
+msgstr "Scur_tături"
+
+#: src/ui/ms-window.ui:340
+msgid "_About Mobile Settings"
+msgstr "_Despre Reglări Mobil"
