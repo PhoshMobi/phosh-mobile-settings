@@ -1,3 +1,71 @@
+phosh-mobile-settings (0.52~rc2) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * tweaks-preferences-page: Don't leak keywords
+  * panel-switcher: Don't track pages.
+    The reference is swallowed by gtk_filter_list_model_new right away
+  * panel-switcher: Don't track filter.
+    The reference is swallowed by gtk_filter_list_model_new and thus
+    we don't need to track a dangling pointer that we could unref
+    accidentally.
+  * panel-switcher: Avoid cast for filter func.
+    Let's just use the correct signature
+  * panel-switcher: Ensure model gets cleared on NULL stack
+  * application: Don't leak stack.
+    This prevented all panels from disposing.
+    Fixes: a4cdb97 ("mobile-settings-application: Add 'active-panel' property")
+  * audio-devices: Don't leak devices
+  * audio-devices: Don't leak description.
+    Fixes: 41b2611 ("audio-devices: New class that allows to track loopback devices")
+  * audio-device: Don't leak stream
+  * gvc: Fix UI device leak.
+    See https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/merge_requests/29
+
+  [ Stefan Hansson ]
+  * build: Bump libadwaita dependency to 1.7.
+    We want to be able to use adw_banner_set_button_style () and it requires
+    this version.
+  * conf-tweaks: Allow backend to request save as administrator
+  * conf-tweaks: Add support for saving settings with escalated privileges
+  * conf-tweaks: Remove get_name from backend interface.
+    Unused.
+  * conf-tweaks: Remove set_source_ext documentation from backend interface.
+    This was a relic of some previous code that no longer exists. Remove it.
+  * conf-tweaks: Make get_key return a const in backend interface.
+    And also adapt implementations.
+  * conf-tweaks: Add implementations to backend interface.
+    Allows simplifying caller code.
+  * conf-tweaks: Add Sysfs backend
+  * tests: Add test for Sysfs backend
+  * ms-tweaks-backend-gsettings: Don't leak key during construction
+  * ms-tweaks-parser: Don't leak YAML filepath
+  * ms-tweaks-preferences-page: Don't leak sorted lists
+  * ms-window: Don't leak sorted page list
+  * tests: Add test for pretty_format_cmd ()
+  * ms-tweaks-parser: Also copy i18n-related properties in *_copy.
+    Fixes fcb46d7608a8963b2f49097cd1ebd65c5afcc4d5
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/95
+  * ms-tweaks-parser: Replace gpointer with actual types.
+    Makes for easier debugging.
+  * ms-tweaks-callback-handlers: Add ctor and dtor for MsTweaksCallbackMeta
+  * ms-tweaks-preferences-page: Don't leak callback_meta.
+    Also rework how we construct it.
+    Related: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/100
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 01 Jan 2026 17:53:38 +0100
+
 phosh-mobile-settings (0.52~rc1) experimental; urgency=medium
 
   [ Evangelos Ribeiro Tzaras ]

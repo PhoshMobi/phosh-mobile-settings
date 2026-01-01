@@ -1,9 +1,10 @@
-phosh-mobile-settings 0.52~rc1
+phosh-mobile-settings 0.52~rc2
 ------------------------------
-Released December 2025
+Released January 2025
 * Allow `set-panel` to have options. This allows to e.g. open a specific quick
   settings config dialog via DBus.
-* Internal cleanups
+* conf-tweaks: Add sysfs backend
+* Leak fixes and internal cleanups
 * Issues fixed:
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/65
 * Contributors:
