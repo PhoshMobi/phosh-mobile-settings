@@ -130,7 +130,7 @@ Backends shouldn't normally have to access the datasource property as the
 parser handles setting the `map` property to the data provided by the
 datasource.
 
-### Hardwareinfo, environment, osksdl, and soundtheme backends are omitted
+### Hardwareinfo, environment, osksdl, css, and soundtheme backends are omitted
 
 The hardwareinfo backend was never documented in postmarketOS Tweaks, and is
 not as useful as it once was with both GNOME's and Plasma's settings
@@ -145,17 +145,21 @@ omission is different and rather due to the fact that [osk-sdl was deprecated in
 favour of unl0kr][2]. As such, there is little point in supporting configuration
 for it, and if anything misleading.
 
-To clarify, the parser still recognises the hardwareinfo, osksdl, and
-soundtheme backend types, but any setting using it gets marked as invalid
-by the page builder and consequently is hidden.
-
 The environment backend too was undocumented, however unlike the others there
 do not seem to be any instances of it actually being used. As such, it has been
 omitted. However, unlike the hardwareinfo and osksdl backend which have
 fundamental flaws that resulted in their exclusion, the environment backed is
 only excluded due to being undocumented and apparently unused.
 
+While the css backend didn't have any fundamental problems, all of its uses had
+been replaced by better solutions. It could be brought back if a new use-case
+is found.
+
 Finally, the soundtheme backend is only excluded because all of the functions
 it served in the original have been replaced by native settings in
 Phosh Mobile Settings. If there is interest in including it, e.g. if you have a
 personal use-case, feel free to make an issue.
+
+To clarify, the parser still recognises these omitted backend types, but any
+setting using it gets marked as invalid by the page builder and consequently is
+hidden.
