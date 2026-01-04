@@ -6,6 +6,7 @@ leak:adw_style_manager_ensure
 leak:gtk_widget_list_mnemonic_labels
 # Actually leaks in mesa
 leak:gdk_gl_context_create_egl_context
+leak:gdk_display_init_egl
 # Fontconfig
 leak:FcConfigValues
 leak:FcParsePattern
