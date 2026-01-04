@@ -52,6 +52,15 @@
 
   <releases>
 
+    <release version="0.52.0" date="2026-01-04">
+      <description translate="no">
+        <ul>
+          <li>conf-tweaks: Add sysfs backend</li>
+          <li>Details of settings panels can now by activated via actions</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.51.0" date="2025-11-15">
       <description translate="no">
         <ul>
