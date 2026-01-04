@@ -1,3 +1,26 @@
+phosh-mobile-settings (0.52.0) experimental; urgency=medium
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Stefan Hansson ]
+  * conf-tweaks: Document why css backend was omitted.
+    And also make some minor adjustments to the order of paragraphs.
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Guido Günther ]
+  * main: Handle SIGTERM gracefully.
+    This allows us to quit with a zero exit status
+  * data: Update leak suppresion for new GTK
+  * ci: Use updated image.
+    We want a phoc that shuts down the client on SIGTERM
+  * ci: Run app under ASAN.
+    Let's make sure we at least shut down cleanly.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 04 Jan 2026 12:02:27 +0100
+
 phosh-mobile-settings (0.52~rc2) experimental; urgency=medium
 
   [ Guido Günther ]
