@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/mobi/phosh/MobileSettings">
+    <file>ui/ms-about-panel.ui</file>
     <file>ui/ms-alerts-panel.ui</file>
     <file>ui/ms-audio-device-row.ui</file>
     <file>ui/ms-cb-message-row.ui</file>
@@ -26,7 +27,9 @@
     <file>ui/ms-window.ui</file>
     <file>gtk/help-overlay.ui</file>
     <file alias="metainfo.xml">../data/mobi.phosh.MobileSettings.metainfo.xml.in</file>
+    <file alias="phosh.mobi.svg">../data/phosh.mobi.svg</file>
   </gresource>
+
   <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
     <file alias="applications-symbolic.svg">../data/icons/applications-symbolic.svg</file>
     <file alias="call-ring-symbolic.svg">../data/icons/call-ring-symbolic.svg</file>

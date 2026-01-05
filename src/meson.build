@@ -11,6 +11,8 @@ mobile_settings_plugin_sources = [
 ]
 
 mobile_settings_sources = [
+  'ms-about-panel.c',
+  'ms-about-panel.h',
   'ms-alerts-panel.c',
   'ms-alerts-panel.h',
   'ms-application.c',
