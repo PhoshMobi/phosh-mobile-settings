@@ -17,6 +17,7 @@ src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c
 src/ms-window.c
+src/ui/ms-about-panel.ui
 src/ui/ms-alerts-panel.ui
 src/ui/ms-audio-device-row.ui
 src/ui/ms-compositor-panel.ui
