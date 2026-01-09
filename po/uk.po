@@ -2,14 +2,14 @@
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2025-12-31 13:23+0000\n"
-"PO-Revision-Date: 2025-12-31 15:33+0200\n"
+"POT-Creation-Date: 2026-01-09 15:10+0000\n"
+"PO-Revision-Date: 2026-01-09 23:25+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -135,8 +135,8 @@ msgstr[3] "Під час спроби зберегти дані сталася %
 #: src/conf-tweaks/ms-tweaks-preferences-page.c:891
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
-"Для збереження деяких з параметрів вам слід пройти розпізнавання від імені"
-" адміністратора"
+"Для збереження деяких з параметрів вам слід пройти розпізнавання від імені "
+"адміністратора"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -364,6 +364,22 @@ msgstr "Виберіть фонове зображення"
 #: src/ms-window.c:146
 msgid "Device"
 msgstr "Пристрій"
+
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "Логотип Phosh"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "Версія Phosh"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "Операційна система"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "Модель обладнання"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -1182,15 +1198,19 @@ msgstr "Призупинити"
 msgid "Experimental"
 msgstr "Експериментальний"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "Відомості"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "По_казати налаштовувані коригування"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_Про «Мобільні параметри»"
 
