@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-12-31 13:23+0000\n"
-"PO-Revision-Date: 2026-01-01 15:27+0100\n"
+"POT-Creation-Date: 2026-01-09 15:10+0000\n"
+"PO-Revision-Date: 2026-01-12 10:38+0100\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -360,6 +360,22 @@ msgstr "Alege fundalul"
 #: src/ms-window.c:146
 msgid "Device"
 msgstr "Aparat"
+
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "Simbolul Phosh"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "Versiunea Phosh"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "Sistemul de operare"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "Modelul aparatului"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -1182,14 +1198,18 @@ msgstr "Suspendă"
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "Despre"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "_Arată reglări personalizabile"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "Scur_tături"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_Despre Reglări Mobil"
