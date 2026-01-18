@@ -66,6 +66,9 @@ struct _MsApplication {
 
 G_DEFINE_TYPE (MsApplication, ms_application, ADW_TYPE_APPLICATION)
 
+void cc_object_storage_initialize (void);
+void cc_object_storage_destroy (void);
+
 static const GOptionEntry entries[] = {
   {
     "version", 'v',
@@ -481,6 +484,10 @@ ms_application_finalize (GObject *object)
   g_clear_object (&self->device_plugin_loader);
   g_clear_pointer (&self->wayland_protocols, g_hash_table_destroy);
 
+#ifdef MOBILE_SETTINGS_HAVE_GCC_PANELS
+  cc_object_storage_destroy ();
+#endif
+
   G_OBJECT_CLASS (ms_application_parent_class)->finalize (object);
 }
 
@@ -552,6 +559,10 @@ ms_application_init (MsApplication *self)
   const char *plugin_dirs[] = { MOBILE_SETTINGS_PLUGINS_DIR, NULL };
   g_autoptr (GSimpleAction) about_action = NULL;
   g_autoptr (GSimpleAction) quit_action = NULL;
+
+#ifdef MOBILE_SETTINGS_HAVE_GCC_PANELS
+  cc_object_storage_initialize ();
+#endif
 
   quit_action = g_simple_action_new ("quit", NULL);
   g_signal_connect_swapped (quit_action, "activate", G_CALLBACK (g_application_quit), self);

@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "ms-panel.h"
 #include "ms-panel-switcher.h"
 
 #include <adwaita.h>
@@ -20,5 +21,8 @@ G_DECLARE_FINAL_TYPE (MsWindow, ms_window, MS, WINDOW, AdwApplicationWindow)
 
 GListModel *     ms_window_get_stack_pages    (MsWindow *self);
 MsPanelSwitcher *ms_window_get_panel_switcher (MsWindow *self);
+void             ms_window_insert_cc_panel    (MsWindow   *self,
+                                               const char *name,
+                                               GtkWidget  *cc_panel);
 
 G_END_DECLS

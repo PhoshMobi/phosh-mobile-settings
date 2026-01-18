@@ -25,6 +25,8 @@ mobile_settings_sources = [
   'ms-audio-devices.h',
   'ms-cb-message-row.c',
   'ms-cb-message-row.h',
+  'ms-cc-panels.c',
+  'ms-cc-panels.h',
   'ms-completer-info.c',
   'ms-completer-info.h',
   'ms-compositor-panel.c',
@@ -103,6 +105,7 @@ mobile_settings_deps = [
   gtk_wayland_dep,
   json_glib_dep,
   libgvc_dep,
+  libnm_dep,
   libportal_dep,
   libportal_gtk4_dep,
   libpms_dep,
@@ -148,7 +151,66 @@ libms_dep = declare_dependency(
   dependencies: mobile_settings_deps,
 )
 
-pms = executable('phosh-mobile-settings', 'main.c', install: true, dependencies: libms_dep)
+if get_option('gcc-panels')
+
+  gcc = subproject(
+    'g-c-c',
+    default_options: [
+      'documentation=false',
+      'privileged_group=sudo',
+      'ibus=false',
+      'snap=false',
+      'x11=false',
+      'malcontent=false',
+    ],
+  )
+
+  gcc_panel_sources = gcc.get_variable('common_sources')
+  gcc_panel_generated_sources = gcc.get_variable('generated_sources')
+  gcc_shell_inc = [gcc.get_variable('top_inc'), gcc.get_variable('common_inc')]
+  gcc_lib = static_library(
+    'gcc',
+    gcc_panel_sources,
+    include_directories: [gcc_shell_inc],
+    dependencies: mobile_settings_deps,
+    install: false,
+  )
+  gcc_liblanguage_dep = gcc.get_variable('liblanguage_dep')
+  gcc_libwidgets_dep = gcc.get_variable('libwidgets_dep')
+
+  # Some panels have deps…
+  cc_panels_deps = [
+    gcc.get_variable('network_panel_dep'),
+  ]
+
+  libgcc_dep = declare_dependency(
+    link_with: gcc_lib,
+    dependencies: [mobile_settings_deps, gcc_liblanguage_dep, gcc_libwidgets_dep, cc_panels_deps],
+  )
+
+  # …other panels have only libs
+  cc_panels = [
+    gcc.get_variable('bluetooth_panel_lib'),
+    gcc.get_variable('sound_panel_lib'),
+    gcc.get_variable('online_accounts_panel_lib'),
+    gcc.get_variable('wwan_panel_lib'),
+  ]
+
+else
+  gcc_panel_generated_sources = []
+  libgcc_dep = []
+  cc_panels = []
+endif
+
+pms = executable(
+  'phosh-mobile-settings',
+  # Need to add gcc's generated sources here as gresources are
+  # dropped from gcc_lib
+  ['main.c'] + gcc_panel_generated_sources,
+  install: true,
+  link_with: cc_panels,
+  dependencies: [libms_dep, libgcc_dep],
+)
 
 
 # Helpers for plugins */

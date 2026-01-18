@@ -1,0 +1,61 @@
+From 6746efa7f5fd110805ec6075ae62638b043ba175 Mon Sep 17 00:00:00 2001
+Message-ID: <6746efa7f5fd110805ec6075ae62638b043ba175.1786135449.git.agx@sigxcpu.org>
+From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Fri, 7 Aug 2026 22:43:20 +0200
+Subject: [PATCH] wwan-panel: Work around lack of CCApplication
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Guido Günther <agx@sigxcpu.org>
+---
+ panels/wwan/cc-wwan-panel.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/panels/wwan/cc-wwan-panel.c b/panels/wwan/cc-wwan-panel.c
+index 3ba2bc4..9db9617 100644
+--- a/panels/wwan/cc-wwan-panel.c
++++ b/panels/wwan/cc-wwan-panel.c
+@@ -760,7 +760,7 @@ cc_wwan_panel_init (CcWwanPanel *self)
+ static void
+ wwan_update_panel_visibility (MMManager *mm_manager)
+ {
+-  CcApplication *application;
++  //CcApplication *application;
+   GList *devices;
+   gboolean has_wwan;
+ 
+@@ -780,11 +780,13 @@ wwan_update_panel_visibility (MMManager *mm_manager)
+         }
+     }
+ 
++#if 0
+   /* Set the new visibility */
+   application = CC_APPLICATION (g_application_get_default ());
+   cc_shell_model_set_panel_visibility (cc_application_get_model (application),
+                                        "wwan",
+                                        has_wwan ? CC_PANEL_VISIBLE : CC_PANEL_VISIBLE_IN_SEARCH);
++#endif
+ 
+   g_debug ("WWAN panel visible: %s", has_wwan ? "yes" : "no");
+ 
+@@ -814,13 +816,15 @@ cc_wwan_panel_static_init_func (void)
+ 
+   if (mm_manager == NULL)
+     {
+-      CcApplication *application;
++      //CcApplication *application;
+ 
+       g_warning ("Error connecting to ModemManager: %s", error->message);
+ 
++#if 0
+       application = CC_APPLICATION (g_application_get_default ());
+       cc_shell_model_set_panel_visibility (cc_application_get_model (application),
+                                            "wwan", FALSE);
++#endif
+       return;
+     }
+   else
+-- 
+2.53.0
+

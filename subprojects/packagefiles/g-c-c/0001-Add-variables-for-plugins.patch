@@ -1,0 +1,99 @@
+From a4920fee75eb7e41553b4327beabfd8d544df325 Mon Sep 17 00:00:00 2001
+Message-ID: <a4920fee75eb7e41553b4327beabfd8d544df325.1786126281.git.agx@sigxcpu.org>
+From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Fri, 7 Aug 2026 19:11:12 +0200
+Subject: [PATCH] Add variables for plugins
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This allows us to reference the shared libs individually
+
+Signed-off-by: Guido Günther <agx@sigxcpu.org>
+---
+ panels/bluetooth/meson.build       | 3 ++-
+ panels/online-accounts/meson.build | 3 ++-
+ panels/sound/meson.build           | 3 ++-
+ panels/wwan/meson.build            | 3 ++-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/panels/bluetooth/meson.build b/panels/bluetooth/meson.build
+index 4b226cc..c237a80 100644
+--- a/panels/bluetooth/meson.build
++++ b/panels/bluetooth/meson.build
+@@ -39,12 +39,13 @@ sources += gnome.compile_resources(
+ 
+ deps = common_deps + [gnome_bluetooth_dep]
+ 
+-panels_libs += static_library(
++bluetooth_panel_lib = static_library(
+   cappletname,
+   sources: sources,
+   include_directories: top_inc,
+   dependencies: deps,
+   c_args: cflags
+ )
++panels_libs += bluetooth_panel_lib
+ 
+ subdir('icons')
+diff --git a/panels/online-accounts/meson.build b/panels/online-accounts/meson.build
+index 67300d0..32130ce 100644
+--- a/panels/online-accounts/meson.build
++++ b/panels/online-accounts/meson.build
+@@ -50,12 +50,13 @@ deps = common_deps + [
+   dependency('goa-backend-1.0', version: goa_req_version),
+ ]
+ 
+-panels_libs += static_library(
++online_accounts_panel_lib = static_library(
+   cappletname,
+   sources: sources,
+   include_directories: [ top_inc, common_inc ],
+   dependencies: deps,
+   c_args: cflags
+ )
++panels_libs += online_accounts_panel_lib
+ 
+ subdir('icons')
+diff --git a/panels/sound/meson.build b/panels/sound/meson.build
+index 05b6e8e..6679366 100644
+--- a/panels/sound/meson.build
++++ b/panels/sound/meson.build
+@@ -73,13 +73,14 @@ sources += gnome.compile_resources(
+   dependencies: blueprints,
+ )
+ 
+-panels_libs += static_library(
++sound_panel_lib = static_library(
+   cappletname,
+   sources: sources,
+   include_directories: [top_inc, common_inc],
+   dependencies: deps,
+   c_args: cflags,
+ )
++panels_libs += sound_panel_lib
+ 
+ sound_data = files(
+   'sounds/click.ogg',
+diff --git a/panels/wwan/meson.build b/panels/wwan/meson.build
+index cbadae5..c093dd7 100644
+--- a/panels/wwan/meson.build
++++ b/panels/wwan/meson.build
+@@ -55,12 +55,13 @@ sources += gnome.compile_resources(
+ 
+ cflags += '-DGNOMELOCALEDIR="@0@"'.format(control_center_localedir)
+ 
+-panels_libs += static_library(
++wwan_panel_lib = static_library(
+            cappletname,
+               sources : sources,
+   include_directories : [ top_inc, common_inc ],
+          dependencies : deps,
+                c_args : cflags
+ )
++panels_libs += wwan_panel_lib
+ 
+ subdir('icons')
+-- 
+2.53.0
+

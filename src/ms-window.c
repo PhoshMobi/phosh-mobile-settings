@@ -13,6 +13,7 @@
 #include "mobile-settings-config.h"
 
 #include "ms-application.h"
+#include "ms-cc-panels.h"
 #include "ms-window.h"
 
 #include "ms-plugin-panel.h"
@@ -274,6 +275,7 @@ ms_window_init (MsWindow *self)
                                                                  GTK_FILTER (enabled_filter)));
 
   show_content_cb (self);
+  ms_cc_panels_add_all (self);
 
   gtk_search_bar_set_key_capture_widget (self->search_bar, GTK_WIDGET (self));
 }
@@ -294,4 +296,26 @@ ms_window_get_panel_switcher (MsWindow *self)
   g_assert (MS_IS_WINDOW (self));
 
   return self->panel_switcher;
+}
+
+
+void
+ms_window_insert_cc_panel (MsWindow *self, const char *name, GtkWidget *cc_panel)
+{
+
+  GtkWidget *child;
+
+  g_assert (MS_IS_WINDOW (self));
+  g_assert (ADW_IS_NAVIGATION_PAGE (cc_panel));
+
+  child = adw_view_stack_get_child_by_name (self->stack, name);
+  if (!child) {
+    g_critical ("No stack page for panel '%s' found", name);
+    return;
+  }
+
+  g_assert (MS_IS_PANEL (child));
+
+  adw_bin_set_child (ADW_BIN (child), cc_panel);
+  ms_panel_set_enabled (MS_PANEL (child), TRUE);
 }
