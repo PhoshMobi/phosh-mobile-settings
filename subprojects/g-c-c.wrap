@@ -1,0 +1,5 @@
+[wrap-git]
+directory=g-c-c
+url=https://gitlab.gnome.org/GNOME/gnome-control-center
+revision=49.3
+depth=1

@@ -21,9 +21,12 @@ debian/libpms-dev/
 debian/phosh-mobile-settings/
 debian/tmp/
 subprojects/.wraplock
+subprojects/g-c-c/
 subprojects/gmobile/
 subprojects/gvc/
 subprojects/gvdb
 subprojects/gvdb.wrap
 subprojects/libadwaita/
 subprojects/libcellbroadcast
+subprojects/libgxdp.wrap
+subprojects/libgxdp/

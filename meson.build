@@ -91,6 +91,17 @@ libcbd_dep = dependency(
   default_options: ['daemon=false', 'introspection=disabled', 'tests=false'],
 )
 
+gcc = subproject(
+  'g-c-c',
+  default_options: [
+    'documentation=false',
+    'ibus=false',
+    'snap=false',
+    'x11=false',
+    'malcontent=false',
+  ],
+)
+
 i18n = import('i18n')
 
 gnome = import('gnome')
