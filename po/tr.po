@@ -2,17 +2,17 @@
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 #
-# Sabri Ünal <yakushabb@gmail.com>, 2024.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2024-2025.
+# Sabri Ünal <yakushabb@gmail.com>, 2024, 2026.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-12-15 13:37+0000\n"
-"PO-Revision-Date: 2025-11-04 22:32+0300\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"POT-Creation-Date: 2026-01-09 15:10+0000\n"
+"PO-Revision-Date: 2026-01-19 08:00+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -113,10 +113,25 @@ msgstr "Yakıt Göstergesi"
 msgid "Battery"
 msgstr "Pil"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "Bir şeyler yanlış gitti: %s"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:479
+msgid "Authentication cancelled"
+msgstr "Kimlik doğrulaması iptal edildi"
+
+#. We had errors while running the commands, so inform the user of this.
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:484
+#, c-format
+msgid "%i error occurred while saving"
+msgid_plural "%i errors occurred while saving"
+msgstr[0] "Kaydederken %i hata oluştu"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+msgid "You need to authenticate as administrator to save some settings"
+msgstr "Kimi ayarları kaydetmek için yönetici olarak kimlik doğrulamalısınız"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -346,6 +361,22 @@ msgstr "Duvar Kağıdı Seç"
 #: src/ms-window.c:146
 msgid "Device"
 msgstr "Aygıt"
+
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "Phosh logosu"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "Phosh Sürümü"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "İşletim Sistemi"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "Donanım Modeli"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -1154,15 +1185,19 @@ msgstr "Askıya Al"
 msgid "Experimental"
 msgstr "Deneysel"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "Hakkında"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "Yapılandırılabilir İnce Ayarları _Göster"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "Mobil Ayarlar _Hakkında"
 
