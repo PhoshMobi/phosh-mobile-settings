@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-12-31 13:23+0000\n"
-"PO-Revision-Date: 2026-01-02 11:59+0330\n"
+"POT-Creation-Date: 2026-01-09 15:10+0000\n"
+"PO-Revision-Date: 2026-01-19 19:50+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.6\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -358,6 +358,22 @@ msgstr "گزینش کاغذدیواری"
 #: src/ms-window.c:146
 msgid "Device"
 msgstr "افزاره"
+
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "نشان فوش"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "نگارش فوش"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "سیستم‌عامل"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "مدل سخت‌افزار"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -1155,15 +1171,19 @@ msgstr "تعلیق"
 msgid "Experimental"
 msgstr "آزمایشی"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "درباره"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "_نمایش سیخونک‌های قابل پیکربندی"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "_میان‌برهای صفحه‌کلید"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
 
