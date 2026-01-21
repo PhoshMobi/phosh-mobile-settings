@@ -272,10 +272,20 @@ ms_generate_debug_info (void)
     const char *lang = g_getenv ("LANG");
     const char *builder = g_getenv ("INSIDE_GNOME_BUILDER");
 
-    const char * const env_vars[] = { "PHOC_DEBUG", "PHOSH_DEBUG", "GTK_DEBUG", "GTK_THEME",
-                                      "ADW_DEBUG_COLOR_SCHEME", "ADW_DEBUG_HIGH_CONTRAST",
-                                      "ADW_DISABLE_PORTAL", "WAYLAND_DEBUG", "WAYLAND_DISPLAY",
-                                      "WAYLAND_SOCKET", "XDG_RUNTIME_DIR", "WLR_BACKENDS", NULL };
+    const char * const env_vars[] = {
+      /* GTK, GDK, … */
+      "GSK_DEBUG", "GSK_RENDERER", "GDK_DEBUG", "GTK_A11Y", "GTK_CSD", "GTK_DEBUG", "GTK_THEME",
+      "ADW_DEBUG_COLOR_SCHEME", "ADW_DEBUG_HIGH_CONTRAST", "ADW_DISABLE_PORTAL",
+      /* Phosh */
+      "PHOSH_DEBUG",
+      /* Wayland */
+      "PHOC_DEBUG", "WAYLAND_DEBUG", "WAYLAND_DISPLAY", "WAYLAND_SOCKET", "WLR_BACKENDS",
+      /* XDG directories */
+      "XDG_CONFIG_DIRS", "XDG_DATA_DIRS", "XDG_CACHE_HOME", "XDG_CONFIG_HOME", "XDG_DATA_HOME",
+      "XDG_STATE_HOME", "XDG_RUNTIME_DIR",
+      /* Other XDG variables */
+      "XDG_MENU_PREFIX",
+      NULL };
 
     g_string_append (string, "Environment:\n");
     g_string_append_printf (string, "- Desktop: %s\n", desktop);
