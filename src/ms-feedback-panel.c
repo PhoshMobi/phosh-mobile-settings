@@ -404,6 +404,10 @@ load_apps (MsFeedbackPanel *self)
       g_debug ("App '%s' uses libfeedback", g_app_info_get_id (G_APP_INFO (app)));
       process_app_info (self, G_APP_INFO (app));
     }
+    if (g_desktop_app_info_get_boolean (app, "X-GNOME-UsesNotifications")) {
+      g_debug ("App '%s' uses notifications", g_app_info_get_id (G_APP_INFO (app)));
+      process_app_info (self, G_APP_INFO (app));
+    }
   }
   g_list_free_full (apps, g_object_unref);
 }
