@@ -358,6 +358,18 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
 }
 
 
+static int
+app_listbox_sort (GtkListBoxRow *row1, GtkListBoxRow *row2, gpointer user_data)
+{
+  const char *title1 = adw_preferences_row_get_title (ADW_PREFERENCES_ROW (row1));
+  const char *title2 = adw_preferences_row_get_title (ADW_PREFERENCES_ROW (row2));
+  g_autofree char* lower1 = g_utf8_casefold (title1, -1);
+  g_autofree char* lower2 = g_utf8_casefold (title2, -1);
+
+  return strcmp (lower1, lower2);
+}
+
+
 static void
 process_app_info (MsFeedbackPanel *self, GAppInfo *app_info)
 {
@@ -829,6 +841,8 @@ ms_feedback_panel_init_audio (MsFeedbackPanel *self)
                           self->sound_settings_group,
                           "visible",
                           G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
+
+  gtk_list_box_set_sort_func (self->app_listbox, app_listbox_sort, NULL, NULL);
 }
 
 
