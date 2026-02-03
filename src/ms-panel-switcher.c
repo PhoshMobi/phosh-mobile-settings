@@ -335,6 +335,9 @@ ms_panel_switcher_set_only_tweaks (MsPanelSwitcher *self, const gboolean only_tw
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
   self->only_tweaks = only_tweaks;
+
+  ms_panel_switcher_refilter (self,
+                              only_tweaks ? GTK_FILTER_CHANGE_MORE_STRICT : GTK_FILTER_CHANGE_LESS_STRICT);
 }
 
 
