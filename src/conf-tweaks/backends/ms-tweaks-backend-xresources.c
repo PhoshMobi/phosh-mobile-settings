@@ -172,7 +172,7 @@ ms_tweaks_backend_xresources_set_value (MsTweaksBackend *backend,
   MsTweaksBackendXresources *self = MS_TWEAKS_BACKEND_XRESOURCES (backend);
   const char *new_value = new_value_ ? g_value_get_string (new_value_) : NULL;
   g_autofree char *contents = NULL;
-  gboolean success;
+  gboolean success = FALSE;
 
   if (!self->key) {
     g_set_error (error,
