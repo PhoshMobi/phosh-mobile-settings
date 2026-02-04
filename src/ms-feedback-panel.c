@@ -358,6 +358,18 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
 }
 
 
+static int
+app_listbox_sort (GtkListBoxRow *row1, GtkListBoxRow *row2, gpointer user_data)
+{
+  const char *title1 = adw_preferences_row_get_title (ADW_PREFERENCES_ROW (row1));
+  const char *title2 = adw_preferences_row_get_title (ADW_PREFERENCES_ROW (row2));
+  g_autofree char* lower1 = g_utf8_casefold (title1, -1);
+  g_autofree char* lower2 = g_utf8_casefold (title2, -1);
+
+  return strcmp (lower1, lower2);
+}
+
+
 static void
 process_app_info (MsFeedbackPanel *self, GAppInfo *app_info)
 {
@@ -402,6 +414,10 @@ load_apps (MsFeedbackPanel *self)
     app = G_DESKTOP_APP_INFO (iter->data);
     if (g_desktop_app_info_get_boolean (app, "X-Phosh-UsesFeedback")) {
       g_debug ("App '%s' uses libfeedback", g_app_info_get_id (G_APP_INFO (app)));
+      process_app_info (self, G_APP_INFO (app));
+    }
+    if (g_desktop_app_info_get_boolean (app, "X-GNOME-UsesNotifications")) {
+      g_debug ("App '%s' uses notifications", g_app_info_get_id (G_APP_INFO (app)));
       process_app_info (self, G_APP_INFO (app));
     }
   }
@@ -825,6 +841,8 @@ ms_feedback_panel_init_audio (MsFeedbackPanel *self)
                           self->sound_settings_group,
                           "visible",
                           G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
+
+  gtk_list_box_set_sort_func (self->app_listbox, app_listbox_sort, NULL, NULL);
 }
 
 
