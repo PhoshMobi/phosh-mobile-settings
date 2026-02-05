@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-12-31 13:23+0000\n"
-"PO-Revision-Date: 2026-01-01 02:08+0100\n"
+"POT-Creation-Date: 2026-02-04 17:29+0000\n"
+"PO-Revision-Date: 2026-02-05 22:49+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -214,26 +214,26 @@ msgid "Playing %s"
 msgstr "Spelar %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:435
 msgid "low"
 msgstr "låg"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:438
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:441
 msgid "critical"
 msgstr "kritisk"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:445
 msgid "none"
 msgstr "ingen"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:829
 msgid "Mobile Settings Volume Control"
 msgstr "Volymkontroll för mobilinställningar"
 
@@ -362,6 +362,22 @@ msgstr "Välj bakgrundsbild"
 #: src/ms-window.c:146
 msgid "Device"
 msgstr "Enhet"
+
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "Logotyp för Phosh"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "Phosh-version"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "Operativsystem"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "Hårdvarumodell"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -1175,14 +1191,18 @@ msgstr "Försätt i vänteläge"
 msgid "Experimental"
 msgstr "Experimentellt"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "Om"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "_Visa konfigurerbara justeringar"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_Om Mobilinställningar"
