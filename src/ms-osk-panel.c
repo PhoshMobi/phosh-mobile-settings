@@ -846,6 +846,28 @@ ms_osk_panel_init_pos (MsOskPanel *self)
 
 
 static void
+ms_osk_panel_init_squeek (MsOskPanel *self)
+{
+  gboolean found_key_horizontal;
+  gboolean found_key_vertical;
+
+  found_key_horizontal = ms_schema_bind_property (SQUEEKBOARD_SETTINGS,
+                                                  SCALE_WHEN_HORIZONTAL_KEY,
+                                                  G_OBJECT (self->scale_in_horizontal_orientation),
+                                                  "value", G_SETTINGS_BIND_DEFAULT);
+  gtk_widget_set_visible (self->scale_in_horizontal_orientation, found_key_horizontal);
+
+  found_key_vertical = ms_schema_bind_property (SQUEEKBOARD_SETTINGS,
+                                                SCALE_WHEN_VERTICAL_KEY,
+                                                G_OBJECT (self->scale_in_vertical_orientation),
+                                                "value", G_SETTINGS_BIND_DEFAULT);
+  gtk_widget_set_visible (self->scale_in_vertical_orientation, found_key_vertical);
+
+  gtk_widget_set_visible (self->keyboard_height_prefs, found_key_horizontal | found_key_vertical);
+}
+
+
+static void
 ms_osk_panel_init (MsOskPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
@@ -864,25 +886,10 @@ ms_osk_panel_init (MsOskPanel *self)
                                 self,
                                 NULL);
 
-  if (is_osk_app () == MS_OSK_APP_POS) {
+  if (is_osk_app () == MS_OSK_APP_POS)
     ms_osk_panel_init_pos (self);
-  } else if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD) {
-    gboolean found_key_horizontal;
-    gboolean found_key_vertical;
-
-    found_key_horizontal = ms_schema_bind_property (SQUEEKBOARD_SETTINGS, SCALE_WHEN_HORIZONTAL_KEY,
-                                                    G_OBJECT (self->scale_in_horizontal_orientation),
-                                                    "value", G_SETTINGS_BIND_DEFAULT);
-    gtk_widget_set_visible (self->scale_in_horizontal_orientation, found_key_horizontal);
-
-    found_key_vertical = ms_schema_bind_property (SQUEEKBOARD_SETTINGS, SCALE_WHEN_VERTICAL_KEY,
-                                                  G_OBJECT (self->scale_in_vertical_orientation),
-                                                  "value", G_SETTINGS_BIND_DEFAULT);
-    gtk_widget_set_visible (self->scale_in_vertical_orientation, found_key_vertical);
-
-    gtk_widget_set_visible (self->keyboard_height_prefs,
-                            found_key_horizontal | found_key_vertical);
-  }
+  else if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD)
+    ms_osk_panel_init_squeek (self);
 }
 
 
