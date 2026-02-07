@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023-2024 The Phosh Developers
+ * Copyright (C) 2023-2026 The Phosh Developers
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -55,6 +55,7 @@ typedef enum {
 typedef enum {
   PHOSH_OSK_SCALING_NONE = 0,
   PHOSH_OSK_SCALING_AUTO_PORTRAIT = (1 << 0),
+  PHOSH_OSK_SCALING_AUTO_LANDSCAPE = (1 << 1),
   PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE = (1 << 2),
 } PhoshOskScalingFlags;
 
@@ -106,7 +107,7 @@ struct _MsOskPanel {
 
   /* Automatic scaling */
   AdwPreferencesGroup *osk_scaling_group;
-  AdwSwitchRow        *osk_scaling_auto_portrait_switch;
+  AdwSwitchRow        *osk_scaling_auto_scale_up_switch;
   AdwSwitchRow        *osk_scaling_bottom_dead_zone_switch;
   PhoshOskScalingFlags scaling;
 
@@ -394,8 +395,10 @@ on_osk_scaling_key_changed (MsOskPanel *self)
   self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
   self->updating_flags = TRUE;
 
-  adw_switch_row_set_active (self->osk_scaling_auto_portrait_switch,
-                             self->scaling & PHOSH_OSK_SCALING_AUTO_PORTRAIT);
+  /* Either portrait or landscape is enough for active */
+  adw_switch_row_set_active (self->osk_scaling_auto_scale_up_switch,
+                             self->scaling & (PHOSH_OSK_SCALING_AUTO_PORTRAIT |
+                                              PHOSH_OSK_SCALING_AUTO_LANDSCAPE));
   adw_switch_row_set_active (self->osk_scaling_bottom_dead_zone_switch,
                              self->scaling & PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE);
   self->updating_flags = FALSE;
@@ -411,8 +414,8 @@ on_osk_scaling_switch_changed (MsOskPanel *self, GParamSpec *spec, AdwSwitchRow 
   if (self->updating_flags)
     return;
 
-  if (switch_ == self->osk_scaling_auto_portrait_switch) {
-    flag = PHOSH_OSK_SCALING_AUTO_PORTRAIT;
+  if (switch_ == self->osk_scaling_auto_scale_up_switch) {
+    flag = PHOSH_OSK_SCALING_AUTO_PORTRAIT | PHOSH_OSK_SCALING_AUTO_LANDSCAPE;
   } else if (switch_ == self->osk_scaling_bottom_dead_zone_switch) {
     flag = PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE;
   } else {
@@ -558,7 +561,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   /* Stevia scaling */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_scaling_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel,
-                                        osk_scaling_auto_portrait_switch);
+                                        osk_scaling_auto_scale_up_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel,
                                         osk_scaling_bottom_dead_zone_switch);
   gtk_widget_class_bind_template_callback (widget_class, on_osk_scaling_switch_changed);
