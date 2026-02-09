@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2026-01-09 15:10+0000\n"
-"PO-Revision-Date: 2026-01-09 23:25+0200\n"
+"POT-Creation-Date: 2026-02-07 11:23+0000\n"
+"PO-Revision-Date: 2026-02-09 21:09+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -216,26 +216,26 @@ msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:435
 msgid "low"
 msgstr "низький"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:438
 msgid "normal"
 msgstr "звичайний"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:441
 msgid "critical"
 msgstr "критичний"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:445
 msgid "none"
 msgstr "немає"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:829
 msgid "Mobile Settings Volume Control"
 msgstr "Параметри керування гучністю мобільного"
 
@@ -244,15 +244,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Не вдалося встановити фонове зображення вікна блокування"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:744
+#: src/ms-osk-panel.c:747
 msgid "Default"
 msgstr "Типовий"
 
-#: src/ms-osk-panel.c:745
+#: src/ms-osk-panel.c:748
 msgid "The default completer selected by the OSK"
 msgstr "Типовий засіб доповнення, який вибрано OSK"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "No information available for this completer"
 msgstr "Немає даних для цього засобу доповнення"
 
@@ -885,8 +885,9 @@ msgid "Keep physical size constant"
 msgstr "Зберігати сталий фізичний розмір"
 
 #: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
-msgstr "Визначає, чи слід зберігати розмір OSK сталим у книжковому режимі"
+msgid "Ensure OSK is large enough in high screen resolutions"
+msgstr ""
+"Забезпечити достатню величину екранної клавіатури на високих роздільностях"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1213,6 +1214,9 @@ msgstr "_Клавіатурні скорочення"
 #: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_Про «Мобільні параметри»"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr "Визначає, чи слід зберігати розмір OSK сталим у книжковому режимі"
 
 #~ msgid "Silence on Vol-"
 #~ msgstr "Глушити клавішею Гуч-"
