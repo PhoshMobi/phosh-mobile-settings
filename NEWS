@@ -1,3 +1,26 @@
+phosh-mobile-settings 0.53~rc1
+------------------------------
+Released February 2026
+* New about panel
+* List apps with `X-GNOME-UsesNotifications` in feedback panel too
+* feedback panel: Sort per apps list alphabetically
+* osk panel: Set landscape sizing flag too
+* Contributors:
+    * Guido Günther
+* UI translations:
+    * Anders Jonsson (sv)
+    * Antonio Marin (ro)
+    * Artur S0 (ru)
+    * Danial Behzadi (fa)
+    * Efstathios Iosifidis (el)
+    * Ekaterine Papava (ka)
+    * Flynn Peck (kw)
+    * Juliano de Souza Camargo (pt_BR)
+    * Martin (sl)
+    * Sabri Ünal (tr)
+    * twlvnn kraftwerk (bg)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.52.0
 ----------------------------
 Released January 2026

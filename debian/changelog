@@ -1,3 +1,68 @@
+phosh-mobile-settings (0.53~rc1) experimental; urgency=medium
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Efstathios Iosifidis ]
+  * Update Greek translation
+
+  [ Guido Günther ]
+  * about: Panel with device information.
+    It seems people want to show their Phosh, distro and device
+    information. Make that possible without resorting to the terminal.
+  * debug-info: Add more env vars.
+    There are more debug related vars in GTK and we also want to know about
+    the XDG_* ones.
+  * gvc: Update subproject.
+    While the crash fixes are merged upstream the leak fix is still not
+    so use our own branch.
+  * feedback-panel: Add apps that indicate notification usage too.
+    Thought we'd done that ages ago already.
+  * feedback-panel: Sort apps.
+    With more apps it will otherwise be hard to find a specific one.
+    Search can be a follow up.
+  * tweaks-backend-xresources: Make sure success is inited.
+    Otherwise we might return an unitialized value.
+    Spotted-by: gcc
+  * osk: Move Squeekboard functions to separate method too.
+    Don't clutter init
+  * osk-panel: Upscale in landscape too when enabled
+  * packaging: Add stevia dependency.
+    We want the schema and we install it via meta-phosh anyway
+    at the moment.
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+  [ twlvnn kraftwerk ]
+  * Update Bulgarian translation
+
+  [ Flynn Peck ]
+  * Add Cornish translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 09 Feb 2026 12:29:58 +0100
+
 phosh-mobile-settings (0.52.0) experimental; urgency=medium
 
   [ Danial Behzadi ]
