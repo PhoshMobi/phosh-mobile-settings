@@ -31,6 +31,8 @@ test_preferences_page_fixture_setup (PreferencesPageTestFixture *fixture, gconst
   fixture->value = g_new0 (GValue, 1);
 
   fixture->setting->name = DEBUG_SETTING_NAME;
+  fixture->setting->name_i18n = DEBUG_SETTING_NAME;
+  fixture->setting->help_i18n = DEBUG_SETTING_NAME;
 
   fixture->setting->min = 0;
   fixture->setting->max = 10;
