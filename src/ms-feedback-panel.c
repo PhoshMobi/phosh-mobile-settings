@@ -153,8 +153,10 @@ stop_playback (MsFeedbackPanel *self)
 {
   g_cancellable_cancel (self->sound_cancel);
   g_clear_object (&self->sound_cancel);
-  if (self->toast)
+  if (self->toast) {
     adw_toast_dismiss (self->toast);
+    g_clear_object (&self->toast);
+  }
 }
 
 
