@@ -583,8 +583,8 @@ Released: January 2023
 * Make plugin window scrollable
 * Tidy plugin list
 * Contributors:
-       Andrey Skvortsov
-       Guido Günther
+    * Andrey Skvortsov
+    * Guido Günther
 
 phosh-mobile-settings 0.23.1
 ----------------------------
@@ -603,7 +603,7 @@ Released: September 2022
 * Minor fixes
 * Sync version with phosh
 * Contributors:
-       Guido Günther
+    * Guido Günther
 
 phosh-mobile-settings 0.21.1
 ----------------------------
@@ -611,8 +611,8 @@ Released: September 2022
 * Work around UI overflow
 * Add UPERFECT X Mini lapdock to detected docks
 * Contributors:
-       Guido Günther
-       Kyle Rankin
+    * Guido Günther
+    * Kyle Rankin
 
 phosh-mobile-settings 0.21.0
 ----------------------------
@@ -620,8 +620,8 @@ Released: September 2022
 * Allow to enable/disable lockscreen widgets
 * Fix Librem 5 sensor names
 * Contributors:
-	Guido Günther
-	Sebastian Krzyszkowiak
+    * Guido Günther
+    * Sebastian Krzyszkowiak
 
 phosh-mobile-settings 0.20.0
 ----------------------------
@@ -637,8 +637,8 @@ This is a beta release
 * Add convergence panel
 * Multiple fixes
 * Contributors:
-	Guido Günther
-	Sam Hewitt
+    * Guido Günther
+    * Sam Hewitt
 
 phosh-mobile-settings 0.0.1
 ----------------------------
