@@ -64,29 +64,29 @@ typedef enum {
   MS_TWEAKS_STATE_PAGE_WEIGHT,        /* Page weight. */
 
   MS_TWEAKS_STATE_SECTION,            /* Section entry. */
-  MS_TWEAKS_STATE_SECTION_NAME,	      /* Section name. */
-  MS_TWEAKS_STATE_SECTION_WEIGHT,	    /* Section weight. */
+  MS_TWEAKS_STATE_SECTION_NAME,       /* Section name. */
+  MS_TWEAKS_STATE_SECTION_WEIGHT,     /* Section weight. */
 
   MS_TWEAKS_STATE_SETTING,            /* Setting information. */
-  MS_TWEAKS_STATE_SETTING_NAME,	      /* Setting name. */
-  MS_TWEAKS_STATE_SETTING_WEIGHT,	    /* Setting weight. */
-  MS_TWEAKS_STATE_SETTING_TYPE,	      /* Setting type. */
+  MS_TWEAKS_STATE_SETTING_NAME,       /* Setting name. */
+  MS_TWEAKS_STATE_SETTING_WEIGHT,     /* Setting weight. */
+  MS_TWEAKS_STATE_SETTING_TYPE,       /* Setting type. */
   MS_TWEAKS_STATE_SETTING_GTYPE,      /* Setting GSettings type. */
   MS_TWEAKS_STATE_SETTING_STYPE,      /* Setting sysfs type. */
   MS_TWEAKS_STATE_SETTING_DATA,       /* Setting data source. */
   MS_TWEAKS_STATE_SETTING_MAP,        /* Mapping of multiple values. */
   MS_TWEAKS_STATE_SETTING_BACKEND,    /* Setting backend. */
-  MS_TWEAKS_STATE_SETTING_HELP,	      /* Setting help message. */
+  MS_TWEAKS_STATE_SETTING_HELP,       /* Setting help message. */
   MS_TWEAKS_STATE_SETTING_DEFAULT,    /* Setting default value. */
   MS_TWEAKS_STATE_SETTING_KEY,        /* Setting key. */
-  MS_TWEAKS_STATE_SETTING_READONLY,	  /* Setting readonly property. */
+  MS_TWEAKS_STATE_SETTING_READONLY,   /* Setting readonly property. */
   MS_TWEAKS_STATE_SETTING_SOURCE_EXT, /* Setting source_ext property. */
-  MS_TWEAKS_STATE_SETTING_SELECTOR,	  /* Setting selector (CSS backend). */
+  MS_TWEAKS_STATE_SETTING_SELECTOR,   /* Setting selector (CSS backend). */
   MS_TWEAKS_STATE_SETTING_GUARD,      /* Setting guard (CSS backend). */
   MS_TWEAKS_STATE_SETTING_MULTIPLIER, /* Setting multiplier. */
   MS_TWEAKS_STATE_SETTING_MIN,        /* Setting minimum value. */
   MS_TWEAKS_STATE_SETTING_MAX,        /* Setting maximum value. */
-  MS_TWEAKS_STATE_SETTING_STEP,	      /* Setting step value. */
+  MS_TWEAKS_STATE_SETTING_STEP,       /* Setting step value. */
   MS_TWEAKS_STATE_SETTING_CSS,        /* Setting CSS definition (CSS backend). */
 
   MS_TWEAKS_STATE_STOP,               /* End state. */
