@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-01-09 15:10+0000\n"
-"PO-Revision-Date: 2026-01-10 03:06+0100\n"
+"POT-Creation-Date: 2026-02-11 09:18+0000\n"
+"PO-Revision-Date: 2026-02-12 05:44+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -193,44 +193,44 @@ msgstr "გადაუდებელი განგაშის ხმის 
 msgid "Message of unknown severity"
 msgstr "უცნობი სიმძიმის შეტყობინება"
 
-#: src/ms-feedback-panel.c:215
+#: src/ms-feedback-panel.c:217
 msgid "Sound file does not exist"
 msgstr "ხმის ფაილი არ არსებობს"
 
-#: src/ms-feedback-panel.c:217
+#: src/ms-feedback-panel.c:219
 msgid "Sound file is corrupt"
 msgstr "ხმის ფაილი დაზიანებულია"
 
-#: src/ms-feedback-panel.c:219
+#: src/ms-feedback-panel.c:221
 msgid "Failed to play sound"
 msgstr "ხმის დაკვრა ჩავარდა"
 
-#: src/ms-feedback-panel.c:258
+#: src/ms-feedback-panel.c:260
 #, c-format
 msgid "Playing %s"
 msgstr "%s-ის დაკვრა"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:437
 msgid "low"
 msgstr "დაბალი"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:440
 msgid "normal"
 msgstr "ნორმალური"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:443
 msgid "critical"
 msgstr "კრიტიკული"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:447
 msgid "none"
 msgstr "არა"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:831
 msgid "Mobile Settings Volume Control"
 msgstr "მობილურობის მორგების ხმის მართვა"
 
@@ -239,15 +239,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "დაბლოკვის ეკრანის ფონის სურათის დაყენება ჩავარდა"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:744
+#: src/ms-osk-panel.c:747
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: src/ms-osk-panel.c:745
+#: src/ms-osk-panel.c:748
 msgid "The default completer selected by the OSK"
 msgstr "ნაგულისხმევი დასრულების ძრავა OSK-ის მიერ"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "No information available for this completer"
 msgstr "ამ დამსრულებლისთვის ინფორმაცია ხელმისაწვდომი არა"
 
@@ -881,8 +881,8 @@ msgid "Keep physical size constant"
 msgstr "ფიზიკური ზომის მუდმივად შენარჩუნება"
 
 #: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
-msgstr "იქნება თუ არა OSK-ის ზომა მუდმივი პორტრეტის რეჟიმში"
+msgid "Ensure OSK is large enough in high screen resolutions"
+msgstr "დარწმუნდით, რომ OSK საკმარისად დიდია ეკრანის მაღალ გარჩევადობებში"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1201,6 +1201,9 @@ msgstr "_კლავიატურის მალსახმობები"
 #: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "მობილურის პარამეტრების შეს_ახებ"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr "იქნება თუ არა OSK-ის ზომა მუდმივი პორტრეტის რეჟიმში"
 
 #~ msgid "Silence on Vol-"
 #~ msgstr "დადუმება ხმის ჩაწევის ღილაკით"
