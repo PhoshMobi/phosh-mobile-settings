@@ -36,6 +36,8 @@
 #define FEEDBACKD_KEY_MAX_HAPTIC_STRENGTH "max-haptic-strength"
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
 #define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
+#define GNOME_SOUND_SCHEMA_ID "org.gnome.desktop.sound"
+#define GNOME_SOUND_KEY_THEME_NAME "theme-name"
 
 #define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
 #define NOTIFICATIONS_URGENCY_ENUM "sm.puri.phosh.NotificationUrgency"
@@ -106,10 +108,16 @@ struct _MsFeedbackPanel {
   MsPhoshNotificationUrgency notifications_urgency;
 
   /* Audio Settings */
+  GSettings                 *sound_settings;
   GvcMixerControl           *mixer_control;
   MsAudioDevices            *audio_devices;
   GtkListBox                *audio_devices_listbox;
+
+  /* Volume sliders */
   AdwPreferencesGroup       *sound_settings_group;
+  uint                       update_id;
+  MsMediaRole                last_volume_slider_role;
+  GtkToggleButton           *volume_slider_mute_btn;
 
   GStrv                      notifications_wakeup_categories;
 
@@ -119,12 +127,107 @@ struct _MsFeedbackPanel {
 G_DEFINE_TYPE (MsFeedbackPanel, ms_feedback_panel, MS_TYPE_PANEL)
 
 
+static void
+stop_playback (MsFeedbackPanel *self)
+{
+  g_cancellable_cancel (self->sound_cancel);
+  g_clear_object (&self->sound_cancel);
+  if (self->toast) {
+    adw_toast_dismiss (self->toast);
+    g_clear_object (&self->toast);
+  }
+}
+
+
+static void
+on_volume_slider_sound_finished (GObject *source_object, GAsyncResult *res, gpointer user_data)
+{
+  MsFeedbackPanel *self = MS_FEEDBACK_PANEL (user_data);
+  gboolean success;
+  g_autoptr (GError) err = NULL;
+
+  g_assert (MS_IS_FEEDBACK_PANEL (self));
+
+  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
+
+  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+    const char *role = ms_get_media_role_as_string (self->last_volume_slider_role);
+
+    g_warning ("Failed to play sound: %s", err->message);
+    self->toast = adw_toast_new_format ("Failed to play sound for %s slider", role);
+    adw_toast_set_timeout (self->toast, 3);
+    adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
+  }
+
+  /* Clear cancellable if unused, if used it's cleared in stop_playback */
+  g_clear_object (&self->sound_cancel);
+}
+
+
+static void
+play_volume_slider_sound (gpointer user_data)
+{
+  MsFeedbackPanel *self = MS_FEEDBACK_PANEL (user_data);
+  const char *event_id = ms_get_event_id_for_media_role (self->last_volume_slider_role);
+  const char *role = ms_get_media_role_as_string (self->last_volume_slider_role);
+
+  g_return_if_fail (GSOUND_IS_CONTEXT (self->sound_context));
+
+  self->sound_cancel = g_cancellable_new ();
+
+  gsound_context_play_full (self->sound_context,
+                            self->sound_cancel,
+                            on_volume_slider_sound_finished,
+                            self,
+                            GSOUND_ATTR_EVENT_ID, event_id,
+                            GSOUND_ATTR_EVENT_DESCRIPTION, "Volume slider sound",
+                            GSOUND_ATTR_MEDIA_ROLE, role,
+                            NULL);
+
+  self->update_id = 0;
+}
+
+
+static void
+on_audio_device_row_volume_changed (MsFeedbackPanel *self, MsAudioDeviceRow *row)
+{
+  MsAudioDevice *device;
+
+  g_assert (MS_IS_AUDIO_DEVICE_ROW (row));
+
+  if (gtk_toggle_button_get_active (self->volume_slider_mute_btn))
+    return;
+
+  device = ms_audio_device_row_get_audio_device (row);
+  self->last_volume_slider_role = ms_audio_device_get_role (device);
+
+  /* Temporary, while we add the sound file */
+  if (self->last_volume_slider_role == MS_MEDIA_ROLE_PHONE)
+    return;
+
+  g_clear_handle_id (&self->update_id, g_source_remove);
+  stop_playback (self);
+
+  /* Small timeout as MsAudioDeviceRow might emit
+   * 'volume-changed' more than once */
+  self->update_id = g_timeout_add_once (300, play_volume_slider_sound, self);
+}
+
+
 static GtkWidget *
 create_audio_device_row (gpointer item, gpointer user_data)
 {
+  MsFeedbackPanel *self = MS_FEEDBACK_PANEL (user_data);
   MsAudioDevice *audio_device = MS_AUDIO_DEVICE (item);
+  GtkWidget *row = GTK_WIDGET (ms_audio_device_row_new (audio_device));
 
-  return GTK_WIDGET (ms_audio_device_row_new (audio_device));
+  g_signal_connect_object (row,
+                           "volume-changed",
+                           G_CALLBACK (on_audio_device_row_volume_changed),
+                           self,
+                           G_CONNECT_SWAPPED);
+
+  return row;
 }
 
 
@@ -146,17 +249,6 @@ on_haptic_strength_changed (void)
 {
   /* We don't know when exactly feedbackd picked up the new value so wait a bit */
   g_timeout_add_once (200, wait_a_bit, NULL);
-}
-
-static void
-stop_playback (MsFeedbackPanel *self)
-{
-  g_cancellable_cancel (self->sound_cancel);
-  g_clear_object (&self->sound_cancel);
-  if (self->toast) {
-    adw_toast_dismiss (self->toast);
-    g_clear_object (&self->toast);
-  }
 }
 
 
@@ -528,6 +620,25 @@ on_notifications_settings_changed (MsFeedbackPanel *self)
 
 
 static void
+on_sound_theme_name_changed (MsFeedbackPanel *self, const char *key, GSettings *settings)
+{
+  gboolean ok;
+  g_autoptr (GError) error = NULL;
+  g_autofree char *name = NULL;
+
+  name = g_settings_get_string (settings, key);
+  ok = gsound_context_set_attributes (self->sound_context,
+                                      &error,
+                                      GSOUND_ATTR_CANBERRA_XDG_THEME_NAME,
+                                      name,
+                                      NULL);
+
+  if (!ok)
+    g_warning ("Failed to set sound theme name to %s: %s", key, error->message);
+}
+
+
+static void
 change_notifications_settings (MsFeedbackPanel *self)
 {
   guint pos;
@@ -763,6 +874,7 @@ ms_feedback_panel_dispose (GObject *object)
   g_clear_object (&self->notifications_settings);
   g_strfreev (self->notifications_wakeup_categories);
   g_clear_pointer (&self->known_applications, g_hash_table_unref);
+  g_clear_object (&self->sound_settings);
 
   g_clear_object (&self->audio_devices);
   g_clear_object (&self->mixer_control);
@@ -800,6 +912,8 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, haptic_strenth_row);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, prefer_flash);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sound_settings_group);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sound_settings_group);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, volume_slider_mute_btn);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sounds_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, quick_silent_switch);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
@@ -828,6 +942,15 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
 static void
 ms_feedback_panel_init_audio (MsFeedbackPanel *self)
 {
+  self->sound_settings = g_settings_new (GNOME_SOUND_SCHEMA_ID);
+
+  g_signal_connect_object (self->sound_settings,
+                           "changed::" GNOME_SOUND_KEY_THEME_NAME,
+                           G_CALLBACK (on_sound_theme_name_changed),
+                           self,
+                           G_CONNECT_SWAPPED);
+  on_sound_theme_name_changed (self, GNOME_SOUND_KEY_THEME_NAME, self->sound_settings);
+
   self->mixer_control = gvc_mixer_control_new (_("Mobile Settings Volume Control"));
   g_return_if_fail (self->mixer_control);
   gvc_mixer_control_open (self->mixer_control);

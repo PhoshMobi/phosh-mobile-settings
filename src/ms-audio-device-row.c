@@ -30,6 +30,12 @@ enum {
 };
 static GParamSpec *props[PROP_LAST_PROP];
 
+enum {
+  VOLUME_CHANGED,
+  N_SIGNALS
+};
+static uint signals[N_SIGNALS];
+
 struct _MsAudioDeviceRow {
   AdwPreferencesRow  parent;
 
@@ -64,6 +70,8 @@ on_volume_changed (MsAudioDeviceRow *self)
     gvc_mixer_stream_push_volume (stream);
 
   gvc_mixer_stream_change_is_muted (stream, (int) rounded == 0);
+
+  g_signal_emit (self, signals[VOLUME_CHANGED], 0);
 }
 
 
@@ -197,6 +205,17 @@ ms_audio_device_row_class_init (MsAudioDeviceRowClass *klass)
     g_param_spec_object ("audio-device", "", "",
                          MS_TYPE_AUDIO_DEVICE,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_EXPLICIT_NOTIFY);
+
+  signals[VOLUME_CHANGED] =
+    g_signal_new ("volume-changed",
+                  G_TYPE_FROM_CLASS (klass),
+                  G_SIGNAL_RUN_LAST,
+                  0,
+                  NULL,
+                  NULL,
+                  NULL,
+                  G_TYPE_NONE,
+                  0);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 

@@ -140,6 +140,7 @@ on_device_added (MsAudioDevices *self, guint id)
   const char *icon_name;
   const char *origin;
   const char *name;
+  MsMediaRole role;
   g_autoptr (MsAudioDevice) audio_device = NULL;
   guint stream_id;
 
@@ -176,26 +177,31 @@ on_device_added (MsAudioDevices *self, guint id)
 
   if (g_str_equal (name, "input.loopback.sink.role.multimedia")) {
     description = g_strdup (_("Media Volume"));
+    role = MS_MEDIA_ROLE_MULTIMEDIA;
   } else if (g_str_equal (name, "input.loopback.sink.role.notification")) {
     description = g_strdup (_("Notification Volume"));
+    role = MS_MEDIA_ROLE_NOTIFICATION;
   } else if (g_str_equal (name, "input.loopback.sink.role.phone")) {
     description = g_strdup (_("Voice Call Volume"));
+    role = MS_MEDIA_ROLE_PHONE;
   } else if (g_str_equal (name, "input.loopback.sink.role.ringtone")) {
     description = g_strdup (_("Ring Tone Volume"));
-  } else if (g_str_equal (name, "input.loopback.sink.role.call")) {
-    description = g_strdup (_("Call volume"));
+    role = MS_MEDIA_ROLE_RINGTONE;
   } else if (g_str_equal (name, "input.loopback.sink.role.alarm")) {
     description = g_strdup (_("Alarm Volume"));
+    role = MS_MEDIA_ROLE_ALARM;
   } else if (g_str_equal (name, "input.loopback.sink.role.alert")) {
     description = g_strdup (_("Emergency Alerts Volume"));
+    role = MS_MEDIA_ROLE_ALERT;
   } else {
     g_warning ("Unknown stream name '%s'", name);
     description = g_strdup (gvc_mixer_ui_device_get_description (device));
+    role = MS_MEDIA_ROLE_DEFAULT;
   }
 
   g_debug ("Adding audio device %d: %s", id, description);
 
-  audio_device = ms_audio_device_new (id, stream, icon_name, description);
+  audio_device = ms_audio_device_new (id, stream, icon_name, description, role);
   g_list_store_append (self->devices, audio_device);
 }
 
