@@ -51,7 +51,7 @@ variables:
 .build_step: &build_step
   script:
     - 'echo "Build opts: ${BUILD_OPTS}"'
-    - meson setup ${BUILD_OPTS} . _build
+    - meson setup -Dtweaks-data-dir= ${BUILD_OPTS} . _build
     - meson compile -C _build
 
 .test_step: &test_step
@@ -113,7 +113,7 @@ asan-test-native-debian-forky:
   needs: []
   <<: *before
   script:
-    - meson setup -Db_sanitize=address -Dtweaks-data-dir=tests/data _build-asan
+    - meson setup -Db_sanitize=address -Dtweaks-data-dir=$PWD/tests/data _build-asan
     - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson test --print-errorlogs -C _build-asan"
   allow_failure: true
   artifacts:
