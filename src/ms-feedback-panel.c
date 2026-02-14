@@ -495,6 +495,27 @@ process_app_info (MsFeedbackPanel *self, GAppInfo *app_info)
 }
 
 
+static gboolean
+app_is_system_service (GDesktopAppInfo *app)
+{
+  g_auto (GStrv) split = NULL;
+  const gchar *categories;
+
+  categories = g_desktop_app_info_get_categories (app);
+  if (gm_str_is_null_or_empty (categories))
+    return FALSE;
+
+  split = g_strsplit (categories, ";", -1);
+  if (g_strv_contains ((const gchar* const*) split, "X-GNOME-Settings-Panel") ||
+      g_strv_contains ((const gchar* const*) split, "Settings") ||
+      g_strv_contains ((const gchar* const*) split, "System")) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+
 static void
 load_apps (MsFeedbackPanel *self)
 {
@@ -509,10 +530,10 @@ load_apps (MsFeedbackPanel *self)
     if (g_desktop_app_info_get_boolean (app, "X-Phosh-UsesFeedback")) {
       g_debug ("App '%s' uses libfeedback", g_app_info_get_id (G_APP_INFO (app)));
       process_app_info (self, G_APP_INFO (app));
-    }
-    if (g_desktop_app_info_get_boolean (app, "X-GNOME-UsesNotifications")) {
+    } else if (g_desktop_app_info_get_boolean (app, "X-GNOME-UsesNotifications")) {
       g_debug ("App '%s' uses notifications", g_app_info_get_id (G_APP_INFO (app)));
-      process_app_info (self, G_APP_INFO (app));
+      if (!app_is_system_service (app))
+        process_app_info (self, G_APP_INFO (app));
     }
   }
   g_list_free_full (apps, g_object_unref);
