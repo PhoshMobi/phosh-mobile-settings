@@ -22,5 +22,6 @@ G_DECLARE_FINAL_TYPE (MsAudioDeviceRow, ms_audio_device_row, MS, AUDIO_DEVICE_RO
 
 MsAudioDeviceRow      *ms_audio_device_row_new                   (MsAudioDevice    *audio_device);
 MsAudioDevice         *ms_audio_device_row_get_audio_device      (MsAudioDeviceRow *self);
+double                 ms_audio_device_row_get_volume            (MsAudioDeviceRow *self);
 
 G_END_DECLS

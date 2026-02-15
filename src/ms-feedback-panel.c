@@ -197,7 +197,9 @@ play_volume_slider_sound (gpointer user_data)
 
 
 static void
-on_audio_device_row_volume_changed (MsFeedbackPanel *self, MsAudioDeviceRow *row)
+on_audio_device_row_volume_changed (MsFeedbackPanel  *self,
+                                    GParamSpec       *pspec,
+                                    MsAudioDeviceRow *row)
 {
   MsAudioDevice *device;
 
@@ -216,8 +218,8 @@ on_audio_device_row_volume_changed (MsFeedbackPanel *self, MsAudioDeviceRow *row
   g_clear_handle_id (&self->update_id, g_source_remove);
   stop_playback (self);
 
-  /* Small timeout as MsAudioDeviceRow might emit
-   * 'volume-changed' more than once */
+  /* Small timeout as MsAudioDeviceRow:volume might get
+   * updated more than once while we play the sound */
   self->update_id = g_timeout_add_once (300, play_volume_slider_sound, self);
 }
 
@@ -230,7 +232,7 @@ create_audio_device_row (gpointer item, gpointer user_data)
   GtkWidget *row = GTK_WIDGET (ms_audio_device_row_new (audio_device));
 
   g_signal_connect_object (row,
-                           "volume-changed",
+                           "notify::volume",
                            G_CALLBACK (on_audio_device_row_volume_changed),
                            self,
                            G_CONNECT_SWAPPED);
