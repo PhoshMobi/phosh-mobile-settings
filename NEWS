@@ -1,12 +1,17 @@
-phosh-mobile-settings 0.53~rc1
-------------------------------
+phosh-mobile-settings 0.53.0
+----------------------------
 Released February 2026
 * New about panel
-* List apps with `X-GNOME-UsesNotifications` in feedback panel too
+* feedback panel: Give audible feedback adjusting when media role volumes
+* feedback panel: List apps showing notifications in app list too
 * feedback panel: Sort per apps list alphabetically
+* osk panel: Improve shortcuts dialog
 * osk panel: Set landscape sizing flag too
 * Contributors:
+    * Gotam Gorabh
     * Guido Günther
+    * Rudra Pratap Singh
+    * Tomi Lähteenmäki
 * UI translations:
     * Anders Jonsson (sv)
     * Antonio Marin (ro)
@@ -17,9 +22,10 @@ Released February 2026
     * Flynn Peck (kw)
     * Juliano de Souza Camargo (pt_BR)
     * Martin (sl)
+    * Quentin PAGÈS (oc)
     * Sabri Ünal (tr)
-    * twlvnn kraftwerk (bg)
     * Yuri Chornoivan (uk)
+    * twlvnn kraftwerk (bg)
 
 phosh-mobile-settings 0.52.0
 ----------------------------

@@ -52,6 +52,19 @@
 
   <releases>
 
+    <release version="0.53.0" date="2026-02-15">
+      <description translate="no">
+        <ul>
+          <li>New about panel</li>
+          <li>feedback panel: Give audible feedback when adjusting media role volumes</li>
+          <li>feedback panel: List apps showing notifications in app list too</li>
+          <li>feedback panel: Sort per apps list alphabetically</li>
+          <li>osk panel: Improve shortcuts dialog</li>
+          <li>osk panel: Set landscape sizing flag too</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.52.0" date="2026-01-04">
       <description translate="no">
         <ul>

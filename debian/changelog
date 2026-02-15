@@ -1,3 +1,75 @@
+phosh-mobile-settings (0.53.0) experimental; urgency=medium
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ twlvnn kraftwerk ]
+  * Update Bulgarian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Rudra Pratap Singh ]
+  * feedback-panel: Clear toast object on dismissal
+  * feedback-panel: Reindent UI file.
+    No functional change.
+  * audio-device: Add 'role' property.
+    The 'media-role' associated with this device.
+    For now, these roles are the same as given in the
+    feedbackd repository:
+    https://gitlab.freedesktop.org/agx/feedbackd/-/blob/main/data/media-role-nodes.conf
+  * audio-device-row: Add 'volume-changed' signal.
+    Emitted whenever volume slider gets adjusted.
+    Useful for e.g., playing a feedback sound upon
+    any adjustment.
+  * feedback-panel: Play sound on adjusting sliders
+
+  [ Tomi Lähteenmäki ]
+  * tests: Fix crash in setting_data_to_boolean_widget()
+    The "name_i18n" needs to be non-null or assert in
+    adw_preferences_row_set_title() fails and "help_i18n" needs to be
+    non-null or assert in adw_action_row_set_subtitle() fails.
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Gotam Gorabh ]
+  * ms-osk-add-shortcut-dialog: Keep preview always visible.
+    Move the shortcut preview section from the scrollable content area to
+    the bottom toolbar area so it remains visible
+    at all times, even when scrolling through modifier and key selection
+    options.
+  * ms-osk-add-shortcut-dialog: Preserve key and sync modifiers.
+    Ensure the selected key is not dropped when changing or toggling
+    modifiers. Also synchronize the “Choose Shortcut Modifier” checkboxes
+    with the currently previewed shortcut during validation.
+    closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/80
+  * tests: Add test for MsOskAddShortcutDialog's functions
+
+  [ Quentin PAGÈS ]
+  * Add Occitan translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Guido Günther ]
+  * feedback-panel: Filter out system services.
+    We only want to filter in applications. Services that
+    should be listed would get `X-Phosh-UsesFeedback`
+    added.
+    app_is_system_service() is a copy from g-c-c.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 15 Feb 2026 09:14:31 +0100
+
 phosh-mobile-settings (0.53~rc1) experimental; urgency=medium
 
   [ Juliano de Souza Camargo ]
