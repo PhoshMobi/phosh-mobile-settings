@@ -15,8 +15,6 @@
 
 #include "gvc-mixer-control.h"
 
-#define ADJUSTMENT_MAX_NORMAL PA_VOLUME_NORM
-
 /**
  * MsAudioDeviceRow:
  *
@@ -236,9 +234,9 @@ ms_audio_device_row_init (MsAudioDeviceRow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  gtk_adjustment_set_upper (self->adjustment, ADJUSTMENT_MAX_NORMAL);
-  gtk_adjustment_set_step_increment (self->adjustment, ADJUSTMENT_MAX_NORMAL / 100.0);
-  gtk_adjustment_set_page_increment (self->adjustment, ADJUSTMENT_MAX_NORMAL / 10.0);
+  gtk_adjustment_set_upper (self->adjustment, AUDIO_DEVICE_ROW_MAX_NORMAL);
+  gtk_adjustment_set_step_increment (self->adjustment, AUDIO_DEVICE_ROW_MAX_NORMAL / 100.0);
+  gtk_adjustment_set_page_increment (self->adjustment, AUDIO_DEVICE_ROW_MAX_NORMAL / 10.0);
 }
 
 

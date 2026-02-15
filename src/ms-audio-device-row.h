@@ -11,6 +11,8 @@
 #include <adwaita.h>
 #include <gtk/gtk.h>
 
+#define AUDIO_DEVICE_ROW_MAX_NORMAL PA_VOLUME_NORM
+
 G_BEGIN_DECLS
 
 #define MS_TYPE_AUDIO_DEVICE_ROW (ms_audio_device_row_get_type ())
