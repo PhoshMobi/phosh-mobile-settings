@@ -2,7 +2,7 @@ phosh-mobile-settings 0.53.0
 ----------------------------
 Released February 2026
 * New about panel
-* feedback panel: Give audible feedback adjusting when media role volumes
+* feedback panel: Give audible feedback when adjusting media role volumes
 * feedback panel: List apps showing notifications in app list too
 * feedback panel: Sort per apps list alphabetically
 * osk panel: Improve shortcuts dialog
