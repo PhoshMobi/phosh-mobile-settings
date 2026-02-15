@@ -1,18 +1,18 @@
 # Brazilian Portuguese translation for phosh-mobile-settings.
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Álvaro Burns <>, 2025.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024-2025.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2026.
+# Álvaro Burns <>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-01-09 15:10+0000\n"
-"PO-Revision-Date: 2026-01-12 10:47-0300\n"
-"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
+"POT-Creation-Date: 2026-02-15 07:27+0000\n"
+"PO-Revision-Date: 2026-02-09 18:09-0300\n"
+"Last-Translator: Álvaro Burns <>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -165,31 +165,27 @@ msgstr ""
 "Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Juliano de Souza Camargo <julianosc@pm.me>"
 
-#: src/ms-audio-devices.c:178
+#: src/ms-audio-devices.c:179
 msgid "Media Volume"
 msgstr "Volume da mídia"
 
-#: src/ms-audio-devices.c:180
+#: src/ms-audio-devices.c:182
 msgid "Notification Volume"
 msgstr "Volume da notificação"
 
-#: src/ms-audio-devices.c:182
+#: src/ms-audio-devices.c:185
 msgid "Voice Call Volume"
 msgstr "Volume da ligação"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:188
 msgid "Ring Tone Volume"
 msgstr "Volume da campainha"
 
-#: src/ms-audio-devices.c:186
-msgid "Call volume"
-msgstr "Volume da ligação"
-
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:191
 msgid "Alarm Volume"
 msgstr "Volume do alarme"
 
-#: src/ms-audio-devices.c:190
+#: src/ms-audio-devices.c:194
 msgid "Emergency Alerts Volume"
 msgstr "Volume dos alertas de emergência"
 
@@ -197,44 +193,44 @@ msgstr "Volume dos alertas de emergência"
 msgid "Message of unknown severity"
 msgstr "Mensagem de gravidade desconhecida"
 
-#: src/ms-feedback-panel.c:215
+#: src/ms-feedback-panel.c:309
 msgid "Sound file does not exist"
 msgstr "Arquivo de som não existe"
 
-#: src/ms-feedback-panel.c:217
+#: src/ms-feedback-panel.c:311
 msgid "Sound file is corrupt"
 msgstr "Arquivo de som corrompido"
 
-#: src/ms-feedback-panel.c:219
+#: src/ms-feedback-panel.c:313
 msgid "Failed to play sound"
 msgstr "Falha ao reproduzir o som"
 
-#: src/ms-feedback-panel.c:258
+#: src/ms-feedback-panel.c:352
 #, c-format
 msgid "Playing %s"
 msgstr "Reproduzindo %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:550
 msgid "low"
 msgstr "baixo"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:553
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:556
 msgid "critical"
 msgstr "crítico"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:560
 msgid "none"
 msgstr "nada"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:975
 msgid "Mobile Settings Volume Control"
 msgstr "Configurações móveis do controle de volume"
 
@@ -243,15 +239,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Falha ao configurar papel de parede da tela de bloqueio"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:744
+#: src/ms-osk-panel.c:747
 msgid "Default"
 msgstr "Padrão"
 
-#: src/ms-osk-panel.c:745
+#: src/ms-osk-panel.c:748
 msgid "The default completer selected by the OSK"
 msgstr "O padrão de autocompletamento selecionado pelo OSK"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "No information available for this completer"
 msgstr "Nenhuma informação disponível para este autocompletamento"
 
@@ -538,31 +534,35 @@ msgstr "Habilitado"
 msgid "Sound Settings"
 msgstr "Configurações de som"
 
-#: src/ui/ms-feedback-panel.ui:27
+#: src/ui/ms-feedback-panel.ui:17
+msgid "Play sound on adjusting volume sliders"
+msgstr "Reproduzir som ao ajustar o controle de volume"
+
+#: src/ui/ms-feedback-panel.ui:33
 msgid "Feedback Settings"
 msgstr "Configurações de feedback"
 
-#: src/ui/ms-feedback-panel.ui:30
+#: src/ui/ms-feedback-panel.ui:36
 msgid "Feedback profile"
 msgstr "Perfil de feedback"
 
-#: src/ui/ms-feedback-panel.ui:31
+#: src/ui/ms-feedback-panel.ui:37
 msgid "The global maximum feedback profile"
 msgstr "O perfil de feedback máximo global"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:52
 msgid "Prefer flash"
 msgstr "Preferir flash"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:53
 msgid "Prefer camera flash over status LED when available"
 msgstr "Prefere o flash da câmera ao LED de status quando disponível"
 
-#: src/ui/ms-feedback-panel.ui:53
+#: src/ui/ms-feedback-panel.ui:59
 msgid "Silence by volume button press"
 msgstr "Silenciar pressionando o botão de volume"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:60
 msgid ""
 "When locked put the phone in silent mode when pressing the button that "
 "lowers the volume on incoming calls"
@@ -571,106 +571,106 @@ msgstr ""
 "que abaixa o volume em chamadas recebidas"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:60
+#: src/ui/ms-feedback-panel.ui:66
 msgid "Haptic strength"
 msgstr "Força de vibração"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:67
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Porcentagem máxima de força de vibração"
 
-#: src/ui/ms-feedback-panel.ui:80
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Per Application settings"
 msgstr "Configurações por aplicativo"
 
-#: src/ui/ms-feedback-panel.ui:93 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
 msgid "Sounds"
 msgstr "Sons"
 
-#: src/ui/ms-feedback-panel.ui:94
+#: src/ui/ms-feedback-panel.ui:100
 msgid "The sound to use for certain events"
 msgstr "O som a ser usado em determinados eventos"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Phone Calls"
 msgstr "Chamadas telefônicas"
 
-#: src/ui/ms-feedback-panel.ui:120
+#: src/ui/ms-feedback-panel.ui:126
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:132 src/ui/ms-feedback-panel.ui:201
+#: src/ui/ms-feedback-panel.ui:138 src/ui/ms-feedback-panel.ui:207
 msgid "Instant Messages"
 msgstr "Mensagens instantâneas"
 
-#: src/ui/ms-feedback-panel.ui:145
+#: src/ui/ms-feedback-panel.ui:151
 msgid "Alarm Clock"
 msgstr "Despertador"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:162
 msgid "Screen Wakeup"
 msgstr "Acender tela"
 
-#: src/ui/ms-feedback-panel.ui:159
+#: src/ui/ms-feedback-panel.ui:165
 msgid "Notification urgency that lights up the screen"
 msgstr "Urgência de notificação que ilumina a tela"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:183
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "Categoria de notificações que ligam a tela independentemente da urgência"
 
-#: src/ui/ms-feedback-panel.ui:180
+#: src/ui/ms-feedback-panel.ui:186
 msgid "Calls"
 msgstr "Chamadas"
 
-#: src/ui/ms-feedback-panel.ui:181
+#: src/ui/ms-feedback-panel.ui:187
 msgid "A generic audio or video call notification"
 msgstr "Um áudio genérico ou notificação de videochamada"
 
-#: src/ui/ms-feedback-panel.ui:187
+#: src/ui/ms-feedback-panel.ui:193
 msgid "Device events"
 msgstr "Eventos do dispositivo"
 
-#: src/ui/ms-feedback-panel.ui:188
+#: src/ui/ms-feedback-panel.ui:194
 msgid "A generic device-related notification"
 msgstr "Uma notificação genérica relacionada ao dispositivo"
 
-#: src/ui/ms-feedback-panel.ui:194
+#: src/ui/ms-feedback-panel.ui:200
 msgid "Emails"
 msgstr "E-mails"
 
-#: src/ui/ms-feedback-panel.ui:195
+#: src/ui/ms-feedback-panel.ui:201
 msgid "A generic e-mail-related notification"
 msgstr "Uma notificação genérica relacionada ao e-mail"
 
-#: src/ui/ms-feedback-panel.ui:202
+#: src/ui/ms-feedback-panel.ui:208
 msgid "A generic instant message-related notification"
 msgstr "Uma notificação genérica relacionado às mensagens instantâneas"
 
-#: src/ui/ms-feedback-panel.ui:208
+#: src/ui/ms-feedback-panel.ui:214
 msgid "Network events"
 msgstr "Eventos de rede"
 
-#: src/ui/ms-feedback-panel.ui:209
+#: src/ui/ms-feedback-panel.ui:215
 msgid "A generic network notification"
 msgstr "Uma notificação genérica de rede"
 
-#: src/ui/ms-feedback-panel.ui:215
+#: src/ui/ms-feedback-panel.ui:221
 msgid "Presence changes"
 msgstr "Mudanças presentes"
 
-#: src/ui/ms-feedback-panel.ui:216
+#: src/ui/ms-feedback-panel.ui:222
 msgid "A generic presence change notification"
 msgstr "Uma notificação genérica de mudança presente"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:228
 msgid "File transfers"
 msgstr "Transferência de arquivos"
 
-#: src/ui/ms-feedback-panel.ui:223
+#: src/ui/ms-feedback-panel.ui:229
 msgid "A generic file transfer or download notification"
 msgstr "Uma notificação genérica de download ou transferência de arquivos"
 
@@ -772,7 +772,7 @@ msgstr "Digite uma tecla como letras (C ou V), etc."
 msgid "_Shortcut Key"
 msgstr "Te_cla de atalho"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+#: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Prévia do atalho"
 
@@ -882,8 +882,9 @@ msgid "Keep physical size constant"
 msgstr "Mantenha o tamanho físico constante"
 
 #: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
-msgstr "Se deve manter o tamanho constante do OSK em modo retrato"
+msgid "Ensure OSK is large enough in high screen resolutions"
+msgstr ""
+"Certifique-se que o teclado é largo o bastante em telas de alta resolução."
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1210,6 +1211,12 @@ msgstr "Atalhos de _teclado"
 #: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "_Sobre o Configurações Móveis"
+
+#~ msgid "Call volume"
+#~ msgstr "Volume da ligação"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr "Se deve manter o tamanho constante do OSK em modo retrato"
 
 #~ msgid "Silence on Vol-"
 #~ msgstr "Silencia ao usar Vol-"
