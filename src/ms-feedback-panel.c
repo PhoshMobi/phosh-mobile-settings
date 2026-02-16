@@ -140,6 +140,15 @@ stop_playback (MsFeedbackPanel *self)
 
 
 static void
+display_toast_message (MsFeedbackPanel *self, const char *msg)
+{
+  self->toast = adw_toast_new (msg);
+  adw_toast_set_timeout (self->toast, 3);
+  adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
+}
+
+
+static void
 on_volume_slider_sound_finished (GObject *source_object, GAsyncResult *res, gpointer user_data)
 {
   MsFeedbackPanel *self = MS_FEEDBACK_PANEL (user_data);
@@ -152,11 +161,10 @@ on_volume_slider_sound_finished (GObject *source_object, GAsyncResult *res, gpoi
 
   if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
     const char *role = ms_get_media_role_as_string (self->last_volume_slider_role);
+    g_autofree char *msg = g_strdup_printf ("Failed to play sound for %s slider", role);
 
     g_warning ("Failed to play sound: %s", err->message);
-    self->toast = adw_toast_new_format ("Failed to play sound for %s slider", role);
-    adw_toast_set_timeout (self->toast, 3);
-    adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
+    display_toast_message (self, msg);
   }
 
   /* Clear cancellable if unused, if used it's cleared in stop_playback */
