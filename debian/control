@@ -36,6 +36,7 @@ Package: phosh-mobile-settings
 Architecture: any
 Depends:
  feedbackd (>= 0.8.0~),
+ libpms-1.0 (>= ${binary:Version}),
  phoc (>= 0.34.0~),
  phosh (>= 0.40.0~),
  phosh-osk-stevia (>= 0.53~),
@@ -48,3 +49,37 @@ Breaks:
 Description: Phosh and related settings for mobile
  Mobile Settings allows to configure some advanced settings of the Phosh mobile
  environment that would otherwise involve using the command line.
+
+Package: libpms-1.0-0
+Architecture: any
+Section: libs
+Depends:
+ phosh-osk-stevia (>= 0.53~),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Breaks:
+ phosh-osk-stub (<< 0.42~),
+ phosh-plugins (<< 0.44~),
+Description: Phosh and related settings for mobile - shared libraries
+ Mobile Settings allows to configure some advanced settings of the Phosh mobile
+ environment that would otherwise involve using the command line.
+ .
+ This package contains the shared library.
+
+Package: libpms-dev
+Architecture: any
+Section: libdevel
+Depends:
+ libadwaita-1-dev,
+ libgtk-4-dev,
+ libpms-1.0-0 (>= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Breaks:
+ phosh-osk-stub (<< 0.42~),
+ phosh-plugins (<< 0.44~),
+Description: Phosh and related settings for mobile - library development files
+ Mobile Settings allows to configure some advanced settings of the Phosh mobile
+ environment that would otherwise involve using the command line.
+ .
+ This package contains the development files.

@@ -452,7 +452,7 @@ ms_osk_layout_prefs_class_init (MsOskLayoutPrefsClass *klass)
 
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/"
+                                               "/mobi/phosh/LibMobileSettings/ui/"
                                                "ms-osk-layout-prefs.ui");
 
   gtk_widget_class_install_action (widget_class, "osk-prefs.add-layout", NULL,

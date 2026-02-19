@@ -236,7 +236,7 @@ ms_osk_layout_row_class_init (MsOskLayoutRowClass *klass)
   gtk_widget_class_install_action (widget_class, "row.remove", NULL, on_remove_activated);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/ms-osk-layout-row.ui");
+                                               "/mobi/phosh/LibMobileSettings/ui/ms-osk-layout-row.ui");
 }
 
 

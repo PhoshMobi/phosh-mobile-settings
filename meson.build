@@ -190,6 +190,7 @@ add_project_arguments(['-I' + meson.project_build_root()], language: 'c')
 
 subdir('data')
 subdir('protocols')
+subdir('libpms')
 subdir('src')
 subdir('tests')
 subdir('plugins')
