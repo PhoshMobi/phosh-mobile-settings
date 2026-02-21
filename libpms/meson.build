@@ -45,6 +45,7 @@ libpms_lib = shared_library(
   dependencies: libpms_deps,
   soversion: '0',
   install: true,
+  c_args: '-D_LIBPMS_INSIDE',
 )
 
 install_headers(

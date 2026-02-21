@@ -8,6 +8,10 @@
 
 #include <adwaita.h>
 
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
+
 G_BEGIN_DECLS
 
 #define MS_TYPE_OSK_LAYOUT_PREFS (ms_osk_layout_prefs_get_type ())

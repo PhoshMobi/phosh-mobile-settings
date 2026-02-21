@@ -10,6 +10,10 @@
 
 G_BEGIN_DECLS
 
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
+
 #define MS_TYPE_OSK_ADD_LAYOUT_DIALOG (ms_osk_add_layout_dialog_get_type ())
 
 G_DECLARE_FINAL_TYPE (MsOskAddLayoutDialog, ms_osk_add_layout_dialog, MS, OSK_ADD_LAYOUT_DIALOG,

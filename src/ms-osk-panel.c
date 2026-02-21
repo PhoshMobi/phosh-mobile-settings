@@ -10,10 +10,11 @@
 
 #include "mobile-settings-config.h"
 #include "ms-completer-info.h"
-#include "ms-osk-layout-prefs.h"
 #include "ms-osk-add-shortcut-dialog.h"
 #include "ms-osk-panel.h"
 #include "ms-util.h"
+
+#include "libpms.h"
 
 #include <gmobile.h>
 
