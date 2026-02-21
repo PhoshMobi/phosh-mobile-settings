@@ -117,7 +117,9 @@ struct _MsFeedbackPanel {
   AdwPreferencesGroup       *sound_settings_group;
   uint                       update_id;
   MsMediaRole                last_volume_slider_role;
+  double                     last_volume_slider_volume;
   GtkToggleButton           *volume_slider_mute_btn;
+  GtkMediaStream            *media_role_phone_stream;
 
   GStrv                      notifications_wakeup_categories;
 
@@ -136,6 +138,20 @@ stop_playback (MsFeedbackPanel *self)
     adw_toast_dismiss (self->toast);
     g_clear_object (&self->toast);
   }
+
+  if (gtk_media_stream_get_playing (self->media_role_phone_stream)) {
+    gtk_media_stream_stream_ended (self->media_role_phone_stream);
+    gtk_media_stream_seek (self->media_role_phone_stream, 0);
+  }
+}
+
+
+static void
+display_toast_message (MsFeedbackPanel *self, const char *msg)
+{
+  self->toast = adw_toast_new (msg);
+  adw_toast_set_timeout (self->toast, 3);
+  adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
 }
 
 
@@ -152,11 +168,10 @@ on_volume_slider_sound_finished (GObject *source_object, GAsyncResult *res, gpoi
 
   if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
     const char *role = ms_get_media_role_as_string (self->last_volume_slider_role);
+    g_autofree char *msg = g_strdup_printf ("Failed to play sound for %s slider", role);
 
     g_warning ("Failed to play sound: %s", err->message);
-    self->toast = adw_toast_new_format ("Failed to play sound for %s slider", role);
-    adw_toast_set_timeout (self->toast, 3);
-    adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
+    display_toast_message (self, msg);
   }
 
   /* Clear cancellable if unused, if used it's cleared in stop_playback */
@@ -175,21 +190,38 @@ play_volume_slider_sound (gpointer user_data)
 
   self->sound_cancel = g_cancellable_new ();
 
-  gsound_context_play_full (self->sound_context,
-                            self->sound_cancel,
-                            on_volume_slider_sound_finished,
-                            self,
-                            GSOUND_ATTR_EVENT_ID, event_id,
-                            GSOUND_ATTR_EVENT_DESCRIPTION, "Volume slider sound",
-                            GSOUND_ATTR_MEDIA_ROLE, role,
-                            NULL);
+  if (self->last_volume_slider_role == MS_MEDIA_ROLE_PHONE) {
+    const GError *err = gtk_media_stream_get_error (self->media_role_phone_stream);
+    double volume = self->last_volume_slider_volume / AUDIO_DEVICE_ROW_MAX_NORMAL;
+
+    if (!err) {
+      gtk_media_stream_set_volume (self->media_role_phone_stream, volume);
+      gtk_media_stream_play (self->media_role_phone_stream);
+    } else {
+      g_autofree char *msg = g_strdup_printf ("Failed to play sound for %s slider", role);
+
+      g_warning ("Failed to play sound: %s", err->message);
+      display_toast_message (self, msg);
+    }
+  } else {
+    gsound_context_play_full (self->sound_context,
+                              self->sound_cancel,
+                              on_volume_slider_sound_finished,
+                              self,
+                              GSOUND_ATTR_EVENT_ID, event_id,
+                              GSOUND_ATTR_EVENT_DESCRIPTION, "Volume slider sound",
+                              GSOUND_ATTR_MEDIA_ROLE, role,
+                              NULL);
+  }
 
   self->update_id = 0;
 }
 
 
 static void
-on_audio_device_row_volume_changed (MsFeedbackPanel *self, MsAudioDeviceRow *row)
+on_audio_device_row_volume_changed (MsFeedbackPanel  *self,
+                                    GParamSpec       *pspec,
+                                    MsAudioDeviceRow *row)
 {
   MsAudioDevice *device;
 
@@ -200,16 +232,13 @@ on_audio_device_row_volume_changed (MsFeedbackPanel *self, MsAudioDeviceRow *row
 
   device = ms_audio_device_row_get_audio_device (row);
   self->last_volume_slider_role = ms_audio_device_get_role (device);
-
-  /* Temporary, while we add the sound file */
-  if (self->last_volume_slider_role == MS_MEDIA_ROLE_PHONE)
-    return;
+  self->last_volume_slider_volume = ms_audio_device_row_get_volume (row);
 
   g_clear_handle_id (&self->update_id, g_source_remove);
   stop_playback (self);
 
-  /* Small timeout as MsAudioDeviceRow might emit
-   * 'volume-changed' more than once */
+  /* Small timeout as MsAudioDeviceRow:volume might get
+   * updated more than once while we play the sound */
   self->update_id = g_timeout_add_once (300, play_volume_slider_sound, self);
 }
 
@@ -222,7 +251,7 @@ create_audio_device_row (gpointer item, gpointer user_data)
   GtkWidget *row = GTK_WIDGET (ms_audio_device_row_new (audio_device));
 
   g_signal_connect_object (row,
-                           "volume-changed",
+                           "notify::volume",
                            G_CALLBACK (on_audio_device_row_volume_changed),
                            self,
                            G_CONNECT_SWAPPED);
@@ -896,6 +925,7 @@ ms_feedback_panel_dispose (GObject *object)
   g_strfreev (self->notifications_wakeup_categories);
   g_clear_pointer (&self->known_applications, g_hash_table_unref);
   g_clear_object (&self->sound_settings);
+  g_clear_object (&self->media_role_phone_stream);
 
   g_clear_object (&self->audio_devices);
   g_clear_object (&self->mixer_control);
@@ -963,6 +993,8 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
 static void
 ms_feedback_panel_init_audio (MsFeedbackPanel *self)
 {
+  const char *resource_path = "/mobi/phosh/MobileSettings/voice-call.ogg";
+
   self->sound_settings = g_settings_new (GNOME_SOUND_SCHEMA_ID);
 
   g_signal_connect_object (self->sound_settings,
@@ -971,6 +1003,7 @@ ms_feedback_panel_init_audio (MsFeedbackPanel *self)
                            self,
                            G_CONNECT_SWAPPED);
   on_sound_theme_name_changed (self, GNOME_SOUND_KEY_THEME_NAME, self->sound_settings);
+  self->media_role_phone_stream = gtk_media_file_new_for_resource (resource_path);
 
   self->mixer_control = gvc_mixer_control_new (_("Mobile Settings Volume Control"));
   g_return_if_fail (self->mixer_control);

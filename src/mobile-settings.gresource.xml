@@ -28,6 +28,7 @@
     <file>gtk/help-overlay.ui</file>
     <file alias="metainfo.xml">../data/mobi.phosh.MobileSettings.metainfo.xml.in</file>
     <file alias="phosh.mobi.svg">../data/phosh.mobi.svg</file>
+    <file alias="voice-call.ogg">../data/sounds/voice-call.ogg</file>
   </gresource>
 
   <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
