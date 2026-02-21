@@ -10,7 +10,7 @@
 
 #include "mobile-settings-config.h"
 
-#include "ms-osk-layout-row.h"
+#include "ms-osk-layout-row-priv.h"
 
 /**
  * MsOskLayoutRow:

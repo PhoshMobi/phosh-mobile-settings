@@ -1,6 +1,10 @@
 api_version = '1.0'
 
-libpms_sources = [
+libpms_private_sources = [
+  'ms-osk-layout-row.c',
+]
+
+libpms_public_sources = [
   'ms-osk-add-layout-dialog.c',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout.c',
@@ -9,7 +13,6 @@ libpms_sources = [
 libpms_public_headers = [
   'ms-osk-add-layout-dialog.h',
   'ms-osk-layout-prefs.h',
-  'ms-osk-layout-row.h',
   'ms-osk-layout.h',
 ]
 
@@ -37,7 +40,7 @@ libpms_generated_sources = [
 
 libpms_lib = shared_library(
   f'pms-@api_version@',
-  libpms_sources + libpms_public_headers,
+  libpms_public_sources + libpms_public_headers + libpms_private_sources,
   libpms_generated_sources,
   dependencies: libpms_deps,
   soversion: '0',
