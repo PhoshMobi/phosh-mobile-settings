@@ -13,7 +13,7 @@
 #include "ms-osk-layout-row.h"
 
 /**
- * MsOskLayout:
+ * MsOskLayoutRow:
  *
  * A row in the osk layout list box
  */
