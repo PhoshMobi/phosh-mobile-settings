@@ -14,7 +14,8 @@ po/phosh-mobile-settings.pot
 debian/files
 debian/*.substvars
 debian/*debhelper*
-debian/libpms-1.0-0/
+debian/gir1.2-pms-?.0/
+debian/libpms-?.0-0/
 debian/libpms-dev/
 debian/phosh-mobile-settings/
 debian/tmp/
