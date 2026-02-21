@@ -3,6 +3,9 @@ libname = f'pms-@api_version@'
 
 libpms_private_sources = [
   'ms-osk-layout-row.c',
+  'lang/cc-util.c',
+  'lang/cc-language-row.c',
+  'lang/cc-common-language.c',
 ]
 
 libpms_public_sources = [
@@ -10,6 +13,7 @@ libpms_public_sources = [
   'ms-osk-add-layout-dialog.c',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout.c',
+  'lang/cc-language-chooser.c',
 ]
 
 libpms_public_headers = [
@@ -18,6 +22,7 @@ libpms_public_headers = [
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',
   'libpms.h',
+  'lang/cc-language-chooser.h',
 ]
 
 libpms_deps = [
@@ -28,6 +33,7 @@ libpms_deps = [
   gnome_desktop_dep,
   gtk_dep,
   json_glib_dep,
+  dependency('fontconfig'),
   cc.find_library('m', required: false),
 ]
 
@@ -60,7 +66,7 @@ install_headers(
 libpms_dep = declare_dependency(
   sources: libpms_generated_sources,
   link_with: libpms_lib,
-  include_directories: [include_directories('.')],
+  include_directories: include_directories('.'),
   dependencies: libpms_deps,
 )
 

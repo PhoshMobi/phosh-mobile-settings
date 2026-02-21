@@ -18,7 +18,7 @@
  * Written by: Matthias Clasen <mclasen@redhat.com>
  */
 
-#include "config.h"
+#include "mobile-settings-config.h"
 
 #include <stdlib.h>
 #include <locale.h>
@@ -33,7 +33,6 @@
 #include <libgnome-desktop/gnome-languages.h>
 
 #include "cc-common-language.h"
-#include "shell/cc-object-storage.h"
 
 static char *get_lang_for_user_object_path (const char *path);
 
@@ -164,6 +163,7 @@ cc_common_language_get_current_language (void)
 static char *
 get_lang_for_user_object_path (const char *path)
 {
+#if 0
 	g_autoptr(GError) error = NULL;
 	g_autoptr(GDBusProxy) user = NULL;
 	g_autoptr(GVariant) props = NULL;
@@ -188,6 +188,8 @@ get_lang_for_user_object_path (const char *path)
 	lang = g_variant_dup_string (props, NULL);
 
 	return lang;
+#endif
+        return NULL;
 }
 
 /*

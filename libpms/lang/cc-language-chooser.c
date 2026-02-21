@@ -19,12 +19,12 @@
  */
 
 #define _GNU_SOURCE
-#include <config.h>
+
+#include "mobile-settings-config.h"
+
 #include "cc-language-chooser.h"
 #include "cc-language-row.h"
-#include "cc-common-resources.h"
 
-#include <locale.h>
 #include <string.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -255,8 +255,6 @@ select_button_clicked_cb (CcLanguageChooser *self)
 void
 cc_language_chooser_init (CcLanguageChooser *self)
 {
-        g_resources_register (cc_common_get_resource ());
-
         gtk_widget_init_template (GTK_WIDGET (self));
 
         gtk_list_box_set_sort_func (self->language_listbox,

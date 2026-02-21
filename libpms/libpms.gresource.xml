@@ -4,5 +4,7 @@
     <file>ms-osk-add-layout-dialog.ui</file>
     <file>ms-osk-layout-prefs.ui</file>
     <file>ms-osk-layout-row.ui</file>
+    <file alias="cc-language-row.ui">lang/cc-language-row.ui</file>
+    <file alias="cc-language-chooser.ui">lang/cc-language-chooser.ui</file>
   </gresource>
 </gresources>

@@ -17,7 +17,7 @@
  */
 
 #include "cc-language-row.h"
-#include "cc-common-resources.h"
+#include "cc-util.h"
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-languages.h>
@@ -90,8 +90,6 @@ cc_language_row_class_init (CcLanguageRowClass *klass)
 void
 cc_language_row_init (CcLanguageRow *self)
 {
-  g_resources_register (cc_common_get_resource ());
-
   gtk_widget_init_template (GTK_WIDGET (self));
 }
 
