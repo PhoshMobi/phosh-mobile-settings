@@ -22,7 +22,7 @@
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-languages.h>
 
-struct _CcLanguageRow {
+struct _MsLanguageRow {
   GtkListBoxRow parent_instance;
 
   GtkImage *check_image;
@@ -38,7 +38,7 @@ struct _CcLanguageRow {
   gboolean is_extra;
 };
 
-G_DEFINE_TYPE (CcLanguageRow, cc_language_row, GTK_TYPE_LIST_BOX_ROW)
+G_DEFINE_TYPE (MsLanguageRow, ms_language_row, GTK_TYPE_LIST_BOX_ROW)
 
 static gchar *
 get_language_label (const gchar *language_code,
@@ -59,9 +59,9 @@ get_language_label (const gchar *language_code,
 }
 
 static void
-cc_language_row_dispose (GObject *object)
+ms_language_row_dispose (GObject *object)
 {
-  CcLanguageRow *self = CC_LANGUAGE_ROW (object);
+  MsLanguageRow *self = MS_LANGUAGE_ROW (object);
 
   g_clear_pointer (&self->locale_id, g_free);
   g_clear_pointer (&self->country, g_free);
@@ -69,39 +69,41 @@ cc_language_row_dispose (GObject *object)
   g_clear_pointer (&self->language, g_free);
   g_clear_pointer (&self->language_local, g_free);
 
-  G_OBJECT_CLASS (cc_language_row_parent_class)->dispose (object);
+  G_OBJECT_CLASS (ms_language_row_parent_class)->dispose (object);
 }
 
 void
-cc_language_row_class_init (CcLanguageRowClass *klass)
+ms_language_row_class_init (MsLanguageRowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-  object_class->dispose = cc_language_row_dispose;
+  object_class->dispose = ms_language_row_dispose;
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/common/cc-language-row.ui");
+  gtk_widget_class_set_template_from_resource (widget_class,
+                                               "/mobi/phosh/LibMobileSettings/ui/"
+                                               "cc-language-row.ui");
 
-  gtk_widget_class_bind_template_child (widget_class, CcLanguageRow, check_image);
-  gtk_widget_class_bind_template_child (widget_class, CcLanguageRow, country_label);
-  gtk_widget_class_bind_template_child (widget_class, CcLanguageRow, language_label);
+  gtk_widget_class_bind_template_child (widget_class, MsLanguageRow, check_image);
+  gtk_widget_class_bind_template_child (widget_class, MsLanguageRow, country_label);
+  gtk_widget_class_bind_template_child (widget_class, MsLanguageRow, language_label);
 }
 
 void
-cc_language_row_init (CcLanguageRow *self)
+ms_language_row_init (MsLanguageRow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 }
 
-CcLanguageRow *
-cc_language_row_new (const gchar *locale_id)
+MsLanguageRow *
+ms_language_row_new (const gchar *locale_id)
 {
-  CcLanguageRow *self;
+  MsLanguageRow *self;
   g_autofree gchar *language_code = NULL;
   g_autofree gchar *country_code = NULL;
   g_autofree gchar *modifier = NULL;
 
-  self = g_object_new (CC_TYPE_LANGUAGE_ROW, NULL);
+  self = g_object_new (MS_TYPE_LANGUAGE_ROW, NULL);
   self->locale_id = g_strdup (locale_id);
 
   gnome_parse_locale (locale_id, &language_code, &country_code, NULL, &modifier);
@@ -126,57 +128,57 @@ cc_language_row_new (const gchar *locale_id)
 }
 
 const gchar *
-cc_language_row_get_locale_id (CcLanguageRow *self)
+ms_language_row_get_locale_id (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), NULL);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), NULL);
   return self->locale_id;
 }
 
 const gchar *
-cc_language_row_get_language (CcLanguageRow *self)
+ms_language_row_get_language (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), NULL);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), NULL);
   return self->language;
 }
 
 const gchar *
-cc_language_row_get_language_local (CcLanguageRow *self)
+ms_language_row_get_language_local (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), NULL);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), NULL);
   return self->language_local;
 }
 
 const gchar *
-cc_language_row_get_country (CcLanguageRow *self)
+ms_language_row_get_country (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), NULL);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), NULL);
   return self->country;
 }
 
 const gchar *
-cc_language_row_get_country_local (CcLanguageRow *self)
+ms_language_row_get_country_local (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), NULL);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), NULL);
   return self->country_local;
 }
 
 void
-cc_language_row_set_checked (CcLanguageRow *self, gboolean checked)
+ms_language_row_set_checked (MsLanguageRow *self, gboolean checked)
 {
-  g_return_if_fail (CC_IS_LANGUAGE_ROW (self));
+  g_return_if_fail (MS_IS_LANGUAGE_ROW (self));
   gtk_widget_set_visible (GTK_WIDGET (self->check_image), checked);
 }
 
 void
-cc_language_row_set_is_extra (CcLanguageRow *self, gboolean is_extra)
+ms_language_row_set_is_extra (MsLanguageRow *self, gboolean is_extra)
 {
-  g_return_if_fail (CC_IS_LANGUAGE_ROW (self));
+  g_return_if_fail (MS_IS_LANGUAGE_ROW (self));
   self->is_extra = is_extra;
 }
 
 gboolean
-cc_language_row_get_is_extra (CcLanguageRow *self)
+ms_language_row_get_is_extra (MsLanguageRow *self)
 {
-  g_return_val_if_fail (CC_IS_LANGUAGE_ROW (self), FALSE);
+  g_return_val_if_fail (MS_IS_LANGUAGE_ROW (self), FALSE);
   return self->is_extra;
 }

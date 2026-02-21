@@ -44,7 +44,7 @@
  * Originally written by Aleksander Morgado <aleksander@gnu.org>
  */
 char *
-cc_util_normalize_casefold_and_unaccent (const char *str)
+ms_util_normalize_casefold_and_unaccent (const char *str)
 {
   g_autofree gchar *normalized = NULL;
   gchar *tmp;
@@ -108,7 +108,7 @@ cc_util_normalize_casefold_and_unaccent (const char *str)
 }
 
 char *
-cc_util_get_smart_date (GDateTime *date)
+ms_util_get_smart_date (GDateTime *date)
 {
         g_autoptr(GDateTime) today = NULL;
         g_autoptr(GDateTime) local = NULL;
@@ -150,7 +150,7 @@ cc_util_get_smart_date (GDateTime *date)
 }
 
 char *
-cc_util_get_smart_date_time (GDateTime *date)
+ms_util_get_smart_date_time (GDateTime *date)
 {
   g_autofree gchar *date_str = NULL;
   g_autofree gchar *smart_date = NULL;
@@ -158,7 +158,7 @@ cc_util_get_smart_date_time (GDateTime *date)
   if (date == NULL)
     return NULL;
 
-  smart_date = cc_util_get_smart_date (date);
+  smart_date = ms_util_get_smart_date (date);
   date_str = g_date_time_format (date, "\%X");
   /* TRANSLATORS: This is the datetime format in the style of
      "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
@@ -169,7 +169,7 @@ cc_util_get_smart_date_time (GDateTime *date)
 /* Copied from src/plugins/properties/bacon-video-widget-properties.c
  * in totem */
 char *
-cc_util_time_to_string_text (gint64 msecs)
+ms_util_time_to_string_text (gint64 msecs)
 {
   g_autofree gchar *hours = NULL;
   g_autofree gchar *mins = NULL;
@@ -231,7 +231,7 @@ cc_util_time_to_string_text (gint64 msecs)
 }
 
 char *
-cc_util_app_id_to_display_name (const char *app_id)
+ms_util_app_id_to_display_name (const char *app_id)
 {
   g_autofree char *id = NULL;
   g_autoptr(GAppInfo) info = NULL;

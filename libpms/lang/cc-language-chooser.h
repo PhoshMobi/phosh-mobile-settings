@@ -26,13 +26,13 @@
 
 G_BEGIN_DECLS
 
-#define CC_TYPE_LANGUAGE_CHOOSER (cc_language_chooser_get_type ())
-G_DECLARE_FINAL_TYPE (CcLanguageChooser, cc_language_chooser, CC, LANGUAGE_CHOOSER, AdwDialog)
+#define MS_TYPE_LANGUAGE_CHOOSER (ms_language_chooser_get_type ())
+G_DECLARE_FINAL_TYPE (MsLanguageChooser, ms_language_chooser, MS, LANGUAGE_CHOOSER, AdwDialog)
 
-CcLanguageChooser *cc_language_chooser_new          (void);
-void               cc_language_chooser_clear_filter (CcLanguageChooser *chooser);
-const gchar       *cc_language_chooser_get_language (CcLanguageChooser *chooser);
-void               cc_language_chooser_set_language (CcLanguageChooser *chooser,
+MsLanguageChooser *ms_language_chooser_new          (void);
+void               ms_language_chooser_clear_filter (MsLanguageChooser *chooser);
+const gchar       *ms_language_chooser_get_language (MsLanguageChooser *chooser);
+void               ms_language_chooser_set_language (MsLanguageChooser *chooser,
                                                      const gchar       *language);
 
 G_END_DECLS

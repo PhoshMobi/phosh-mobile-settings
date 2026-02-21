@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="CcLanguageChooser" parent="AdwDialog">
+  <template class="MsLanguageChooser" parent="AdwDialog">
     <property name="title" translatable="yes">Select Language</property>
     <property name="content-width">400</property>
     <property name="content-height">475</property>
@@ -15,7 +15,7 @@
                 <property name="label" translatable="yes">_Cancel</property>
                 <property name="use_underline">True</property>
                 <property name="valign">center</property>
-                <signal name="clicked" handler="adw_dialog_close" object="CcLanguageChooser" swapped="yes"/>
+                <signal name="clicked" handler="adw_dialog_close" object="MsLanguageChooser" swapped="yes"/>
               </object>
             </child>
             <child type="end">
@@ -24,7 +24,7 @@
                 <property name="sensitive">False</property>
                 <property name="use_underline">True</property>
                 <property name="valign">center</property>
-                <signal name="clicked" handler="select_button_clicked_cb" object="CcLanguageChooser" swapped="yes"/>
+                <signal name="clicked" handler="select_button_clicked_cb" object="MsLanguageChooser" swapped="yes"/>
                 <style>
                   <class name="suggested-action"/>
                 </style>
@@ -43,7 +43,7 @@
                   <object class="GtkSearchEntry" id="language_filter_entry">
                     <property name="placeholder_text" translatable="yes">Language or country</property>
                     <property name="width_chars">30</property>
-                    <signal name="search-changed" handler="language_filter_entry_search_changed_cb" object="CcLanguageChooser" swapped="yes"/>
+                    <signal name="search-changed" handler="language_filter_entry_search_changed_cb" object="MsLanguageChooser" swapped="yes"/>
                   </object>
                 </child>
               </object>
@@ -62,7 +62,7 @@
                     <property name="valign">fill</property>
                     <property name="selection-mode">none</property>
                     <property name="show-separators">True</property>
-                    <signal name="row-activated" handler="language_listbox_row_activated_cb" object="CcLanguageChooser" swapped="yes"/>
+                    <signal name="row-activated" handler="language_listbox_row_activated_cb" object="MsLanguageChooser" swapped="yes"/>
                     <child type="placeholder">
                       <object class="GtkLabel">
                         <property name="label" translatable="yes">No languages found</property>

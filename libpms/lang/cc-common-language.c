@@ -76,7 +76,7 @@ iter_for_language (GtkTreeModel *model,
 }
 
 gboolean
-cc_common_language_get_iter_for_language (GtkTreeModel *model,
+ms_common_language_get_iter_for_language (GtkTreeModel *model,
                                           const gchar  *lang,
                                           GtkTreeIter  *iter)
 {
@@ -84,7 +84,7 @@ cc_common_language_get_iter_for_language (GtkTreeModel *model,
 }
 
 gboolean
-cc_common_language_has_font (const gchar *locale)
+ms_common_language_has_font (const gchar *locale)
 {
         const FcCharSet  *charset;
         FcPattern        *pattern;
@@ -140,7 +140,7 @@ cc_common_language_has_font (const gchar *locale)
 }
 
 gchar *
-cc_common_language_get_current_language (void)
+ms_common_language_get_current_language (void)
 {
         gchar *language;
         g_autofree gchar *path = NULL;
@@ -169,7 +169,7 @@ get_lang_for_user_object_path (const char *path)
 	g_autoptr(GVariant) props = NULL;
 	char *lang;
 
-	user = cc_object_storage_create_dbus_proxy_sync (G_BUS_TYPE_SYSTEM,
+	user = ms_object_storage_create_dbus_proxy_sync (G_BUS_TYPE_SYSTEM,
 							 G_DBUS_PROXY_FLAGS_NONE,
 							 "org.freedesktop.Accounts",
 							 path,
@@ -221,7 +221,7 @@ insert_language (GHashTable *ht,
 }
 
 GHashTable *
-cc_common_language_get_initial_languages (void)
+ms_common_language_get_initial_languages (void)
 {
         GHashTable *ht;
 
@@ -258,7 +258,7 @@ foreach_user_lang_cb (gpointer key,
 }
 
 void
-cc_common_language_add_user_languages (GtkTreeModel *model)
+ms_common_language_add_user_languages (GtkTreeModel *model)
 {
         g_autofree gchar *name = NULL;
         GtkTreeIter iter;
@@ -268,10 +268,10 @@ cc_common_language_add_user_languages (GtkTreeModel *model)
 
         gtk_list_store_clear (store);
 
-        user_langs = cc_common_language_get_initial_languages ();
+        user_langs = ms_common_language_get_initial_languages ();
 
         /* Add the current locale first */
-        name = cc_common_language_get_current_language ();
+        name = ms_common_language_get_current_language ();
         display = g_hash_table_lookup (user_langs, name);
         if (!display) {
                 g_autofree gchar *language = NULL;
