@@ -53,9 +53,8 @@ ms_tweaks_backend_xresources_get_value (MsTweaksBackend *backend)
   g_value_set_string (value, self->setting_data->default_);
 
   if (!file_input_stream) {
-    /* Only warn once for "No such file or directory" as it otherwise may get printed many times. */
     if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
-      g_warning_once ("Failed to read: %s", error->message);
+      ms_tweaks_debug (self->setting_data->name, "Failed to read: %s", error->message);
     else
       ms_tweaks_warning (self->setting_data->name, "Failed to read: %s", error->message);
 
