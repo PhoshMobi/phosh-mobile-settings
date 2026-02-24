@@ -12,8 +12,6 @@
 
 #include "ms-osk-layout.h"
 
-#include <gtk/gtk.h>
-
 /**
  * MsOskLayout:
  *
