@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2024 The Phosh Developers
+ * Copyright (C) 2024-2026 Phosh.mobi e.V.
  *
- * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  *
  * Author: Guido Günther <agx@sigxcpu.org>
  */
@@ -10,10 +10,10 @@
 
 #include "mobile-settings-config.h"
 
-#include "ms-osk-layout-row.h"
+#include "ms-osk-layout-row-priv.h"
 
 /**
- * MsOskLayout:
+ * MsOskLayoutRow:
  *
  * A row in the osk layout list box
  */
@@ -236,7 +236,7 @@ ms_osk_layout_row_class_init (MsOskLayoutRowClass *klass)
   gtk_widget_class_install_action (widget_class, "row.remove", NULL, on_remove_activated);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/ms-osk-layout-row.ui");
+                                               "/mobi/phosh/LibMobileSettings/ui/ms-osk-layout-row.ui");
 }
 
 

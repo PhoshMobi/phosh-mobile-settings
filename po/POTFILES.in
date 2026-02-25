@@ -2,6 +2,9 @@ data/mobi.phosh.MobileSettings.desktop.in
 data/mobi.phosh.MobileSettings.metainfo.xml.in
 plugins/librem5/ms-plugin-librem5-panel.c
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
+libpms/ms-osk-add-layout-dialog.ui
+libpms/ms-osk-layout-prefs.ui
+libpms/ms-osk-layout-row.ui
 src/conf-tweaks/ms-tweaks-callback-handlers.c
 src/conf-tweaks/ms-tweaks-preferences-page.c
 src/gtk/help-overlay.ui
@@ -25,10 +28,7 @@ src/ui/ms-convergence-panel.ui
 src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
-src/ui/ms-osk-add-layout-dialog.ui
 src/ui/ms-osk-add-shortcut-dialog.ui
-src/ui/ms-osk-layout-prefs.ui
-src/ui/ms-osk-layout-row.ui
 src/ui/ms-osk-panel.ui
 src/ui/ms-overview-panel.ui
 src/ui/ms-plugin-row.ui

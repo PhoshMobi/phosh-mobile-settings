@@ -93,7 +93,9 @@ i18n = import('i18n')
 gnome = import('gnome')
 
 cc = meson.get_compiler('c')
-global_c_args = []
+global_c_args = [
+  '-DLIBPMS_USE_UNSTABLE_API',
+]
 test_c_args = [
   '-Wcast-align',
   '-Wdate-time',
@@ -190,6 +192,7 @@ add_project_arguments(['-I' + meson.project_build_root()], language: 'c')
 
 subdir('data')
 subdir('protocols')
+subdir('libpms')
 subdir('src')
 subdir('tests')
 subdir('plugins')

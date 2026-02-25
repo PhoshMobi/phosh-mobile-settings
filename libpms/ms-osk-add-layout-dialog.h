@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2024 The Phosh Developers
+ * Copyright (C) 2024-2026 Phosh.mobi e.V.
  *
- * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
 #pragma once
@@ -9,6 +9,10 @@
 #include <adwaita.h>
 
 G_BEGIN_DECLS
+
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
 
 #define MS_TYPE_OSK_ADD_LAYOUT_DIALOG (ms_osk_add_layout_dialog_get_type ())
 

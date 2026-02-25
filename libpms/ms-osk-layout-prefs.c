@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2024 The Phosh Developers
+ * Copyright (C) 2024-2026 Phosh.mobi e.V.
  *
- * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  *
  * Author: Guido Günther <agx@sigxcpu.org>
  */
@@ -12,7 +12,7 @@
 
 #include "ms-osk-add-layout-dialog.h"
 #include "ms-osk-layout-prefs.h"
-#include "ms-osk-layout-row.h"
+#include "ms-osk-layout-row-priv.h"
 #include "ms-osk-layout.h"
 
 #include <json-glib/json-glib.h>
@@ -452,7 +452,7 @@ ms_osk_layout_prefs_class_init (MsOskLayoutPrefsClass *klass)
 
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/"
+                                               "/mobi/phosh/LibMobileSettings/ui/"
                                                "ms-osk-layout-prefs.ui");
 
   gtk_widget_class_install_action (widget_class, "osk-prefs.add-layout", NULL,

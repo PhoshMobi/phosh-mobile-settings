@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2024 The Phosh Developers
+ * Copyright (C) 2024-2026 Phosh.mobi e.V.
  *
- * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  *
  * Author: Guido Günther <agx@sigxcpu.org>
  */
@@ -180,7 +180,7 @@ ms_osk_add_layout_dialog_class_init (MsOskAddLayoutDialogClass *klass)
                   1, MS_TYPE_OSK_LAYOUT);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/"
+                                               "/mobi/phosh/LibMobileSettings/"
                                                "ui/ms-osk-add-layout-dialog.ui");
 
   gtk_widget_class_bind_template_child (widget_class, MsOskAddLayoutDialog, layouts_listbox);
