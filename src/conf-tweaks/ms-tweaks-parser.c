@@ -19,6 +19,7 @@
 #include "ms-tweaks-utils.h"
 
 #include <glib/gi18n-lib.h>
+#include <gmobile.h>
 
 #include <math.h>
 #include <yaml.h>
@@ -1563,10 +1564,15 @@ ms_tweaks_parser_parse_definition_files (MsTweaksParser *self, const char *tweak
 
   g_assert (MS_IS_TWEAKS_PARSER (self));
 
+  if (gm_str_is_null_or_empty (tweaks_yaml_path)) {
+    g_debug ("No path configured for conf-tweaks");
+    return;
+  }
+
   if (!yaml_directory) {
-    g_info ("Couldn't open postmarketOS YAML directory at '%s': %s.\nNo tweaks definitions will be read.",
-            tweaks_yaml_path,
-            error->message);
+    g_warning ("Couldn't open conf-tweaks YAML directory at '%s': %s.\nNo tweaks definitions will be read.",
+               tweaks_yaml_path,
+               error->message);
     return;
   }
 
@@ -1597,6 +1603,11 @@ ms_tweaks_parser_parse_definition_files (MsTweaksParser *self, const char *tweak
       g_clear_error (&error);
       continue;
     }
+  }
+
+  if (g_hash_table_size (self->page_table) == 0) {
+    g_warning ("The conf-tweaks YAML directory '%s' doesn't contain any valid tweak definition files",
+               tweaks_yaml_path);
   }
 }
 

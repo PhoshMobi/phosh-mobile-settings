@@ -217,10 +217,15 @@ test_merge_weights_no_merge (void)
 static void
 test_parse_nothing (ParserTestFixture *fixture, gconstpointer unused)
 {
+  g_test_expect_message ("ms-tweaks-parser",
+                         G_LOG_LEVEL_WARNING,
+                         "Couldn't open conf-tweaks YAML directory at 'nonexistent path': *");
+
   ms_tweaks_parser_parse_definition_files (fixture->parser, "nonexistent path");
 
   g_assert_true (fixture->parser->page_table);
   g_assert_cmpint (g_hash_table_size (fixture->parser->page_table), ==, 0);
+  g_test_assert_expected_messages ();
 }
 
 

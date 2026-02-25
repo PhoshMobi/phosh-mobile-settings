@@ -765,6 +765,8 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
           ms_tweaks_warning (setting_data->name,
                              "Failed to handle mappings, ignoring: %s",
                              mapping_error->message);
+          g_value_unset (widget_value);
+          g_clear_pointer (&widget_value, g_free);
           continue;
         }
       }
@@ -815,12 +817,21 @@ ms_tweaks_preferences_page_initable_init (GInitable     *initable,
         case MS_TWEAKS_TYPE_UNKNOWN:
           ms_tweaks_warning (setting_data->name,
                              "Unknown type, cannot create widget. Is your system up-to-date?");
+          if (widget_value) {
+            g_value_unset (widget_value);
+            g_clear_pointer (&widget_value, g_free);
+          }
           continue;
         default:
           ms_tweaks_critical (setting_data->name,
                               "Unimplemented setting type '%i'",
                               setting_data->type);
         }
+      }
+
+      if (widget_value) {
+        g_value_unset (widget_value);
+        g_clear_pointer (&widget_value, g_free);
       }
 
       if (widget_to_add) {
