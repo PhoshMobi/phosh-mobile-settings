@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-01-09 15:10+0000\n"
+"POT-Creation-Date: 2026-02-25 17:40+0000\n"
 "PO-Revision-Date: 2026-01-19 08:00+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
@@ -113,6 +113,52 @@ msgstr "Yakıt Göstergesi"
 msgid "Battery"
 msgstr "Pil"
 
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Düzen Ekle"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "İptal"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Ekle"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40
+msgid "Language"
+msgstr "Dil"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Düzenler"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Düzen yapılandırılmadı"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "Daha çok seçenek…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "Yukarı Taşı"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "Aşağı Taşı"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Kaldır"
+
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
@@ -129,7 +175,7 @@ msgid "%i error occurred while saving"
 msgid_plural "%i errors occurred while saving"
 msgstr[0] "Kaydederken %i hata oluştu"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "Kimi ayarları kaydetmek için yönetici olarak kimlik doğrulamalısınız"
 
@@ -163,31 +209,27 @@ msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Sabri Ünal <yakushabb@gmail.com>"
 
-#: src/ms-audio-devices.c:178
+#: src/ms-audio-devices.c:179
 msgid "Media Volume"
 msgstr "Ortam Sesi"
 
-#: src/ms-audio-devices.c:180
+#: src/ms-audio-devices.c:182
 msgid "Notification Volume"
 msgstr "Bildirim Sesi"
 
-#: src/ms-audio-devices.c:182
+#: src/ms-audio-devices.c:185
 msgid "Voice Call Volume"
 msgstr "Sesli Arama Ses Düzeyi"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:188
 msgid "Ring Tone Volume"
 msgstr "Arama Zili Sesi"
 
-#: src/ms-audio-devices.c:186
-msgid "Call volume"
-msgstr "Çağrı sesi"
-
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:191
 msgid "Alarm Volume"
 msgstr "Alarm Sesi"
 
-#: src/ms-audio-devices.c:190
+#: src/ms-audio-devices.c:194
 msgid "Emergency Alerts Volume"
 msgstr "Acil Durum Alarm Sesi"
 
@@ -195,44 +237,44 @@ msgstr "Acil Durum Alarm Sesi"
 msgid "Message of unknown severity"
 msgstr "Bilinmeyen önemdeki ileti"
 
-#: src/ms-feedback-panel.c:215
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "Ses dosyası yok"
 
-#: src/ms-feedback-panel.c:217
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "Ses dosyası bozuk"
 
-#: src/ms-feedback-panel.c:219
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "Ses oynatılamadı"
 
-#: src/ms-feedback-panel.c:258
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "%s oynatılıyor"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "düşük"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "kritik"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "yok"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "Mobil Ayarlar Ses Denetiemi"
 
@@ -241,15 +283,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Kilit ekranı duvar kağıdı belirlenemedi"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:744
+#: src/ms-osk-panel.c:748
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: src/ms-osk-panel.c:745
+#: src/ms-osk-panel.c:749
 msgid "The default completer selected by the OSK"
 msgstr "Ekran klavyesince seçilen öntanımlı tamamlayıcı"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:752
 msgid "No information available for this completer"
 msgstr "Bu tamamlayıcı için bilgi yok"
 
@@ -535,31 +577,35 @@ msgstr "Etkin"
 msgid "Sound Settings"
 msgstr "Ses Ayarları"
 
-#: src/ui/ms-feedback-panel.ui:27
+#: src/ui/ms-feedback-panel.ui:17
+msgid "Play sound on adjusting volume sliders"
+msgstr "Ses yüksekliğini ayarlarken ses çıkar"
+
+#: src/ui/ms-feedback-panel.ui:33
 msgid "Feedback Settings"
 msgstr "Geri Bildirim Ayarları"
 
-#: src/ui/ms-feedback-panel.ui:30
+#: src/ui/ms-feedback-panel.ui:36
 msgid "Feedback profile"
 msgstr "Geri bildirim profili"
 
-#: src/ui/ms-feedback-panel.ui:31
+#: src/ui/ms-feedback-panel.ui:37
 msgid "The global maximum feedback profile"
 msgstr "Genel azami geri bildirim profili"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:52
 msgid "Prefer flash"
 msgstr "Flaşı yeğle"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:53
 msgid "Prefer camera flash over status LED when available"
 msgstr "Oluyorsa durum LEDʼi yerine kamera flaşını yeğle"
 
-#: src/ui/ms-feedback-panel.ui:53
+#: src/ui/ms-feedback-panel.ui:59
 msgid "Silence by volume button press"
 msgstr "Ses düğmesi basımıyla sessiz kip"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:60
 msgid ""
 "When locked put the phone in silent mode when pressing the button that "
 "lowers the volume on incoming calls"
@@ -568,106 +614,106 @@ msgstr ""
 "sessiz kipe al"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:60
+#: src/ui/ms-feedback-panel.ui:66
 msgid "Haptic strength"
 msgstr "Dokunsal güç"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:67
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Azami dokunsal geri bildirim gücü yüzdesi"
 
-#: src/ui/ms-feedback-panel.ui:80
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Per Application settings"
 msgstr "Uygulama Başına ayarlar"
 
-#: src/ui/ms-feedback-panel.ui:93 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
 msgid "Sounds"
 msgstr "Sesler"
 
-#: src/ui/ms-feedback-panel.ui:94
+#: src/ui/ms-feedback-panel.ui:100
 msgid "The sound to use for certain events"
 msgstr "Belirli olaylar için kullanılacak ses"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Phone Calls"
 msgstr "Telefon Çağrıları"
 
-#: src/ui/ms-feedback-panel.ui:120
+#: src/ui/ms-feedback-panel.ui:126
 msgid "SMS"
 msgstr "Kısa İleti"
 
-#: src/ui/ms-feedback-panel.ui:132 src/ui/ms-feedback-panel.ui:201
+#: src/ui/ms-feedback-panel.ui:138 src/ui/ms-feedback-panel.ui:207
 msgid "Instant Messages"
 msgstr "Anlık İletiler"
 
-#: src/ui/ms-feedback-panel.ui:145
+#: src/ui/ms-feedback-panel.ui:151
 msgid "Alarm Clock"
 msgstr "Çalar Saat"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:162
 msgid "Screen Wakeup"
 msgstr "Ekran Uyandırma"
 
-#: src/ui/ms-feedback-panel.ui:159
+#: src/ui/ms-feedback-panel.ui:165
 msgid "Notification urgency that lights up the screen"
 msgstr "Ekranı aydınlatan bildirim aciliyeti"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:183
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr ""
 "İvediliklerinden bağımsız olarak ekranı uyandırabilecek bildirim kategorileri"
 
-#: src/ui/ms-feedback-panel.ui:180
+#: src/ui/ms-feedback-panel.ui:186
 msgid "Calls"
 msgstr "Çağrılar"
 
-#: src/ui/ms-feedback-panel.ui:181
+#: src/ui/ms-feedback-panel.ui:187
 msgid "A generic audio or video call notification"
 msgstr "Sesli ya da görüntülü çağrı bildirimi"
 
-#: src/ui/ms-feedback-panel.ui:187
+#: src/ui/ms-feedback-panel.ui:193
 msgid "Device events"
 msgstr "Aygıt olayları"
 
-#: src/ui/ms-feedback-panel.ui:188
+#: src/ui/ms-feedback-panel.ui:194
 msgid "A generic device-related notification"
 msgstr "Aygıtla ilişkili bildirim"
 
-#: src/ui/ms-feedback-panel.ui:194
+#: src/ui/ms-feedback-panel.ui:200
 msgid "Emails"
 msgstr "E-Postalar"
 
-#: src/ui/ms-feedback-panel.ui:195
+#: src/ui/ms-feedback-panel.ui:201
 msgid "A generic e-mail-related notification"
 msgstr "E-postayla ilişkili bildirim"
 
-#: src/ui/ms-feedback-panel.ui:202
+#: src/ui/ms-feedback-panel.ui:208
 msgid "A generic instant message-related notification"
 msgstr "Anlık iletiyle ilişkili bildirim"
 
-#: src/ui/ms-feedback-panel.ui:208
+#: src/ui/ms-feedback-panel.ui:214
 msgid "Network events"
 msgstr "Ağ olayları"
 
-#: src/ui/ms-feedback-panel.ui:209
+#: src/ui/ms-feedback-panel.ui:215
 msgid "A generic network notification"
 msgstr "Ağ bildirimi"
 
-#: src/ui/ms-feedback-panel.ui:215
+#: src/ui/ms-feedback-panel.ui:221
 msgid "Presence changes"
 msgstr "Bulunuşluk değişimleri"
 
-#: src/ui/ms-feedback-panel.ui:216
+#: src/ui/ms-feedback-panel.ui:222
 msgid "A generic presence change notification"
 msgstr "Bulunuşluk değişimi bildirimi"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:228
 msgid "File transfers"
 msgstr "Dosya aktarımları"
 
-#: src/ui/ms-feedback-panel.ui:223
+#: src/ui/ms-feedback-panel.ui:229
 msgid "A generic file transfer or download notification"
 msgstr "Dosya aktarma ya da indirme bildirimi"
 
@@ -723,26 +769,6 @@ msgstr "Parçacıklar"
 msgid "Additional widgets for the lock screen"
 msgstr "Kilit ekranı için ek parçacıklar"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "Düzen Ekle"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "İptal"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "Ekle"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "Dil"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
@@ -769,35 +795,9 @@ msgstr "Anahtar olarak harf gir (C ya da V gibi)"
 msgid "_Shortcut Key"
 msgstr "_Kısayol Anahtarı"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+#: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Kısayol Ön İzlemesi"
-
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "Düzenler"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "Düzen yapılandırılmadı"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
-msgid "More options…"
-msgstr "Daha çok seçenek…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
-msgid "Move Up"
-msgstr "Yukarı Taşı"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
-msgid "Move Down"
-msgstr "Aşağı Taşı"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "Kaldır"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -876,8 +876,10 @@ msgid "Keep physical size constant"
 msgstr "Fiziksel boyutu değişmez kıl"
 
 #: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
-msgstr "Dikey kipte ekran klavyesi boyutunun değişmez kılınması"
+msgid "Ensure OSK is large enough in high screen resolutions"
+msgstr ""
+"Yüksek ekran çözünürlüklerinde ekran klavyesinin yeterince büyük olduğundan "
+"emin ol"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1200,6 +1202,12 @@ msgstr "_Klavye Kısayolları"
 #: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "Mobil Ayarlar _Hakkında"
+
+#~ msgid "Call volume"
+#~ msgstr "Çağrı sesi"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr "Dikey kipte ekran klavyesi boyutunun değişmez kılınması"
 
 #~ msgid "Silence on Vol-"
 #~ msgstr "Sesi azalt ile sessiz"
