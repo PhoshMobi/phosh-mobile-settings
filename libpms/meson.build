@@ -14,6 +14,7 @@ libpms_public_headers = [
   'ms-osk-add-layout-dialog.h',
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',
+  'libpms.h',
 ]
 
 libpms_deps = [
