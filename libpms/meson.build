@@ -14,6 +14,7 @@ libpms_public_headers = [
   'ms-osk-add-layout-dialog.h',
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',
+  'libpms.h',
 ]
 
 libpms_deps = [
@@ -59,3 +60,26 @@ libpms_dep = declare_dependency(
   include_directories: [include_directories('.')],
   dependencies: libpms_deps,
 )
+
+if get_option('introspection')
+  libpms_gir_extra_args = [
+    '--quiet',
+    '-DLIBPMS_COMPILATION',
+    '-DLIBPMS_USE_UNSTABLE_API',
+    '--doc-format=gi-docgen',
+  ]
+
+  libpms_gir = gnome.generate_gir(
+    libpms_lib,
+    header: 'libpms.h',
+    sources: libpms_public_sources + libpms_public_headers,
+    nsversion: api_version,
+    namespace: 'Pms',
+    symbol_prefix: 'ms',
+    identifier_prefix: 'Ms',
+    includes: ['Gio-2.0', 'Gtk-4.0', 'Adw-1'],
+    install: true,
+    extra_args: libpms_gir_extra_args,
+    fatal_warnings: true,
+  )
+endif

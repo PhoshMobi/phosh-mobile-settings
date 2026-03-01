@@ -2,7 +2,7 @@
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-MESON_OPTS=--wrap-mode=default
+MESON_OPTS=--wrap-mode=default -Dtweaks-data-dir=''
 
 %:
 	dh $@ --builddirectory=_build
