@@ -1,4 +1,5 @@
 api_version = '1.0'
+libname = f'pms-@api_version@'
 
 libpms_private_sources = [
   'ms-osk-layout-row.c',
@@ -42,7 +43,7 @@ libpms_generated_sources = [
 ]
 
 libpms_lib = shared_library(
-  f'pms-@api_version@',
+  libname,
   libpms_public_sources + libpms_public_headers + libpms_private_sources,
   libpms_generated_sources,
   dependencies: libpms_deps,
@@ -53,7 +54,7 @@ libpms_lib = shared_library(
 
 install_headers(
   libpms_public_headers,
-  subdir: f'pms-@api_version@',
+  subdir: libname,
 )
 
 libpms_dep = declare_dependency(
@@ -77,6 +78,7 @@ if get_option('introspection')
     sources: libpms_public_sources + libpms_public_headers,
     nsversion: api_version,
     namespace: 'Pms',
+    export_packages: libname,
     symbol_prefix: 'ms',
     identifier_prefix: 'Ms',
     includes: ['Gio-2.0', 'Gtk-4.0', 'Adw-1'],
@@ -85,3 +87,16 @@ if get_option('introspection')
     fatal_warnings: true,
   )
 endif
+
+pkgconfig = import('pkgconfig')
+pkgconfig.generate(
+  name: 'libpms',
+  description: 'Reusable widgets from Phosh Mobile Settings',
+  filebase: libname,
+  subdirs: libname,
+  libraries: [libpms_lib],
+  version: api_version,
+  requires: 'gio-2.0',
+  requires_private: 'libadwaita-1',
+  install_dir: join_paths(libdir, 'pkgconfig'),
+)
