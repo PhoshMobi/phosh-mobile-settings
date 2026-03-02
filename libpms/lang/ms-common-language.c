@@ -44,6 +44,7 @@ iter_for_language (GtkTreeModel *model,
 {
         g_autofree gchar *name = NULL;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         g_assert (gtk_tree_model_get_iter_first (model, iter));
         do {
                 g_autofree gchar *l = NULL;
@@ -69,6 +70,7 @@ iter_for_language (GtkTreeModel *model,
                                                    LOCALE_COL, name,
                                                    DISPLAY_LOCALE_COL, language,
                                                    -1);
+G_GNUC_END_IGNORE_DEPRECATIONS
                 return TRUE;
         }
 
@@ -250,11 +252,13 @@ foreach_user_lang_cb (gpointer key,
         const char *display_locale = (const char *) value;
         GtkTreeIter iter;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
                             LOCALE_COL, locale,
                             DISPLAY_LOCALE_COL, display_locale,
                             -1);
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 void
@@ -266,7 +270,9 @@ ms_common_language_add_user_languages (GtkTreeModel *model)
         GHashTable *user_langs;
         const char *display;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         gtk_list_store_clear (store);
+G_GNUC_END_IGNORE_DEPRECATIONS
 
         user_langs = ms_common_language_get_initial_languages ();
 
@@ -290,16 +296,21 @@ ms_common_language_add_user_languages (GtkTreeModel *model)
                 display = g_hash_table_lookup (user_langs, name);
         }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter, LOCALE_COL, name, DISPLAY_LOCALE_COL, display, -1);
+G_GNUC_END_IGNORE_DEPRECATIONS
+
         g_hash_table_remove (user_langs, name);
 
         /* The rest of the languages */
         g_hash_table_foreach (user_langs, (GHFunc) foreach_user_lang_cb, store);
 
         /* And now the "Other…" selection */
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter, LOCALE_COL, NULL, DISPLAY_LOCALE_COL, _("Other…"), -1);
+G_GNUC_END_IGNORE_DEPRECATIONS
 
         g_hash_table_destroy (user_langs);
 }
