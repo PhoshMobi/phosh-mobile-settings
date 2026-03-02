@@ -17,4 +17,4 @@
 #include "ms-main.h"
 #include "ms-osk-add-layout-dialog.h"
 #include "ms-osk-layout-prefs.h"
-#include "lang/cc-language-chooser.h"
+#include "lang/ms-language-chooser.h"

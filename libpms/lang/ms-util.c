@@ -23,7 +23,7 @@
 #include <glib/gi18n.h>
 #include <string.h>
 
-#include "cc-util.h"
+#include "ms-util.h"
 
 /* Combining diacritical mark?
  *  Basic range: [0x0300,0x036F]

@@ -5,6 +5,9 @@ plugins/librem5/ui/ms-plugin-librem5-panel.ui
 libpms/ms-osk-add-layout-dialog.ui
 libpms/ms-osk-layout-prefs.ui
 libpms/ms-osk-layout-row.ui
+libpms/lang/ms-common-language.c
+libpms/lang/ms-language-chooser.ui
+libpms/lang/ms-util.c
 src/conf-tweaks/ms-tweaks-callback-handlers.c
 src/conf-tweaks/ms-tweaks-preferences-page.c
 src/gtk/help-overlay.ui

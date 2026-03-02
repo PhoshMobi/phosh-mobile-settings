@@ -16,8 +16,8 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cc-language-row.h"
-#include "cc-util.h"
+#include "ms-language-row.h"
+#include "ms-util.h"
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-languages.h>
@@ -82,7 +82,7 @@ ms_language_row_class_init (MsLanguageRowClass *klass)
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/LibMobileSettings/ui/"
-                                               "cc-language-row.ui");
+                                               "ms-language-row.ui");
 
   gtk_widget_class_bind_template_child (widget_class, MsLanguageRow, check_image);
   gtk_widget_class_bind_template_child (widget_class, MsLanguageRow, country_label);

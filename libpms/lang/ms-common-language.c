@@ -32,7 +32,7 @@
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-languages.h>
 
-#include "cc-common-language.h"
+#include "ms-common-language.h"
 
 static char *get_lang_for_user_object_path (const char *path);
 
@@ -303,4 +303,3 @@ ms_common_language_add_user_languages (GtkTreeModel *model)
 
         g_hash_table_destroy (user_langs);
 }
-

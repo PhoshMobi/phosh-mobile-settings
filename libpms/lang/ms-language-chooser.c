@@ -22,16 +22,16 @@
 
 #include "mobile-settings-config.h"
 
-#include "cc-language-chooser.h"
-#include "cc-language-row.h"
+#include "ms-language-chooser.h"
+#include "ms-language-row.h"
 
 #include <string.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include "cc-common-language.h"
-#include "cc-util.h"
+#include "ms-common-language.h"
+#include "ms-util.h"
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-languages.h>
@@ -296,7 +296,7 @@ ms_language_chooser_class_init (MsLanguageChooserClass *klass)
 
         gtk_widget_class_set_template_from_resource (widget_class,
                                                      "/mobi/phosh/LibMobileSettings/ui/"
-                                                     "cc-language-chooser.ui");
+                                                     "ms-language-chooser.ui");
 
         gtk_widget_class_bind_template_child (widget_class, MsLanguageChooser, language_filter_entry);
         gtk_widget_class_bind_template_child (widget_class, MsLanguageChooser, language_listbox);

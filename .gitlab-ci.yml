@@ -192,6 +192,7 @@ check-g-style:
   stage: style-checks
   variables:
     PHOSH_BANNED_TYPES: "gchar gfloat gdouble gint"
+    PHOSH_EXCLUDE_DIRS: "libpms/lang/"
   extends:
     - .phosh-check-g-style
 

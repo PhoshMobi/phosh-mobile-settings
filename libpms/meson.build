@@ -3,9 +3,9 @@ libname = f'pms-@api_version@'
 
 libpms_private_sources = [
   'ms-osk-layout-row.c',
-  'lang/cc-util.c',
-  'lang/cc-language-row.c',
-  'lang/cc-common-language.c',
+  'lang/ms-util.c',
+  'lang/ms-language-row.c',
+  'lang/ms-common-language.c',
 ]
 
 libpms_public_sources = [
@@ -13,7 +13,7 @@ libpms_public_sources = [
   'ms-osk-add-layout-dialog.c',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout.c',
-  'lang/cc-language-chooser.c',
+  'lang/ms-language-chooser.c',
 ]
 
 libpms_public_headers = [
@@ -22,7 +22,7 @@ libpms_public_headers = [
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',
   'libpms.h',
-  'lang/cc-language-chooser.h',
+  'lang/ms-language-chooser.h',
 ]
 
 libpms_deps = [
