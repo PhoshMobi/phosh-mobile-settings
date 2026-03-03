@@ -4,3 +4,6 @@ option('tweaks-data-dir',
 
 option('introspection', type: 'boolean', value: true,
        description : 'Build introspection data (requires gobject-introspection)')
+
+option('examples', type: 'boolean', value: false,
+       description: 'Whether to compile the examples')

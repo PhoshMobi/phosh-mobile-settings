@@ -197,6 +197,9 @@ subdir('src')
 subdir('tests')
 subdir('plugins')
 subdir('po')
+if get_option('examples')
+  subdir('examples')
+endif
 
 # Older meson can't handle gnome.post_install but that only
 # matters for distro backports:
