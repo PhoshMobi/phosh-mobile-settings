@@ -32,10 +32,6 @@ main (int argc, char *argv[])
   g_autoptr (GError) err = NULL;
   int ret;
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
-
   ms_init ();
 
   app = ms_application_new (MOBILE_SETTINGS_APP_ID);
