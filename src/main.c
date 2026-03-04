@@ -32,13 +32,13 @@ main (int argc, char *argv[])
   g_autoptr (GError) err = NULL;
   int ret;
 
-  ms_init ();
+  ms_internal_init ();
 
   app = ms_application_new (MOBILE_SETTINGS_APP_ID);
   g_unix_signal_add (SIGTERM, on_sigkill, NULL);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
 
-  ms_uninit ();
+  ms_internal_uninit ();
 
   return ret;
 }
