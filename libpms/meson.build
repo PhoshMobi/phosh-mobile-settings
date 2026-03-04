@@ -5,12 +5,14 @@ libpms_private_sources = [
 ]
 
 libpms_public_sources = [
+  'ms-main.c',
   'ms-osk-add-layout-dialog.c',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout.c',
 ]
 
 libpms_public_headers = [
+  'ms-main.h',
   'ms-osk-add-layout-dialog.h',
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',
