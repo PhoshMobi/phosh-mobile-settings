@@ -20,7 +20,7 @@
 #include "mobile-settings-config.h"
 
 #include <gio/gdesktopappinfo.h>
-#include <glib/gi18n.h>
+#include <glib/gi18n-lib.h>
 #include <string.h>
 
 #include "ms-util.h"

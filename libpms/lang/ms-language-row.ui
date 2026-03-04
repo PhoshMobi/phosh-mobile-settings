@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<interface>
+<interface domain="phosh-mobile-settings">
   <!-- interface-requires gtk+ 3.0 -->
   <template class="MsLanguageRow" parent="GtkListBoxRow">
     <child>
