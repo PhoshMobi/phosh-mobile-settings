@@ -1,19 +1,20 @@
 # Basque translation for phosh-mobile-settings.
 # Copyright (C) 2025 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Asier Saratsua Garmendia <asiersarasua@ni.eus>,  2025.
+# Asier Saratsua Garmendia <asiersarasua@ni.eus>,  2025, 2026.
 #
 msgid ""
 msgstr "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues\n"
-"POT-Creation-Date: 2025-12-20 13:44+0000\n"
-"PO-Revision-Date: 2025-12-21 16:46+0000\n"
+"POT-Creation-Date: 2026-02-25 17:40+0000\n"
+"PO-Revision-Date: 2026-03-08 16:46+0000\n"
 "Last-Translator: Asier Saratsua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -105,10 +106,72 @@ msgstr "Energia-neurgailua"
 msgid "Battery"
 msgstr "Bateria"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:47
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Gehitu diseinua"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "Utzi"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Gehitu"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40
+msgid "Language"
+msgstr "Hizkuntza"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Diseinuak"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Ez dago diseinurik konfiguratuta"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "Aukera gehiago…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "Mugitu gora"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "Mugitu behera"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Kendu"
+
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "Zerbait gaizki joan da: %s"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:479
+msgid "Authentication cancelled"
+msgstr "Autentifikazioa bertan behera utzi da"
+
+#. We had errors while running the commands, so inform the user of this.
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:484
+#, c-format
+msgid "%i error occurred while saving"
+msgid_plural "%i errors occurred while saving"
+msgstr[0] "Errore %i gertatu da gordetzean"
+msgstr[1] "%i errore gertatu dira gordetzean"
+
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
+msgid "You need to authenticate as administrator to save some settings"
+msgstr "Administratzaile gisa autentifikatu behar duzu zenbait ezarpen gordetzeko"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -138,31 +201,27 @@ msgstr "- Kudeatu mugikorraren ezarpenak"
 msgid "translator-credits"
 msgstr "Asier Saratsua Garmendia <asier.sarasua@gmail.com>"
 
-#: src/ms-audio-devices.c:178
+#: src/ms-audio-devices.c:179
 msgid "Media Volume"
 msgstr "Multimediaren bolumena"
 
-#: src/ms-audio-devices.c:180
+#: src/ms-audio-devices.c:182
 msgid "Notification Volume"
 msgstr "Jakinarazpenen bolumena"
 
-#: src/ms-audio-devices.c:182
+#: src/ms-audio-devices.c:185
 msgid "Voice Call Volume"
 msgstr "Ahots-deien bolumena"
 
-#: src/ms-audio-devices.c:184
+#: src/ms-audio-devices.c:188
 msgid "Ring Tone Volume"
 msgstr "Dei-tonuaren bolumena"
 
-#: src/ms-audio-devices.c:186
-msgid "Call volume"
-msgstr "Deien bolumena"
-
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:191
 msgid "Alarm Volume"
 msgstr "Alarmaren bolumena"
 
-#: src/ms-audio-devices.c:190
+#: src/ms-audio-devices.c:194
 msgid "Emergency Alerts Volume"
 msgstr "Larrialdi-alerten bolumena"
 
@@ -170,44 +229,44 @@ msgstr "Larrialdi-alerten bolumena"
 msgid "Message of unknown severity"
 msgstr "Larritasun ezezaguneko mezua"
 
-#: src/ms-feedback-panel.c:215
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "Soinu-fitxategia ez da existitzen"
 
-#: src/ms-feedback-panel.c:217
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "Soinu-fitxategia hondatuta dago"
 
-#: src/ms-feedback-panel.c:219
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "Soinuaren erreprodukzioak huts egin du"
 
-#: src/ms-feedback-panel.c:258
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "%s erreproduzitzen"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "baxua"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "normala"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:425
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "kritikoa"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:429
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "bat ere ez"
 
-#: src/ms-feedback-panel.c:813
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "Mugikorraren ezarpenen bolumen-kontrola"
 
@@ -216,15 +275,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Blokeoko horma-papera ezartzeak huts egin du"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:744
+#: src/ms-osk-panel.c:748
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: src/ms-osk-panel.c:745
+#: src/ms-osk-panel.c:749
 msgid "The default completer selected by the OSK"
 msgstr "Pantailako teklatuak hautatutako osatzaile lehenetsia"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:752
 msgid "No information available for this completer"
 msgstr "Ez dago informaziorik osatzaile honetarako"
 
@@ -337,6 +396,22 @@ msgstr "Aukeratu horma-papera"
 msgid "Device"
 msgstr "Gailua"
 
+#: src/ui/ms-about-panel.ui:18
+msgid "Phosh logo"
+msgstr "Phosh logoa"
+
+#: src/ui/ms-about-panel.ui:29
+msgid "Phosh Version"
+msgstr "Phosh bertsioa"
+
+#: src/ui/ms-about-panel.ui:37
+msgid "Operating System"
+msgstr "Sistema eragilea"
+
+#: src/ui/ms-about-panel.ui:45
+msgid "Hardware Model"
+msgstr "Hardwarearen modeloa"
+
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
 msgstr "Ezin dira alertak jaso"
@@ -432,7 +507,7 @@ msgstr "Gaituta"
 
 #: src/ui/ms-convergence-panel.ui:15
 msgid "No known docks detected"
-msgstr "Ez da atrakaleku ezagunik detektatu\t"
+msgstr "Ez da atrakaleku ezagunik detektatu"
 
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
@@ -488,136 +563,140 @@ msgstr "Gaituta"
 msgid "Sound Settings"
 msgstr "Soinu-ezarpenak"
 
-#: src/ui/ms-feedback-panel.ui:27
+#: src/ui/ms-feedback-panel.ui:17
+msgid "Play sound on adjusting volume sliders"
+msgstr "Erreproduzitu soinua bolumen-graduatzaileak doitzean"
+
+#: src/ui/ms-feedback-panel.ui:33
 msgid "Feedback Settings"
 msgstr "Iritzien ezarpenak"
 
-#: src/ui/ms-feedback-panel.ui:30
+#: src/ui/ms-feedback-panel.ui:36
 msgid "Feedback profile"
 msgstr "Feedback-profila"
 
-#: src/ui/ms-feedback-panel.ui:31
+#: src/ui/ms-feedback-panel.ui:37
 msgid "The global maximum feedback profile"
 msgstr "Gehieneko feedback-profil globala"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:52
 msgid "Prefer flash"
 msgstr "Hobetsi flasha"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:53
 msgid "Prefer camera flash over status LED when available"
 msgstr "Hobetsi kameraren flasha egoerako LEDaren gainetik, erabilgarri dagoenean"
 
-#: src/ui/ms-feedback-panel.ui:53
+#: src/ui/ms-feedback-panel.ui:59
 msgid "Silence by volume button press"
 msgstr "Isildu bolumen-botoia sakatuz"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:60
 msgid ""
 "When locked put the phone in silent mode when pressing the button that "
 "lowers the volume on incoming calls"
 msgstr "Blokeatuta dagoenean, sartzen diren deien bolumena jaisten duen botoia sakatzean, isildu telefonoa"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:60
+#: src/ui/ms-feedback-panel.ui:66
 msgid "Haptic strength"
 msgstr "Sendotasun haptikoa"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:67
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Feedback haptikoaren gehieneko sendotasunaren ehunekoa"
 
-#: src/ui/ms-feedback-panel.ui:80
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Per Application settings"
 msgstr "Aplikazioaren araberako ezarpenak"
 
-#: src/ui/ms-feedback-panel.ui:93 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
 msgid "Sounds"
 msgstr "Soinuak"
 
-#: src/ui/ms-feedback-panel.ui:94
+#: src/ui/ms-feedback-panel.ui:100
 msgid "The sound to use for certain events"
 msgstr "Zenbait gertaeratarako erabiliko den soinua"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Phone Calls"
 msgstr "Telefono-deiak"
 
-#: src/ui/ms-feedback-panel.ui:120
+#: src/ui/ms-feedback-panel.ui:126
 msgid "SMS"
 msgstr "SMSa"
 
-#: src/ui/ms-feedback-panel.ui:132 src/ui/ms-feedback-panel.ui:201
+#: src/ui/ms-feedback-panel.ui:138 src/ui/ms-feedback-panel.ui:207
 msgid "Instant Messages"
 msgstr "Berehalako mezuak"
 
-#: src/ui/ms-feedback-panel.ui:145
+#: src/ui/ms-feedback-panel.ui:151
 msgid "Alarm Clock"
 msgstr "Iratzargailua"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:162
 msgid "Screen Wakeup"
 msgstr "Pantailaren esnatzea"
 
-#: src/ui/ms-feedback-panel.ui:159
+#: src/ui/ms-feedback-panel.ui:165
 msgid "Notification urgency that lights up the screen"
 msgstr "Pantaila argitzen duen jakinarazpen-larrialdia"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:183
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
 msgstr "Pantaila esnatzen duten jakinarazpen-kategoriak, beren larritasuna kontuan hartu gabe"
 
-#: src/ui/ms-feedback-panel.ui:180
+#: src/ui/ms-feedback-panel.ui:186
 msgid "Calls"
 msgstr "Deiak"
 
-#: src/ui/ms-feedback-panel.ui:181
+#: src/ui/ms-feedback-panel.ui:187
 msgid "A generic audio or video call notification"
 msgstr "Audioko edo bideoko deien jakinarazpen generikoa"
 
-#: src/ui/ms-feedback-panel.ui:187
+#: src/ui/ms-feedback-panel.ui:193
 msgid "Device events"
 msgstr "Gailu-gertaerak"
 
-#: src/ui/ms-feedback-panel.ui:188
+#: src/ui/ms-feedback-panel.ui:194
 msgid "A generic device-related notification"
 msgstr "Gailuari lotutako jakinarazpen orokorra"
 
-#: src/ui/ms-feedback-panel.ui:194
+#: src/ui/ms-feedback-panel.ui:200
 msgid "Emails"
 msgstr "Posta-mezuak"
 
-#: src/ui/ms-feedback-panel.ui:195
+#: src/ui/ms-feedback-panel.ui:201
 msgid "A generic e-mail-related notification"
 msgstr "Posta elektronikoei lotutako jakinarazpen generikoa"
 
-#: src/ui/ms-feedback-panel.ui:202
+#: src/ui/ms-feedback-panel.ui:208
 msgid "A generic instant message-related notification"
 msgstr "Berehalako mezularitzako jakinarazpen generikoa"
 
-#: src/ui/ms-feedback-panel.ui:208
+#: src/ui/ms-feedback-panel.ui:214
 msgid "Network events"
 msgstr "Sareko gertaerak"
 
-#: src/ui/ms-feedback-panel.ui:209
+#: src/ui/ms-feedback-panel.ui:215
 msgid "A generic network notification"
 msgstr "Sareko jakinarazpen orokorra"
 
-#: src/ui/ms-feedback-panel.ui:215
+#: src/ui/ms-feedback-panel.ui:221
 msgid "Presence changes"
 msgstr "Presentzia-aldaketak"
 
-#: src/ui/ms-feedback-panel.ui:216
+#: src/ui/ms-feedback-panel.ui:222
 msgid "A generic presence change notification"
 msgstr "Presentzia-aldaketen jakinarazpen generikoa"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:228
 msgid "File transfers"
 msgstr "Fitxategi-transferentziak"
 
-#: src/ui/ms-feedback-panel.ui:223
+#: src/ui/ms-feedback-panel.ui:229
 msgid "A generic file transfer or download notification"
 msgstr "Fitxategi-transferentzien edo deskargen jakinarazpen generikoa"
 
@@ -673,26 +752,6 @@ msgstr "Trepetak"
 msgid "Additional widgets for the lock screen"
 msgstr "Blokeo-pantailarako trepeta gehigarriak"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "Gehitu diseinua"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "Utzi"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "Gehitu"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "Hizkuntza"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
@@ -713,41 +772,15 @@ msgstr "Sartu laster-tekla"
 
 #: src/ui/ms-osk-add-shortcut-dialog.ui:141
 msgid "Type a key such as letters (like C or V), etc."
-msgstr ""
+msgstr "Sakatu tekla bat, adibidez letrak (esaterako C edo V), etab."
 
 #: src/ui/ms-osk-add-shortcut-dialog.ui:144
 msgid "_Shortcut Key"
 msgstr "_Laster-tekla"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+#: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Lasterbidearen aurrebista"
-
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "Diseinuak"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "Ez dago diseinurik konfiguratuta"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
-msgid "More options…"
-msgstr "Aukera gehiago…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
-msgid "Move Up"
-msgstr "Mugitu gora"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
-msgid "Move Down"
-msgstr "Mugitu behera"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "Kendu"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -824,8 +857,8 @@ msgid "Keep physical size constant"
 msgstr "Mantendu tamaina fisiko konstantea"
 
 #: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
-msgstr "Pantailako teklatuaren tamaina konstantea izango den ala ez modu bertikalean"
+msgid "Ensure OSK is large enough in high screen resolutions"
+msgstr "Ziurtatu pantailako teklatua nahiko handia dela bereizmen handiko pantailetan"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1126,14 +1159,26 @@ msgstr "Eseki"
 msgid "Experimental"
 msgstr "Esperimentala"
 
-#: src/ui/ms-window.ui:329
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+msgid "About"
+msgstr "Honi buruz"
+
+#: src/ui/ms-window.ui:349
 msgid "_Show Configurable Tweaks"
 msgstr "_Erakutsi doikuntza konfiguragarriak"
 
-#: src/ui/ms-window.ui:336
+#: src/ui/ms-window.ui:356
 msgid "_Keyboard Shortcuts"
 msgstr "Laster_bideak"
 
-#: src/ui/ms-window.ui:340
+#: src/ui/ms-window.ui:360
 msgid "_About Mobile Settings"
 msgstr "Mugikorraren ezarpenei _buruz"
+
+#~ msgid "Call volume"
+#~ msgstr "Deien bolumena"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr ""
+#~ "Pantailako teklatuaren tamaina konstantea izango den ala ez modu "
+#~ "bertikalean"
