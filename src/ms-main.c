@@ -52,7 +52,7 @@ ms_init_types (void)
  * the resources.
  */
 void
-ms_init (void)
+ms_internal_init (void)
 {
   static gsize initialised = FALSE;
 
@@ -78,7 +78,7 @@ ms_init (void)
  * Free up resources.
  */
 void
-ms_uninit (void)
+ms_internal_uninit (void)
 {
   mobile_settings_unregister_resource ();
 }

@@ -12,6 +12,8 @@
 #include "ms-application.h"
 #include "ms-main.h"
 
+#include "libpms.h"
+
 #include <glib-unix.h>
 
 
@@ -32,17 +34,16 @@ main (int argc, char *argv[])
   g_autoptr (GError) err = NULL;
   int ret;
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
-
+  /* Init libpms */
   ms_init ();
+  /* Init the private lib */
+  ms_internal_init ();
 
   app = ms_application_new (MOBILE_SETTINGS_APP_ID);
   g_unix_signal_add (SIGTERM, on_sigkill, NULL);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
 
-  ms_uninit ();
+  ms_internal_uninit ();
 
   return ret;
 }
