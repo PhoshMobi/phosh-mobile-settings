@@ -12,6 +12,8 @@
 #include "ms-application.h"
 #include "ms-main.h"
 
+#include "libpms.h"
+
 #include <glib-unix.h>
 
 
@@ -32,6 +34,9 @@ main (int argc, char *argv[])
   g_autoptr (GError) err = NULL;
   int ret;
 
+  /* Init libpms */
+  ms_init ();
+  /* Init the private lib */
   ms_internal_init ();
 
   app = ms_application_new (MOBILE_SETTINGS_APP_ID);
