@@ -28,17 +28,17 @@
 #define PHOSH_SETTINGS               "sm.puri.phosh"
 #define OSK_UNFOLD_DELAY_KEY         "osk-unfold-delay"
 
-#define PHOSH_OSK_SETTINGS           "sm.puri.phosh.osk"
+#define PHOSH_OSK_SETTINGS           "mobi.phosh.osk"
 #define WORD_COMPLETION_KEY          "completion-mode"
 #define HW_KEYBOARD_KEY              "ignore-hw-keyboards"
 #define OSK_FEATURES_KEY             "osk-features"
 #define OSK_SCALING_KEY              "scaling"
 
-#define PHOSH_OSK_COMPLETER_SETTINGS "sm.puri.phosh.osk.Completers"
+#define PHOSH_OSK_COMPLETER_SETTINGS "mobi.phosh.osk.Completers"
 #define DEFAULT_COMPLETER_KEY        "default"
 #define POS_COMPLETER_SUFFIX         ".completer"
 
-#define PHOSH_OSK_TERMINAL_SETTINGS  "sm.puri.phosh.osk.Terminal"
+#define PHOSH_OSK_TERMINAL_SETTINGS  "mobi.phosh.osk.Terminal"
 #define SHORTCUTS_KEY                "shortcuts"
 
 #define SQUEEKBOARD_SETTINGS         "sm.puri.Squeekboard"

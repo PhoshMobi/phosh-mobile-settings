@@ -1,3 +1,83 @@
+phosh-mobile-settings (0.54~dev) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * news: Fix wording.
+    Metainfo has it correct
+  * osk: Move OSK handling to shared library.
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/107
+  * osk-layout: Make private.
+    Not needed in the public API
+  * pms: Add single file header.
+    That way we can restructure headers without breaking API
+  * libpms: Relicense library bits under LGPL.
+    Seems I'm the only author of that code. Let's also move copyright
+    to Phosh.mobi e.V. while at that.
+  * packaging: Set tweaks data dir to empty.
+    Avoids a warning during the build
+  * libpms: Export single include header.
+    Fixes: 5f7f095 ("pms: Add single file header")
+  * libpms: Enable introspection.
+    This will allow us to add language bindings
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/107
+  * osk-panel: Move settings mobi.phosh.osk.
+    See https://gitlab.gnome.org/World/Phosh/stevia/-/merge_requests/276
+  * packaging: Bump dependency.
+    This ensures we have recent schema
+
+  [ Álvaro Burns ]
+  * Update Brazilian Portuguese translation
+
+  [ Davide Ferracin ]
+  * Add Italian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Rudra Pratap Singh ]
+  * audio-device-row: Make ADJUSTMENT_MAX_NORMAL a public constant.
+    And rename it to AUDIO_DEVICE_ROW_MAX_NORMAL.
+  * feedback-panel: Add helper function to display a toast
+  * audio-device-row: Introduce volume property in place of signal.
+    Instead of emitting the `volume-changed` signal,
+    we add a `volume` property that users can listen
+    for changes and query value of accordingly.
+  * feedback-panel: Play sound for Voice Call volume slider.
+    We bundle a custom sound file for the 'phone'
+    media role and play it via GtkMediaStream API,
+    for which we depend on gstreamer1.0-plugins-good.
+    As we don't invoke gsound for it, we query
+    the volume of that stream manually when playing.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/106
+
+  [ Hugo Carvalho ]
+  * Add Portuguese translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Stefan Hansson ]
+  * tests: Add basic conf-tweaks testdata and use it
+  * ms-tweaks-preferences-page: Don't leak widget_value
+  * ms-tweaks-parser: Improve handling of nonexistent conf-tweaks dirs.
+    Allow people building p-m-s to set the tweaks-data-dir build option to
+    an empty string as a means of disabling conf-tweaks entirely. For other
+    situations, print a warning if no valid files are found or if the
+    directory doesn't exist at all.
+    Also, update the CI scripts to use this to avoid failures.
+  * ms-tweaks-backend-xresources: Debug print on missing ~/.Xresources.
+    We need to be able to start up without any warnings in the tests, so use
+    a debug print here. This does have the unfortunate side-effect of that
+    it no longer just prints once, but maybe it's fine since it's now only
+    printed with more verbose logging options.
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 09 Mar 2026 09:06:47 +0100
+
 phosh-mobile-settings (0.53.0) experimental; urgency=medium
 
   [ Antonio Marin ]

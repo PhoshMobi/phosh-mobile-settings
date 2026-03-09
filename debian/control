@@ -41,10 +41,10 @@ Package: phosh-mobile-settings
 Architecture: any
 Depends:
  feedbackd (>= 0.8.0~),
- libpms-1.0 (>= ${binary:Version}),
+ libpms-1.0-0 (>= ${binary:Version}),
  phoc (>= 0.34.0~),
  phosh (>= 0.40.0~),
- phosh-osk-stevia (>= 0.53~),
+ phosh-osk-stevia (>= 0.54~),
  xdg-desktop-portal-phosh (>= 0.46~),
  ${misc:Depends},
  ${shlibs:Depends},
