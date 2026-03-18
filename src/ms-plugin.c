@@ -19,7 +19,7 @@ ms_plugin_check_device_support (const char * const *supported)
   g_autofree char *compatibles = NULL;
   const char *assume_device;
 
-  assume_device = g_getenv("MOBILE_SETTINGS_ASSUME_DEVICE");
+  assume_device = g_getenv ("MS_FORCE_DEVICE");
   g_debug ("Assuming device %s", assume_device);
 
   /* ALlow to override detected device for debugging */
