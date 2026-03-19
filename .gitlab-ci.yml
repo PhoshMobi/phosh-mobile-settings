@@ -183,15 +183,10 @@ format-check:
 
 check-g-style:
   stage: style-checks
-  allow_failure: true
-  script:
-    - ./.gitlab-ci/g-style ${GCHECK_DIRS}
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      changes:
-        paths:
-          - "**/*.c"
-          - "**/*.h"
+  variables:
+    PHOSH_BANNED_TYPES: "gchar gfloat gdouble gint"
+  extends:
+    - .phosh-check-g-style
 
 check-meson:
   stage: style-checks
