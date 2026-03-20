@@ -29,6 +29,7 @@ Build-Depends:
  libsensors-dev,
  libyaml-dev,
  meson,
+ python3-docutils <!nodoc>,
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
  phosh-dev (>= 0.40.0),

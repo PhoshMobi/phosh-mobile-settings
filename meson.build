@@ -197,6 +197,7 @@ subdir('src')
 subdir('tests')
 subdir('plugins')
 subdir('po')
+subdir('docs')
 if get_option('examples')
   subdir('examples')
 endif

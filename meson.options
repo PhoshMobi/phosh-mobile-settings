@@ -7,3 +7,6 @@ option('introspection', type: 'boolean', value: true,
 
 option('examples', type: 'boolean', value: false,
        description: 'Whether to compile the examples')
+
+option('man', type: 'boolean', value: false,
+       description: 'Generate man pages (requires rst2man)')
