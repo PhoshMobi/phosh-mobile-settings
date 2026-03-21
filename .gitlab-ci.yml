@@ -1,6 +1,6 @@
 include:
  - project: 'World/Phosh/meta-phosh'
-   ref: '38648e8c4caeea0293e1a724fc171875f6b591e5'
+   ref: '4a59c2bce9fe230614431a21638a05f3a30da7f3'
    file: '/ci/phosh-common-jobs.yml'
  - project: 'Infrastructure/freedesktop-ci-templates'
    ref: 'd03cddbcff35f26861429fc816c00323f48e99af'
@@ -183,15 +183,10 @@ format-check:
 
 check-g-style:
   stage: style-checks
-  allow_failure: true
-  script:
-    - ./.gitlab-ci/g-style ${GCHECK_DIRS}
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      changes:
-        paths:
-          - "**/*.c"
-          - "**/*.h"
+  variables:
+    PHOSH_BANNED_TYPES: "gchar gfloat gdouble gint"
+  extends:
+    - .phosh-check-g-style
 
 check-meson:
   stage: style-checks
