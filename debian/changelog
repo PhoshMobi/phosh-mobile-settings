@@ -1,4 +1,4 @@
-phosh-mobile-settings (0.54~dev) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.54~rc1) experimental; urgency=medium
 
   [ Guido Günther ]
   * news: Fix wording.
@@ -23,6 +23,9 @@ phosh-mobile-settings (0.54~dev) UNRELEASED; urgency=medium
     See https://gitlab.gnome.org/World/Phosh/stevia/-/merge_requests/276
   * packaging: Bump dependency.
     This ensures we have recent schema
+  * gvc: Switch back to blessed repo.
+    It has all our patches
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/113
 
   [ Álvaro Burns ]
   * Update Brazilian Portuguese translation
@@ -48,6 +51,14 @@ phosh-mobile-settings (0.54~dev) UNRELEASED; urgency=medium
     As we don't invoke gsound for it, we query
     the volume of that stream manually when playing.
     Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/106
+  * libpms: Add pkgconfig file.
+    We also require 'libadwaita-1' package as without
+    it programs that link to libpms will fail to
+    compile (as libpms depends on it).
+  * libpms: Add a simple C example app utilizing libpms
+  * ci: Add CI job to test .pc file.
+    Reusing the C example we can check if the
+    pkgconfig file was generated correctly.
 
   [ Hugo Carvalho ]
   * Add Portuguese translation
@@ -76,7 +87,27 @@ phosh-mobile-settings (0.54~dev) UNRELEASED; urgency=medium
   [ Yaron Shahrabani ]
   * Update Hebrew translation
 
- -- Guido Günther <agx@sigxcpu.org>  Mon, 09 Mar 2026 09:06:47 +0100
+  [ Jordi Mas ]
+  * Update Catalan translation
+
+  [ Balázs Úr ]
+  * Update Hungarian translation
+
+  [ Марко Костић ]
+  * Add Serbian translation
+
+  [ Gotam Gorabh ]
+  * ms-plugin: Rename 'MOBILE_SETTINGS_ASSUME_DEVICE' env var.
+    Rename to 'MS_FORCE_DEVICE' for consistencies.
+  * tree: Add man page.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/77
+  * ci: Update shared scripts to 4a59c2b
+  * ci: Use common g-style check.
+    Drop the local `g-style` script and use the shared CI check
+    from meta-phosh instead. This check is configured to detect
+    gchar, gdouble, gfloat, and gint usages.
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 25 Mar 2026 09:14:11 +0100
 
 phosh-mobile-settings (0.53.0) experimental; urgency=medium
 
