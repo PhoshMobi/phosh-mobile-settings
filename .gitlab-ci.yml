@@ -175,6 +175,14 @@ check-consistency:
   stage: test
   extends: .phosh-check-consistency
 
+check-dist:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  <<: *before
+  script:
+    - meson setup _build-dist ${MESON_OPTIONS}
+    - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson dist --include-subprojects -C _build-dist ${MESON_DIST_OPTIONS}"
+
 format-check:
   stage: style-checks
   extends: .phosh-format-check
