@@ -29,11 +29,11 @@ Build-Depends:
  libsensors-dev,
  libyaml-dev,
  meson,
- python3-docutils <!nodoc>,
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
  phosh-dev (>= 0.40.0),
  phosh-plugins (>= 0.40.0~) <!nocheck>,
+ python3-docutils <!nodoc>,
 Standards-Version: 4.6.0
 Homepage: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/
 Rules-Requires-Root: no
