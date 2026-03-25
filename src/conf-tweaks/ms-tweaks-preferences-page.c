@@ -53,7 +53,7 @@ static void
 set_title_and_subtitle (GtkWidget *widget, const MsTweaksSetting *setting_data)
 {
   adw_preferences_row_set_title (ADW_PREFERENCES_ROW (widget), setting_data->name_i18n);
-  adw_action_row_set_subtitle (ADW_ACTION_ROW (widget), setting_data->help_i18n);
+  adw_action_row_set_subtitle (ADW_ACTION_ROW (widget), setting_data->help_i18n ?: "");
 }
 
 
