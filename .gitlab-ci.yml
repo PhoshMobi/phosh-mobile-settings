@@ -56,7 +56,6 @@ variables:
 
 .test_step: &test_step
   script:
-    - !reference [.phosh-prepare-apt]
     - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson test --print-errorlogs -C _build"
     - ninja -C _build coverage-html || true
 
