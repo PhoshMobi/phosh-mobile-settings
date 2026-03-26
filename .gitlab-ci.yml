@@ -37,7 +37,7 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2026-01-01
+  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2026-03-25
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
   GCHECK_DIRS: src tests plugins
   PHOC: dbus-launch phoc --no-xwayland
@@ -56,7 +56,6 @@ variables:
 
 .test_step: &test_step
   script:
-    - !reference [.phosh-prepare-apt]
     - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson test --print-errorlogs -C _build"
     - ninja -C _build coverage-html || true
 
@@ -175,6 +174,14 @@ check-po:
 check-consistency:
   stage: test
   extends: .phosh-check-consistency
+
+check-dist:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  <<: *before
+  script:
+    - meson setup _build-dist ${MESON_OPTIONS}
+    - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson dist --include-subprojects -C _build-dist ${MESON_DIST_OPTIONS}"
 
 format-check:
   stage: style-checks
