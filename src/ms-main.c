@@ -18,6 +18,7 @@
 #include "ms-convergence-panel.h"
 #include "ms-features-panel.h"
 #include "ms-feedback-panel.h"
+#include "ms-lang-panel.h"
 #include "ms-lockscreen-panel.h"
 #include "ms-osk-panel.h"
 #include "ms-overview-panel.h"
@@ -36,6 +37,7 @@ ms_init_types (void)
   g_type_ensure (MS_TYPE_CONVERGENCE_PANEL);
   g_type_ensure (MS_TYPE_FEATURES_PANEL);
   g_type_ensure (MS_TYPE_FEEDBACK_PANEL);
+  g_type_ensure (MS_TYPE_LANG_PANEL);
   g_type_ensure (MS_TYPE_LOCKSCREEN_PANEL);
   g_type_ensure (MS_TYPE_OSK_PANEL);
   g_type_ensure (MS_TYPE_OVERVIEW_PANEL);

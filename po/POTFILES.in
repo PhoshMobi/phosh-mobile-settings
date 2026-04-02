@@ -16,6 +16,7 @@ src/ms-application.c
 src/ms-audio-devices.c
 src/ms-cb-message-row.c
 src/ms-feedback-panel.c
+src/ms-lang-panel.c
 src/ms-lockscreen-panel.c
 src/ms-osk-panel.c
 src/ms-overview-panel.c
