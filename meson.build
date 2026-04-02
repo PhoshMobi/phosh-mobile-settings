@@ -202,4 +202,14 @@ if get_option('examples')
   subdir('examples')
 endif
 
+summary(
+  {
+    'Examples': get_option('examples'),
+    'Introspection': get_option('introspection'),
+    'Man pages': get_option('man'),
+    'Tweaks directory': get_option('tweaks-data-dir'),
+  },
+  bool_yn: true,
+)
+
 gnome.post_install(gtk_update_icon_cache: true, update_desktop_database: true)
