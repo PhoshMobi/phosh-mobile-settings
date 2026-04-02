@@ -202,8 +202,4 @@ if get_option('examples')
   subdir('examples')
 endif
 
-# Older meson can't handle gnome.post_install but that only
-# matters for distro backports:
-if meson.version().version_compare('>=0.59.0')
-  gnome.post_install(gtk_update_icon_cache: true, update_desktop_database: true)
-endif
+gnome.post_install(gtk_update_icon_cache: true, update_desktop_database: true)
