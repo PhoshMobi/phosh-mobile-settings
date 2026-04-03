@@ -60,6 +60,9 @@ on_search_changed (MsOskAddLayoutDialog *self, GtkSearchEntry *entry)
 static void
 on_row_selected (MsOskAddLayoutDialog *self)
 {
+  if (!self->add_button)
+    return;
+
   gtk_widget_set_sensitive (self->add_button, TRUE);
 }
 

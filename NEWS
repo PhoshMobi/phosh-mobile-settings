@@ -65,6 +65,7 @@ Released January 2026
 * Leak fixes and internal cleanups
 * Issues fixed:
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/65
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/95
 * Contributors:
     * Evangelos Ribeiro Tzaras
     * Guido Günther
