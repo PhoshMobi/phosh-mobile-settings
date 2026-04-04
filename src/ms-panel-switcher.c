@@ -38,6 +38,8 @@ struct _MsPanelSwitcher {
 
   char               *query;
   char               *current_panelname;
+
+  gboolean            only_tweaks;
 };
 G_DEFINE_TYPE (MsPanelSwitcher, ms_panel_switcher, ADW_TYPE_BIN)
 
@@ -75,6 +77,9 @@ panels_filter_func (gpointer item, gpointer user_data)
       && !g_settings_get_boolean (self->settings, "enable-conf-tweaks")) {
     return FALSE;
   }
+
+  if (self->only_tweaks && !MS_IS_TWEAKS_PREFERENCES_PAGE (stack_child))
+    return FALSE;
 
   if (STR_IS_NULL_OR_EMPTY (self->query))
     return TRUE;
@@ -321,6 +326,18 @@ ms_panel_switcher_set_active_panel_index (MsPanelSwitcher *self, uint idx)
 
   return page ? ms_panel_switcher_set_active_panel_name (self,
                                                          gtk_stack_page_get_name (page)) : FALSE;
+}
+
+
+void
+ms_panel_switcher_set_only_tweaks (MsPanelSwitcher *self, const gboolean only_tweaks)
+{
+  g_assert (MS_IS_PANEL_SWITCHER (self));
+
+  self->only_tweaks = only_tweaks;
+
+  ms_panel_switcher_refilter (self,
+                              only_tweaks ? GTK_FILTER_CHANGE_MORE_STRICT : GTK_FILTER_CHANGE_LESS_STRICT);
 }
 
 

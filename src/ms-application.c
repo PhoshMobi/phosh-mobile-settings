@@ -83,6 +83,11 @@ static const GOptionEntry entries[] = {
     NULL, "List the available panels", NULL
   },
   {
+    "only-conf-tweaks", 'c',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
+    NULL, "Only show conf-tweaks panels, hide all built-in panels", NULL
+  },
+  {
     G_OPTION_REMAINING, '\0',
     G_OPTION_FLAG_NONE, G_OPTION_ARG_FILENAME_ARRAY,
     NULL, "Panel to display", "[PANEL]"
@@ -325,6 +330,23 @@ set_panel_activated (GSimpleAction *action,
 }
 
 
+static void
+only_tweaks_panels_activated (GSimpleAction *action, GVariant *parameter, gpointer user_data)
+{
+  g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
+  MsApplication *self = MS_APPLICATION (user_data);
+  MsPanelSwitcher *panel_switcher;
+  MsWindow *window;
+
+  window = MS_WINDOW (get_active_window (self));
+  panel_switcher = ms_window_get_panel_switcher (window);
+
+  g_settings_set_boolean (settings, "enable-conf-tweaks", TRUE);
+  g_action_map_remove_action (G_ACTION_MAP (self), "enable-conf-tweaks");
+  ms_panel_switcher_set_only_tweaks (panel_switcher, TRUE);
+}
+
+
 MsApplication *
 ms_application_new (char *application_id)
 {
@@ -358,6 +380,7 @@ static int
 ms_application_handle_local_options (GApplication *app, GVariantDict *options)
 {
   MsApplication *self = MS_APPLICATION (app);
+  gboolean only_tweaks_panels = FALSE;
   g_autofree GStrv panels = NULL;
   GApplicationClass *app_class = G_APPLICATION_CLASS (ms_application_parent_class);
   g_autofree char *panel = NULL;
@@ -374,6 +397,8 @@ ms_application_handle_local_options (GApplication *app, GVariantDict *options)
     list_available_panels (app);
 
     return 0;
+  } else if (g_variant_dict_contains (options, "only-conf-tweaks")) {
+    only_tweaks_panels = TRUE;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
@@ -384,6 +409,11 @@ ms_application_handle_local_options (GApplication *app, GVariantDict *options)
     g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
 
     panel = g_settings_get_string (settings, "last-panel");
+  }
+
+  if (only_tweaks_panels) {
+    g_application_register (G_APPLICATION (app), NULL, NULL);
+    g_action_group_activate_action (G_ACTION_GROUP (self), "only-tweaks-panels", NULL);
   }
 
   if (!gm_str_is_null_or_empty (panel)) {
@@ -413,6 +443,7 @@ ms_application_activate (GApplication *app)
 
 static const GActionEntry actions[] = {
   { "set-panel", set_panel_activated, "(sav)", NULL, NULL, { 0 } },
+  { "only-tweaks-panels", only_tweaks_panels_activated, NULL, NULL, NULL, { 0 } },
 };
 
 
