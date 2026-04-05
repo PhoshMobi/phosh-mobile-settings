@@ -1,3 +1,58 @@
+phosh-mobile-settings (0.54.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * tweaks-preferences-page: Don't set NULL subtitle.
+    Newer libadwaita 1.9~beta throws a critical in that case
+  * leak-suppress: Silence GTK leak.
+    Silence the leak until our fix made it into a release.
+    See https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/9724
+  * packaging: Wrap-and-sort
+  * ci: Update CI image
+  * ci: Drop superfluous step
+    `before` already does this
+  * build: Set tweaks directory to empty.
+    The tests set them to test data when needed and users of the
+    conf tweaks set it to a matching path.
+    This avoids a warning during the tests when no tweaks are present
+    an the binary is built with the default options.
+  * ci: Check dist tarball builds.
+    Avoids surprises when releasing
+  * debug-info: Fix license.
+    The code base is GPL3.
+  * news: Add missing bug number
+  * build: Drop version check.
+    We require meson 1.7 anyway
+  * build: Add option summary.
+    Makes the current build config simpler to spot
+  * osk-add-layout: Guard against NULL button
+
+  [ Bruce Cowan ]
+  * Update British English translation
+
+  [ Baurzhan Muftakhidinov ]
+  * Add Kazakh translation
+
+  [ Rudra Pratap Singh ]
+  * libpms: Add example in Python.
+    Utilizing the bindings generated via
+    GObject Introspection. Also set the appropriate
+    flags in run.in to allow running the example,
+    via _build/run examples/pms-prefs-example.py.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/107
+
+  [ Ryo Nakano ]
+  * Add Japanese translation
+
+  [ Stefan Hansson ]
+  * ms-application: Allow hiding built-in panels.
+    With the conf-tweaks support integrated, Phosh Mobile Settings is useful
+    in other desktop environments too. But in these the Phosh-specific
+    settings aren't particularly useful. So, allow hiding them for such
+    use-cases.
+  * ms-panel-switcher: Update filtering when only_tweaks is set
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 05 Apr 2026 08:47:20 +0200
+
 phosh-mobile-settings (0.54~rc1) experimental; urgency=medium
 
   [ Guido Günther ]
