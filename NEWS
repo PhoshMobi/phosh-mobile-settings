@@ -1,11 +1,13 @@
-phosh-mobile-settings 0.54~rc1
-------------------------------
-Released March 2026
+phosh-mobile-settings 0.54.0
+----------------------------
+Released April 2026
+* feedback-panel: Play sound for voice call media role too
 * Introduce library with common widgets
-* Play sound for voice call media role too
+* Allow to disable built-in panels for use in non-Phosh systems
 * Add a man page
 * Issues fixed:
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/113
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/107
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/106
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/77
 * Contributors:
@@ -15,16 +17,19 @@ Released March 2026
     * Rudra Pratap Singh
     * Stefan Hansson
 * UI translations:
-    * Álvaro Burns (pt_BR)
     * Asier Saratsua Garmendia (eu)
     * Balázs Úr (hu)
+    * Baurzhan Muftakhidinov (kk)
+    * Bruce Cowan (en_GB)
     * Daniel Rusek (cs)
     * Davide Ferracin (it)
     * Ekaterine Papava (ka)
     * Emin Tufan Çetin (tr)
     * Hugo Carvalho (pt)
     * Jordi Mas (ca)
+    * Ryo Nakano (ja)
     * Yaron Shahrabani (he)
+    * Álvaro Burns (pt_BR)
     * Марко Костић (sr)
 
 phosh-mobile-settings 0.53.0

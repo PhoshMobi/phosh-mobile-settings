@@ -52,6 +52,15 @@
 
   <releases>
 
+    <release version="0.54.0" date="2026-04-05">
+      <description translate="no">
+        <ul>
+          <li>feedback panel: Play sound for voice call media role too</li>
+          <li>Add manual page</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.53.0" date="2026-02-15">
       <description translate="no">
         <ul>
