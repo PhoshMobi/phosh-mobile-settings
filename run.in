@@ -29,6 +29,8 @@ export G_DEBUG
 
 set -x
 if [ "$1" = '--gdb' ]; then
+  # Remove --gdb from the cmdline since we don't want to pass this on to gdb.
+  shift
   WRAPPER="gdb --args"
 fi
 
