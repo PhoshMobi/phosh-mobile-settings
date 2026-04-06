@@ -12,7 +12,7 @@
 
 #include "ms-osk-add-shortcut-dialog.h"
 
-#define PHOSH_OSK_TERMINAL_SETTINGS  "sm.puri.phosh.osk.Terminal"
+#define PHOSH_OSK_TERMINAL_SETTINGS  "mobi.phosh.osk.Terminal"
 #define SHORTCUTS_KEY                "shortcuts"
 
 /**
