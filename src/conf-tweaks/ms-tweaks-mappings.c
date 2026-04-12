@@ -143,13 +143,7 @@ ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_dat
 
   normalised = stringify_gvalue (value);
 
-  if (!normalised) {
-    g_set_error (error,
-                 MS_TWEAKS_MAPPINGS_ERROR,
-                 MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_NORMALISE,
-                 "Failed to normalise data, unimplemented GType?");
-    return FALSE;
-  }
+  g_assert (normalised);
 
   /* setting_data->map has a different purpose in choice widgets than other ones, so don't use it
    * for this. */
