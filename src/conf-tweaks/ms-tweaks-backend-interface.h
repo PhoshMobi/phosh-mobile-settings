@@ -22,7 +22,7 @@ G_DECLARE_INTERFACE (MsTweaksBackend, ms_tweaks_backend, MS, TWEAKS_BACKEND, GOb
  * @parent_iface: The parent interface.
  * @get_value: Get the "value" of the backend. This does not necessarily correspond to any
  *             particular property but rather some value derived from the properties given to the
- *             backend in its constructor.
+ *             backend in its constructor. Should return NULL if no value could be retrieved.
  * @set_value: Same as `get_value ()`, except it sets the value based on the same principles.
  * @get_setting_data: Should return the instance of `MsTweaksSetting` that was provided in the
  *                    backend's constructor.
