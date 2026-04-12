@@ -50,7 +50,7 @@ static GValue *
 ms_tweaks_backend_gtk3settings_get_value (MsTweaksBackend *backend)
 {
   MsTweaksBackendGtk3settings *self = MS_TWEAKS_BACKEND_GTK3SETTINGS (backend);
-  g_autofree char *gtk3_configuration_path = get_gtk3_configuration_path();
+  g_autofree char *gtk3_configuration_path = get_gtk3_configuration_path ();
   g_autoptr (GKeyFile) gtk3_configuration_file = g_key_file_new ();
   g_autofree char *configuration_value = NULL;
   g_autoptr (GError) error = NULL;
@@ -72,7 +72,8 @@ ms_tweaks_backend_gtk3settings_get_value (MsTweaksBackend *backend)
   }
 
   configuration_value = g_key_file_get_value (gtk3_configuration_file,
-                                              MS_TWEAKS_BACKEND_GTK3SETTINGS_SECTION, self->key,
+                                              MS_TWEAKS_BACKEND_GTK3SETTINGS_SECTION,
+                                              self->key,
                                               &error);
 
   if (!configuration_value) {
