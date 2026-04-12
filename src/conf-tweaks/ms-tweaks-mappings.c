@@ -113,7 +113,7 @@ stringify_gvalue (GValue *value)
     normalised = ms_tweaks_mappings_uint_to_string (g_value_get_uint (value));
     break;
   default:
-    g_warning_once ("Unsupported GType type: %s", g_type_name (value_gtype));
+    g_critical ("Unsupported GType type: %s", g_type_name (value_gtype));
     break;
   }
 
