@@ -24,7 +24,7 @@ test_xresources_fixture_setup (BackendTestFixture *fixture, gconstpointer unused
   fixture->backend = ms_tweaks_backend_xresources_new (fixture->setting);
   g_object_set (G_OBJECT (fixture->backend),
                 "xresources-path",
-                MS_TWEAKS_BACKEND_TEST_DIRECTORY"/.Xresources",
+                MS_TWEAKS_BACKEND_TEST_DIRECTORY "/.Xresources",
                 NULL);
 }
 
