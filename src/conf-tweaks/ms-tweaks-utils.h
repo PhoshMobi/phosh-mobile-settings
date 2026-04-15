@@ -9,6 +9,7 @@
 #pragma once
 
 #include <glib.h>
+#include <glib-object.h>
 
 enum {
   MS_TWEAKS_UTILS_ERROR_WORDEXP_FAILED,
@@ -26,6 +27,7 @@ char *ms_tweaks_expand_single (const char *to_expand, GError **error);
 const char *ms_tweaks_util_get_single_key (const GPtrArray *key_array);
 char *ms_tweaks_util_get_key_by_value_string (GHashTable *hash_table, const char *value_to_find);
 gboolean ms_tweaks_util_string_to_boolean (const char *string);
+GValue *ms_tweaks_string_value_new_from_default (const char *default_);
 
 /* Miscellaneous utilities. */
 #define ms_tweaks_error(name, ...)    ms_tweaks_log (G_LOG_DOMAIN, \

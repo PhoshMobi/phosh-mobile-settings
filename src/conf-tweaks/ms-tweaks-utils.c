@@ -43,6 +43,17 @@ ms_tweaks_util_string_to_boolean (const char *string)
     return FALSE;
 }
 
+
+GValue *
+ms_tweaks_string_value_new_from_default (const char *default_)
+{
+  GValue *value = g_new0 (GValue, 1);
+  g_value_init (value, G_TYPE_STRING);
+  g_value_set_string (value, default_);
+
+  return value;
+}
+
 /**
  * ms_tweaks_expand_single:
  * @to_expand: String to expand.

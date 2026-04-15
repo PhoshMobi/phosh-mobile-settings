@@ -56,11 +56,8 @@ ms_tweaks_backend_gtk3settings_get_value (MsTweaksBackend *backend)
   g_autoptr (GError) error = NULL;
   GValue *value = NULL;
 
-  if (self->setting_data->default_) {
-    value = g_new0 (GValue, 1);
-    g_value_init (value, G_TYPE_STRING);
-    g_value_set_string (value, self->setting_data->default_);
-  }
+  if (self->setting_data->default_)
+    value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
   if (!g_key_file_load_from_file (gtk3_configuration_file,
                                   gtk3_configuration_path,
@@ -84,11 +81,8 @@ ms_tweaks_backend_gtk3settings_get_value (MsTweaksBackend *backend)
     return value;
   }
 
-  if (!value) {
-    value = g_new0 (GValue, 1);
-    g_value_init (value, G_TYPE_STRING);
-    g_value_set_string (value, self->setting_data->default_);
-  }
+  if (!value)
+    value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
   g_value_take_string (value, g_steal_pointer (&configuration_value));
 

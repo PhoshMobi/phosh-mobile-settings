@@ -52,11 +52,8 @@ ms_tweaks_backend_xresources_get_value (MsTweaksBackend *backend)
 
   /* Only allocate a value if we actually have a default so we don't end up
    * returning a GValue with NULL inside. */
-  if (self->setting_data->default_) {
-    value = g_new0 (GValue, 1);
-    g_value_init (value, G_TYPE_STRING);
-    g_value_set_string (value, self->setting_data->default_);
-  }
+  if (self->setting_data->default_)
+    value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
   if (!file_input_stream) {
     if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
@@ -81,11 +78,8 @@ ms_tweaks_backend_xresources_get_value (MsTweaksBackend *backend)
           g_strstrip (key_value_pair[1]);
 
           /* We may not have initialised value earlier if we had no default. */
-          if (!value) {
-            value = g_new0 (GValue, 1);
-            g_value_init (value, G_TYPE_STRING);
-            g_value_set_string (value, self->setting_data->default_);
-          }
+          if (!value)
+            value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
           g_value_set_string (value, key_value_pair[1]);
           break;
