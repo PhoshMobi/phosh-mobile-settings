@@ -12,3 +12,7 @@
             Option A: #FF00FF
             Option B: #000000
           default: #FF00FF
+        - name: Boolean
+          backend: xresources
+          key: dwm.boolean
+          type: boolean

@@ -113,7 +113,7 @@ stringify_gvalue (GValue *value)
     normalised = ms_tweaks_mappings_uint_to_string (g_value_get_uint (value));
     break;
   default:
-    g_warning_once ("Unsupported GType type: %s", g_type_name (value_gtype));
+    g_critical ("Unsupported GType type: %s", g_type_name (value_gtype));
     break;
   }
 
@@ -143,13 +143,7 @@ ms_tweaks_mappings_handle_get (GValue *value, const MsTweaksSetting *setting_dat
 
   normalised = stringify_gvalue (value);
 
-  if (!normalised) {
-    g_set_error (error,
-                 MS_TWEAKS_MAPPINGS_ERROR,
-                 MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_NORMALISE,
-                 "Failed to normalise data, unimplemented GType?");
-    return FALSE;
-  }
+  g_assert (normalised);
 
   /* setting_data->map has a different purpose in choice widgets than other ones, so don't use it
    * for this. */

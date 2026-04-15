@@ -50,35 +50,39 @@ static GValue *
 ms_tweaks_backend_gtk3settings_get_value (MsTweaksBackend *backend)
 {
   MsTweaksBackendGtk3settings *self = MS_TWEAKS_BACKEND_GTK3SETTINGS (backend);
-  g_autofree char *gtk3_configuration_path = get_gtk3_configuration_path();
+  g_autofree char *gtk3_configuration_path = get_gtk3_configuration_path ();
   g_autoptr (GKeyFile) gtk3_configuration_file = g_key_file_new ();
   g_autofree char *configuration_value = NULL;
-  GValue *value = g_new0 (GValue, 1);
   g_autoptr (GError) error = NULL;
+  GValue *value = NULL;
 
-  g_value_init (value, G_TYPE_STRING);
-  g_value_set_string (value, self->setting_data->default_);
+  if (self->setting_data->default_)
+    value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
   if (!g_key_file_load_from_file (gtk3_configuration_file,
                                   gtk3_configuration_path,
                                   G_KEY_FILE_NONE, &error)) {
     ms_tweaks_info (self->setting_data->name,
-                    "Failed to read configuration, falling back to default: %s",
+                    "Failed to read configuration, falling back to default if it is set: %s",
                     error->message);
     return value;
   }
 
   configuration_value = g_key_file_get_value (gtk3_configuration_file,
-                                              MS_TWEAKS_BACKEND_GTK3SETTINGS_SECTION, self->key,
+                                              MS_TWEAKS_BACKEND_GTK3SETTINGS_SECTION,
+                                              self->key,
                                               &error);
 
   if (!configuration_value) {
     ms_tweaks_warning (self->setting_data->name,
-                       "Couldn't get key '%s', falling back to default: %s",
+                       "Couldn't get key '%s', falling back to default if it is set: %s",
                        self->key,
                        error->message);
     return value;
   }
+
+  if (!value)
+    value = ms_tweaks_string_value_new_from_default (self->setting_data->default_);
 
   g_value_take_string (value, g_steal_pointer (&configuration_value));
 

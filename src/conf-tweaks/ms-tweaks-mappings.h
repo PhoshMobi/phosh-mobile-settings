@@ -12,7 +12,6 @@ G_BEGIN_DECLS
 
 enum {
   MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_FIND_KEY_BY_VALUE,
-  MS_TWEAKS_MAPPINGS_ERROR_FAILED_TO_NORMALISE,
 };
 
 GQuark ms_tweaks_mappings_error_quark (void);
