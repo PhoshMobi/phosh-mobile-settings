@@ -44,7 +44,6 @@ struct _MsOverviewPanel {
   AdwSwitchRow            *wallpaper_switch;
 
   AdwToastOverlay         *toast_overlay;
-  AdwToast                *toast;
 };
 
 G_DEFINE_TYPE (MsOverviewPanel, ms_overview_panel, MS_TYPE_PANEL)
