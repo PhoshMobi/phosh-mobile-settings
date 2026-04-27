@@ -1,15 +1,15 @@
 # Persian translation for phosh-mobile-settings.
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Danial Behzadi <dani.behzi@ubuntu.com>, 2024-2025.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-02-12 14:39+0000\n"
-"PO-Revision-Date: 2026-02-14 22:56+0330\n"
+"POT-Creation-Date: 2026-04-27 13:24+0000\n"
+"PO-Revision-Date: 2026-04-27 23:03+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -111,6 +111,167 @@ msgstr "عقربهٔ سوخت"
 msgid "Battery"
 msgstr "باتری"
 
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "افزودن چینش"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "لغو"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20 src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "افزودن"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
+msgid "Language"
+msgstr "زبان"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "چینش‌ها"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "هیچ چینشی پیکربندی نشده"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "گزینه‌های بیش‌تر…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "جابه‌جایی به بالا"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "جابه‌جایی به پایین"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "برداشتن"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "دیگر…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "گزینش زبان"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "_لغو"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "_گزینش"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "زبان یا کشور"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "هیچ زبانی پیدا نشد"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "بیش‌تر…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "امروز"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "دیروز"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%Oe %B"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%Oe %B، %OY"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "‏%1$s، %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "‏%Id ساعت"
+msgstr[1] "‏%Id ساعت"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "‏%Id دقیقه"
+msgstr[1] "‏%Id دقیقه"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "‏%Id ثانیه"
+msgstr[1] "‏%Id ثانیه"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s و %s و %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s و %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s و %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "۰ ثانیه"
+
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
@@ -128,7 +289,7 @@ msgid_plural "%i errors occurred while saving"
 msgstr[0] "هنکام ذخیره کردن %Ii خطا رخ داد"
 msgstr[1] "هنکام ذخیره کردن %Ii خطا رخ دادند"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "ذخیرهٔ برخی تنظیمات نیازمند هوبت‌سنجی است"
 
@@ -156,7 +317,7 @@ msgid "- Manage your mobile settings"
 msgstr "- مدیریت تنظیمات همراهتان"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
 msgstr "دانیال بهزادی <dani.behzi@ubuntu.com>"
 
@@ -188,81 +349,81 @@ msgstr "حجم صدای هشدارهای اضطراری"
 msgid "Message of unknown severity"
 msgstr "پیام با شدّت نامعلوم"
 
-#: src/ms-feedback-panel.c:309
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "پروندهٔ صدا وجود ندارد"
 
-#: src/ms-feedback-panel.c:311
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "پروندهٔ صدا خراب است"
 
-#: src/ms-feedback-panel.c:313
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "شکست در پخش صد"
 
-#: src/ms-feedback-panel.c:352
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "پخش کردن %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:529
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "کم"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:532
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "معمولی"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:535
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "بحرانی"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:539
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "هیچ"
 
-#: src/ms-feedback-panel.c:954
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "واپایش حجم صدای تنظیمات همراه"
+
+#: src/ms-lang-panel.c:104
+msgid "Failed to set system locale"
+msgstr "شکست در تنظیم اقلیم سامانه"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "شکست در تنظیم کاغذدیواری صفحهٔ قفل"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:748
 msgid "Default"
 msgstr "پیش‌گزیده"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:749
 msgid "The default completer selected by the OSK"
 msgstr "تکمیلگر پیش‌گزیده به دست صفحعه‌کلید مجازی"
 
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:752
 msgid "No information available for this completer"
 msgstr "هیچ اطّلاعاتی از این رایانه موجود نیست"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "بازنشانی برگزیده‌ها؟"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr "بازنشانی سیاههٔ برنامه‌های برگزیده به پیش‌گزیده؟"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "_لغو"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "_بازنشانی"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
 msgstr "شکست در تنظیم کاغذدیواری نمای کلی"
 
@@ -512,8 +673,8 @@ msgstr "به کار انداختن تعلیق از فهرست سامانه"
 
 #: src/ui/ms-features-panel.ui:34
 msgid ""
-"Please only enable this if you're aware of the limitations like data "
-"connection loss or missed alarms"
+"Please only enable this if you're aware of the limitations like data connection "
+"loss or missed alarms"
 msgstr ""
 "لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
 "هشدارها به کارش بیندازید"
@@ -718,24 +879,6 @@ msgstr "ابزارک‌ها"
 msgid "Additional widgets for the lock screen"
 msgstr "ابزارک‌های اضافی برای صفحهٔ قفل"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "افزودن چینش"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "لغو"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20 src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "افزودن"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "زبان"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
@@ -765,32 +908,6 @@ msgstr "_کلید میان‌بر"
 #: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "پیش‌نمایش میان‌بر"
-
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "چینش‌ها"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "هیچ چینشی پیکربندی نشده"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
-msgid "More options…"
-msgstr "گزینه‌های بیش‌تر…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
-msgid "Move Up"
-msgstr "جابه‌جایی به بالا"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
-msgid "Move Down"
-msgstr "جابه‌جایی به پایین"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "برداشتن"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -830,8 +947,7 @@ msgid "Ignore hardware keyboard"
 msgstr "چشم‌پوشی از صفحه‌کلید سخت‌افزاری"
 
 #: src/ui/ms-osk-panel.ui:39
-msgid ""
-"Whether to show the on screen keyboard when a physical keyboard is present"
+msgid "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
 
 #: src/ui/ms-osk-panel.ui:46
@@ -869,8 +985,7 @@ msgstr "ثابت نگه داشتن اندازهٔ فیزیکی"
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
-"اطمینان از به اندازهٔ کافی بزرگ بودن صفحه‌کلید مجازی در صفحه‌های با تفکیک‌پذیری "
-"زیاد"
+"اطمینان از به اندازهٔ کافی بزرگ بودن صفحه‌کلید مجازی در صفحه‌های با تفکیک‌پذیری زیاد"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -879,8 +994,7 @@ msgstr "افزودن فضای خالی زیر کلیدها"
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
-"این که زیر کلیدهای صفحه‌کلید مجازی فضایی خالی برای بالاتر آوردنش اضافه شود یا "
-"نه."
+"این که زیر کلیدهای صفحه‌کلید مجازی فضایی خالی برای بالاتر آوردنش اضافه شود یا نه."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -1173,19 +1287,23 @@ msgstr "تعلیق"
 msgid "Experimental"
 msgstr "آزمایشی"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "اقلیم"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "درباره"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "_نمایش سیخونک‌های قابل پیکربندی"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "_میان‌برهای صفحه‌کلید"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
 
