@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2026-02-12 14:39+0000\n"
-"PO-Revision-Date: 2026-02-13 09:30+0200\n"
+"POT-Creation-Date: 2026-04-27 13:24+0000\n"
+"PO-Revision-Date: 2026-04-27 21:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -113,6 +113,178 @@ msgstr "Датчик палива"
 msgid "Battery"
 msgstr "Акумулятор"
 
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Додати компонування"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Додати"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
+msgid "Language"
+msgstr "Мова"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Компонування"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Компонувань не налаштовано"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "Додаткові параметри…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "Пересунути вище"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "Пересунути нижче"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Вилучити"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Інше…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+#| msgid "Language"
+msgid "Select Language"
+msgstr "Виберіть мову"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "_Вибрати"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Мова або країна"
+
+#: libpms/lang/ms-language-chooser.ui:68
+#| msgid "No Sensors found"
+msgid "No languages found"
+msgstr "Не знайдено жодної мови"
+
+#: libpms/lang/ms-language-chooser.ui:79
+#| msgid "More options…"
+msgid "More…"
+msgstr "Більше…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Сьогодні"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Вчора"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%b %e"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%e %b, %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d година"
+msgstr[1] "%d години"
+msgstr[2] "%d годин"
+msgstr[3] "%d година"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d хвилина"
+msgstr[1] "%d хвилини"
+msgstr[2] "%d хвилин"
+msgstr[3] "%d хвилина"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
+msgstr[2] "%d секунд"
+msgstr[3] "%d секунда"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 секунд"
+
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
@@ -132,7 +304,7 @@ msgstr[1] "Під час спроби зберегти дані сталися %
 msgstr[2] "Під час спроби зберегти дані сталося %i помилок"
 msgstr[3] "Під час спроби зберегти дані сталася %i помилка"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
 "Для збереження деяких з параметрів вам слід пройти розпізнавання від імені "
@@ -162,7 +334,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Керування вашими мобільними параметрами"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
@@ -194,81 +366,82 @@ msgstr "Гучність термінових попереджень"
 msgid "Message of unknown severity"
 msgstr "Повідомлення невідомої важливості"
 
-#: src/ms-feedback-panel.c:309
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "Звукового файла не існує"
 
-#: src/ms-feedback-panel.c:311
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "Звуковий файл пошкоджено"
 
-#: src/ms-feedback-panel.c:313
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "Не вдалося відтворити звук"
 
-#: src/ms-feedback-panel.c:352
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:529
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "низький"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:532
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "звичайний"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:535
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "критичний"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:539
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "немає"
 
-#: src/ms-feedback-panel.c:954
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "Параметри керування гучністю мобільного"
+
+#: src/ms-lang-panel.c:104
+#| msgid "Failed to set lockscreen wallpaper"
+msgid "Failed to set system locale"
+msgstr "Не вдалося встановити локаль системи"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Не вдалося встановити фонове зображення вікна блокування"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:748
 msgid "Default"
 msgstr "Типовий"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:749
 msgid "The default completer selected by the OSK"
 msgstr "Типовий засіб доповнення, який вибрано OSK"
 
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:752
 msgid "No information available for this completer"
 msgstr "Немає даних для цього засобу доповнення"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "Відновити типові улюблені?"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr "Відновити типовий список улюблених програм?"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "_Скасувати"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "С_кинути"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
 msgstr "Не вдалося встановити фон для огляду"
 
@@ -728,26 +901,6 @@ msgstr "Віджети"
 msgid "Additional widgets for the lock screen"
 msgstr "Додаткові віджети для екрана блокування"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "Додати компонування"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "Додати"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "Мова"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
@@ -777,32 +930,6 @@ msgstr "С_корочення"
 #: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Попередній перегляд скорочення"
-
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "Компонування"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "Компонувань не налаштовано"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
-msgid "More options…"
-msgstr "Додаткові параметри…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
-msgid "Move Up"
-msgstr "Пересунути вище"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
-msgid "Move Down"
-msgstr "Пересунути нижче"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "Вилучити"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -1199,19 +1326,23 @@ msgstr "Призупинити"
 msgid "Experimental"
 msgstr "Експериментальний"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "Локаль"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "Відомості"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "По_казати налаштовувані коригування"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "_Про «Мобільні параметри»"
 
