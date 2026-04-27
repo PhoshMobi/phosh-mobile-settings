@@ -41,6 +41,8 @@ mobile_settings_sources = [
   'ms-feedback-row.h',
   'ms-head-tracker.c',
   'ms-head-tracker.h',
+  'ms-lang-panel.c',
+  'ms-lang-panel.h',
   'ms-lockscreen-panel.c',
   'ms-lockscreen-panel.h',
   'ms-main.c',
@@ -81,6 +83,7 @@ mobile_settings_sources = [
 ]
 
 mobile_settings_deps = [
+  accountsservice_dep,
   adwaita_dep,
   libfeedback_dep,
   libcbd_dep,
@@ -100,6 +103,7 @@ mobile_settings_deps = [
   libpms_dep,
   phosh_plugins_dep,
   phosh_settings_dep,
+  polkit_gobject_dep,
   wayland_client_dep,
   yaml_dep,
   cc.find_library('m', required: false),

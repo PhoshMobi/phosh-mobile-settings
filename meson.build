@@ -15,6 +15,7 @@ libdir = prefix / get_option('libdir')
 pkgdatadir = datadir / meson.project_name()
 pkglibdir = libdir / meson.project_name()
 ms_plugins_dir = prefix / libdir / 'phosh-mobile-settings' / 'plugins'
+polkitdir = datadir / 'polkit-1' / 'rules.d'
 
 glib_ver = '2.84'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.', '_'))
@@ -29,6 +30,7 @@ adw_ver = '1.7'
 adw_ver_str = 'ADW_VERSION_@0@'.format(adw_ver.replace('.', '_'))
 adw_ver_cmp = '>=@0@'.format(adw_ver)
 
+accountsservice_dep = dependency('accountsservice', version: '>= 23.13')
 glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep = dependency('gio-unix-2.0', version: glib_ver_cmp)
@@ -70,6 +72,7 @@ libportal_dep = dependency('libportal', version: '>= 0.9.1')
 libportal_gtk4_dep = dependency('libportal-gtk4', version: '>= 0.9.1')
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
 phosh_settings_dep = dependency('phosh-settings', version: '>= 0.40.0')
+polkit_gobject_dep = dependency('polkit-gobject-1', version: '>= 126')
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 yaml_dep = dependency('yaml-0.1')
