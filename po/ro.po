@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-02-12 14:39+0000\n"
-"PO-Revision-Date: 2026-02-13 10:28+0100\n"
+"POT-Creation-Date: 2026-04-27 13:24+0000\n"
+"PO-Revision-Date: 2026-04-28 10:23+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -112,6 +112,172 @@ msgstr "Indicator de energie"
 msgid "Battery"
 msgstr "Bateria"
 
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+msgid "Add Layout"
+msgstr "Adaugă un aranjament"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+msgid "Cancel"
+msgstr "Anulează"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Adaugă"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
+msgid "Language"
+msgstr "Limba"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Aranjamente"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:30
+msgid "No Layouts configured"
+msgstr "Niciun aranjament stabilit"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "Alte opțiuni…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "Mută sus"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "Mută jos"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Elimină"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Alta…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "Alege limba"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "_Anulează"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "A_lege"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Limba sau țara"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "Nicio limbă"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "Mai multe…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Astăzi"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Ieri"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%e %b"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%e %b, %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d oră"
+msgstr[1] "%d ore"
+msgstr[2] "%d de ore"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minute"
+msgstr[2] "%d de minute"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d secundă"
+msgstr[1] "%d secunde"
+msgstr[2] "%d de secunde"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 secunde"
+
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
@@ -130,7 +296,7 @@ msgstr[0] "A apărut %i eroare la salvare"
 msgstr[1] "Au apărut %i erori la salvare"
 msgstr[2] "Au apărut %i de erori la salvare"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:891
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "Doar administratorul poate salva unele schimbări"
 
@@ -158,9 +324,9 @@ msgid "- Manage your mobile settings"
 msgstr "- Gestionează reglările pentru mobil"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
-msgstr "Antonio Marin"
+msgstr "Antonio Marin <gnmer.6qxyg@slmail.me>"
 
 #: src/ms-audio-devices.c:179
 msgid "Media Volume"
@@ -190,83 +356,83 @@ msgstr "Volum Alerte de urgență"
 msgid "Message of unknown severity"
 msgstr "Mesaj cu nivel de urgență necunoscut"
 
-#: src/ms-feedback-panel.c:309
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "Fișierul audio nu există"
 
-#: src/ms-feedback-panel.c:311
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "Fișierul audio este deteriorat"
 
-#: src/ms-feedback-panel.c:313
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "Nu s-a putut reda sunetul"
 
-#: src/ms-feedback-panel.c:352
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "Se redă %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:529
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "redus"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:532
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:535
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "critic"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:539
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "nimic"
 
-#: src/ms-feedback-panel.c:954
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "Reglarea volumului"
 
+#: src/ms-lang-panel.c:104
+msgid "Failed to set system locale"
+msgstr "Nu s-a putut schimba limba sistemului"
+
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
-msgstr "Nu s-a reușit stabilirea fundalului pentru ecranul blocat"
+msgstr "Nu s-a putut schimba fundalul pentru ecranul blocat"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:748
 msgid "Default"
 msgstr "Prestabilită"
 
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:749
 msgid "The default completer selected by the OSK"
 msgstr "Completarea prestabilită aleasă de tastatura de pe ecran"
 
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:752
 msgid "No information available for this completer"
 msgstr "Nicio informație disponibilă pentru această completare"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "Să fie restabilite preferatele?"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr "Să fie restabilită starea inițială a listei de aplicații preferate?"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "_Anulează"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "_Restabilește"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
-msgstr "Nu s-a reușit stabilirea fundalului pentru prezentare"
+msgstr "Nu s-a putut schimba fundalul pentru prezentare"
 
 #. Translators: "Normal" represents the standard or default orientation
 #: src/ms-sensor-panel.c:93
@@ -728,26 +894,6 @@ msgstr "Miniaturi"
 msgid "Additional widgets for the lock screen"
 msgstr "Miniaturi suplimentare pentru ecranul blocat"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "Adaugă un aranjament"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "Anulează"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "Adaugă"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "Limba"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
@@ -777,32 +923,6 @@ msgstr "Tasta _scurtăturii"
 #: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Arată scurtătura"
-
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "Aranjamente"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "Niciun aranjament configurat"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
-msgid "More options…"
-msgstr "Alte opțiuni…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
-msgid "Move Up"
-msgstr "Mută sus"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
-msgid "Move Down"
-msgstr "Mută jos"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "Elimină"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -1199,18 +1319,22 @@ msgstr "Suspendă"
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "Localizare"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "Despre"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "_Arată reglări personalizabile"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "Scur_tături"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "_Despre Reglări Mobil"
