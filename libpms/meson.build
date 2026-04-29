@@ -60,6 +60,7 @@ libpms_lib = shared_library(
 
 install_headers(
   libpms_public_headers,
+  preserve_path: true,
   subdir: libname,
 )
 
