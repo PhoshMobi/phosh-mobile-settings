@@ -15,6 +15,7 @@
 #define _LIBPMS_INSIDE
 
 #include "ms-main.h"
+#include "ms-lang.h"
 #include "ms-osk-add-layout-dialog.h"
 #include "ms-osk-layout-prefs.h"
 #include "lang/ms-language-chooser.h"

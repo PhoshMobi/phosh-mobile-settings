@@ -266,10 +266,10 @@ ms_lang_panel_update_lang_row (MsLangPanel *self)
   g_autofree char *name = NULL;
 
   if (self->lang)
-    name = gnome_get_language_from_locale (self->lang, self->lang);
+    name = ms_lang_get_language_from_locale (self->lang, self->lang);
 
   if (!name)
-    name = gnome_get_language_from_locale (DEFAULT_LOCALE, DEFAULT_LOCALE);
+    name = ms_lang_get_language_from_locale (DEFAULT_LOCALE, DEFAULT_LOCALE);
 
   adw_action_row_set_subtitle (self->lang_row, name);
 }
