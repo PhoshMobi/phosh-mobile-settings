@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-03-25 10:53+0000\n"
-"PO-Revision-Date: 2026-03-29 23:37+0200\n"
+"POT-Creation-Date: 2026-04-30 11:20+0000\n"
+"PO-Revision-Date: 2026-05-01 23:22+0200\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -28,7 +28,9 @@ msgstr "Mobile Einstellungen"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-msgid "Mobile;Preferences;MobileSettings;"
+#, fuzzy
+#| msgid "Mobile;Preferences;MobileSettings;"
+msgid "Mobile;Preferences;MobileSettings;Tweaks;"
 msgstr "Mobil,Einstellungen;Mobilgerät;Handy;Mobiltelefon;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
@@ -130,7 +132,8 @@ msgstr "Abbrechen"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "Sprache"
 
@@ -159,6 +162,122 @@ msgstr "Nach unten verschieben"
 #: libpms/ms-osk-layout-row.ui:49
 msgid "Remove"
 msgstr "Entfernen"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Andere …"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "Sprache wählen"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "_Abbrechen"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "A_uswählen"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Sprache oder Land"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "Keine Sprachen gefunden"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "Mehr …"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Heute"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Gestern"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%e.%m."
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%e. %b %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d Stunde"
+msgstr[1] "%d Stunden"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d Minute"
+msgstr[1] "%d Minuten"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d Sekunde"
+msgstr[1] "%d Sekunden"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 Sekunden"
 
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
@@ -207,7 +326,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Die Einstellungen Ihrer Mobilgeräte anpassen"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
 msgstr ""
 "Tim Sabsch\n"
@@ -285,6 +404,12 @@ msgstr "Kein"
 msgid "Mobile Settings Volume Control"
 msgstr "Mobile Einstellungen"
 
+#: src/ms-lang-panel.c:104
+#, fuzzy
+#| msgid "Failed to set lockscreen wallpaper"
+msgid "Failed to set system locale"
+msgstr "Festlegen des Sperrbildschirm-Hintergrundbilds ist fehlgeschlagen"
+
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Festlegen des Sperrbildschirm-Hintergrundbilds ist fehlgeschlagen"
@@ -302,24 +427,20 @@ msgstr "Von der Bildschirmtastatur ausgewählte Standardvervollständiger"
 msgid "No information available for this completer"
 msgstr "Für diesen Vervollständiger sind keine Informationen verfügbar"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "Favoriten zurücksetzen?"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr ""
 "Liste der favorisierten Apps auf die Standardeinstellungen zurücksetzen?"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "_Abbrechen"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "_Zurücksetzen"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
 msgstr "Hintergrundbild für die Übersicht konnte nicht festgelegt werden"
 
@@ -1225,19 +1346,23 @@ msgstr "In Bereitschaft versetzen"
 msgid "Experimental"
 msgstr "Experimentell"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "Spracheinstellungen"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "Info"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "_Einstellbare Anpassungen anzeigen"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "Tasten_kürzel"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "_Info zu Mobile Einstellungen"
 
