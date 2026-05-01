@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-04-27 13:24+0000\n"
-"PO-Revision-Date: 2026-04-27 23:03+0330\n"
+"POT-Creation-Date: 2026-04-30 11:20+0000\n"
+"PO-Revision-Date: 2026-05-01 14:08+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -25,8 +25,8 @@ msgstr "تنظیمات همراه"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobile;Preferences;MobileSettings;موبایل;همراه;تلفن;ترجیحات;"
+msgid "Mobile;Preferences;MobileSettings;Tweaks;"
+msgstr "Mobile;Preferences;MobileSettings;Tweaks;موبایل;همراه;تلفن;ترجیحات;سیخونک‌ها;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
