@@ -1,5 +1,5 @@
 # Turkish translation for phosh-mobile-settings.
-# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# Copyright (C) 2024-2026 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 #
 # Sabri Ünal <yakushabb@gmail.com>, 2024, 2026.
@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-02-25 17:40+0000\n"
-"PO-Revision-Date: 2026-01-19 08:00+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2026-04-30 11:20+0000\n"
+"PO-Revision-Date: 2026-04-28 23:30+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -27,8 +27,8 @@ msgstr "Mobil Ayarlar"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobil;Yeğler;Tercihler;Ayarlar;MobilAyarlar;Mobile;Preferences;MobileSettings;"
+msgid "Mobile;Preferences;MobileSettings;Tweaks;"
+msgstr "Mobile;Preferences;MobileSettings;Tweaks;Mobil;Yeğler;Tercihler;Ayarlar;MobilAyarlar;İnceAyarlar;inceayarlar;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -129,7 +129,8 @@ msgstr "İptal"
 msgid "Add"
 msgstr "Ekle"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "Dil"
 
@@ -158,6 +159,119 @@ msgstr "Aşağı Taşı"
 #: libpms/ms-osk-layout-row.ui:49
 msgid "Remove"
 msgstr "Kaldır"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Diğer…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "Dil Seç"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "İ_ptal"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "_Seç"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Dil ya da ülke"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "Dil bulunamadı"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "Daha Çok…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Bugün"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Dün"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%e %b"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%e %b %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d saat"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d dakika"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d saniye"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 saniye"
 
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
@@ -203,7 +317,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Mobil ayarlarınızı yönetin"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
 msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
@@ -278,6 +392,10 @@ msgstr "yok"
 msgid "Mobile Settings Volume Control"
 msgstr "Mobil Ayarlar Ses Denetiemi"
 
+#: src/ms-lang-panel.c:104
+msgid "Failed to set system locale"
+msgstr "Sistem yereli ayarlanamadı"
+
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Kilit ekranı duvar kağıdı belirlenemedi"
@@ -295,23 +413,19 @@ msgstr "Ekran klavyesince seçilen öntanımlı tamamlayıcı"
 msgid "No information available for this completer"
 msgstr "Bu tamamlayıcı için bilgi yok"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "Gözdeler sıfırlansın mı?"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr "Gözde uygulamalar listesi öntanımlıya sıfırlansın mı?"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "İ_ptal"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "_Sıfırla"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
 msgstr "Genel görünüm için duvar kağıdı belirlenemedi"
 
@@ -1187,30 +1301,22 @@ msgstr "Askıya Al"
 msgid "Experimental"
 msgstr "Deneysel"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "Yerel"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "Hakkında"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "Yapılandırılabilir İnce Ayarları _Göster"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "Mobil Ayarlar _Hakkında"
-
-#~ msgid "Call volume"
-#~ msgstr "Çağrı sesi"
-
-#~ msgid "Whether to keep the OSK's size constant in portrait mode"
-#~ msgstr "Dikey kipte ekran klavyesi boyutunun değişmez kılınması"
-
-#~ msgid "Silence on Vol-"
-#~ msgstr "Sesi azalt ile sessiz"
-
-#~ msgid "Instant messages"
-#~ msgstr "Anlık iletiler"
