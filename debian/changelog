@@ -1,3 +1,101 @@
+phosh-mobile-settings (0.55~rc1) experimental; urgency=medium
+
+  [ Stefan Hansson ]
+  * editorconfig: Add YAML style
+    conf-tweaks uses YAML files, so let's add that here.
+  * test-tweaks-mappings: Add tests for stringify_gvalue()
+  * data: Also install nobuiltins desktop file.
+    Fixes 04bebde2c60cff079aa7e7b3f61f457ec273650c
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/116
+  * run: Don't pass --gdb to gdb.
+    Otherwise gdb ends up being passed "--gdb" as an argument and interprets
+    it as if this is the file we want to run, effectively breaking this
+    option. Fix this by reintroducing the shift.
+    Fixes 49ce918fde1f4e2cc92c3f69227b757d6e6e3e8c
+  * data: Remove DBusActivatable from nobuiltins desktop file.
+    As there is no matching nobuiltins service file this does not work.
+    Fixes 04bebde2c60cff079aa7e7b3f61f457ec273650c
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/119
+  * tests/data/widget-types.yml: Add boolean widget
+  * ms-tweaks-backend-xresources: Only allocate value early with default.
+    Otherwise we end up returning GValues containing NULL, which we don't
+    want.
+  * ms-tweaks-backend-gtk3settings: Only allocate value early with default.
+    Otherwise we end up returning GValues containing NULL, which we don't
+    want.
+  * ms-tweaks-backend-interface: Clarify return value if no value exists
+  * ms-tweaks-mappings: Raise critrical on unsupported GType.
+    This is a programming error, so it should not just be a warning.
+  * ms-tweaks-mappings: Assert on NULL normalised value.
+    This should never happen unless a backend is broken.
+  * ms-tweaks-backend-gtk3settings: Minor formatting fixes
+  * test-tweaks-backend-xresources: Minor formatting fix
+  * conf-tweaks: Refactor default string value creation.
+    Reduces repetition and helps readability.
+  * data: Add "Tweaks" keyword to desktop files.
+    Makes it easier for users looking for a "tweaks application" to find
+    p-m-s.
+
+  [ Guido Günther ]
+  * shortcut-dialog: Use new schema location.
+    Reported-by: Val Packett
+  * panels/overview: Drop unused variable
+  * main: Sort types alphabetically
+  * pms: Add language chooser from Settings.
+    This is from gnome-control-center 48.6 as this is the last
+    version with ui files instead of blueprint.
+  * pms/lang: Make it build.
+    Minimal set of changes to make things compile
+  * pms/lang: Move to ms namespace.
+    Otherwise introspection will be troublesome
+  * libpms/lang: Use our namespace
+  * libpms/lang: Silence deprecations
+  * libpms/lang: Set i18n domain
+  * panels: Add language panel.
+    We need a demo for the language selection so let's add a panel.
+    This is heavily inspired about what Settings does and ensures
+    the language selector is working.
+    Note that this currently won't work on Debian due to
+    /usr/share/dbus-1/system.d/org.freedesktop.locale1.read-only.conf
+    See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1133781
+  * build: Preserver header file path.
+    Otherwise building against the installed headers fails
+  * libpms: Add functions to lookup language from locale.
+    We simply wrap existing functions so we don't need to create rust
+    bindings for a whole library.
+
+  [ Jiri Grönroos ]
+  * Update Finnish translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Christian Kirbach ]
+  * Update German translation
+
+  [ Pierre Michel Augustin ]
+  * Update Haitian Creole translation
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 08 May 2026 18:18:36 +0200
+
 phosh-mobile-settings (0.54.0) experimental; urgency=medium
 
   [ Guido Günther ]
