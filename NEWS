@@ -1,3 +1,23 @@
+phosh-mobile-settings 0.55~rc1
+------------------------------
+Released May 2026
+* Various conf-tweaks improvements
+* New language panel
+* Contributors:
+    * Guido Günther
+    * Stefan Hansson
+* UI translations:
+    * Antonio Marin (ro)
+    * Christian Kirbach (de)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Ekaterine Papava (ka)
+    * Jiri Grönroos (fi)
+    * Martin (sl)
+    * Pierre Michel Augustin (ht)
+    * Sabri Ünal (tr)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.54.0
 ----------------------------
 Released April 2026
