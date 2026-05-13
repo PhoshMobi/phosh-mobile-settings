@@ -218,6 +218,8 @@
                     </child>
                     <child>
                       <object class="AdwSwitchRow" id="presence_notifications_wakeup_switch">
+                        <!-- Translators: "presence change" means coming online or going offline,
+                             like in an instant messenger. -->
                         <property name="title" translatable="yes">Presence changes</property>
                         <property name="subtitle" translatable="yes">A generic presence change notification</property>
                         <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
