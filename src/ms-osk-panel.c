@@ -790,7 +790,6 @@ completer_combo_sensitive_mapping (GValue *value, GVariant *variant, gpointer us
 static void
 ms_osk_panel_init_pos (MsOskPanel *self)
 {
-  GSettingsSchemaSource *source = g_settings_schema_source_get_default ();
   g_autoptr (GSettingsSchema) schema = NULL;
 
   gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
@@ -836,16 +835,12 @@ ms_osk_panel_init_pos (MsOskPanel *self)
   self->pos_completer_settings = g_settings_new (PHOSH_OSK_COMPLETER_SETTINGS);
   ms_osk_panel_init_pos_completer (self);
 
-  schema = g_settings_schema_source_lookup (source, PHOSH_OSK_SETTINGS, TRUE);
-  if (g_settings_schema_has_key (schema, OSK_SCALING_KEY)) {
-    gtk_widget_set_visible (GTK_WIDGET (self->osk_scaling_group), TRUE);
-
-    self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
-    g_signal_connect_swapped (self->pos_settings, "changed::" OSK_SCALING_KEY,
-                              G_CALLBACK (on_osk_scaling_key_changed),
-                              self);
-    on_osk_scaling_key_changed (self);
-  }
+  gtk_widget_set_visible (GTK_WIDGET (self->osk_scaling_group), TRUE);
+  self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
+  g_signal_connect_swapped (self->pos_settings, "changed::" OSK_SCALING_KEY,
+                            G_CALLBACK (on_osk_scaling_key_changed),
+                            self);
+  on_osk_scaling_key_changed (self);
 }
 
 
