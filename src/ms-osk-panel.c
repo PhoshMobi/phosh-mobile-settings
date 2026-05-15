@@ -36,6 +36,7 @@
 
 #define PHOSH_OSK_COMPLETER_SETTINGS "mobi.phosh.osk.Completers"
 #define DEFAULT_COMPLETER_KEY        "default"
+#define AUTO_SPACE_KEY               "auto-space"
 #define POS_COMPLETER_SUFFIX         ".completer"
 
 #define PHOSH_OSK_TERMINAL_SETTINGS  "mobi.phosh.osk.Terminal"
@@ -94,6 +95,7 @@ struct _MsOskPanel {
   GtkWidget        *completion_group;
   AdwSwitchRow     *app_completion_switch;
   AdwSwitchRow     *menu_completion_switch;
+  AdwSwitchRow     *auto_space_switch;
   CompletionMode    mode;
   gboolean          updating_flags;
   AdwComboRow      *completer_combo;
@@ -548,6 +550,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, long_press_combo);
 
   /* Completion group */
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, auto_space_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, completer_combo);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, completion_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, app_completion_switch);
@@ -834,6 +837,12 @@ ms_osk_panel_init_pos (MsOskPanel *self)
 
   self->pos_completer_settings = g_settings_new (PHOSH_OSK_COMPLETER_SETTINGS);
   ms_osk_panel_init_pos_completer (self);
+  g_settings_bind (self->pos_completer_settings, AUTO_SPACE_KEY,
+                   self->auto_space_switch, "active", G_SETTINGS_BIND_DEFAULT);
+  /* Only useful when we completion is on */
+  g_object_bind_property (self->completer_combo, "sensitive",
+                          self->auto_space_switch, "sensitive",
+                          G_BINDING_DEFAULT);
 
   gtk_widget_set_visible (GTK_WIDGET (self->osk_scaling_group), TRUE);
   self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
