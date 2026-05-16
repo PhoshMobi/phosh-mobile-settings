@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-03-09 10:21+0000\n"
+"POT-Creation-Date: 2026-05-13 09:10+0000\n"
 "PO-Revision-Date: 2026-03-18 11:39+0100\n"
 "Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <Serbian>\n"
@@ -26,8 +26,8 @@ msgstr "Подешавања мобилног"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobile;Preferences;MobileSettings;Мобилни;Поставке;ПодешавањаМобилног;"
+msgid "Mobile;Preferences;MobileSettings;Tweaks;"
+msgstr "Mobile;Preferences;MobileSettings;Tweaks;Мобилни;Поставке;Подешавања мобилног;Лицкања;mobilni;postavke;podešavanja mobilnog;lickanja;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -37,7 +37,9 @@ msgstr "Фош подешавања мобилног"
 msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
-msgstr "Ова апликација вам омогућава да подесите неке аспекте Фоша који би иначе захтевали коришћење командне линије."
+msgstr ""
+"Ова апликација вам омогућава да подесите неке аспекте Фоша који би иначе "
+"захтевали коришћење командне линије."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
@@ -126,7 +128,8 @@ msgstr "Откажи"
 msgid "Add"
 msgstr "Додај"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
+#: src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "Језик"
 
@@ -155,6 +158,128 @@ msgstr "Помера доле"
 #: libpms/ms-osk-layout-row.ui:49
 msgid "Remove"
 msgstr "Уклони"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Друго…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "Изабери језик"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+msgid "_Cancel"
+msgstr "От_кажи"
+
+#: libpms/lang/ms-language-chooser.ui:23
+msgid "_Select"
+msgstr "_Изабери"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Језик или држава"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "Није пронађен ниједан језик"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "Више…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Данас"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Јуче"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%e %b"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%e %b %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d сат"
+msgstr[1] "%d сата"
+msgstr[2] "%d сати"
+msgstr[3] "%d сат"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d минут"
+msgstr[1] "%d минута"
+msgstr[2] "%d минута"
+msgstr[3] "%d минут"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунд"
+msgstr[1] "%d секунде"
+msgstr[2] "%d секунди"
+msgstr[3] "%d секунд"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 секунди"
 
 #: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
@@ -203,7 +328,7 @@ msgid "- Manage your mobile settings"
 msgstr "- управљајте вашим подешавањима мобилног"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:511
+#: src/ms-application.c:542
 msgid "translator-credits"
 msgstr ""
 "Марко М. Костић <marko.m.kostic@gmail.com>\n"
@@ -279,6 +404,10 @@ msgstr "ништа"
 msgid "Mobile Settings Volume Control"
 msgstr "Управљање гласношћу мобилних подешавања"
 
+#: src/ms-lang-panel.c:104
+msgid "Failed to set system locale"
+msgstr "Неуспешно постављање системског локалитета"
+
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Нисам успео да поставим позадину закључаног екрана"
@@ -296,23 +425,19 @@ msgstr "Подразумевани допуњавач који је изабра
 msgid "No information available for this completer"
 msgstr "Нема доступних података за овај допуњавач"
 
-#: src/ms-overview-panel.c:66
+#: src/ms-overview-panel.c:65
 msgid "Reset favorites?"
 msgstr "Вратити омиљене?"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:68
 msgid "Reset list of favorite applications to the default?"
 msgstr "Вратити списак омиљених програма на подразумевано?"
 
 #: src/ms-overview-panel.c:72
-msgid "_Cancel"
-msgstr "От_кажи"
-
-#: src/ms-overview-panel.c:73
 msgid "_Reset"
 msgstr "В_рати"
 
-#: src/ms-overview-panel.c:328
+#: src/ms-overview-panel.c:327
 msgid "Failed to set wallpaper for overview"
 msgstr "Нисам успео да поставим позадину за преглед"
 
@@ -429,7 +554,9 @@ msgstr "Не могу да примим упозорења"
 msgid ""
 "Cannot receive Emergency Alerts on this device as no usable cellular modem "
 "is detected."
-msgstr "Не могу да примим хитна упозорења на овом уређају јер није откривен употребљив мобилни модем."
+msgstr ""
+"Не могу да примим хитна упозорења на овом уређају јер није откривен "
+"употребљив мобилни модем."
 
 #: src/ui/ms-alerts-panel.ui:30
 msgid "Emergency and Governmental Alerts"
@@ -457,7 +584,9 @@ msgstr "Упозорења о јавној безбедности"
 
 #: src/ui/ms-alerts-panel.ui:51
 msgid "Show recommended actions to take in situations with a risk to safety"
-msgstr "Прикажи препоручене радње које треба предузети у ситуацијама са ризиком по безбедност"
+msgstr ""
+"Прикажи препоручене радње које треба предузети у ситуацијама са ризиком по "
+"безбедност"
 
 #: src/ui/ms-alerts-panel.ui:57
 msgid "Test alerts"
@@ -501,7 +630,9 @@ msgstr "Смањи величину свих програма"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
-msgstr "Присилно смањи величину свих програма. Ово користите само као последње решење."
+msgstr ""
+"Присилно смањи величину свих програма. Ово користите само као последње "
+"решење."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
@@ -544,7 +675,9 @@ msgstr "Хитни позиви"
 msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure "
 "that it's working with your provider."
-msgstr "Омогући хитне позиве. Ово укључите само ако сте сигурни да то ради код вашег пружаоца услуга."
+msgstr ""
+"Омогући хитне позиве. Ово укључите само ако сте сигурни да то ради код вашег "
+"пружаоца услуга."
 
 #. Translators: setting to enable emergency calls
 #: src/ui/ms-features-panel.ui:24
@@ -560,7 +693,9 @@ msgstr "Омогући обуставу преко системског избо
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
-msgstr "Ово укључите само ако сте свесни ограничења као што су губитак везе за податке или пропуштени аларми"
+msgstr ""
+"Ово укључите само ако сте свесни ограничења као што су губитак везе за "
+"податке или пропуштени аларми"
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
@@ -604,7 +739,9 @@ msgstr "Утишај притиском на дугме јачине звука"
 msgid ""
 "When locked put the phone in silent mode when pressing the button that "
 "lowers the volume on incoming calls"
-msgstr "Када је закључано, стави телефон у нечујни режим при притиску на дугме за смањивање јачине звука код долазних позива"
+msgstr ""
+"Када је закључано, стави телефон у нечујни режим при притиску на дугме за "
+"смањивање јачине звука код долазних позива"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:66
@@ -693,19 +830,21 @@ msgstr "Мрежни догађаји"
 msgid "A generic network notification"
 msgstr "Опште мрежно обавештење"
 
-#: src/ui/ms-feedback-panel.ui:221
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "Промене присутности"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "Опште обавештење о промени присутности"
 
-#: src/ui/ms-feedback-panel.ui:228
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "Преноси датотека"
 
-#: src/ui/ms-feedback-panel.ui:229
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "Опште обавештење о преносу или преузимању датотеке"
 
@@ -806,7 +945,9 @@ msgstr "Размотај дугим притиском"
 #: src/ui/ms-osk-panel.ui:21
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
-msgstr "Колико дуго треба притиснути средину почетне траке за размотавање екранске тастатуре"
+msgstr ""
+"Колико дуго треба притиснути средину почетне траке за размотавање екранске "
+"тастатуре"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
 #: src/ui/ms-osk-panel.ui:26
@@ -831,7 +972,8 @@ msgstr "Занемари хардверску тастатуру"
 #: src/ui/ms-osk-panel.ui:39
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
-msgstr "Да ли да се прикаже тастатура на екрану када је присутна физичка тастатура"
+msgstr ""
+"Да ли да се прикаже тастатура на екрану када је присутна физичка тастатура"
 
 #: src/ui/ms-osk-panel.ui:46
 msgid "Key indicator popup"
@@ -867,7 +1009,9 @@ msgstr "Задржи физичку величину константном"
 
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
-msgstr "Осигурајте да је екранска тастатура довољно велика на високим резолуцијама екрана"
+msgstr ""
+"Осигурајте да је екранска тастатура довољно велика на високим резолуцијама "
+"екрана"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -875,7 +1019,9 @@ msgstr "Додај празан простор испод тастера"
 
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
-msgstr "Да ли да се дода празна област испод тастера екранске тастатуре како би се померила нагоре."
+msgstr ""
+"Да ли да се дода празна област испод тастера екранске тастатуре како би се "
+"померила нагоре."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -927,7 +1073,8 @@ msgstr "Организуј омиљене"
 
 #: src/ui/ms-overview-panel.ui:23
 msgid "Drag and drop the apps below to rearrange your favorite apps"
-msgstr "Превуците и пустите програме испод да бисте преуредили ваше омиљене програме"
+msgstr ""
+"Превуците и пустите програме испод да бисте преуредили ваше омиљене програме"
 
 #: src/ui/ms-overview-panel.ui:48
 msgid "Reset Favorites"
@@ -965,7 +1112,8 @@ msgstr "Нису пронађени сензори"
 msgid ""
 "Either there are no sensors installed on your device or they are disabled by "
 "a killswitch."
-msgstr "Или нема сензора инсталираних на вашем уређају или су онемогућени прекидачем."
+msgstr ""
+"Или нема сензора инсталираних на вашем уређају или су онемогућени прекидачем."
 
 #: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
 msgid "Sensors"
@@ -1006,6 +1154,10 @@ msgstr "Праг интензитета светлости"
 #: src/ui/ms-sensor-panel.ui:85
 msgid "Theme will switch to high contrast above the threshold"
 msgstr "Тема ће прећи на велики контраст изнад прага"
+
+#: src/ui/ms-sound-row.ui:33
+msgid "Toggle Play"
+msgstr "Окините пуштање"
 
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
@@ -1168,18 +1320,22 @@ msgstr "Обустави"
 msgid "Experimental"
 msgstr "Експериментално"
 
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:325
+msgid "Locale"
+msgstr "Локалитет"
+
+#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
 msgid "About"
 msgstr "О програму"
 
-#: src/ui/ms-window.ui:349
+#: src/ui/ms-window.ui:369
 msgid "_Show Configurable Tweaks"
 msgstr "_Прикажи подесива лицкања"
 
-#: src/ui/ms-window.ui:356
+#: src/ui/ms-window.ui:376
 msgid "_Keyboard Shortcuts"
 msgstr "_Пречице тастатуре"
 
-#: src/ui/ms-window.ui:360
+#: src/ui/ms-window.ui:380
 msgid "_About Mobile Settings"
 msgstr "_О подешавањима мобилног"
