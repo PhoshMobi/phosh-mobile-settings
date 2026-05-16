@@ -1,3 +1,5 @@
+subdir('systemd-sysupdate')
+
 api_version = '1.0'
 libname = f'pms-@api_version@'
 
@@ -16,6 +18,7 @@ libpms_lang_private_sources = [
 libpms_private_sources = [
   libpms_osk_private_sources,
   libpms_lang_private_sources,
+  libpms_systemd_sysupdate_private_sources,
 ]
 
 libpms_public_sources = [
