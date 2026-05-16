@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-05-08 18:22+0000\n"
-"PO-Revision-Date: 2026-05-09 10:19+0200\n"
+"POT-Creation-Date: 2026-05-16 06:48+0000\n"
+"PO-Revision-Date: 2026-05-16 11:33+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -406,15 +406,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Nu s-a putut schimba fundalul pentru ecranul blocat"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "Default"
 msgstr "Prestabilită"
 
-#: src/ms-osk-panel.c:749
+#: src/ms-osk-panel.c:752
 msgid "The default completer selected by the OSK"
 msgstr "Completarea prestabilită aleasă de tastatura de pe ecran"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:755
 msgid "No information available for this completer"
 msgstr "Nicio informație disponibilă pentru această completare"
 
@@ -826,19 +826,21 @@ msgstr "Evenimentele rețelei"
 msgid "A generic network notification"
 msgstr "O notificare standard referitoare la rețea"
 
-#: src/ui/ms-feedback-panel.ui:221
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "Schimbări de prezență"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "O notificare standard referitoare la schimbarea stării de prezență"
 
-#: src/ui/ms-feedback-panel.ui:228
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "Transferuri de fișiere"
 
-#: src/ui/ms-feedback-panel.ui:229
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "O notificare standard pentru transferuri de fișiere sau descărcări"
 
@@ -896,7 +898,7 @@ msgstr "Miniaturi suplimentare pentru ecranul blocat"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
 msgid "Add Shortcut"
 msgstr "Adaugă scurtătura"
 
@@ -1035,13 +1037,13 @@ msgstr ""
 
 #: src/ui/ms-osk-panel.ui:133
 msgid "Toggle via OSK menu"
-msgstr "Comută prin tastatura virtuală"
+msgstr "Comută din tastatura virtuală"
 
 #: src/ui/ms-osk-panel.ui:134
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
-"Permite activarea/dezactivarea completării cuvintelor prin butonul de "
-"opțiuni al tastaturii"
+"Permite activarea/dezactivarea completării cuvintelor cu butonul de opțiuni "
+"al tastaturii"
 
 #: src/ui/ms-osk-panel.ui:140
 msgid "Default Completer"
@@ -1051,15 +1053,28 @@ msgstr "Completare prestabilită"
 msgid "The default completion engine to use"
 msgstr "Motorul prestabilit de completare care trebuie utilizat"
 
+#. Translators: Space is the ' ' character here
+#: src/ui/ms-osk-panel.ui:150
+msgid "Handle space around punctuation characters"
+msgstr "Gestionează spațiul din jurul semnelor de punctuație"
+
+#. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
+msgid ""
+"This also swaps the space and punctuation characters after word completion"
+msgstr ""
+"Aceasta schimbă ordinea dintre spațiu și semnul de punctuație după "
+"completarea unui cuvânt"
+
+#: src/ui/ms-osk-panel.ui:160
 msgid "Terminal Layout"
 msgstr "Aranjament Terminal"
 
-#: src/ui/ms-osk-panel.ui:171
+#: src/ui/ms-osk-panel.ui:179
 msgid "Shortcuts"
 msgstr "Scurtături"
 
-#: src/ui/ms-osk-panel.ui:172
+#: src/ui/ms-osk-panel.ui:180
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Scurtături disponibile în spațiul scurtăturilor"
 
