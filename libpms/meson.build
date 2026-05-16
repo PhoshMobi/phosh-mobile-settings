@@ -1,11 +1,19 @@
 api_version = '1.0'
 libname = f'pms-@api_version@'
 
-libpms_private_sources = [
+libpms_osk_private_sources = [
   'ms-osk-layout-row.c',
+]
+
+libpms_lang_private_sources = [
   'lang/ms-util.c',
   'lang/ms-language-row.c',
   'lang/ms-common-language.c',
+]
+
+libpms_private_sources = [
+  libpms_osk_private_sources,
+  libpms_lang_private_sources,
 ]
 
 libpms_public_sources = [
