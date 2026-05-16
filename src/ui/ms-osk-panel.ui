@@ -144,6 +144,14 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwSwitchRow" id="auto_space_switch">
+                    <!-- Translators: Space is the ' ' character here -->
+                    <property name="title" translatable="yes">Handle space around punctuation characters</property>
+                    <!-- Translators: Space is the ' ' character here -->
+                    <property name="subtitle" translatable="yes">This also swaps the space and punctuation characters after word completion</property>
+                  </object>
+                </child>
               </object>
             </child>
 
