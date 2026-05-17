@@ -45,6 +45,7 @@
                     <child>
                       <object class="GtkSearchEntry" id="search_entry">
                         <property name="hexpand">True</property>
+                        <!-- Translators: Placeholder text for the search bar input -->
                         <property name="placeholder-text" translatable="yes">Search settings</property>
                         <signal name="activate" handler="on_search_entry_activated" swapped="no" />
                         <signal name="changed" handler="on_search_entry_changed" swapped="no" />
