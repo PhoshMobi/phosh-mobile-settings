@@ -52,6 +52,15 @@
 
   <releases>
 
+    <release version="0.55.0" date="2026-05-17">
+      <description translate="no">
+        <ul>
+          <li>New panel to set the language</li>
+          <li>Option to set on-screen keyboard automatic space handling</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.54.0" date="2026-04-05">
       <description translate="no">
         <ul>

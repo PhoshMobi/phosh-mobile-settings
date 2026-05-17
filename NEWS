@@ -1,22 +1,32 @@
-phosh-mobile-settings 0.55~rc1
-------------------------------
+phosh-mobile-settings 0.55.0
+----------------------------
 Released May 2026
 * Various conf-tweaks improvements
 * New language panel
+* osk panel: Allow to configure automatic space handling
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/117
 * Contributors:
+    * Arun Mani J
     * Guido Günther
     * Stefan Hansson
+    * nicole mikołajczyk
 * UI translations:
+    * Anders Jonsson (sv)
     * Antonio Marin (ro)
     * Christian Kirbach (de)
     * Danial Behzadi (fa)
     * Daniel Rusek (cs)
     * Ekaterine Papava (ka)
+    * Hugo Carvalho (pt)
     * Jiri Grönroos (fi)
     * Martin (sl)
     * Pierre Michel Augustin (ht)
+    * Ryo Nakano (ja)
     * Sabri Ünal (tr)
     * Yuri Chornoivan (uk)
+    * nicole mikołajczyk (pl)
+    * Марко Костић (sr)
 
 phosh-mobile-settings 0.54.0
 ----------------------------
