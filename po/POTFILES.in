@@ -31,6 +31,7 @@ src/ui/ms-compositor-panel.ui
 src/ui/ms-convergence-panel.ui
 src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
+src/ui/ms-lang-panel.ui
 src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-add-shortcut-dialog.ui
 src/ui/ms-osk-panel.ui
