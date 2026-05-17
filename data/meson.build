@@ -58,10 +58,18 @@ endif
 
 install_data(schemas, install_dir: 'share/glib-2.0/schemas')
 
-polkit = files('phosh-mobile-settings.rules')
-install_data(
-  polkit,
-  install_dir: polkitdir,
-)
+polkit_group = get_option('polkit-group')
+if polkit_group != ''
+  polkit_conf = configuration_data()
+  polkit_conf.set('polkit-group', polkit_group)
+  polkit_rules = 'phosh-mobile-settings.rules'
+  configure_file(
+    input: polkit_rules + '.in',
+    output: polkit_rules,
+    install: true,
+    install_dir: polkitdir,
+    configuration: polkit_conf,
+  )
+endif
 
 subdir('icons')
