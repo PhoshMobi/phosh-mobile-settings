@@ -1,3 +1,47 @@
+phosh-mobile-settings (0.55.0) experimental; urgency=medium
+
+  [ nicole mikołajczyk ]
+  * l10n: Add missing string as translatable
+  * Add Polish translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Ryo Nakano ]
+  * Update Japanese translation
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Arun Mani J ]
+  * feedback-panel: Clarify what presence change means
+
+  [ Марко Костић ]
+  * Update Serbian translation
+
+  [ Pierre Michel Augustin ]
+  * Update Haitian Creole translation
+
+  [ Guido Günther ]
+  * osk: Drop schema check.
+    We can assume recent enough stevia nowadays
+  * osk-panel: Allow to configure automatic space handling.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/117
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 17 May 2026 08:59:14 +0200
+
 phosh-mobile-settings (0.55~rc1) experimental; urgency=medium
 
   [ Stefan Hansson ]
