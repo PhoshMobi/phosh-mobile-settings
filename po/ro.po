@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-05-16 06:48+0000\n"
-"PO-Revision-Date: 2026-05-16 11:33+0200\n"
+"POT-Creation-Date: 2026-05-17 15:38+0000\n"
+"PO-Revision-Date: 2026-05-18 10:37+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -128,8 +128,8 @@ msgstr "Anulează"
 msgid "Add"
 msgstr "Adaugă"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
-#: src/ui/ms-window.ui:324
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "Limba"
 
@@ -843,6 +843,23 @@ msgstr "Transferuri de fișiere"
 #: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "O notificare standard pentru transferuri de fișiere sau descărcări"
+
+#: src/ui/ms-lang-panel.ui:15
+msgid "The language of the user interface"
+msgstr "Limba interfeței grafice"
+
+#: src/ui/ms-lang-panel.ui:18
+msgid "_Language"
+msgstr "_Limba"
+
+#: src/ui/ms-lang-panel.ui:45
+msgid "Language change requires logout or restart"
+msgstr ""
+"Pentru a schimba limba trebuie terminată sesiunea sau repornit aparatul"
+
+#: src/ui/ms-lang-panel.ui:46
+msgid "Logout"
+msgstr "Termină sesiunea"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
