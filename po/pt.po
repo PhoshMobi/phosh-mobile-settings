@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
-"settings/-/issues\n"
-"POT-Creation-Date: 2026-05-08 18:22+0000\n"
-"PO-Revision-Date: 2026-05-10 11:26+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/"
+"issues\n"
+"POT-Creation-Date: 2026-05-17 15:38+0000\n"
+"PO-Revision-Date: 2026-05-18 23:35+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -27,8 +27,7 @@ msgstr "Definições móveis"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;Tweaks;"
-msgstr ""
-"Mobile;Móvel;Telemóvel;Preferências;Definições;MobileSettings;Ajustes;tweaks;"
+msgstr "Mobile;Móvel;Telemóvel;Preferências;Definições;MobileSettings;Ajustes;tweaks;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -36,11 +35,11 @@ msgstr "Definições móveis do Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
 msgid ""
-"This app allows you to configure some aspects of Phosh that would otherwise "
-"require command line usage."
+"This app allows you to configure some aspects of Phosh that would otherwise require "
+"command line usage."
 msgstr ""
-"Esta aplicação permite configurar alguns aspetos do Phosh que, de outra "
-"forma, exigiriam o uso da linha de comandos."
+"Esta aplicação permite configurar alguns aspetos do Phosh que, de outra forma, "
+"exigiriam o uso da linha de comandos."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
@@ -119,18 +118,16 @@ msgstr "Bateria"
 msgid "Add Layout"
 msgstr "Adicionar esquema"
 
-#: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: libpms/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: libpms/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+#: libpms/ms-osk-add-layout-dialog.ui:20 src/ui/ms-osk-add-shortcut-dialog.ui:23
 msgid "Add"
 msgstr "Adicionar"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
-#: src/ui/ms-window.ui:324
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "Idioma"
 
@@ -295,8 +292,7 @@ msgstr[1] "Ocorreram %i erros ao guardar"
 
 #: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
-msgstr ""
-"Precisa de se autenticar como administrador para guardar algumas definições"
+msgstr "Precisa de se autenticar como administrador para guardar algumas definições"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -404,15 +400,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Falha ao definir o fundo do ecrã de bloqueio"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "Default"
 msgstr "Predefinido"
 
-#: src/ms-osk-panel.c:749
+#: src/ms-osk-panel.c:752
 msgid "The default completer selected by the OSK"
 msgstr "O completador predefinido selecionado pelo OSK"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:755
 msgid "No information available for this completer"
 msgstr "Nenhuma informação disponível para este completador"
 
@@ -543,8 +539,8 @@ msgstr "Não é possível receber alertas"
 
 #: src/ui/ms-alerts-panel.ui:18
 msgid ""
-"Cannot receive Emergency Alerts on this device as no usable cellular modem "
-"is detected."
+"Cannot receive Emergency Alerts on this device as no usable cellular modem is "
+"detected."
 msgstr ""
 "Não é possível receber Alertas de Emergência neste dispositivo, pois não foi "
 "detetado nenhum modem celular utilizável."
@@ -575,8 +571,7 @@ msgstr "Alertas de segurança pública"
 
 #: src/ui/ms-alerts-panel.ui:51
 msgid "Show recommended actions to take in situations with a risk to safety"
-msgstr ""
-"Mostrar ações recomendadas a tomar em situações com risco para a segurança"
+msgstr "Mostrar ações recomendadas a tomar em situações com risco para a segurança"
 
 #: src/ui/ms-alerts-panel.ui:57
 msgid "Test alerts"
@@ -621,8 +616,7 @@ msgstr "Redimensionar todas as aplicações"
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
 msgstr ""
-"Forçar o redimensionamento de todas as aplicações. Usar apenas como último "
-"recurso."
+"Forçar o redimensionamento de todas as aplicações. Usar apenas como último recurso."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
@@ -663,8 +657,8 @@ msgstr "Chamadas de emergência"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
-"Enable emergency calls. Please only enable this if you safely can ensure "
-"that it's working with your provider."
+"Enable emergency calls. Please only enable this if you safely can ensure that it's "
+"working with your provider."
 msgstr ""
 "Ativar chamadas de emergência. Por favor, ative apenas se puder garantir com "
 "segurança que o serviço funciona com o seu operador."
@@ -681,11 +675,11 @@ msgstr "Ativar suspensão através do menu do sistema"
 
 #: src/ui/ms-features-panel.ui:34
 msgid ""
-"Please only enable this if you're aware of the limitations like data "
-"connection loss or missed alarms"
+"Please only enable this if you're aware of the limitations like data connection "
+"loss or missed alarms"
 msgstr ""
-"Por favor, ative apenas se estiver ciente das limitações, tais como a perda "
-"de ligação de dados ou falhas em alarmes"
+"Por favor, ative apenas se estiver ciente das limitações, tais como a perda de "
+"ligação de dados ou falhas em alarmes"
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
@@ -727,11 +721,11 @@ msgstr "Silenciar ao premir o botão de volume"
 
 #: src/ui/ms-feedback-panel.ui:60
 msgid ""
-"When locked put the phone in silent mode when pressing the button that "
-"lowers the volume on incoming calls"
+"When locked put the phone in silent mode when pressing the button that lowers the "
+"volume on incoming calls"
 msgstr ""
-"Quando bloqueado, coloca o telemóvel em modo silêncio ao premir o botão de "
-"reduzir volume durante chamadas recebidas"
+"Quando bloqueado, coloca o telemóvel em modo silêncio ao premir o botão de reduzir "
+"volume durante chamadas recebidas"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:66
@@ -779,12 +773,9 @@ msgid "Notification urgency that lights up the screen"
 msgstr "Urgência das notificações que ligam o ecrã"
 
 #: src/ui/ms-feedback-panel.ui:183
-msgid ""
-"Notification categories that wake up the screen independent from their "
-"urgency"
+msgid "Notification categories that wake up the screen independent from their urgency"
 msgstr ""
-"Categorias de notificação que despertam o ecrã independentemente da sua "
-"urgência"
+"Categorias de notificação que despertam o ecrã independentemente da sua urgência"
 
 #: src/ui/ms-feedback-panel.ui:186
 msgid "Calls"
@@ -822,21 +813,39 @@ msgstr "Eventos de rede"
 msgid "A generic network notification"
 msgstr "Uma notificação genérica de rede"
 
-#: src/ui/ms-feedback-panel.ui:221
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "Alterações de presença"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "Uma notificação genérica de alteração de presença"
 
-#: src/ui/ms-feedback-panel.ui:228
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "Transferências de ficheiros"
 
-#: src/ui/ms-feedback-panel.ui:229
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "Uma notificação genérica de transferência ou descarga de ficheiros"
+
+#: src/ui/ms-lang-panel.ui:15
+msgid "The language of the user interface"
+msgstr "O idioma da interface do utilizador"
+
+#: src/ui/ms-lang-panel.ui:18
+msgid "_Language"
+msgstr "_Idioma"
+
+#: src/ui/ms-lang-panel.ui:45
+msgid "Language change requires logout or restart"
+msgstr "A alteração do idioma requer que saia da sessão ou reinicie o sistema"
+
+#: src/ui/ms-lang-panel.ui:46
+msgid "Logout"
+msgstr "Sair"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
@@ -856,8 +865,7 @@ msgstr "Exigir autenticação para desbloquear"
 
 #: src/ui/ms-lockscreen-panel.ui:26
 msgid "Require typing PIN or password to unlock the device"
-msgstr ""
-"Exigir a introdução de PIN ou palavra-passe para desbloquear o dispositivo"
+msgstr "Exigir a introdução de PIN ou palavra-passe para desbloquear o dispositivo"
 
 #: src/ui/ms-lockscreen-panel.ui:32
 msgid "Automatic screen lock delay"
@@ -893,7 +901,7 @@ msgstr "Widgets adicionais para o ecrã de bloqueio"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
 msgid "Add Shortcut"
 msgstr "Adicionar atalho"
 
@@ -934,11 +942,9 @@ msgid "Unfold long-press"
 msgstr "Pressão longa para desdobrar"
 
 #: src/ui/ms-osk-panel.ui:21
-msgid ""
-"How long to press the center of the home bar to unfold the on screen keyboard"
+msgid "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
-"Quanto tempo pressionar o centro da barra inicial para desdobrar o teclado "
-"no ecrã"
+"Quanto tempo pressionar o centro da barra inicial para desdobrar o teclado no ecrã"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
 #: src/ui/ms-osk-panel.ui:26
@@ -961,10 +967,8 @@ msgid "Ignore hardware keyboard"
 msgstr "Ignorar teclado físico"
 
 #: src/ui/ms-osk-panel.ui:39
-msgid ""
-"Whether to show the on screen keyboard when a physical keyboard is present"
-msgstr ""
-"Se deve mostrar o teclado no ecrã quando um teclado físico está presente"
+msgid "Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr "Se deve mostrar o teclado no ecrã quando um teclado físico está presente"
 
 #: src/ui/ms-osk-panel.ui:46
 msgid "Key indicator popup"
@@ -1001,8 +1005,7 @@ msgstr "Manter tamanho físico constante"
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
-"Garante que o teclado (OSK) é suficientemente grande em resoluções de ecrã "
-"elevadas"
+"Garante que o teclado (OSK) é suficientemente grande em resoluções de ecrã elevadas"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1011,8 +1014,8 @@ msgstr "Adicionar espaço vazio abaixo das teclas"
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
-"Se deve adicionar uma área vazia abaixo das teclas do teclado para o "
-"deslocar para cima."
+"Se deve adicionar uma área vazia abaixo das teclas do teclado para o deslocar para "
+"cima."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -1032,8 +1035,7 @@ msgstr "Alternar via menu do teclado"
 
 #: src/ui/ms-osk-panel.ui:134
 msgid "Allow to toggle word completion via the keyboard's menu button"
-msgstr ""
-"Permitir alternar a conclusão de palavras através do botão de menu do teclado"
+msgstr "Permitir alternar a conclusão de palavras através do botão de menu do teclado"
 
 #: src/ui/ms-osk-panel.ui:140
 msgid "Default Completer"
@@ -1043,15 +1045,26 @@ msgstr "Concluidor predefinido"
 msgid "The default completion engine to use"
 msgstr "O motor de conclusão predefinido a utilizar"
 
+#. Translators: Space is the ' ' character here
+#: src/ui/ms-osk-panel.ui:150
+msgid "Handle space around punctuation characters"
+msgstr "Tratar o espaço em torno dos sinais de pontuação"
+
+#. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
+msgid "This also swaps the space and punctuation characters after word completion"
+msgstr ""
+"Isto também troca os caracteres de espaço e pontuação após a conclusão da palavra"
+
+#: src/ui/ms-osk-panel.ui:160
 msgid "Terminal Layout"
 msgstr "Esquema de terminal"
 
-#: src/ui/ms-osk-panel.ui:171
+#: src/ui/ms-osk-panel.ui:179
 msgid "Shortcuts"
 msgstr "Atalhos"
 
-#: src/ui/ms-osk-panel.ui:172
+#: src/ui/ms-osk-panel.ui:180
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Os atalhos disponíveis na barra de atalhos"
 
@@ -1101,11 +1114,11 @@ msgstr "Nenhum sensor encontrado"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
-"Either there are no sensors installed on your device or they are disabled by "
-"a killswitch."
+"Either there are no sensors installed on your device or they are disabled by a "
+"killswitch."
 msgstr ""
-"Ou não existem sensores instalados no seu dispositivo ou estão desativados "
-"por um interruptor físico (killswitch)."
+"Ou não existem sensores instalados no seu dispositivo ou estão desativados por um "
+"interruptor físico (killswitch)."
 
 #: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
 msgid "Sensors"
@@ -1173,8 +1186,7 @@ msgstr "Evitar entalhes (notches)"
 
 #: src/ui/ms-topbar-panel.ui:24
 msgid "Don't place UI elements beneath notches and display cutouts"
-msgstr ""
-"Não colocar elementos da interface por baixo de entalhes ou recortes do ecrã"
+msgstr "Não colocar elementos da interface por baixo de entalhes ou recortes do ecrã"
 
 #: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
 msgid "Quick Settings"
