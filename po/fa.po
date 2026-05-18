@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
-"settings/-/issues\n"
-"POT-Creation-Date: 2026-04-30 11:20+0000\n"
-"PO-Revision-Date: 2026-05-01 14:08+0330\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/"
+"issues\n"
+"POT-Creation-Date: 2026-05-17 15:38+0000\n"
+"PO-Revision-Date: 2026-05-18 21:12+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -34,11 +34,11 @@ msgstr "تنظیمات همراه فوش"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
 msgid ""
-"This app allows you to configure some aspects of Phosh that would otherwise "
-"require command line usage."
+"This app allows you to configure some aspects of Phosh that would otherwise require "
+"command line usage."
 msgstr ""
-"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید از "
-"خط فرمان استفاده می‌کردید."
+"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید از خط "
+"فرمان استفاده می‌کردید."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
@@ -125,8 +125,8 @@ msgstr "لغو"
 msgid "Add"
 msgstr "افزودن"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
-#: src/ui/ms-window.ui:324
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
+#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
 msgid "Language"
 msgstr "زبان"
 
@@ -399,15 +399,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "شکست در تنظیم کاغذدیواری صفحهٔ قفل"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "Default"
 msgstr "پیش‌گزیده"
 
-#: src/ms-osk-panel.c:749
+#: src/ms-osk-panel.c:752
 msgid "The default completer selected by the OSK"
 msgstr "تکمیلگر پیش‌گزیده به دست صفحعه‌کلید مجازی"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:755
 msgid "No information available for this completer"
 msgstr "هیچ اطّلاعاتی از این رایانه موجود نیست"
 
@@ -655,8 +655,8 @@ msgstr "تماس‌های اضطراری"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
-"Enable emergency calls. Please only enable this if you safely can ensure that "
-"it's working with your provider."
+"Enable emergency calls. Please only enable this if you safely can ensure that it's "
+"working with your provider."
 msgstr ""
 "به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با "
 "اوپراتورتان به کارش بیندازید."
@@ -676,8 +676,8 @@ msgid ""
 "Please only enable this if you're aware of the limitations like data connection "
 "loss or missed alarms"
 msgstr ""
-"لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
-"هشدارها به کارش بیندازید"
+"لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن هشدارها "
+"به کارش بیندازید"
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
@@ -719,11 +719,10 @@ msgstr "خموشی با زدن دکمهٔ صدا"
 
 #: src/ui/ms-feedback-panel.ui:60
 msgid ""
-"When locked put the phone in silent mode when pressing the button that lowers "
-"the volume on incoming calls"
+"When locked put the phone in silent mode when pressing the button that lowers the "
+"volume on incoming calls"
 msgstr ""
-"هنگام قفل بودن تلفن را با فشردن دکمهٔ کاهش حجم صدا موقع زنگ خوردن به حالت بی‌صدا "
-"می‌برد"
+"هنگام قفل بودن تلفن را با فشردن دکمهٔ کاهش حجم صدا موقع زنگ خوردن به حالت بی‌صدا می‌برد"
 
 #. Translators: Strength of the haptic motor
 #: src/ui/ms-feedback-panel.ui:66
@@ -771,8 +770,7 @@ msgid "Notification urgency that lights up the screen"
 msgstr "ضروریت آگاهی‌ای که صفحه را روشن می‌کند"
 
 #: src/ui/ms-feedback-panel.ui:183
-msgid ""
-"Notification categories that wake up the screen independent from their urgency"
+msgid "Notification categories that wake up the screen independent from their urgency"
 msgstr "دسته‌های آگاهی که مستقل از ضرورتشان صفحه را برمی‌خیزانند"
 
 #: src/ui/ms-feedback-panel.ui:186
@@ -811,21 +809,39 @@ msgstr "رویدادهای شبکه"
 msgid "A generic network notification"
 msgstr "آگاهی عمومی شبکه"
 
-#: src/ui/ms-feedback-panel.ui:221
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "تغییرات حضور"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "آگاهی عمومی دگرگونی حضور"
 
-#: src/ui/ms-feedback-panel.ui:228
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "انتفال پرونده‌ها"
 
-#: src/ui/ms-feedback-panel.ui:229
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "آگاهی عمومی بارگیری یا انتقال پرونده"
+
+#: src/ui/ms-lang-panel.ui:15
+msgid "The language of the user interface"
+msgstr "زبان میانای کاربری"
+
+#: src/ui/ms-lang-panel.ui:18
+msgid "_Language"
+msgstr "_زبان"
+
+#: src/ui/ms-lang-panel.ui:45
+msgid "Language change requires logout or restart"
+msgstr "تغییر زبان نیازمند خروج یا آغاز دوباره است"
+
+#: src/ui/ms-lang-panel.ui:46
+msgid "Logout"
+msgstr "خروج"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
@@ -881,7 +897,7 @@ msgstr "ابزارک‌های اضافی برای صفحهٔ قفل"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
 msgid "Add Shortcut"
 msgstr "افزودن میان‌بر"
 
@@ -922,8 +938,7 @@ msgid "Unfold long-press"
 msgstr "نگه داشتتن برای جمع کردن"
 
 #: src/ui/ms-osk-panel.ui:21
-msgid ""
-"How long to press the center of the home bar to unfold the on screen keyboard"
+msgid "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr "چه قدر باید مرکز نوار خانه نگه داشته شود تا صفحه‌کلید مجازی جمع شود"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
@@ -1024,15 +1039,25 @@ msgstr "کامل کنندهٔ پیش‌گزیده"
 msgid "The default completion engine to use"
 msgstr "موتور تکمیل پیش‌گزیده برای استفاده"
 
+#. Translators: Space is the ' ' character here
+#: src/ui/ms-osk-panel.ui:150
+msgid "Handle space around punctuation characters"
+msgstr "مدیریت فاصله‌های اطراف نویسه‌های سجاوندی"
+
+#. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
+msgid "This also swaps the space and punctuation characters after word completion"
+msgstr "همچنین فاصلخ و نویسه‌های سجاوندی را پس از تکمیل واژه جابه‌جا می‌کند"
+
+#: src/ui/ms-osk-panel.ui:160
 msgid "Terminal Layout"
 msgstr "چینش پایانه"
 
-#: src/ui/ms-osk-panel.ui:171
+#: src/ui/ms-osk-panel.ui:179
 msgid "Shortcuts"
 msgstr "میان‌برها"
 
-#: src/ui/ms-osk-panel.ui:172
+#: src/ui/ms-osk-panel.ui:180
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "میان‌برهای موجود در نوار میان‌برها"
 
@@ -1125,6 +1150,10 @@ msgstr "آستانهٔ تراکم نور"
 #: src/ui/ms-sensor-panel.ui:85
 msgid "Theme will switch to high contrast above the threshold"
 msgstr "زمینه در بالای آستانه به سایه‌روشن زیاد تغییر خواهد کرد"
+
+#: src/ui/ms-sound-row.ui:33
+msgid "Toggle Play"
+msgstr "تغییر وضعیت پخش"
 
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
