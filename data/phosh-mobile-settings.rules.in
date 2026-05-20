@@ -3,7 +3,7 @@ polkit.addRule(function(action, subject) {
              action.id == "org.freedesktop.locale1.set-keyboard") &&
             subject.active &&
             subject.local &&
-            subject.isInGroup ("sudo")) {
+            subject.isInGroup ("@polkit-group@")) {
                     return polkit.Result.YES;
         }
 });

@@ -10,3 +10,6 @@ option('examples', type: 'boolean', value: false,
 
 option('man', type: 'boolean', value: false,
        description: 'Generate man pages (requires rst2man)')
+
+option('polkit-group', type: 'string', value: '',
+       description: 'Allow users in this group, typically sudo or wheel, to modify system settings like locale without requiring a password')
