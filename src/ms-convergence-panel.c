@@ -94,6 +94,21 @@ static const MsDock docks[] = {
     .touch_usb_vendor = 0x27c6,
     .touch_usb_id = 0x0818,
   },
+  {
+    /*
+     * Manufacturer: NEX
+     * Model: 9492
+     *
+     * This entry will generically match on all NexDock docks.
+     */
+    .name = "NexDock 2025",
+    .make = "Nexgen Mediatech Inc.,",
+    .model = "NexDock",
+    .serial = NULL,
+
+    .touch_usb_vendor = 0x222a,
+    .touch_usb_id = 0x0001,
+  },
   /* more docks go here */
 };
 
