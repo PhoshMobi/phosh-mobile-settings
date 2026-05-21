@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Purism SPC
+ * Copyright (C) 2022, 2026 Purism SPC
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -36,6 +36,7 @@ struct _MsConvergencePanel {
   MsPanel              parent;
 
   const MsDock        *dock;
+  MsHead              *head;
   AdwPreferencesGroup *dock_pref_group;
   GtkStack            *dock_stack;
   GSettings           *touch_settings;
@@ -92,6 +93,21 @@ static const MsDock docks[] = {
 
     .touch_usb_vendor = 0x27c6,
     .touch_usb_id = 0x0818,
+  },
+  {
+    /*
+     * Manufacturer: NEX
+     * Model: 9492
+     *
+     * This entry will generically match on all NexDock docks.
+     */
+    .name = "NexDock 2025",
+    .make = "Nexgen Mediatech Inc.,",
+    .model = "NexDock",
+    .serial = NULL,
+
+    .touch_usb_vendor = 0x222a,
+    .touch_usb_id = 0x0001,
   },
   /* more docks go here */
 };
@@ -162,7 +178,10 @@ touch_mapping_set (const GValue *value,
   if (g_value_get_boolean (value)) {
     g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->make));
     g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->model));
-    g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->serial));
+    if (STR_IS_NULL_OR_EMPTY (self->dock->serial))
+      g_variant_builder_add_value (&builder, g_variant_new ("s", self->head->serial_number));
+    else
+      g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->serial));
   } else {
     g_variant_builder_add_value (&builder, g_variant_new ("s", ""));
     g_variant_builder_add_value (&builder, g_variant_new ("s", ""));
@@ -185,6 +204,7 @@ on_head_added (MsConvergencePanel *self,
 
   self->dock = find_dock (head);
   if (self->dock != NULL) {
+    self->head = ms_head_ref (head);
     adw_preferences_group_set_title (self->dock_pref_group, self->dock->name);
     gtk_stack_set_visible_child_name (self->dock_stack, "dock");
     gtk_widget_set_sensitive (GTK_WIDGET (self->map_touch_screen_row),
@@ -224,6 +244,7 @@ on_head_removed (MsConvergencePanel *self,
   gtk_widget_set_sensitive (GTK_WIDGET (self->map_touch_screen_row), FALSE);
   g_clear_pointer (&self->touch_settings, g_object_unref);
   self->dock = NULL;
+  g_clear_pointer (&self->head, ms_head_unref);
 }
 
 
@@ -262,6 +283,7 @@ ms_convergence_panel_finalize (GObject *object)
 
   g_clear_object (&self->tracker);
   g_clear_object (&self->touch_settings);
+  g_clear_pointer (&self->head, ms_head_unref);
 
   G_OBJECT_CLASS (ms_convergence_panel_parent_class)->finalize (object);
 }
