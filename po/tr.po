@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-04-30 11:20+0000\n"
-"PO-Revision-Date: 2026-04-28 23:30+0300\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"POT-Creation-Date: 2026-05-20 09:46+0000\n"
+"PO-Revision-Date: 2026-05-26 08:00+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -129,8 +129,8 @@ msgstr "İptal"
 msgid "Add"
 msgstr "Ekle"
 
-#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-window.ui:316
-#: src/ui/ms-window.ui:324
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
+#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
 msgid "Language"
 msgstr "Dil"
 
@@ -401,15 +401,15 @@ msgid "Failed to set lockscreen wallpaper"
 msgstr "Kilit ekranı duvar kağıdı belirlenemedi"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:748
+#: src/ms-osk-panel.c:751
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: src/ms-osk-panel.c:749
+#: src/ms-osk-panel.c:752
 msgid "The default completer selected by the OSK"
 msgstr "Ekran klavyesince seçilen öntanımlı tamamlayıcı"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:755
 msgid "No information available for this completer"
 msgstr "Bu tamamlayıcı için bilgi yok"
 
@@ -740,7 +740,7 @@ msgstr "Azami dokunsal geri bildirim gücü yüzdesi"
 msgid "Per Application settings"
 msgstr "Uygulama Başına ayarlar"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
 msgid "Sounds"
 msgstr "Sesler"
 
@@ -815,21 +815,40 @@ msgstr "Ağ olayları"
 msgid "A generic network notification"
 msgstr "Ağ bildirimi"
 
-#: src/ui/ms-feedback-panel.ui:221
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "Bulunuşluk değişimleri"
 
-#: src/ui/ms-feedback-panel.ui:222
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "Bulunuşluk değişimi bildirimi"
 
-#: src/ui/ms-feedback-panel.ui:228
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "Dosya aktarımları"
 
-#: src/ui/ms-feedback-panel.ui:229
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "Dosya aktarma ya da indirme bildirimi"
+
+#: src/ui/ms-lang-panel.ui:15
+msgid "The language of the user interface"
+msgstr "Kullanıcı arayüzü dili"
+
+#: src/ui/ms-lang-panel.ui:18
+msgid "_Language"
+msgstr "_Dil"
+
+#: src/ui/ms-lang-panel.ui:45
+msgid "Language change requires logout or restart"
+msgstr ""
+"Dil değişimi oturumun kapatılmasını ya da yeniden başlatmayı gerektirir"
+
+#: src/ui/ms-lang-panel.ui:46
+msgid "Logout"
+msgstr "Oturumu Kapat"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
@@ -875,7 +894,7 @@ msgstr "Duvar kağıdı kullan"
 msgid "Whether to show a colorful wallpaper"
 msgstr "Renkli duvar kağıdının gösterilmesi"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
 msgid "Widgets"
 msgstr "Parçacıklar"
 
@@ -885,7 +904,7 @@ msgstr "Kilit ekranı için ek parçacıklar"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
 msgid "Add Shortcut"
 msgstr "Kısayol Ekle"
 
@@ -981,7 +1000,7 @@ msgstr "Yatay kipte klavye yüksekliği"
 msgid "When the screen is wider than tall"
 msgstr "Ekran boydan daha geniş olduğunda"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
 msgid "Scaling"
 msgstr "Ölçekleme"
 
@@ -1033,19 +1052,31 @@ msgstr "Öntanımlı Tamamlayıcı"
 msgid "The default completion engine to use"
 msgstr "Kullanılacak öntanımlı tamamlama motoru"
 
+#. Translators: Space is the ' ' character here
+#: src/ui/ms-osk-panel.ui:150
+msgid "Handle space around punctuation characters"
+msgstr "Noktalama imlerinin çevresindeki boşluğu işle"
+
+#. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
+msgid ""
+"This also swaps the space and punctuation characters after word completion"
+msgstr ""
+"Bu, sözcük tamamlama sonrasında boşluk ve noktalama imlerini de yer değiştirir"
+
+#: src/ui/ms-osk-panel.ui:160
 msgid "Terminal Layout"
 msgstr "Uçbirim Yerleşimi"
 
-#: src/ui/ms-osk-panel.ui:171
+#: src/ui/ms-osk-panel.ui:179
 msgid "Shortcuts"
 msgstr "Kısayollar"
 
-#: src/ui/ms-osk-panel.ui:172
+#: src/ui/ms-osk-panel.ui:180
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Kısayollar çubuğundaki kısayollar"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
 msgid "Favorites"
 msgstr "Gözdeler"
 
@@ -1099,7 +1130,7 @@ msgstr ""
 "Aygıtınızda kurulu algılayıcı yok ya da kapatma anahtarınca devre dışı "
 "bırakılmış."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
 msgid "Sensors"
 msgstr "Algılayıcılar"
 
@@ -1119,7 +1150,7 @@ msgstr "Işık"
 msgid "Orientation"
 msgstr "Yönelim"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
 msgid "High Contrast"
 msgstr "Yüksek Karşıtlık"
 
@@ -1129,7 +1160,7 @@ msgstr "Kendiliğinden Yüksek Karşıtlık"
 
 #: src/ui/ms-sensor-panel.ui:73
 msgid "Controlled by the Ambient Light Sensor"
-msgstr "Ortam Işığı Algılayıcısı tarafından denetlenir"
+msgstr "Ortam Işığı Algılayıcısınca denetlenir"
 
 #: src/ui/ms-sensor-panel.ui:84
 msgid "Light intensity threshold"
@@ -1138,6 +1169,10 @@ msgstr "Işık yoğunluğu eşiği"
 #: src/ui/ms-sensor-panel.ui:85
 msgid "Theme will switch to high contrast above the threshold"
 msgstr "Tema, eşiğin üzerinde yüksek karşıtlığa geçer"
+
+#: src/ui/ms-sound-row.ui:33
+msgid "Toggle Play"
+msgstr "Çal ya da Durdur"
 
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
@@ -1164,7 +1199,7 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Kullanıcı arayüz ögelerini çentikler ve ekran kesiklerinin altına yerleştirme"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
 msgid "Quick Settings"
 msgstr "Hızlı Ayarlar"
 
@@ -1185,138 +1220,139 @@ msgstr "Gelişmiş mobil ayarları değiştirin"
 msgid "Search"
 msgstr "Ara"
 
-#: src/ui/ms-window.ui:48
+#. Translators: Placeholder text for the search bar input
+#: src/ui/ms-window.ui:49
 msgid "Search settings"
 msgstr "Ayarları ara"
 
-#: src/ui/ms-window.ui:98
+#: src/ui/ms-window.ui:99
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
-#: src/ui/ms-window.ui:109
+#: src/ui/ms-window.ui:110
 msgid "Top Bar"
 msgstr "Üst Çubuk"
 
-#: src/ui/ms-window.ui:118
+#: src/ui/ms-window.ui:119
 msgid "Notches"
 msgstr "Çentikler"
 
-#: src/ui/ms-window.ui:129
+#: src/ui/ms-window.ui:130
 msgid "Overview"
 msgstr "Genel Görünüm"
 
-#: src/ui/ms-window.ui:138
+#: src/ui/ms-window.ui:139
 msgid "Filter"
 msgstr "Süzgeç"
 
-#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
 msgid "Wallpaper"
 msgstr "Duvar Kağıdı"
 
-#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
 msgid "Feedback"
 msgstr "Geri Bildirim"
 
-#: src/ui/ms-window.ui:160
+#: src/ui/ms-window.ui:161
 msgid "Wakeup"
 msgstr "Uyandırma"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Vibra"
 msgstr "Titreşim"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Haptic"
 msgstr "Dokunsal"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:174
+#: src/ui/ms-window.ui:175
 msgid "Compositor"
 msgstr "Dizgileyici"
 
-#: src/ui/ms-window.ui:193
+#: src/ui/ms-window.ui:194
 msgid "Lockscreen"
 msgstr "Kilit Ekranı"
 
-#: src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:203
 msgid "Shuffle"
 msgstr "Karıştır"
 
-#: src/ui/ms-window.ui:204
+#: src/ui/ms-window.ui:205
 msgid "Password"
 msgstr "Parola"
 
-#: src/ui/ms-window.ui:215
+#: src/ui/ms-window.ui:216
 msgid "Convergence"
 msgstr "Yakınsama"
 
-#: src/ui/ms-window.ui:233
+#: src/ui/ms-window.ui:234
 msgid "On Screen Keyboard"
 msgstr "Ekran Klavyesi"
 
-#: src/ui/ms-window.ui:241
+#: src/ui/ms-window.ui:242
 msgid "Keyboard"
 msgstr "Klavye"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Unfold"
 msgstr "Aç"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "OSK"
 msgstr "Ekran Klavyesi"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "Word Completion"
 msgstr "Sözcük Tamamlama"
 
-#: src/ui/ms-window.ui:255
+#: src/ui/ms-window.ui:256
 msgid "Emergency Alerts"
 msgstr "Acil Durum Uyarıları"
 
-#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
 msgid "Emergency"
 msgstr "Acil"
 
-#: src/ui/ms-window.ui:264
+#: src/ui/ms-window.ui:265
 msgid "Cell Broadcast"
 msgstr "Hücre Yayını"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Danger"
 msgstr "Tehlike"
 
-#: src/ui/ms-window.ui:295
+#: src/ui/ms-window.ui:296
 msgid "Experimental features"
 msgstr "Deneysel Özellikler"
 
-#: src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:305
 msgid "Suspend"
 msgstr "Askıya Al"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Experimental"
 msgstr "Deneysel"
 
-#: src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:326
 msgid "Locale"
 msgstr "Yerel"
 
-#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
+#: src/ui/ms-window.ui:337 src/ui/ms-window.ui:345
 msgid "About"
 msgstr "Hakkında"
 
-#: src/ui/ms-window.ui:369
+#: src/ui/ms-window.ui:370
 msgid "_Show Configurable Tweaks"
 msgstr "Yapılandırılabilir İnce Ayarları _Göster"
 
-#: src/ui/ms-window.ui:376
+#: src/ui/ms-window.ui:377
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
-#: src/ui/ms-window.ui:380
+#: src/ui/ms-window.ui:381
 msgid "_About Mobile Settings"
 msgstr "Mobil Ayarlar _Hakkında"
