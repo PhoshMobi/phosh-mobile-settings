@@ -148,7 +148,7 @@ on_localed_properties_changed (MsLangPanel *self,
 static void
 on_localed_proxy_ready (GObject* source_object, GAsyncResult* res, gpointer data)
 {
-  MsLangPanel *self = MS_LANG_PANEL (data);
+  MsLangPanel *self;
   GDBusProxy *proxy;
   g_autoptr (GError) err = NULL;
 
@@ -159,6 +159,7 @@ on_localed_proxy_ready (GObject* source_object, GAsyncResult* res, gpointer data
     return;
   }
 
+  self = MS_LANG_PANEL (data);
   self->localed = proxy;
   g_signal_connect_object (self->localed,
                            "g-properties-changed",
