@@ -334,6 +334,27 @@
 
                     <child>
                       <object class="GtkStackPage">
+                        <property name="title" translatable="yes">OS Updates</property>
+                        <property name="name">updates</property>
+                        <property name="icon-name">software-update-available-symbolic</property>
+                        <property name="child">
+                          <object class="MsUpdatesPanel" id="os_updates_panel">
+                            <property name="enabled">False</property>
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Updates</item>
+                                </items>
+                              </object>
+                            </property>
+                            <signal name="notify::enabled" handler="on_panel_enabled_changed" swapped="yes" />
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkStackPage">
                         <property name="title" translatable="yes">About</property>
                         <property name="name">about</property>
                         <property name="icon-name">help-about-symbolic</property>

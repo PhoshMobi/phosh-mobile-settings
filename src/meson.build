@@ -74,6 +74,8 @@ mobile_settings_sources = [
   'ms-topbar-panel.h',
   'ms-toplevel-tracker.c',
   'ms-toplevel-tracker.h',
+  'ms-updates-panel.c',
+  'ms-updates-panel.h',
   'ms-util.c',
   'ms-util.h',
   'ms-welcome-panel.c',
