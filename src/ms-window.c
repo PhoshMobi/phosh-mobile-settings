@@ -125,6 +125,16 @@ do_toggle_conf_tweaks (GSettings *settings, char *key, gpointer user_data)
 
 
 static void
+on_panel_enabled_changed (MsWindow *self, GParamSpec *pspec, MsPanel *panel)
+{
+  gboolean enabled = ms_panel_get_enabled (panel);
+
+  ms_panel_switcher_refilter (self->panel_switcher,
+                              enabled ? GTK_FILTER_CHANGE_LESS_STRICT : GTK_FILTER_CHANGE_MORE_STRICT);
+}
+
+
+static void
 ms_settings_window_constructed (GObject *object)
 {
   MsWindow *self = MS_WINDOW (object);
@@ -193,6 +203,7 @@ ms_window_class_init (MsWindowClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsWindow, stack);
   gtk_widget_class_bind_template_child (widget_class, MsWindow, panel_switcher);
 
+  gtk_widget_class_bind_template_callback (widget_class, on_panel_enabled_changed);
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_changed);
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_activated);
   gtk_widget_class_bind_template_callback (widget_class, show_content_cb);
