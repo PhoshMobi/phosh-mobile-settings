@@ -31,13 +31,12 @@ ms_about_panel_get_os_info (void)
   g_autofree char *os_version = NULL;
   g_autofree char *os_pretty = NULL;
 
-  os_name = g_get_os_info (G_OS_INFO_KEY_NAME);
-  os_version = g_get_os_info (G_OS_INFO_KEY_VERSION_ID);
   os_pretty = g_get_os_info (G_OS_INFO_KEY_PRETTY_NAME);
-
   if (os_pretty)
     return g_steal_pointer (&os_pretty);
 
+  os_name = g_get_os_info (G_OS_INFO_KEY_NAME);
+  os_version = g_get_os_info (G_OS_INFO_KEY_VERSION_ID);
   if (os_name && os_version)
     return g_strdup_printf ("%s %s", os_name, os_version);
 
