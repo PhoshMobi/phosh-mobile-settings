@@ -25,7 +25,7 @@
 #define CUSTOM_SOUND_THEME_NAME "__custom"
 #define DIR_MODE 0700
 
-#define STR_IS_NULL_OR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+#define GM_STR_IS_NULL_OR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
 
 /**
  * MsSoundRow:
@@ -259,7 +259,7 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
 {
   MsSoundRow *self = MS_SOUND_ROW (widget);
 
-  g_return_if_fail (!STR_IS_NULL_OR_EMPTY (self->filename));
+  g_return_if_fail (!GM_STR_IS_NULL_OR_EMPTY (self->filename));
 
   if (self->playing) {
     gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
@@ -311,7 +311,7 @@ open_filechooser_activated (GtkWidget *widget,  const char* action_name, GVarian
   gtk_file_dialog_set_title (filechooser, _("Choose sound file"));
   gtk_file_dialog_set_default_filter (filechooser, self->sound_filter);
 
-  if (!STR_IS_NULL_OR_EMPTY (self->filename)) {
+  if (!GM_STR_IS_NULL_OR_EMPTY (self->filename)) {
     g_autoptr (GFile) current_file = g_file_new_for_path (self->filename);
     if (current_file)
       gtk_file_dialog_set_initial_file (filechooser, current_file);
@@ -491,9 +491,9 @@ ms_sound_row_set_filename (MsSoundRow *self, const char *filename)
   self->filename = g_strdup (filename);
 
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "sound-row.clear-filename",
-                                 !STR_IS_NULL_OR_EMPTY (self->filename));
+                                 !GM_STR_IS_NULL_OR_EMPTY (self->filename));
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "sound-row.play-sound",
-                                 !STR_IS_NULL_OR_EMPTY (self->filename));
+                                 !GM_STR_IS_NULL_OR_EMPTY (self->filename));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
   ms_sound_row_set_playing (self, FALSE);
 

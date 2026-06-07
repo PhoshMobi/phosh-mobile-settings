@@ -21,7 +21,7 @@ typedef enum {
   MS_END_SESSION_MODE_REBOOT,
 } MsEndSessionMode;
 
-#define STR_IS_NULL_OR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+#define GM_STR_IS_NULL_OR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
 
 char             *ms_munge_app_id (const char *app_id);
 GDesktopAppInfo  *ms_get_desktop_app_info_for_app_id (const char *app_id);

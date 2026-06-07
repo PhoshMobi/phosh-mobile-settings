@@ -124,9 +124,9 @@ static const MsDock *
 find_dock (MsHead *head)
 {
   for (guint i = 0; i < G_N_ELEMENTS (docks); i++) {
-    if ((STR_IS_NULL_OR_EMPTY (docks[i].make) || g_strcmp0 (docks[i].make, head->make) == 0) &&
-        (STR_IS_NULL_OR_EMPTY (docks[i].model) || g_strcmp0 (docks[i].model, head->model) == 0) &&
-        (STR_IS_NULL_OR_EMPTY (docks[i].serial) || g_strcmp0 (docks[i].serial, head->serial_number) == 0)) {
+    if ((GM_STR_IS_NULL_OR_EMPTY (docks[i].make) || g_strcmp0 (docks[i].make, head->make) == 0) &&
+        (GM_STR_IS_NULL_OR_EMPTY (docks[i].model) || g_strcmp0 (docks[i].model, head->model) == 0) &&
+        (GM_STR_IS_NULL_OR_EMPTY (docks[i].serial) || g_strcmp0 (docks[i].serial, head->serial_number) == 0)) {
       return &docks[i];
     }
   }
@@ -151,9 +151,9 @@ touch_mapping_get (GValue   *value,
   }
 
   /* TODO: what if it's mapped but not to our output? */
-  if  (STR_IS_NULL_OR_EMPTY (vals[0]) &&
-       STR_IS_NULL_OR_EMPTY (vals[1]) &&
-       STR_IS_NULL_OR_EMPTY (vals[2])) {
+  if  (GM_STR_IS_NULL_OR_EMPTY (vals[0]) &&
+       GM_STR_IS_NULL_OR_EMPTY (vals[1]) &&
+       GM_STR_IS_NULL_OR_EMPTY (vals[2])) {
     mapped = FALSE;
   } else {
     mapped = TRUE;
@@ -178,7 +178,7 @@ touch_mapping_set (const GValue       *value,
   if (g_value_get_boolean (value)) {
     g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->make));
     g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->model));
-    if (STR_IS_NULL_OR_EMPTY (self->dock->serial))
+    if (GM_STR_IS_NULL_OR_EMPTY (self->dock->serial))
       g_variant_builder_add_value (&builder, g_variant_new ("s", self->head->serial_number));
     else
       g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->serial));

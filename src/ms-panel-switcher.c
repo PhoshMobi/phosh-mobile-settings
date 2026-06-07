@@ -85,7 +85,7 @@ panels_filter_func (gpointer item, gpointer user_data)
   if (!ms_panel_get_enabled (panel))
     return FALSE;
 
-  if (STR_IS_NULL_OR_EMPTY (self->query))
+  if (GM_STR_IS_NULL_OR_EMPTY (self->query))
     return TRUE;
 
   if (g_strcmp0 (panelname, "welcome") == 0)
