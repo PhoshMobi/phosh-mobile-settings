@@ -41,6 +41,14 @@
                       </object>
                     </child>
                     <child>
+                      <object class="AdwActionRow" id="image_row">
+                        <property name="title" translatable="yes">Operating System Version</property>
+                        <style>
+                          <class name="property"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
                       <object class="AdwActionRow" id="device_row">
                         <property name="title" translatable="yes">Hardware Model</property>
                         <style>

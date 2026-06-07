@@ -16,6 +16,7 @@ struct _MsAboutPanel {
   MsPanel       parent;
 
   AdwActionRow *device_row;
+  AdwActionRow *image_row;
   AdwActionRow *os_row;
   AdwActionRow *version_row;
   GtkPicture   *logo;
@@ -39,6 +40,20 @@ ms_about_panel_get_os_info (void)
   os_version = g_get_os_info (G_OS_INFO_KEY_VERSION_ID);
   if (os_name && os_version)
     return g_strdup_printf ("%s %s", os_name, os_version);
+
+  return NULL;
+}
+
+
+static char *
+ms_about_panel_get_image_info (void)
+{
+  g_autofree char *image_version = NULL;
+
+  /* Meant for immutable images so we don't care about the OS version */
+  image_version = g_get_os_info ("IMAGE_VERSION");
+  if (image_version)
+    return g_steal_pointer (&image_version);
 
   return NULL;
 }
@@ -79,6 +94,7 @@ ms_about_panel_class_init (MsAboutPanelClass *klass)
                                                "/mobi/phosh/MobileSettings/ui/ms-about-panel.ui");
 
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, device_row);
+  gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, image_row);
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, os_row);
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, version_row);
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, logo);
@@ -88,7 +104,7 @@ ms_about_panel_class_init (MsAboutPanelClass *klass)
 static void
 ms_about_panel_init (MsAboutPanel *self)
 {
-  g_autofree char *os_info = NULL, *device_info = NULL;
+  g_autofree char *os_info = NULL, *device_info = NULL, *image_info = NULL;
 
   gtk_widget_init_template (GTK_WIDGET (self));
   gtk_picture_set_resource (self->logo, "/mobi/phosh/MobileSettings/phosh.mobi.svg");
@@ -100,6 +116,12 @@ ms_about_panel_init (MsAboutPanel *self)
     adw_action_row_set_subtitle (self->os_row, os_info);
   else
     gtk_widget_set_visible (GTK_WIDGET (self->os_row), FALSE);
+
+  image_info = ms_about_panel_get_image_info ();
+  if (image_info)
+    adw_action_row_set_subtitle (self->image_row, image_info);
+  else
+    gtk_widget_set_visible (GTK_WIDGET (self->image_row), FALSE);
 
   device_info = ms_about_panel_get_device_info ();
   if (device_info)
