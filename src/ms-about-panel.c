@@ -86,6 +86,13 @@ ms_about_panel_get_device_info (void)
 
 
 static void
+on_donate_clicked (MsAboutPanel *self)
+{
+  g_app_info_launch_default_for_uri ("https://ev.phosh.mobi/donate/", NULL, NULL);
+}
+
+
+static void
 ms_about_panel_class_init (MsAboutPanelClass *klass)
 {
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -98,6 +105,8 @@ ms_about_panel_class_init (MsAboutPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, os_row);
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, version_row);
   gtk_widget_class_bind_template_child (widget_class, MsAboutPanel, logo);
+
+  gtk_widget_class_bind_template_callback (widget_class, on_donate_clicked);
 }
 
 
