@@ -483,3 +483,47 @@ ms_get_media_role_as_string (MsMediaRole role)
 
   return media_role;
 }
+
+
+void
+ms_util_end_session (MsEndSessionMode mode)
+{
+  g_autoptr (GDBusProxy) proxy = NULL;
+  g_autoptr (GError) err = NULL;
+  g_autoptr (GVariant) ret = NULL;
+  const char *method;
+  GVariant *arg = NULL;
+
+  switch (mode) {
+  case MS_END_SESSION_MODE_REBOOT:
+    method = "Reboot";
+    break;
+  case MS_END_SESSION_MODE_LOGOUT:
+  default:
+    method = "Logout";
+    arg = g_variant_new ("(u)", 0);
+  }
+
+  /* We log out so sync call is fine */
+  proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
+                                         G_DBUS_PROXY_FLAGS_NONE,
+                                         NULL,
+                                         "org.gnome.SessionManager",
+                                         "/org/gnome/SessionManager",
+                                         "org.gnome.SessionManager",
+                                         NULL,
+                                         &err);
+  if (!proxy) {
+    g_warning ("Failed to get session proxy: %s", err->message);
+    return;
+  }
+
+  g_dbus_proxy_call (proxy,
+                     method,
+                     arg,
+                     G_DBUS_CALL_FLAGS_NONE,
+                     -1,
+                     NULL,
+                     NULL,
+                     NULL);
+}
