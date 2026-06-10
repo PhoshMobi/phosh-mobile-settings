@@ -136,9 +136,9 @@ find_dock (MsHead *head)
 
 
 static gboolean
-touch_mapping_get (GValue *value,
+touch_mapping_get (GValue   *value,
                    GVariant *variant,
-                   gpointer user_data)
+                   gpointer  user_data)
 {
   g_autofree const char **vals = NULL;
   gsize len;
@@ -166,14 +166,14 @@ touch_mapping_get (GValue *value,
 
 
 static GVariant *
-touch_mapping_set (const GValue *value,
+touch_mapping_set (const GValue       *value,
                    const GVariantType *expected_type,
-                   gpointer user_data)
+                   gpointer            user_data)
 {
   MsConvergencePanel *self = MS_CONVERGENCE_PANEL (user_data);
   GVariantBuilder builder;
 
-  g_variant_builder_init(&builder, G_VARIANT_TYPE("as"));
+  g_variant_builder_init (&builder, G_VARIANT_TYPE("as"));
 
   if (g_value_get_boolean (value)) {
     g_variant_builder_add_value (&builder, g_variant_new ("s", self->dock->make));
