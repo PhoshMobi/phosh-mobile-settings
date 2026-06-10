@@ -485,7 +485,7 @@ ms_sound_row_set_filename (MsSoundRow *self, const char *filename)
   g_return_if_fail (MS_IS_SOUND_ROW (self));
 
   if (g_strcmp0 (self->filename, filename) == 0)
-      return;
+    return;
 
   g_free (self->filename);
   self->filename = g_strdup (filename);
