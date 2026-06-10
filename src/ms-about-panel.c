@@ -13,12 +13,12 @@
 #include "gmobile.h"
 
 struct _MsAboutPanel {
-  MsPanel parent;
+  MsPanel       parent;
 
   AdwActionRow *device_row;
   AdwActionRow *os_row;
   AdwActionRow *version_row;
-  GtkPicture *logo;
+  GtkPicture   *logo;
 };
 
 G_DEFINE_TYPE (MsAboutPanel, ms_about_panel, MS_TYPE_PANEL)
