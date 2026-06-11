@@ -26,7 +26,7 @@
                         <property name="name">uptodate</property>
                         <property name="child">
                           <object class="AdwStatusPage">
-                            <property name="icon-name" translatable="1">setup-finished-symbolic</property>
+                            <property name="icon-name">setup-finished-symbolic</property>
                             <property name="title" translatable="1">Everything up to date</property>
                             <property name="description" translatable="1">There are no OS updates available</property>
                           </object>
@@ -38,7 +38,7 @@
                         <property name="name">needsupdate</property>
                         <property name="child">
                           <object class="AdwStatusPage">
-                            <property name="icon-name" translatable="1">software-update-available-symbolic</property>
+                            <property name="icon-name">software-update-available-symbolic</property>
                             <property name="title" translatable="1">Updates available</property>
                             <property name="description" translatable="1">There are OS updates available</property>
                             <property name="child">
@@ -106,7 +106,7 @@
                         <property name="name">installing</property>
                         <property name="child">
                           <object class="AdwStatusPage" id="install_page">
-                            <property name="icon-name" translatable="1">software-update-available-symbolic</property>
+                            <property name="icon-name">software-update-available-symbolic</property>
                             <property name="title" translatable="1">Installing OS update…</property>
                             <property name="paintable">
                               <object class="AdwSpinnerPaintable">
