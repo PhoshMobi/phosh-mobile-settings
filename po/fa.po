@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/"
 "issues\n"
-"POT-Creation-Date: 2026-05-17 15:38+0000\n"
-"PO-Revision-Date: 2026-05-18 21:12+0330\n"
+"POT-Creation-Date: 2026-06-11 19:34+0000\n"
+"PO-Revision-Date: 2026-06-12 00:04+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -118,6 +118,7 @@ msgid "Add Layout"
 msgstr "افزودن چینش"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: src/ui/ms-updates-panel.ui:82 src/ui/ms-updates-panel.ui:126
 msgid "Cancel"
 msgstr "لغو"
 
@@ -126,7 +127,7 @@ msgid "Add"
 msgstr "افزودن"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
 msgid "Language"
 msgstr "زبان"
 
@@ -390,7 +391,7 @@ msgstr "هیچ"
 msgid "Mobile Settings Volume Control"
 msgstr "واپایش حجم صدای تنظیمات همراه"
 
-#: src/ms-lang-panel.c:104
+#: src/ms-lang-panel.c:80
 msgid "Failed to set system locale"
 msgstr "شکست در تنظیم اقلیم سامانه"
 
@@ -493,6 +494,32 @@ msgstr "سفارشی"
 msgid "Choose sound file"
 msgstr "گزینش پروندهٔ صدا"
 
+#. Translators: %s is a OS version number like 0.20260614
+#: src/ms-updates-panel.c:136
+#, c-format
+msgid "Update to %s"
+msgstr "به‌روز رسانی به %s"
+
+#: src/ms-updates-panel.c:169 src/ms-updates-panel.c:202
+#, c-format
+msgid "OS update failed: %s"
+msgstr "به‌روز رسانی سیستم‌عامل شکست خورد: %s"
+
+#: src/ms-updates-panel.c:248
+#, c-format
+msgid "Canceling OS update failed: %s"
+msgstr "لغو کردن به‌روز رسانی سیستم‌عامل شکست خورد: %s"
+
+#: src/ms-updates-panel.c:308
+msgid "OS Update already in progress"
+msgstr "به‌روز رسانی سیستم‌عامل در حال انجام"
+
+#. Translators %s is an os version number like 0.20260614
+#: src/ms-updates-panel.c:316
+#, c-format
+msgid "Updating to %s…"
+msgstr "به‌روز کردن به %s…"
+
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
 msgid "Full"
@@ -512,25 +539,41 @@ msgstr "بی‌صدا"
 msgid "Choose Wallpaper"
 msgstr "گزینش کاغذدیواری"
 
-#: src/ms-window.c:146
+#: src/ms-window.c:156
 msgid "Device"
 msgstr "افزاره"
 
-#: src/ui/ms-about-panel.ui:18
+#: src/ui/ms-about-panel.ui:19
 msgid "Phosh logo"
 msgstr "نشان فوش"
 
-#: src/ui/ms-about-panel.ui:29
+#: src/ui/ms-about-panel.ui:30
 msgid "Phosh Version"
 msgstr "نگارش فوش"
 
-#: src/ui/ms-about-panel.ui:37
+#: src/ui/ms-about-panel.ui:38
 msgid "Operating System"
 msgstr "سیستم‌عامل"
 
-#: src/ui/ms-about-panel.ui:45
+#: src/ui/ms-about-panel.ui:46
+msgid "Operating System Version"
+msgstr "نگارش سیستم‌عامل"
+
+#: src/ui/ms-about-panel.ui:54
 msgid "Hardware Model"
 msgstr "مدل سخت‌افزار"
+
+#: src/ui/ms-about-panel.ui:66
+msgid "Support Phosh"
+msgstr "پشتیبانی از فوش"
+
+#: src/ui/ms-about-panel.ui:67
+msgid "Your donations make our work possible"
+msgstr "اعانه‌تان کارمان را ممکن می‌کند"
+
+#: src/ui/ms-about-panel.ui:70
+msgid "D_onate"
+msgstr "ا_عانه"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -737,7 +780,7 @@ msgstr "بیشینهٔ درصد قدرت بازخورد لرزشی"
 msgid "Per Application settings"
 msgstr "تنظیمات به ازای برنامه"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
 msgid "Sounds"
 msgstr "صداها"
 
@@ -887,7 +930,7 @@ msgstr "استفاده از کاغذدیواری"
 msgid "Whether to show a colorful wallpaper"
 msgstr "این که کاغذدیواری رنگی نشان داده شود یا نه"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
 msgid "Widgets"
 msgstr "ابزارک‌ها"
 
@@ -989,7 +1032,7 @@ msgstr "بلندای صفحه‌کلید در حالت افقی"
 msgid "When the screen is wider than tall"
 msgstr "هنگامی که صفحه پهن‌تر از بلنداست"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
 msgid "Scaling"
 msgstr "مقیاس"
 
@@ -1061,7 +1104,7 @@ msgstr "میان‌برها"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "میان‌برهای موجود در نوار میان‌برها"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
 msgid "Favorites"
 msgstr "محبوب‌ها"
 
@@ -1111,7 +1154,7 @@ msgid ""
 "killswitch."
 msgstr "حسگری روی افزاره‌تان وجود نداشته یا با کلید سخت‌افزاری خاموش شده‌اند."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
 msgid "Sensors"
 msgstr "حسگرها"
 
@@ -1131,7 +1174,7 @@ msgstr "نور"
 msgid "Orientation"
 msgstr "جهت"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
 msgid "High Contrast"
 msgstr "سایه‌روشن زیاد"
 
@@ -1179,13 +1222,45 @@ msgstr "دوری از روآمدگی‌ها"
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr "قرار ندادن عنصرهای میانای کاربری زیر روآمدگی‌ها و بریدگی‌های صفحهٔ نمایش"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
 msgid "Quick Settings"
 msgstr "تنظیمات سریع"
 
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "سازمان دهی تنظیمات سریع اضافیتان"
+
+#: src/ui/ms-updates-panel.ui:12
+msgid "OS updates require a system restart"
+msgstr "به‌روز رسانی سیستم‌عامل نیازمند آغاز دوباره است"
+
+#: src/ui/ms-updates-panel.ui:13
+msgid "Restart"
+msgstr "آغاز دوباره"
+
+#: src/ui/ms-updates-panel.ui:30
+msgid "Everything up to date"
+msgstr "همه‌چیز به روز"
+
+#: src/ui/ms-updates-panel.ui:31
+msgid "There are no OS updates available"
+msgstr "هیچ به‌روز رسانی سیستم‌عاملی موجود نیست"
+
+#: src/ui/ms-updates-panel.ui:42
+msgid "Updates available"
+msgstr "به‌روز رسانی‌ها موجودند"
+
+#: src/ui/ms-updates-panel.ui:43
+msgid "There are OS updates available"
+msgstr "به‌روز رسانی‌های سیستم‌عامل موجودند"
+
+#: src/ui/ms-updates-panel.ui:65
+msgid "Fetching OS update…"
+msgstr "واکشیدن به‌روز رسانی سیستم‌عامل…"
+
+#: src/ui/ms-updates-panel.ui:109
+msgid "Installing OS update…"
+msgstr "نصب کردن به‌روز رسانی سیستم‌عامل…"
 
 #: src/ui/ms-welcome-panel.ui:8
 msgid "Welcome to Mobile Settings"
@@ -1200,139 +1275,148 @@ msgstr "سیخونک به تنظیمات همراه پیش‌رفته"
 msgid "Search"
 msgstr "جست‌وجو"
 
-#: src/ui/ms-window.ui:48
+#. Translators: Placeholder text for the search bar input
+#: src/ui/ms-window.ui:49
 msgid "Search settings"
 msgstr "تنظیمات جست‌وجو"
 
-#: src/ui/ms-window.ui:98
+#: src/ui/ms-window.ui:99
 msgid "Welcome"
 msgstr "خوش آمدید"
 
-#: src/ui/ms-window.ui:109
+#: src/ui/ms-window.ui:110
 msgid "Top Bar"
 msgstr "نوار بالا"
 
-#: src/ui/ms-window.ui:118
+#: src/ui/ms-window.ui:119
 msgid "Notches"
 msgstr "روآمدگی‌ها"
 
-#: src/ui/ms-window.ui:129
+#: src/ui/ms-window.ui:130
 msgid "Overview"
 msgstr "نمای کلی"
 
-#: src/ui/ms-window.ui:138
+#: src/ui/ms-window.ui:139
 msgid "Filter"
 msgstr "پالایه"
 
-#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
 msgid "Wallpaper"
 msgstr "کاغذدیواری"
 
-#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
 msgid "Feedback"
 msgstr "بازخورد"
 
-#: src/ui/ms-window.ui:160
+#: src/ui/ms-window.ui:161
 msgid "Wakeup"
 msgstr "بیداری"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Vibra"
 msgstr "لرزه"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Haptic"
 msgstr "لرزشی"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "LED"
 msgstr "چراغ"
 
-#: src/ui/ms-window.ui:174
+#: src/ui/ms-window.ui:175
 msgid "Compositor"
 msgstr "ترکیب‌بند"
 
-#: src/ui/ms-window.ui:193
+#: src/ui/ms-window.ui:194
 msgid "Lockscreen"
 msgstr "صفحهٔ قفل"
 
-#: src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:203
 msgid "Shuffle"
 msgstr "تصادفی"
 
-#: src/ui/ms-window.ui:204
+#: src/ui/ms-window.ui:205
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/ui/ms-window.ui:215
+#: src/ui/ms-window.ui:216
 msgid "Convergence"
 msgstr "یکپارچگی"
 
-#: src/ui/ms-window.ui:233
+#: src/ui/ms-window.ui:234
 msgid "On Screen Keyboard"
 msgstr "صفحه‌کلید مجازی"
 
-#: src/ui/ms-window.ui:241
+#: src/ui/ms-window.ui:242
 msgid "Keyboard"
 msgstr "صفحه‌کلید"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Unfold"
 msgstr "باز کردن"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "OSK"
 msgstr "صفحه‌کلید"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "Word Completion"
 msgstr "تکمیل واژه"
 
-#: src/ui/ms-window.ui:255
+#: src/ui/ms-window.ui:256
 msgid "Emergency Alerts"
 msgstr "هشدارهای اضطراری"
 
-#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
 msgid "Emergency"
 msgstr "اضطراری"
 
-#: src/ui/ms-window.ui:264
+#: src/ui/ms-window.ui:265
 msgid "Cell Broadcast"
 msgstr "پخش سلولی"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Danger"
 msgstr "خطر"
 
-#: src/ui/ms-window.ui:295
+#: src/ui/ms-window.ui:296
 msgid "Experimental features"
 msgstr "ویژگی‌های آزمایشی"
 
-#: src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:305
 msgid "Suspend"
 msgstr "تعلیق"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Experimental"
 msgstr "آزمایشی"
 
-#: src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:326
 msgid "Locale"
 msgstr "اقلیم"
 
-#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
+#: src/ui/ms-window.ui:337
+msgid "OS Updates"
+msgstr "به‌روز رسانی سیستم‌عامل"
+
+#: src/ui/ms-window.ui:346
+msgid "Updates"
+msgstr "به‌روز رسانی‌ها"
+
+#: src/ui/ms-window.ui:358 src/ui/ms-window.ui:366
 msgid "About"
 msgstr "درباره"
 
-#: src/ui/ms-window.ui:369
+#: src/ui/ms-window.ui:391
 msgid "_Show Configurable Tweaks"
 msgstr "_نمایش سیخونک‌های قابل پیکربندی"
 
-#: src/ui/ms-window.ui:376
+#: src/ui/ms-window.ui:398
 msgid "_Keyboard Shortcuts"
 msgstr "_میان‌برهای صفحه‌کلید"
 
-#: src/ui/ms-window.ui:380
+#: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
 
