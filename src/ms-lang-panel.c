@@ -13,6 +13,7 @@
 
 #include "mobile-settings-config.h"
 #include "ms-lang-panel.h"
+#include "ms-util.h"
 
 #include "libpms.h"
 
@@ -57,32 +58,7 @@ G_DEFINE_TYPE (MsLangPanel, ms_lang_panel, MS_TYPE_PANEL)
 static void
 on_logout_button_clicked (MsLangPanel *self)
 {
-  g_autoptr (GDBusProxy) proxy = NULL;
-  g_autoptr (GError) err = NULL;
-  g_autoptr (GVariant) ret = NULL;
-
-  /* We log out so sync call is fine */
-  proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
-                                         G_DBUS_PROXY_FLAGS_NONE,
-                                         NULL,
-                                         "org.gnome.SessionManager",
-                                         "/org/gnome/SessionManager",
-                                         "org.gnome.SessionManager",
-                                         NULL,
-                                         &err);
-  if (!proxy) {
-    g_warning ("Failed to get session proxy: %s", err->message);
-    return;
-  }
-
-  g_dbus_proxy_call (proxy,
-                     "Logout",
-                     g_variant_new ("(u)", 0),
-                     G_DBUS_CALL_FLAGS_NONE,
-                     -1,
-                     NULL,
-                     NULL,
-                     NULL);
+  ms_util_end_session (MS_END_SESSION_MODE_LOGOUT);
 }
 
 

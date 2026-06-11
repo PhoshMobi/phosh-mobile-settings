@@ -364,7 +364,7 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
   g_autofree char *title = NULL;
 
   path = g_variant_get_string (parameter, NULL);
-  g_return_if_fail (!STR_IS_NULL_OR_EMPTY (path));
+  g_return_if_fail (!GM_STR_IS_NULL_OR_EMPTY (path));
   g_return_if_fail (GSOUND_IS_CONTEXT (self->sound_context));
 
   stop_playback (self);
@@ -448,7 +448,7 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   const char *app_name;
 
   app_name = g_app_info_get_name (app->app_info);
-  if (STR_IS_NULL_OR_EMPTY (app_name))
+  if (GM_STR_IS_NULL_OR_EMPTY (app_name))
     return;
 
   icon = g_app_info_get_icon (app->app_info);
@@ -502,7 +502,7 @@ process_app_info (MsFeedbackPanel *self, GAppInfo *app_info)
   g_autofree char *path = NULL;
 
   app_id = g_app_info_get_id (app_info);
-  if (STR_IS_NULL_OR_EMPTY (app_id))
+  if (GM_STR_IS_NULL_OR_EMPTY (app_id))
     return;
 
   munged_id = ms_munge_app_id (app_id);

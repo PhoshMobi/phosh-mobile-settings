@@ -81,13 +81,16 @@ panels_filter_func (gpointer item, gpointer user_data)
   if (self->only_tweaks && !MS_IS_TWEAKS_PREFERENCES_PAGE (stack_child))
     return FALSE;
 
-  if (STR_IS_NULL_OR_EMPTY (self->query))
+  panel = MS_PANEL (stack_child);
+  if (!ms_panel_get_enabled (panel))
+    return FALSE;
+
+  if (GM_STR_IS_NULL_OR_EMPTY (self->query))
     return TRUE;
 
   if (g_strcmp0 (panelname, "welcome") == 0)
     return FALSE;
 
-  panel = MS_PANEL (stack_child);
   keywords = ms_panel_get_keywords (panel);
   query_normalized = ms_normalize_casefold_and_unaccent (self->query);
   query_words = g_strsplit (g_strstrip (query_normalized), " ", 0);

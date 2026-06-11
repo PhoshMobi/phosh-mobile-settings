@@ -3,16 +3,14 @@
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
+
 #pragma once
 
 #include "ms-os-updater.h"
 
-#include <glib.h>
-
 G_BEGIN_DECLS
 
-void ms_init (void);
-
-MsOsUpdater *ms_get_default_os_updater_sync (void);
+void ms_os_updater_set_supported (MsOsUpdater *self, gboolean supported);
+void ms_os_updater_set_latest_update (MsOsUpdater *self, MsOsUpdate *update);
 
 G_END_DECLS

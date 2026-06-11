@@ -31,6 +31,8 @@ struct _MsPanelClass {
 
 GtkStringList *ms_panel_get_keywords (MsPanel *self);
 void           ms_panel_set_keywords (MsPanel *self, GtkStringList *keywords);
+gboolean       ms_panel_get_enabled (MsPanel *self);
+void           ms_panel_set_enabled (MsPanel *self, gboolean enabled);
 gboolean       ms_panel_handle_options (MsPanel *self, GVariant *params);
 
 G_END_DECLS

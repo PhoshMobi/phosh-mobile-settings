@@ -1,16 +1,32 @@
+subdir('systemd-sysupdate')
+
 api_version = '1.0'
 libname = f'pms-@api_version@'
 
-libpms_private_sources = [
+libpms_enum_sources = gnome.mkenums_simple('libpms-enum-types', sources: files('libpms-enums.h'))
+
+libpms_osk_private_sources = [
   'ms-osk-layout-row.c',
+]
+
+libpms_lang_private_sources = [
   'lang/ms-util.c',
   'lang/ms-language-row.c',
   'lang/ms-common-language.c',
 ]
 
+libpms_private_sources = [
+  libpms_osk_private_sources,
+  libpms_lang_private_sources,
+  libpms_systemd_sysupdate_private_sources,
+]
+
 libpms_public_sources = [
+  libpms_enum_sources,
   'ms-main.c',
   'ms-lang.c',
+  'ms-os-update.c',
+  'ms-os-updater.c',
   'ms-osk-add-layout-dialog.c',
   'ms-osk-layout-prefs.c',
   'ms-osk-layout.c',
@@ -20,6 +36,8 @@ libpms_public_sources = [
 libpms_public_headers = [
   'ms-main.h',
   'ms-lang.h',
+  'ms-os-update.h',
+  'ms-os-updater.h',
   'ms-osk-add-layout-dialog.h',
   'ms-osk-layout-prefs.h',
   'ms-osk-layout.h',

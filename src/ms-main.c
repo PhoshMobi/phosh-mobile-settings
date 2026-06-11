@@ -24,6 +24,7 @@
 #include "ms-overview-panel.h"
 #include "ms-sensor-panel.h"
 #include "ms-topbar-panel.h"
+#include "ms-updates-panel.h"
 #include "ms-welcome-panel.h"
 
 #include <glib/gi18n.h>
@@ -43,6 +44,7 @@ ms_init_types (void)
   g_type_ensure (MS_TYPE_OVERVIEW_PANEL);
   g_type_ensure (MS_TYPE_SENSOR_PANEL);
   g_type_ensure (MS_TYPE_TOPBAR_PANEL);
+  g_type_ensure (MS_TYPE_UPDATES_PANEL);
   g_type_ensure (MS_TYPE_WELCOME_PANEL);
 }
 

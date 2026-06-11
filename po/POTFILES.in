@@ -22,6 +22,7 @@ src/ms-osk-panel.c
 src/ms-overview-panel.c
 src/ms-sensor-panel.c
 src/ms-sound-row.c
+src/ms-updates-panel.c
 src/ms-util.c
 src/ms-window.c
 src/ui/ms-about-panel.ui
@@ -41,5 +42,6 @@ src/ui/ms-scale-to-fit-row.ui
 src/ui/ms-sensor-panel.ui
 src/ui/ms-sound-row.ui
 src/ui/ms-topbar-panel.ui
+src/ui/ms-updates-panel.ui
 src/ui/ms-welcome-panel.ui
 src/ui/ms-window.ui
