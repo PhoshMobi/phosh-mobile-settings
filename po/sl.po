@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-05-17 15:38+0000\n"
-"PO-Revision-Date: 2026-05-18 17:48+0200\n"
+"POT-Creation-Date: 2026-06-11 12:53+0000\n"
+"PO-Revision-Date: 2026-06-11 18:45+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -120,7 +120,8 @@ msgid "Add Layout"
 msgstr "Dodaj postavitev"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
+#: src/ui/ms-updates-panel.ui:128
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -130,7 +131,7 @@ msgid "Add"
 msgstr "Dodaj"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
 msgid "Language"
 msgstr "Jezik"
 
@@ -402,7 +403,7 @@ msgstr "brez"
 msgid "Mobile Settings Volume Control"
 msgstr "Nastavitve mobilnega telefona - Nadzor glasnosti"
 
-#: src/ms-lang-panel.c:104
+#: src/ms-lang-panel.c:80
 msgid "Failed to set system locale"
 msgstr "Področne nastavitve sistema ni možno nastaviti"
 
@@ -507,6 +508,32 @@ msgstr "Po meri"
 msgid "Choose sound file"
 msgstr "Izberite zvočno datoteko"
 
+#. Translators: %s is a OS version number like 0.20260614
+#: src/ms-updates-panel.c:136
+#, c-format
+msgid "Update to %s"
+msgstr "Posodobi na %s"
+
+#: src/ms-updates-panel.c:169 src/ms-updates-panel.c:202
+#, c-format
+msgid "OS update failed: %s"
+msgstr "Posodobitev operacijskega sistema ni uspela: %s"
+
+#: src/ms-updates-panel.c:248
+#, c-format
+msgid "Canceling OS update failed: %s"
+msgstr "Preklic posodobitve OS ni uspel: %s"
+
+#: src/ms-updates-panel.c:308
+msgid "OS Update already in progress"
+msgstr "Posodobitev OS že poteka"
+
+#. Translators %s is an os version number like 0.20260614
+#: src/ms-updates-panel.c:316
+#, c-format
+msgid "Updating to %s…"
+msgstr "Poteka posodabljanje na %s …"
+
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
 msgid "Full"
@@ -526,25 +553,41 @@ msgstr "Tiho"
 msgid "Choose Wallpaper"
 msgstr "Izberite sliko ozadja"
 
-#: src/ms-window.c:146
+#: src/ms-window.c:156
 msgid "Device"
 msgstr "Naprava"
 
-#: src/ui/ms-about-panel.ui:18
+#: src/ui/ms-about-panel.ui:19
 msgid "Phosh logo"
 msgstr "Logotip Phosh"
 
-#: src/ui/ms-about-panel.ui:29
+#: src/ui/ms-about-panel.ui:30
 msgid "Phosh Version"
 msgstr "Različica Phosh"
 
-#: src/ui/ms-about-panel.ui:37
+#: src/ui/ms-about-panel.ui:38
 msgid "Operating System"
 msgstr "Operacijski sistem"
 
-#: src/ui/ms-about-panel.ui:45
+#: src/ui/ms-about-panel.ui:46
+msgid "Operating System Version"
+msgstr "Različica operacijskega sistema"
+
+#: src/ui/ms-about-panel.ui:54
 msgid "Hardware Model"
 msgstr "Strojni model"
+
+#: src/ui/ms-about-panel.ui:66
+msgid "Support Phosh"
+msgstr "Podprite Phosh"
+
+#: src/ui/ms-about-panel.ui:67
+msgid "Your donations make our work possible"
+msgstr "Vaše donacije omogočajo naše delo"
+
+#: src/ui/ms-about-panel.ui:70
+msgid "D_onate"
+msgstr "D_oniraj"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -753,7 +796,7 @@ msgstr "Največji odstotek moči haptičnega odziva"
 msgid "Per Application settings"
 msgstr "Nastavitve za aplikacije"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
 msgid "Sounds"
 msgstr "Zvoki"
 
@@ -905,7 +948,7 @@ msgstr "Uporabi sliko ozadja"
 msgid "Whether to show a colorful wallpaper"
 msgstr "Ali naj prikažete barvito ozadje"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
 msgid "Widgets"
 msgstr "Gradniki"
 
@@ -1013,7 +1056,7 @@ msgstr "Višina tipkovnice v ležečem načinu"
 msgid "When the screen is wider than tall"
 msgstr "Ko je zaslon bolj širok kot visok"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
 msgid "Scaling"
 msgstr "Umerjanje"
 
@@ -1089,7 +1132,7 @@ msgstr "Pokaže tipkovne bližnjice"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Bližnjice, ki so na voljo v vrstici z bližnjicami"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
 msgid "Favorites"
 msgstr "Priljubljeno"
 
@@ -1143,7 +1186,7 @@ msgstr ""
 "Ali v vaši napravi ni nameščenih tipal ali pa jih onemogoči stikalo za "
 "izklop."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
 msgid "Sensors"
 msgstr "Tipala"
 
@@ -1163,7 +1206,7 @@ msgstr "Svetla"
 msgid "Orientation"
 msgstr "Usmerjenost"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
 msgid "High Contrast"
 msgstr "Visok kontrast"
 
@@ -1212,13 +1255,53 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Elementov uporabniškega vmesnika ne postavljaj pod zareze in izrezke zaslona"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
 msgid "Quick Settings"
 msgstr "Hitre nastavitve"
 
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Organizirajte dodatne hitre nastavite"
+
+#: src/ui/ms-updates-panel.ui:12
+msgid "OS updates require a system restart"
+msgstr "Posodobitve OS zahtevajo ponoven zagon sistema"
+
+#: src/ui/ms-updates-panel.ui:13
+msgid "Restart"
+msgstr "Ponovno zaženi"
+
+#: src/ui/ms-updates-panel.ui:29
+msgid "setup-finished-symbolic"
+msgstr ""
+
+#: src/ui/ms-updates-panel.ui:30
+msgid "Everything up to date"
+msgstr "Vse je posodobljeno"
+
+#: src/ui/ms-updates-panel.ui:31
+msgid "There are no OS updates available"
+msgstr "Na voljo ni posodobitev OS"
+
+#: src/ui/ms-updates-panel.ui:41 src/ui/ms-updates-panel.ui:109
+msgid "software-update-available-symbolic"
+msgstr ""
+
+#: src/ui/ms-updates-panel.ui:42
+msgid "Updates available"
+msgstr "Razpoložljive posodobitve"
+
+#: src/ui/ms-updates-panel.ui:43
+msgid "There are OS updates available"
+msgstr "Na voljo so posodobitve OS"
+
+#: src/ui/ms-updates-panel.ui:65
+msgid "Fetching OS update…"
+msgstr "Pridobivanje posodobitve operacijskega sistema …"
+
+#: src/ui/ms-updates-panel.ui:110
+msgid "Installing OS update…"
+msgstr "Nameščanje posodobitve operacijskega sistema …"
 
 #: src/ui/ms-welcome-panel.ui:8
 msgid "Welcome to Mobile Settings"
@@ -1233,138 +1316,147 @@ msgstr "Prilagodi napredne mobilne nastavitve"
 msgid "Search"
 msgstr "Iskanje"
 
-#: src/ui/ms-window.ui:48
+#. Translators: Placeholder text for the search bar input
+#: src/ui/ms-window.ui:49
 msgid "Search settings"
 msgstr "Nastavitve iskanja"
 
-#: src/ui/ms-window.ui:98
+#: src/ui/ms-window.ui:99
 msgid "Welcome"
 msgstr "Uvodna stran"
 
-#: src/ui/ms-window.ui:109
+#: src/ui/ms-window.ui:110
 msgid "Top Bar"
 msgstr "Vrhnja vrstica"
 
-#: src/ui/ms-window.ui:118
+#: src/ui/ms-window.ui:119
 msgid "Notches"
 msgstr "Zareze"
 
-#: src/ui/ms-window.ui:129
+#: src/ui/ms-window.ui:130
 msgid "Overview"
 msgstr "Pregled"
 
-#: src/ui/ms-window.ui:138
+#: src/ui/ms-window.ui:139
 msgid "Filter"
 msgstr "Filter"
 
-#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
 msgid "Wallpaper"
 msgstr "Slika ozadja"
 
-#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
 msgid "Feedback"
 msgstr "Povratne informacije"
 
-#: src/ui/ms-window.ui:160
+#: src/ui/ms-window.ui:161
 msgid "Wakeup"
 msgstr "Povrnitev iz pripravljenosti"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Vibra"
 msgstr "Vibra"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Haptic"
 msgstr "Haptično"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:174
+#: src/ui/ms-window.ui:175
 msgid "Compositor"
 msgstr "Grafični upodobilnik"
 
-#: src/ui/ms-window.ui:193
+#: src/ui/ms-window.ui:194
 msgid "Lockscreen"
 msgstr "Zaklep zaslona"
 
-#: src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:203
 msgid "Shuffle"
 msgstr "Premešaj"
 
-#: src/ui/ms-window.ui:204
+#: src/ui/ms-window.ui:205
 msgid "Password"
 msgstr "Geslo"
 
-#: src/ui/ms-window.ui:215
+#: src/ui/ms-window.ui:216
 msgid "Convergence"
 msgstr "Konvergenca"
 
-#: src/ui/ms-window.ui:233
+#: src/ui/ms-window.ui:234
 msgid "On Screen Keyboard"
 msgstr "Zaslonska tipkovnica"
 
-#: src/ui/ms-window.ui:241
+#: src/ui/ms-window.ui:242
 msgid "Keyboard"
 msgstr "Tipkovnica"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Unfold"
 msgstr "Razgrni"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "OSK"
 msgstr "Zaslonska tipkovnica"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "Word Completion"
 msgstr "Dokončanje besed"
 
-#: src/ui/ms-window.ui:255
+#: src/ui/ms-window.ui:256
 msgid "Emergency Alerts"
 msgstr "Opozorila v sili"
 
-#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
 msgid "Emergency"
 msgstr "V sili"
 
-#: src/ui/ms-window.ui:264
+#: src/ui/ms-window.ui:265
 msgid "Cell Broadcast"
 msgstr "Obveščanje na telefone"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Danger"
 msgstr "Nevarnost"
 
-#: src/ui/ms-window.ui:295
+#: src/ui/ms-window.ui:296
 msgid "Experimental features"
 msgstr "Poskusne funkcionalnosti"
 
-#: src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:305
 msgid "Suspend"
 msgstr "V pripravljenost"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Experimental"
 msgstr "Poskusno"
 
-#: src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:326
 msgid "Locale"
 msgstr "Področna nastavitev"
 
-#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
+#: src/ui/ms-window.ui:337
+msgid "OS Updates"
+msgstr "Posodobitve OS"
+
+#: src/ui/ms-window.ui:346
+msgid "Updates"
+msgstr "Posodobitve"
+
+#: src/ui/ms-window.ui:358 src/ui/ms-window.ui:366
 msgid "About"
 msgstr "O programu"
 
-#: src/ui/ms-window.ui:369
+#: src/ui/ms-window.ui:391
 msgid "_Show Configurable Tweaks"
 msgstr "_Pokaži nastavljive prilagoditve"
 
-#: src/ui/ms-window.ui:376
+#: src/ui/ms-window.ui:398
 msgid "_Keyboard Shortcuts"
 msgstr "_Tipkovne bližnjice‫"
 
-#: src/ui/ms-window.ui:380
+#: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_O programu Mobilne nastavitve"
