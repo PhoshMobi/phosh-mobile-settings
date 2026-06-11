@@ -106,7 +106,6 @@
                         <property name="name">installing</property>
                         <property name="child">
                           <object class="AdwStatusPage" id="install_page">
-                            <property name="icon-name">software-update-available-symbolic</property>
                             <property name="title" translatable="1">Installing OS update…</property>
                             <property name="paintable">
                               <object class="AdwSpinnerPaintable">
@@ -114,7 +113,6 @@
                               </object>
                             </property>
                             <property name="child">
-
                               <object class="GtkButton">
                                 <property name="halign">center</property>
                                 <property name="action-name">updates-panel.cancel-update</property>
