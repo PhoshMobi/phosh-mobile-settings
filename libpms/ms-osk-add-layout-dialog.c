@@ -11,7 +11,7 @@
 #include "mobile-settings-config.h"
 
 #include "ms-osk-add-layout-dialog.h"
-#include "ms-osk-layout.h"
+#include "ms-osk-layout-priv.h"
 
 /**
  * MsOskAddLayoutDialog:

@@ -44,7 +44,6 @@ libpms_public_headers = [
   'ms-os-update.h',
   'ms-os-updater.h',
   'ms-osk-layout-prefs.h',
-  'ms-osk-layout.h',
   'libpms.h',
   'libpms-enums.h',
   'lang/ms-language-chooser.h',
