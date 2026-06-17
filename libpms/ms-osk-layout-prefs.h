@@ -21,5 +21,8 @@ G_DECLARE_FINAL_TYPE (MsOskLayoutPrefs, ms_osk_layout_prefs, MS, OSK_LAYOUT_PREF
 
 MsOskLayoutPrefs *ms_osk_layout_prefs_new (void);
 void              ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self);
+gboolean          ms_osk_layout_prefs_add_for_locale (MsOskLayoutPrefs *self,
+                                                      const char       *locale,
+                                                      const char       *flavor);
 
 G_END_DECLS

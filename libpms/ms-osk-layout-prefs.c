@@ -19,13 +19,19 @@
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-xkb-info.h>
+#include <libgnome-desktop/gnome-languages.h>
+
+#include <gmobile/gmobile.h>
 
 #include <gtk/gtk.h>
 
 /**
  * MsOskLayoutPrefs:
  *
- * A preferences prefs managing OSK layouts
+ * A preferences group managing OSK layouts.
+ *
+ * Layouts added via this dialog are automatically added to the list
+ * of input sources available to the user.
  */
 
 #define INPUT_SOURCES_SETTINGS "org.gnome.desktop.input-sources"
@@ -169,11 +175,8 @@ update_input_sources (MsOskLayoutPrefs *self)
 
 
 static void
-on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
+ms_osk_layout_prefs_append_layout (MsOskLayoutPrefs *self, MsOskLayout *layout)
 {
-  g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
-  g_assert (MS_IS_OSK_LAYOUT (layout));
-
   g_signal_handlers_block_by_func (self->input_source_settings,
                                    on_input_sources_changed,
                                    self);
@@ -186,6 +189,16 @@ on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
                                      self);
 
   on_input_sources_changed (self, NULL, self->input_source_settings);
+}
+
+
+static void
+on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
+{
+  g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
+  g_assert (MS_IS_OSK_LAYOUT (layout));
+
+  ms_osk_layout_prefs_append_layout (self, layout);
 }
 
 
@@ -333,6 +346,51 @@ create_layout_row (gpointer item, gpointer user_data)
                            G_CONNECT_SWAPPED);
 
   return row;
+}
+
+
+static gboolean
+ms_osk_layout_prefs_add_for_lang (MsOskLayoutPrefs *self,
+                                  const char       *lang,
+                                  const char       *flavor)
+{
+  guint n_items;
+
+  /* Is layout already present and usable ? */
+  for (guint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (self->usable_layouts)); i++) {
+    g_autoptr (MsOskLayout) usable_layout = NULL;
+    const char *usable_lang;
+
+    usable_layout = g_list_model_get_item (G_LIST_MODEL (self->usable_layouts), i);
+    usable_lang = ms_osk_layout_get_lang (usable_layout);
+
+    if (g_ascii_strcasecmp (lang, usable_lang) == 0)
+      return TRUE;
+  }
+
+  n_items = g_list_model_get_n_items (G_LIST_MODEL (self->available_layouts));
+  for (guint i = 0; i < n_items; i++) {
+    g_autoptr (MsOskLayout) layout = NULL;
+
+    layout = g_list_model_get_item (G_LIST_MODEL (self->available_layouts), i);
+
+    if (g_ascii_strcasecmp (lang, ms_osk_layout_get_lang (layout)))
+      continue;
+
+    /* Want default layout but osk layout is a flavor */
+    if (!flavor && ms_osk_layout_get_flavor (layout))
+      continue;
+
+    /* If flavor is given, it must match */
+    if (flavor && g_ascii_strcasecmp (lang, ms_osk_layout_get_flavor (layout)))
+      continue;
+
+    g_debug ("Found layout for '%s', flavor '%s'", lang, flavor);
+    ms_osk_layout_prefs_append_layout (self, layout);
+    return TRUE;
+  }
+
+  return FALSE;
 }
 
 
@@ -528,4 +586,39 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
                                       self->cancel,
                                       (GAsyncReadyCallback)on_load_osk_layouts_from_stream_ready,
                                       self);
+}
+
+/**
+ * ms_osk_layout_prefs_add_for_locale:
+ * @self: The OSK layout prefs
+ * @locale: The locale to add a layout for
+ * @flavor:(nullable): A flavor if s.th. like dvorak or colemak is preferred
+ *
+ * Add a layout based on the given information to the currently active
+ * layouts.
+ *
+ * Returns: `TRUE` if a layout was added or the layout is already present.
+ */
+gboolean
+ms_osk_layout_prefs_add_for_locale (MsOskLayoutPrefs *self,
+                                    const char       *locale,
+                                    const char       *flavor)
+{
+  g_autofree char *lcp = NULL, *ccp = NULL;
+
+  g_return_val_if_fail (MS_IS_OSK_LAYOUT_PREFS (self), FALSE);
+  g_return_val_if_fail (locale, FALSE);
+
+  if (!gnome_parse_locale (locale, &lcp, &ccp, NULL, NULL))
+    return FALSE;
+
+  if (!gm_str_is_null_or_empty (lcp) && !gm_str_is_null_or_empty (ccp)) {
+    g_autofree char *lang = g_strdup_printf ("%s-%s", lcp, ccp);
+
+    if (ms_osk_layout_prefs_add_for_lang (self, lang, flavor))
+      return TRUE;
+  }
+
+  return ms_osk_layout_prefs_add_for_lang (self, lcp, flavor);
+
 }
