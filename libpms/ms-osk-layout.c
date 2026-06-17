@@ -28,11 +28,11 @@ enum {
 static GParamSpec *props[PROP_LAST_PROP];
 
 struct _MsOskLayout {
-  GObject               parent;
+  GObject parent;
 
-  char                 *name;
-  char                 *type;
-  char                 *id;
+  char   *name;
+  char   *type;
+  char   *id;
 };
 
 G_DEFINE_TYPE (MsOskLayout, ms_osk_layout, G_TYPE_OBJECT)
