@@ -12,8 +12,18 @@ static void
 on_app_activated (GApplication *app)
 {
   MsOskLayoutPrefs *prefs = ms_osk_layout_prefs_new ();
+  GtkWidget *win, *page;
 
+  win = adw_application_window_new (GTK_APPLICATION (app));
+  gtk_window_set_default_size (GTK_WINDOW (win), 360, 720);
+  page = adw_preferences_page_new ();
+  adw_application_window_set_content (ADW_APPLICATION_WINDOW (win), page);
+
+  adw_preferences_page_add (ADW_PREFERENCES_PAGE (page),
+                            ADW_PREFERENCES_GROUP (prefs));
   ms_osk_layout_prefs_load_osk_layouts (prefs);
+
+  gtk_window_present (GTK_WINDOW (win));
 }
 
 
@@ -21,7 +31,7 @@ int
 main (int argc, char **argv)
 {
   int status;
-  GtkApplication *app = gtk_application_new ("mobi.phosh.MobileSettings.LibmsExampleC",
+  AdwApplication *app = adw_application_new ("mobi.phosh.MobileSettings.LibmsExampleC",
                                              G_APPLICATION_DEFAULT_FLAGS);
 
   g_signal_connect_object (G_APPLICATION (app),
