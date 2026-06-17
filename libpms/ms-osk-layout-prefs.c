@@ -101,19 +101,13 @@ update_remove_actions (MsOskLayoutPrefs *self)
 }
 
 
-static char *
-get_osk_layout_name (MsOskLayoutPrefs *self, const char *type, const char *layout_id)
+static MsOskLayout *
+get_osk_layout (MsOskLayoutPrefs *self, const char *type, const char *layout_id)
 {
-  MsOskLayout *layout = NULL;
   g_autofree char *key = NULL;
 
   key = g_strdup_printf ("%s:%s", type, layout_id);
-  layout = g_hash_table_lookup (self->available_layouts_by_id, key);
-
-  if (!layout)
-    return NULL;
-
-  return g_strdup (ms_osk_layout_get_name (layout));
+  return g_hash_table_lookup (self->available_layouts_by_id, key);
 }
 
 
@@ -135,15 +129,16 @@ on_input_sources_changed (MsOskLayoutPrefs *self, const char *unused, GSettings 
     g_autoptr (MsOskLayout) layout = NULL;
     g_autofree char *name = NULL;
 
-    name = get_osk_layout_name (self, type, layout_id);
-    if (!name)
-      g_debug ("Failed to get name for %s %s", type, layout_id);
-
-    /* Even without a name we don't drop a layout as the user
-     * might want to use those in docked mode */
-
-    layout = ms_osk_layout_new (name, type, layout_id, NULL, NULL);
-    g_list_store_append (self->source_layouts, layout);
+    layout = get_osk_layout (self, type, layout_id);
+    if (layout) {
+      g_list_store_append (self->source_layouts, g_steal_pointer (&layout));
+    } else {
+      g_debug ("Failed to get layout for %s %s", type, layout_id);
+      /* Even without a name we don't drop a layout as the user
+       * might want to use those in docked mode */
+      layout = ms_osk_layout_new (NULL, type, layout_id, NULL, NULL);
+      g_list_store_append (self->source_layouts, layout);
+    }
   }
 
   gtk_filter_changed (GTK_FILTER (self->usable_filter), GTK_FILTER_CHANGE_DIFFERENT);
