@@ -21,6 +21,5 @@
 #include "ms-lang.h"
 #include "ms-os-update.h"
 #include "ms-os-updater.h"
-#include "ms-osk-add-layout-dialog.h"
 #include "ms-osk-layout-prefs.h"
 #include "lang/ms-language-chooser.h"

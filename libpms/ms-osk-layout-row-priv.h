@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "ms-osk-layout.h"
+#include "ms-osk-layout-priv.h"
 
 #include <adwaita.h>
 

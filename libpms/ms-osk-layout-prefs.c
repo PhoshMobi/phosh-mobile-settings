@@ -13,7 +13,7 @@
 #include "ms-osk-add-layout-dialog.h"
 #include "ms-osk-layout-prefs.h"
 #include "ms-osk-layout-row-priv.h"
-#include "ms-osk-layout.h"
+#include "ms-osk-layout-priv.h"
 
 #include <json-glib/json-glib.h>
 
