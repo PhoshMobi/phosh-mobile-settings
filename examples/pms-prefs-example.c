@@ -8,11 +8,15 @@
 
 #include "libpms.h"
 
+#include <locale.h>
+
 static void
 on_app_activated (GApplication *app)
 {
   MsOskLayoutPrefs *prefs = ms_osk_layout_prefs_new ();
+  const char *locale;
   GtkWidget *win, *page;
+  gboolean found;
 
   win = adw_application_window_new (GTK_APPLICATION (app));
   gtk_window_set_default_size (GTK_WINDOW (win), 360, 720);
@@ -24,6 +28,14 @@ on_app_activated (GApplication *app)
   ms_osk_layout_prefs_load_osk_layouts (prefs);
 
   gtk_window_present (GTK_WINDOW (win));
+
+  locale = setlocale (LC_CTYPE, NULL);
+  found = ms_osk_layout_prefs_add_for_locale (prefs, locale, NULL);
+
+  if (found)
+    g_message ("Added a layout for locale %s", locale);
+  else
+    g_warning ("No layout found for locale %s - please submit one", locale);
 }
 
 
