@@ -398,6 +398,7 @@ static void
 on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gpointer user_data)
 {
   gboolean success;
+  g_autoptr (GTask) task = G_TASK (user_data);
   g_autoptr (GError) err = NULL;
   MsOskLayoutPrefs *self = NULL;
   JsonNode *node;
@@ -406,25 +407,30 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
 
   success = json_parser_load_from_stream_finish  (parser, res, &err);
   if (!success) {
-    if (!g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-      g_warning ("Failed to load layouts: %s", err->message);
+    g_task_return_error (task, g_steal_pointer (&err));
     return;
   }
 
-  self = MS_OSK_LAYOUT_PREFS (user_data);
+  self = MS_OSK_LAYOUT_PREFS (g_task_get_source_object (task));
   g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
 
   node = json_parser_get_root (parser);
 
   obj = json_node_get_object (node);
   if (!obj) {
-    g_warning ("Failed to get root object");
+    GError *local_err = g_error_new_literal (JSON_PARSER_ERROR,
+                                             JSON_PARSER_ERROR_PARSE,
+                                             "Failed to get root object");
+    g_task_return_error (task, local_err);
     return;
   }
 
   layouts = json_object_get_array_member (obj, "layouts");
   if (!obj) {
-    g_warning ("Failed to get array of layouts");
+    GError *local_err = g_error_new_literal (JSON_PARSER_ERROR,
+                                             JSON_PARSER_ERROR_PARSE,
+                                             "Failed to get array of layouts");
+    g_task_return_error (task, local_err);
     return;
   }
 
@@ -471,6 +477,8 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
 
   /* Reload the layouts as we got more layout information */
   on_input_sources_changed (self, SOURCES_KEY, self->input_source_settings);
+
+  g_task_return_boolean (task, TRUE);
 }
 
 
@@ -557,15 +565,98 @@ ms_osk_layout_prefs_new (void)
   return g_object_new (MS_TYPE_OSK_LAYOUT_PREFS, NULL);
 }
 
+
+typedef struct
+{
+  GAsyncResult *res;
+  GMainLoop    *loop;
+} LoadOskLayoutsData;
+
+
+static void
+on_load_osk_layouts_sync_ready (GObject      *object,
+                                GAsyncResult *res,
+                                gpointer      user_data)
+{
+  LoadOskLayoutsData *data = user_data;
+
+  data->res = g_object_ref (res);
+  g_main_loop_quit (data->loop);
+}
+
 /**
  * ms_osk_layout_prefs_load_osk_layouts:
  * @self: The OSK layout prefs
  *
- * Load the layouts the currently running OSK can handle.
+ * Load the layouts the currently running OSK can handle. This is a
+ * blocking sync call. See [MsOskLayouts.load_osk_layouts_async] for
+ * an async version.
  */
 void
 ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
 {
+  g_autoptr (GMainContext) context = g_main_context_new ();
+  g_autoptr (GMainLoop) loop = NULL;
+  g_autoptr (GError) err = NULL;
+  LoadOskLayoutsData data;
+  gboolean success;
+
+  g_main_context_push_thread_default (context);
+  loop = g_main_loop_new (context, FALSE);
+
+  data = (LoadOskLayoutsData) {
+    .loop = loop,
+    .res = NULL,
+  };
+
+  ms_osk_layout_prefs_load_osk_layouts_async (self,
+                                              self->cancel,
+                                              on_load_osk_layouts_sync_ready,
+                                              &data);
+  g_main_loop_run (loop);
+
+  success = ms_osk_layout_prefs_load_osk_layouts_finish (self, data.res, &err);
+
+  if (!success) {
+    if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+      return;
+    g_warning ("Failed to load layouts: %s", err->message);
+    return;
+  }
+
+  if (data.res)
+    g_object_unref (data.res);
+  g_main_context_pop_thread_default (context);
+}
+
+
+gboolean
+ms_osk_layout_prefs_load_osk_layouts_finish (MsOskLayoutPrefs *self,
+                                             GAsyncResult     *res,
+                                             GError          **error)
+{
+  g_return_val_if_fail (MS_IS_OSK_LAYOUT_PREFS (self), FALSE);
+  g_return_val_if_fail (G_IS_TASK (res), FALSE);
+  g_return_val_if_fail (!error || !*error, FALSE);
+
+  return g_task_propagate_boolean (G_TASK (res), error);
+}
+
+
+/**
+ * ms_osk_layout_prefs_load_osk_layouts_async:
+ * @self: The OSK layout prefs
+ *
+ * Load the layouts the currently running OSK can handle. This is an async call.
+ * Use `ms_osk_layout_prefs_load_osk_layouts_async` to retrieve the result.
+ */
+void
+ms_osk_layout_prefs_load_osk_layouts_async (MsOskLayoutPrefs   *self,
+                                            GCancellable       *cancellable,
+                                            GAsyncReadyCallback callback,
+                                            gpointer            user_data)
+{
+  GTask *task = g_task_new (self, cancellable, callback, user_data);
   const char *layouts_path;
   g_autoptr (GFile) layouts_file = NULL;
   g_autoptr (JsonParser) parser = json_parser_new_immutable ();
@@ -575,9 +666,9 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
   layouts_path = getenv ("MS_OSK_LAYOUTS") ?: MOBILE_SETTINGS_OSK_LAYOUTS;
   layouts_file = g_file_new_for_path (layouts_path);
 
-  stream = g_file_read (layouts_file, self->cancel, &err);
+  stream = g_file_read (layouts_file, cancellable, &err);
   if (!stream) {
-    g_warning ("Can't load keyboard layouts: %s", err->message);
+    g_task_return_error (task, g_steal_pointer (&err));
     return;
   }
 
@@ -585,7 +676,7 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
                                       G_INPUT_STREAM (stream),
                                       self->cancel,
                                       (GAsyncReadyCallback)on_load_osk_layouts_from_stream_ready,
-                                      self);
+                                      task);
 }
 
 /**
