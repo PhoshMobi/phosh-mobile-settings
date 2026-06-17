@@ -142,7 +142,7 @@ on_input_sources_changed (MsOskLayoutPrefs *self, const char *unused, GSettings 
     /* Even without a name we don't drop a layout as the user
      * might want to use those in docked mode */
 
-    layout = ms_osk_layout_new (name, type, layout_id);
+    layout = ms_osk_layout_new (name, type, layout_id, NULL, NULL);
     g_list_store_append (self->source_layouts, layout);
   }
 
@@ -378,7 +378,7 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
   for (guint i = 0; i < json_array_get_length (layouts); i++) {
     g_autoptr (MsOskLayout) layout = NULL;
     JsonObject *layout_obj;
-    const char *name, *type, *layout_id, *display_name;
+    const char *name, *type, *layout_id, *display_name, *lang, *flavor;
     g_autofree char *key = NULL, *layout_name = NULL;
 
     layout_obj = json_array_get_object_element (layouts, i);
@@ -387,6 +387,8 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
     name = json_object_get_string_member (layout_obj, "name");
     type = json_object_get_string_member (layout_obj, "type");
     layout_id = json_object_get_string_member (layout_obj, "layout-id");
+    lang = json_object_get_string_member_with_default (layout_obj, "language", NULL);
+    flavor = json_object_get_string_member_with_default (layout_obj, "flavor", NULL);
 
     if (!name || !type || !layout_id) {
       g_warning ("Skipping layout %d", i);
@@ -405,7 +407,7 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
       layout_name = g_strdup (name);
 
     g_debug ("Adding layout %s", layout_name);
-    layout = ms_osk_layout_new (layout_name, type, layout_id);
+    layout = ms_osk_layout_new (layout_name, type, layout_id, lang, flavor);
     g_list_store_append (self->available_layouts, layout);
 
     key = g_strdup_printf ("%s:%s", type, layout_id);
