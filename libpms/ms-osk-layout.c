@@ -119,7 +119,7 @@ ms_osk_layout_class_init (MsOskLayoutClass *klass)
   props[PROP_NAME] =
     g_param_spec_string ("name", "", "",
                          NULL,
-                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
   /**
    * PosOskLayout:type:
    *
@@ -128,7 +128,7 @@ ms_osk_layout_class_init (MsOskLayoutClass *klass)
   props[PROP_TYPE] =
     g_param_spec_string ("type", "", "",
                          NULL,
-                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
   /**
    * PosOskLayout:id:
    *
@@ -138,7 +138,7 @@ ms_osk_layout_class_init (MsOskLayoutClass *klass)
   props[PROP_ID] =
     g_param_spec_string ("id", "", "",
                          NULL,
-                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 }
