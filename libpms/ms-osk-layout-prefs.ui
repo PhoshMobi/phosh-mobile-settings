@@ -3,7 +3,6 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsOskLayoutPrefs" parent="AdwPreferencesGroup">
     <property name="title" translatable="yes" context="on screen keyboard">Layouts</property>
-    <property name="visible">False</property>
     <child type="header-suffix">
       <object class="GtkButton">
         <property name="action-name">osk-prefs.add-layout</property>
