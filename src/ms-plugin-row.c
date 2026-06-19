@@ -28,10 +28,10 @@ static GParamSpec *props[PROP_LAST_PROP];
 
 
 enum {
-  SIGNAL_MOVE_ROW,
-  SIGNAL_LAST
+  MOVE_ROW,
+  N_SIGNALS
 };
-static guint signals[SIGNAL_LAST];
+static guint signals[N_SIGNALS];
 
 
 struct _MsPluginRow {
@@ -150,7 +150,7 @@ on_move_up_activated (GtkWidget *widget, const char *action_name, GVariant *para
   if (previous_row == NULL)
     return;
 
-  g_signal_emit (self, signals[SIGNAL_MOVE_ROW], 0, previous_row);
+  g_signal_emit (self, signals[MOVE_ROW], 0, previous_row);
 }
 
 
@@ -165,7 +165,7 @@ on_move_down_activated (GtkWidget *widget, const char *action_name, GVariant *pa
   if (next_row == NULL)
     return;
 
-  g_signal_emit (next_row, signals[SIGNAL_MOVE_ROW], 0, self);
+  g_signal_emit (next_row, signals[MOVE_ROW], 0, self);
 }
 
 
@@ -221,7 +221,7 @@ on_drop (MsPluginRow *self, const GValue *value, gdouble x, gdouble y)
 
   source = g_value_get_object (value);
 
-  g_signal_emit (source, signals[SIGNAL_MOVE_ROW], 0, self);
+  g_signal_emit (source, signals[MOVE_ROW], 0, self);
 
   return TRUE;
 }
@@ -318,7 +318,7 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
-  signals[SIGNAL_MOVE_ROW] =
+  signals[MOVE_ROW] =
     g_signal_new ("move-row",
                   G_TYPE_FROM_CLASS (object_class),
                   G_SIGNAL_RUN_LAST,
