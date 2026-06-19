@@ -76,7 +76,7 @@ show_content_cb (MsWindow *self)
 
 
 static char *
-stack_child_to_tile (gpointer target, GtkStack *stack, GtkWidget *child)
+stack_child_to_title (gpointer target, GtkStack *stack, GtkWidget *child)
 {
   const char *title;
   GtkStackPage *page;
@@ -207,7 +207,7 @@ ms_window_class_init (MsWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_changed);
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_activated);
   gtk_widget_class_bind_template_callback (widget_class, show_content_cb);
-  gtk_widget_class_bind_template_callback (widget_class, stack_child_to_tile);
+  gtk_widget_class_bind_template_callback (widget_class, stack_child_to_title);
 }
 
 static void

@@ -80,7 +80,7 @@
                     <property name="title-widget">
                       <object class="AdwWindowTitle">
                         <binding name="title">
-                          <closure type='gchararray' function='stack_child_to_tile'>
+                          <closure type='gchararray' function='stack_child_to_title'>
                             <constant>stack</constant>
                             <lookup name="visible-child">stack</lookup>
                           </closure>
