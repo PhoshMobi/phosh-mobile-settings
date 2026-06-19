@@ -30,6 +30,7 @@ Build-Depends:
  libpulse-dev,
  libsensors-dev,
  libyaml-dev,
+ libxml2-utils <!nocheck>,
  meson,
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
