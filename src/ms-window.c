@@ -24,17 +24,17 @@
 
 
 struct _MsWindow {
-  AdwApplicationWindow     parent_instance;
+  AdwApplicationWindow    parent_instance;
 
-  GtkSearchBar            *search_bar;
-  GtkSearchEntry          *search_entry;
+  GtkSearchBar           *search_bar;
+  GtkSearchEntry         *search_entry;
 
-  AdwNavigationSplitView  *split_view;
-  AdwViewStack            *stack;
-  MsPanelSwitcher         *panel_switcher;
+  AdwNavigationSplitView *split_view;
+  AdwViewStack           *stack;
+  MsPanelSwitcher        *panel_switcher;
 
-  GSettings               *settings;
-  MsTweaksParser          *ms_tweaks_parser;
+  GSettings *settings;
+  MsTweaksParser         *ms_tweaks_parser;
 };
 
 G_DEFINE_TYPE (MsWindow, ms_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -180,7 +180,10 @@ ms_settings_window_constructed (GObject *object)
     g_list_foreach (pages_sorted_by_weight, add_ms_tweaks_page, self);
 
     toggle_conf_tweaks = g_settings_create_action (self->settings, "enable-conf-tweaks");
-    g_signal_connect (self->settings, "changed::enable-conf-tweaks", G_CALLBACK (do_toggle_conf_tweaks), self);
+    g_signal_connect (self->settings,
+                      "changed::enable-conf-tweaks",
+                      G_CALLBACK (do_toggle_conf_tweaks),
+                      self);
     g_action_map_add_action (G_ACTION_MAP (app), G_ACTION (toggle_conf_tweaks));
   }
 }
