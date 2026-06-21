@@ -335,12 +335,14 @@ ms_panel_switcher_set_active_panel_index (MsPanelSwitcher *self, uint idx)
 void
 ms_panel_switcher_set_only_tweaks (MsPanelSwitcher *self, const gboolean only_tweaks)
 {
+  GtkFilterChange change;
+
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
   self->only_tweaks = only_tweaks;
 
-  ms_panel_switcher_refilter (self,
-                              only_tweaks ? GTK_FILTER_CHANGE_MORE_STRICT : GTK_FILTER_CHANGE_LESS_STRICT);
+  change = only_tweaks ? GTK_FILTER_CHANGE_MORE_STRICT : GTK_FILTER_CHANGE_LESS_STRICT;
+  ms_panel_switcher_refilter (self, change);
 }
 
 
