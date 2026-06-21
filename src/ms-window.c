@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 Purism SPC
+ *               2026 Phosh.mobi e.V.
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -29,7 +30,7 @@ struct _MsWindow {
   GtkSearchEntry          *search_entry;
 
   AdwNavigationSplitView  *split_view;
-  GtkStack                *stack;
+  AdwViewStack            *stack;
   MsPanelSwitcher         *panel_switcher;
 
   GSettings               *settings;
@@ -63,7 +64,7 @@ show_content_cb (MsWindow *self)
 
   adw_navigation_split_view_set_show_content (self->split_view, TRUE);
 
-  panelname = gtk_stack_get_visible_child_name (self->stack);
+  panelname = adw_view_stack_get_visible_child_name (self->stack);
 
   g_settings_set_string (self->settings, "last-panel", panelname);
 
@@ -76,18 +77,18 @@ show_content_cb (MsWindow *self)
 
 
 static char *
-stack_child_to_title (gpointer target, GtkStack *stack, GtkWidget *child)
+stack_child_to_title (gpointer target, AdwViewStack *stack, GtkWidget *child)
 {
   const char *title;
-  GtkStackPage *page;
+  AdwViewStackPage *page;
 
-  g_assert (GTK_IS_STACK (stack));
+  g_assert (ADW_IS_VIEW_STACK (stack));
   g_assert (GTK_IS_WIDGET (child));
 
-  page = gtk_stack_get_page (stack, child);
-  title = gtk_stack_page_get_title (page);
+  page = adw_view_stack_get_page (stack, child);
+  title = adw_view_stack_page_get_title (page);
   if (title == NULL)
-    title = gtk_stack_page_get_name (page);
+    title = adw_view_stack_page_get_name (page);
 
   return g_strdup (title);
 }
@@ -101,11 +102,12 @@ add_ms_tweaks_page (gpointer value, gpointer user_data)
   MsTweaksPreferencesPage *page_widget = ms_tweaks_preferences_page_new (page_data);
 
   if (page_widget) {
-    GtkStackPage *stack_page = gtk_stack_add_titled (self->stack,
-                                                     GTK_WIDGET (page_widget), page_data->name_i18n,
-                                                     page_data->name_i18n);
+    AdwViewStackPage *stack_page = adw_view_stack_add_titled (self->stack,
+                                                              GTK_WIDGET (page_widget),
+                                                              page_data->name_i18n,
+                                                              page_data->name_i18n);
     /* TODO: Read icon from base64 property of settings definitions. */
-    gtk_stack_page_set_icon_name (stack_page, "conf-tweaks-symbolic");
+    adw_view_stack_page_set_icon_name (stack_page, "conf-tweaks-symbolic");
   }
 }
 
@@ -144,17 +146,17 @@ ms_settings_window_constructed (GObject *object)
 
   G_OBJECT_CLASS (ms_window_parent_class)->constructed (object);
 
-  if (gtk_stack_get_child_by_name (self->stack, "device") == NULL) {
+  if (adw_view_stack_get_child_by_name (self->stack, "device") == NULL) {
     const char *title;
 
     g_assert (GTK_IS_APPLICATION (app));
     device_panel = ms_application_get_device_panel (app);
     if (device_panel) {
-      GtkStackPage *page;
+      AdwViewStackPage *page;
 
       title = ms_plugin_panel_get_title (MS_PLUGIN_PANEL (device_panel));
-      page = gtk_stack_add_titled (self->stack, device_panel, "device", title ?: _("Device"));
-      gtk_stack_page_set_icon_name (page, "phone-symbolic");
+      page = adw_view_stack_add_titled (self->stack, device_panel, "device", title ?: _("Device"));
+      adw_view_stack_page_set_icon_name (page, "phone-symbolic");
     }
   }
 
@@ -228,7 +230,7 @@ ms_window_get_stack_pages (MsWindow *self)
 {
   g_assert (MS_IS_WINDOW (self));
 
-  return gtk_stack_get_pages (self->stack);
+  return adw_view_stack_get_pages (self->stack);
 }
 
 

@@ -90,12 +90,12 @@
                   </object>
                 </child>
                 <property name="content">
-                  <object class="GtkStack" id="stack">
+                  <object class="AdwViewStack" id="stack">
                     <property name="vhomogeneous">False</property>
                     <signal name="notify::visible-child" handler="show_content_cb" after="yes" swapped="yes"/>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Welcome</property>
                         <property name="name">welcome</property>
                         <property name="icon-name">starred-symbolic</property>
@@ -106,7 +106,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Top Bar</property>
                         <property name="name">topbar</property>
                         <property name="icon-name">focus-top-bar-symbolic</property>
@@ -126,7 +126,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Overview</property>
                         <property name="name">overview</property>
                         <property name="icon-name">applications-symbolic</property>
@@ -147,7 +147,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Feedback</property>
                         <property name="name">feedback</property>
                         <property name="icon-name">feedback-quiet-symbolic</property>
@@ -171,7 +171,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Compositor</property>
                         <property name="name">compositor</property>
                         <property name="icon-name">phone-docked-symbolic</property>
@@ -190,7 +190,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Lockscreen</property>
                         <property name="name">lockscreen</property>
                         <property name="icon-name">padlock-symbolic</property>
@@ -212,7 +212,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Convergence</property>
                         <property name="name">convergence</property>
                         <property name="icon-name">phonelink2-symbolic</property>
@@ -230,7 +230,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">On Screen Keyboard</property>
                         <property name="name">osk</property>
                         <property name="icon-name">input-keyboard-symbolic</property>
@@ -252,7 +252,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Emergency Alerts</property>
                         <property name="name">alerts</property>
                         <property name="icon-name">dialog-warning-symbolic</property>
@@ -273,7 +273,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Sensors</property>
                         <property name="name">sensors</property>
                         <property name="icon-name">computer-chip-symbolic</property>
@@ -292,7 +292,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Experimental features</property>
                         <property name="name">features</property>
                         <property name="icon-name">applications-science-symbolic</property>
@@ -313,7 +313,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Language</property>
                         <property name="name">language</property>
                         <property name="icon-name">language-symbolic</property>
@@ -333,7 +333,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">OS Updates</property>
                         <property name="name">updates</property>
                         <property name="icon-name">software-update-available-symbolic</property>
@@ -354,7 +354,7 @@
                     </child>
 
                     <child>
-                      <object class="GtkStackPage">
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">About</property>
                         <property name="name">about</property>
                         <property name="icon-name">help-about-symbolic</property>

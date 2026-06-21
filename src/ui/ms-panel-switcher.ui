@@ -2,19 +2,10 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="MsPanelSwitcher" parent="AdwBin">
-    <child>
-      <object class="GtkBox">
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkListBox" id="panels_listbox">
-            <property name="selection-mode">single</property>
-            <signal name="row-activated" handler="on_row_activated" swapped="yes"/>
-            <style>
-              <class name="navigation-sidebar"/>
-            </style>
-          </object>
-        </child>
+    <property name="child">
+      <object class="AdwSidebar" id="sidebar">
+        <signal name="activated" handler="on_activated" swapped="yes"/>
       </object>
-    </child>
+    </property>
   </template>
 </interface>
