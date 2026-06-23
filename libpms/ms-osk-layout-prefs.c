@@ -19,13 +19,19 @@
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 #include <libgnome-desktop/gnome-xkb-info.h>
+#include <libgnome-desktop/gnome-languages.h>
+
+#include <gmobile/gmobile.h>
 
 #include <gtk/gtk.h>
 
 /**
  * MsOskLayoutPrefs:
  *
- * A preferences prefs managing OSK layouts
+ * A preferences group managing OSK layouts.
+ *
+ * Layouts added via this dialog are automatically added to the list
+ * of input sources available to the user.
  */
 
 #define INPUT_SOURCES_SETTINGS "org.gnome.desktop.input-sources"
@@ -101,19 +107,13 @@ update_remove_actions (MsOskLayoutPrefs *self)
 }
 
 
-static char *
-get_osk_layout_name (MsOskLayoutPrefs *self, const char *type, const char *layout_id)
+static MsOskLayout *
+get_osk_layout (MsOskLayoutPrefs *self, const char *type, const char *layout_id)
 {
-  MsOskLayout *layout = NULL;
   g_autofree char *key = NULL;
 
   key = g_strdup_printf ("%s:%s", type, layout_id);
-  layout = g_hash_table_lookup (self->available_layouts_by_id, key);
-
-  if (!layout)
-    return NULL;
-
-  return g_strdup (ms_osk_layout_get_name (layout));
+  return g_hash_table_lookup (self->available_layouts_by_id, key);
 }
 
 
@@ -135,15 +135,16 @@ on_input_sources_changed (MsOskLayoutPrefs *self, const char *unused, GSettings 
     g_autoptr (MsOskLayout) layout = NULL;
     g_autofree char *name = NULL;
 
-    name = get_osk_layout_name (self, type, layout_id);
-    if (!name)
-      g_debug ("Failed to get name for %s %s", type, layout_id);
-
-    /* Even without a name we don't drop a layout as the user
-     * might want to use those in docked mode */
-
-    layout = ms_osk_layout_new (name, type, layout_id);
-    g_list_store_append (self->source_layouts, layout);
+    layout = get_osk_layout (self, type, layout_id);
+    if (layout) {
+      g_list_store_append (self->source_layouts, g_steal_pointer (&layout));
+    } else {
+      g_debug ("Failed to get layout for %s %s", type, layout_id);
+      /* Even without a name we don't drop a layout as the user
+       * might want to use those in docked mode */
+      layout = ms_osk_layout_new (NULL, type, layout_id, NULL, NULL);
+      g_list_store_append (self->source_layouts, layout);
+    }
   }
 
   gtk_filter_changed (GTK_FILTER (self->usable_filter), GTK_FILTER_CHANGE_DIFFERENT);
@@ -174,11 +175,8 @@ update_input_sources (MsOskLayoutPrefs *self)
 
 
 static void
-on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
+ms_osk_layout_prefs_append_layout (MsOskLayoutPrefs *self, MsOskLayout *layout)
 {
-  g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
-  g_assert (MS_IS_OSK_LAYOUT (layout));
-
   g_signal_handlers_block_by_func (self->input_source_settings,
                                    on_input_sources_changed,
                                    self);
@@ -191,6 +189,16 @@ on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
                                      self);
 
   on_input_sources_changed (self, NULL, self->input_source_settings);
+}
+
+
+static void
+on_layout_selected (MsOskLayoutPrefs *self, MsOskLayout *layout)
+{
+  g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
+  g_assert (MS_IS_OSK_LAYOUT (layout));
+
+  ms_osk_layout_prefs_append_layout (self, layout);
 }
 
 
@@ -341,10 +349,56 @@ create_layout_row (gpointer item, gpointer user_data)
 }
 
 
+static gboolean
+ms_osk_layout_prefs_add_for_lang (MsOskLayoutPrefs *self,
+                                  const char       *lang,
+                                  const char       *flavor)
+{
+  guint n_items;
+
+  /* Is layout already present and usable ? */
+  for (guint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (self->usable_layouts)); i++) {
+    g_autoptr (MsOskLayout) usable_layout = NULL;
+    const char *usable_lang;
+
+    usable_layout = g_list_model_get_item (G_LIST_MODEL (self->usable_layouts), i);
+    usable_lang = ms_osk_layout_get_lang (usable_layout);
+
+    if (g_ascii_strcasecmp (lang, usable_lang) == 0)
+      return TRUE;
+  }
+
+  n_items = g_list_model_get_n_items (G_LIST_MODEL (self->available_layouts));
+  for (guint i = 0; i < n_items; i++) {
+    g_autoptr (MsOskLayout) layout = NULL;
+
+    layout = g_list_model_get_item (G_LIST_MODEL (self->available_layouts), i);
+
+    if (g_ascii_strcasecmp (lang, ms_osk_layout_get_lang (layout)))
+      continue;
+
+    /* Want default layout but osk layout is a flavor */
+    if (!flavor && ms_osk_layout_get_flavor (layout))
+      continue;
+
+    /* If flavor is given, it must match */
+    if (flavor && g_ascii_strcasecmp (lang, ms_osk_layout_get_flavor (layout)))
+      continue;
+
+    g_debug ("Found layout for '%s', flavor '%s'", lang, flavor);
+    ms_osk_layout_prefs_append_layout (self, layout);
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+
 static void
 on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gpointer user_data)
 {
   gboolean success;
+  g_autoptr (GTask) task = G_TASK (user_data);
   g_autoptr (GError) err = NULL;
   MsOskLayoutPrefs *self = NULL;
   JsonNode *node;
@@ -353,32 +407,37 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
 
   success = json_parser_load_from_stream_finish  (parser, res, &err);
   if (!success) {
-    if (!g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-      g_warning ("Failed to load layouts: %s", err->message);
+    g_task_return_error (task, g_steal_pointer (&err));
     return;
   }
 
-  self = MS_OSK_LAYOUT_PREFS (user_data);
+  self = MS_OSK_LAYOUT_PREFS (g_task_get_source_object (task));
   g_assert (MS_IS_OSK_LAYOUT_PREFS (self));
 
   node = json_parser_get_root (parser);
 
   obj = json_node_get_object (node);
   if (!obj) {
-    g_warning ("Failed to get root object");
+    GError *local_err = g_error_new_literal (JSON_PARSER_ERROR,
+                                             JSON_PARSER_ERROR_PARSE,
+                                             "Failed to get root object");
+    g_task_return_error (task, local_err);
     return;
   }
 
   layouts = json_object_get_array_member (obj, "layouts");
   if (!obj) {
-    g_warning ("Failed to get array of layouts");
+    GError *local_err = g_error_new_literal (JSON_PARSER_ERROR,
+                                             JSON_PARSER_ERROR_PARSE,
+                                             "Failed to get array of layouts");
+    g_task_return_error (task, local_err);
     return;
   }
 
   for (guint i = 0; i < json_array_get_length (layouts); i++) {
     g_autoptr (MsOskLayout) layout = NULL;
     JsonObject *layout_obj;
-    const char *name, *type, *layout_id, *display_name;
+    const char *name, *type, *layout_id, *display_name, *lang, *flavor;
     g_autofree char *key = NULL, *layout_name = NULL;
 
     layout_obj = json_array_get_object_element (layouts, i);
@@ -387,6 +446,8 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
     name = json_object_get_string_member (layout_obj, "name");
     type = json_object_get_string_member (layout_obj, "type");
     layout_id = json_object_get_string_member (layout_obj, "layout-id");
+    lang = json_object_get_string_member_with_default (layout_obj, "language", NULL);
+    flavor = json_object_get_string_member_with_default (layout_obj, "flavor", NULL);
 
     if (!name || !type || !layout_id) {
       g_warning ("Skipping layout %d", i);
@@ -405,7 +466,7 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
       layout_name = g_strdup (name);
 
     g_debug ("Adding layout %s", layout_name);
-    layout = ms_osk_layout_new (layout_name, type, layout_id);
+    layout = ms_osk_layout_new (layout_name, type, layout_id, lang, flavor);
     g_list_store_append (self->available_layouts, layout);
 
     key = g_strdup_printf ("%s:%s", type, layout_id);
@@ -416,6 +477,8 @@ on_load_osk_layouts_from_stream_ready (JsonParser *parser, GAsyncResult *res, gp
 
   /* Reload the layouts as we got more layout information */
   on_input_sources_changed (self, SOURCES_KEY, self->input_source_settings);
+
+  g_task_return_boolean (task, TRUE);
 }
 
 
@@ -502,15 +565,98 @@ ms_osk_layout_prefs_new (void)
   return g_object_new (MS_TYPE_OSK_LAYOUT_PREFS, NULL);
 }
 
+
+typedef struct
+{
+  GAsyncResult *res;
+  GMainLoop    *loop;
+} LoadOskLayoutsData;
+
+
+static void
+on_load_osk_layouts_sync_ready (GObject      *object,
+                                GAsyncResult *res,
+                                gpointer      user_data)
+{
+  LoadOskLayoutsData *data = user_data;
+
+  data->res = g_object_ref (res);
+  g_main_loop_quit (data->loop);
+}
+
 /**
  * ms_osk_layout_prefs_load_osk_layouts:
  * @self: The OSK layout prefs
  *
- * Load the layouts the currently running OSK can handle.
+ * Load the layouts the currently running OSK can handle. This is a
+ * blocking sync call. See [MsOskLayouts.load_osk_layouts_async] for
+ * an async version.
  */
 void
 ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
 {
+  g_autoptr (GMainContext) context = g_main_context_new ();
+  g_autoptr (GMainLoop) loop = NULL;
+  g_autoptr (GError) err = NULL;
+  LoadOskLayoutsData data;
+  gboolean success;
+
+  g_main_context_push_thread_default (context);
+  loop = g_main_loop_new (context, FALSE);
+
+  data = (LoadOskLayoutsData) {
+    .loop = loop,
+    .res = NULL,
+  };
+
+  ms_osk_layout_prefs_load_osk_layouts_async (self,
+                                              self->cancel,
+                                              on_load_osk_layouts_sync_ready,
+                                              &data);
+  g_main_loop_run (loop);
+
+  success = ms_osk_layout_prefs_load_osk_layouts_finish (self, data.res, &err);
+
+  if (!success) {
+    if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+      return;
+    g_warning ("Failed to load layouts: %s", err->message);
+    return;
+  }
+
+  if (data.res)
+    g_object_unref (data.res);
+  g_main_context_pop_thread_default (context);
+}
+
+
+gboolean
+ms_osk_layout_prefs_load_osk_layouts_finish (MsOskLayoutPrefs *self,
+                                             GAsyncResult     *res,
+                                             GError          **error)
+{
+  g_return_val_if_fail (MS_IS_OSK_LAYOUT_PREFS (self), FALSE);
+  g_return_val_if_fail (G_IS_TASK (res), FALSE);
+  g_return_val_if_fail (!error || !*error, FALSE);
+
+  return g_task_propagate_boolean (G_TASK (res), error);
+}
+
+
+/**
+ * ms_osk_layout_prefs_load_osk_layouts_async:
+ * @self: The OSK layout prefs
+ *
+ * Load the layouts the currently running OSK can handle. This is an async call.
+ * Use `ms_osk_layout_prefs_load_osk_layouts_async` to retrieve the result.
+ */
+void
+ms_osk_layout_prefs_load_osk_layouts_async (MsOskLayoutPrefs   *self,
+                                            GCancellable       *cancellable,
+                                            GAsyncReadyCallback callback,
+                                            gpointer            user_data)
+{
+  GTask *task = g_task_new (self, cancellable, callback, user_data);
   const char *layouts_path;
   g_autoptr (GFile) layouts_file = NULL;
   g_autoptr (JsonParser) parser = json_parser_new_immutable ();
@@ -520,9 +666,9 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
   layouts_path = getenv ("MS_OSK_LAYOUTS") ?: MOBILE_SETTINGS_OSK_LAYOUTS;
   layouts_file = g_file_new_for_path (layouts_path);
 
-  stream = g_file_read (layouts_file, self->cancel, &err);
+  stream = g_file_read (layouts_file, cancellable, &err);
   if (!stream) {
-    g_warning ("Can't load keyboard layouts: %s", err->message);
+    g_task_return_error (task, g_steal_pointer (&err));
     return;
   }
 
@@ -530,5 +676,40 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
                                       G_INPUT_STREAM (stream),
                                       self->cancel,
                                       (GAsyncReadyCallback)on_load_osk_layouts_from_stream_ready,
-                                      self);
+                                      task);
+}
+
+/**
+ * ms_osk_layout_prefs_add_for_locale:
+ * @self: The OSK layout prefs
+ * @locale: The locale to add a layout for
+ * @flavor:(nullable): A flavor if s.th. like dvorak or colemak is preferred
+ *
+ * Add a layout based on the given information to the currently active
+ * layouts.
+ *
+ * Returns: `TRUE` if a layout was added or the layout is already present.
+ */
+gboolean
+ms_osk_layout_prefs_add_for_locale (MsOskLayoutPrefs *self,
+                                    const char       *locale,
+                                    const char       *flavor)
+{
+  g_autofree char *lcp = NULL, *ccp = NULL;
+
+  g_return_val_if_fail (MS_IS_OSK_LAYOUT_PREFS (self), FALSE);
+  g_return_val_if_fail (locale, FALSE);
+
+  if (!gnome_parse_locale (locale, &lcp, &ccp, NULL, NULL))
+    return FALSE;
+
+  if (!gm_str_is_null_or_empty (lcp) && !gm_str_is_null_or_empty (ccp)) {
+    g_autofree char *lang = g_strdup_printf ("%s-%s", lcp, ccp);
+
+    if (ms_osk_layout_prefs_add_for_lang (self, lang, flavor))
+      return TRUE;
+  }
+
+  return ms_osk_layout_prefs_add_for_lang (self, lcp, flavor);
+
 }
