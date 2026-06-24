@@ -10,6 +10,10 @@
 
 #include <glib-object.h>
 
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
+
 G_BEGIN_DECLS
 
 #define MS_TYPE_OS_UPDATE (ms_os_update_get_type ())

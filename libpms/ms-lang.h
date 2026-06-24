@@ -7,6 +7,10 @@
 
 #include <glib.h>
 
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
+
 G_BEGIN_DECLS
 
 char *ms_lang_get_language_from_locale (const char *locale,

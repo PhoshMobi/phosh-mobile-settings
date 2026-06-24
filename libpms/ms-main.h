@@ -9,6 +9,10 @@
 
 #include <glib.h>
 
+#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
+# error "Only <libpms.h> can be included directly."
+#endif
+
 G_BEGIN_DECLS
 
 void ms_init (void);
