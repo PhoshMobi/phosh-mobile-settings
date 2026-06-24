@@ -8,6 +8,8 @@
 
 #define G_LOG_DOMAIN "ms-lang"
 
+#include "mobile-settings-config.h"
+
 #include "ms-lang.h"
 
 #define GNOME_DESKTOP_USE_UNSTABLE_API

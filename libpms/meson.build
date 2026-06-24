@@ -5,7 +5,10 @@ libname = f'pms-@api_version@'
 
 libpms_enum_sources = gnome.mkenums_simple(
   'libpms-enum-types',
+  body_prefix: '#include "mobile-settings-config.h"',
+  header_prefix: '#if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)\n' + '#error "Only <libpms.h> can be included directly."\n' + '#endif\n' + '\n' + '#include "libpms-version.h"\n',
   sources: files('libpms-enums.h'),
+  decorator: 'PMS_AVAILABLE_IN_ALL',
   install_header: true,
   install_dir: prefix / get_option('includedir') / libname,
 )
@@ -81,6 +84,7 @@ libpms_lib = shared_library(
   soversion: '0',
   install: true,
   c_args: '-D_LIBPMS_INSIDE',
+  gnu_symbol_visibility: 'hidden',
 )
 
 install_headers(

@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "libpms-version.h"
+
 #include "ms-os-update.h"
 #include <glib-object.h>
 
@@ -14,7 +16,7 @@
 G_BEGIN_DECLS
 
 #define MS_TYPE_OS_UPDATER (ms_os_updater_get_type ())
-
+PMS_AVAILABLE_IN_ALL
 G_DECLARE_DERIVABLE_TYPE (MsOsUpdater, ms_os_updater, MS, OS_UPDATER, GObject)
 
 typedef enum {
@@ -75,45 +77,52 @@ struct _MsOsUpdaterClass {
   void (*_ms_reserved8) (void);
 };
 
+PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_get_supported (MsOsUpdater *self);
+PMS_AVAILABLE_IN_ALL
 MsOsUpdate  *ms_os_updater_get_latest_update(MsOsUpdater *self);
 
+PMS_AVAILABLE_IN_ALL
 void         ms_os_updater_fetch_update (MsOsUpdater          *self,
                                            MsOsUpdate         *update,
                                            MsOsUpdateFlags     flags,
                                            GCancellable       *cancel,
                                            GAsyncReadyCallback callback,
                                            gpointer            userdata);
+PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_fetch_update_finish (MsOsUpdater  *self,
                                                 GAsyncResult *res,
                                                 GError      **error);
-
+PMS_AVAILABLE_IN_ALL
 void         ms_os_updater_cancel_fetch_update (MsOsUpdater        *self,
                                                 MsOsUpdate         *update,
                                                 MsOsUpdateFlags     flags,
                                                 GCancellable       *cancel,
                                                 GAsyncReadyCallback callback,
                                                 gpointer            userdata);
+PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_cancel_fetch_update_finish (MsOsUpdater  *self,
                                                        GAsyncResult *res,
                                                        GError      **error);
-
+PMS_AVAILABLE_IN_ALL
 void         ms_os_updater_install_update (MsOsUpdater        *self,
                                            MsOsUpdate         *update,
                                            MsOsUpdateFlags     flags,
                                            GCancellable       *cancel,
                                            GAsyncReadyCallback callback,
                                            gpointer            userdata);
+PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_install_update_finish (MsOsUpdater  *self,
                                                   GAsyncResult *res,
                                                   GError      **error);
-
+PMS_AVAILABLE_IN_ALL
 void         ms_os_updater_cancel_install_update (MsOsUpdater        *self,
                                                   MsOsUpdate         *update,
                                                   MsOsUpdateFlags     flags,
                                                   GCancellable       *cancel,
                                                   GAsyncReadyCallback callback,
                                                   gpointer            userdata);
+PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_cancel_install_update_finish (MsOsUpdater  *self,
                                                          GAsyncResult *res,
                                                          GError      **error);

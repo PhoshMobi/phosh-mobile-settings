@@ -5,6 +5,7 @@
  */
 #pragma once
 
+#include "libpms-version.h"
 #include "ms-os-updater.h"
 
 #include <glib.h>
@@ -15,8 +16,10 @@
 
 G_BEGIN_DECLS
 
+PMS_AVAILABLE_IN_ALL
 void ms_init (void);
 
+PMS_AVAILABLE_IN_ALL
 MsOsUpdater *ms_get_default_os_updater_sync (void);
 
 G_END_DECLS

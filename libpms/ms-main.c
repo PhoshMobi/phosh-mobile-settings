@@ -8,9 +8,9 @@
 
 #define G_LOG_DOMAIN "ms-main"
 
-#include "ms-main.h"
-
 #include "mobile-settings-config.h"
+
+#include "ms-main.h"
 
 #include "systemd-sysupdate/ms-systemd-sysupdate.h"
 

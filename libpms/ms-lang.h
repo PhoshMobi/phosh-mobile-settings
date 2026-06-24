@@ -5,6 +5,8 @@
  */
 #pragma once
 
+#include "libpms-version.h"
+
 #include <glib.h>
 
 #if !defined(_LIBPMS_INSIDE) && !defined(LIBPMS_COMPILATION)
@@ -13,8 +15,10 @@
 
 G_BEGIN_DECLS
 
+PMS_AVAILABLE_IN_ALL
 char *ms_lang_get_language_from_locale (const char *locale,
                                         const char *translation);
+PMS_AVAILABLE_IN_ALL
 char *ms_lang_get_country_from_locale  (const char *locale,
                                         const char *translation);
 

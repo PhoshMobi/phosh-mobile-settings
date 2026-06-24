@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "libpms-version.h"
+
 #include "libpms-enums.h"
 
 #include <glib-object.h>
@@ -18,6 +20,7 @@ G_BEGIN_DECLS
 
 #define MS_TYPE_OS_UPDATE (ms_os_update_get_type ())
 
+PMS_AVAILABLE_IN_ALL
 G_DECLARE_DERIVABLE_TYPE (MsOsUpdate, ms_os_update, MS, OS_UPDATE, GObject)
 
 struct _MsOsUpdateClass {
@@ -34,8 +37,11 @@ struct _MsOsUpdateClass {
   void (*_ms_reserved8) (void);
 };
 
+PMS_AVAILABLE_IN_ALL
 const char      *ms_os_update_get_version (MsOsUpdate *self);
+PMS_AVAILABLE_IN_ALL
 MsOsUpdateState  ms_os_update_get_state (MsOsUpdate *self);
+PMS_AVAILABLE_IN_ALL
 guint            ms_os_update_get_progress (MsOsUpdate *self);
 
 G_END_DECLS
