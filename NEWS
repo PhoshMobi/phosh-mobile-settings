@@ -1,3 +1,38 @@
+phosh-mobile-settings 0.56~rc1
+------------------------------
+Released June 2026
+* New panels:
+  * os-updates: Allow atomic OS updates on immutable distros. The
+    currently implemented backend supports systemd-sysupdate and is
+    only enabled when the service is usable.
+* Improved panels:
+  * about: Add image version. This is useful on immutable images like
+    BengalOS to check if everything is up to date.
+  * overview: Allow to re-enable hidden apps. This is useful on immutable
+    distros as apps shiped in the immutable parts can't be uninstalled.
+  * convergence: Support NexDock 2025
+* libpms: Allow to add OSK layout that matches the current locale
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/123
+* Contributors:
+    * Brian Hom
+    * Guido Günther
+    * nicole mikołajczyk
+    * Tomi Lähteenmäki
+* UI translations:
+    * Antonio Marin (ro)
+    * Asier Saratsua Garmendia (eu)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Ekaterine Papava (ka)
+    * Hugo Carvalho (pt)
+    * Luiggi R. Cardoso (pt_BR)
+    * Martin (sl)
+    * Sabri Ünal (tr)
+    * Victoria Niedzielska (pl)
+    * Yuri Chornoivan (uk)
+    * Марко Костић (sr)
+
 phosh-mobile-settings 0.55.0
 ----------------------------
 Released May 2026
