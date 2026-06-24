@@ -11,6 +11,7 @@
     <file>ui/ms-features-panel.ui</file>
     <file>ui/ms-feedback-panel.ui</file>
     <file>ui/ms-feedback-row.ui</file>
+    <file>ui/ms-hidden-app-row.ui</file>
     <file>ui/ms-lang-panel.ui</file>
     <file>ui/ms-lockscreen-panel.ui</file>
     <file>ui/ms-osk-add-shortcut-dialog.ui</file>
@@ -22,6 +23,7 @@
     <file>ui/ms-sensor-panel.ui</file>
     <file>ui/ms-sound-row.ui</file>
     <file>ui/ms-topbar-panel.ui</file>
+    <file>ui/ms-hidden-apps-dialog.ui</file>
     <file>ui/ms-updates-panel.ui</file>
     <file>ui/ms-welcome-panel.ui</file>
     <file>ui/ms-window.ui</file>
@@ -41,6 +43,7 @@
     <file alias="conf-tweaks-symbolic.svg">../data/icons/conf-tweaks-symbolic.svg</file>
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
     <file alias="focus-top-bar-symbolic.svg">../data/icons/focus-top-bar-symbolic.svg</file>
+    <file alias="grid-large-symbolic.svg">../data/icons/grid-large-symbolic.svg</file>
     <file alias="language-symbolic.svg">../data/icons/language-symbolic.svg</file>
     <file alias="mobi.phosh.MobileSettings.svg">../data/icons/hicolor/scalable/apps/mobi.phosh.MobileSettings.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
