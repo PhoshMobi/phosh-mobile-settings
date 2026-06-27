@@ -601,8 +601,8 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
   LoadOskLayoutsData data;
   gboolean success;
 
-  g_main_context_push_thread_default (context);
   loop = g_main_loop_new (context, FALSE);
+  g_main_context_push_thread_default (context);
 
   data = (LoadOskLayoutsData) {
     .loop = loop,
@@ -616,6 +616,7 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
   g_main_loop_run (loop);
 
   success = ms_osk_layout_prefs_load_osk_layouts_finish (self, data.res, &err);
+  g_main_context_pop_thread_default (context);
 
   if (!success) {
     if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
@@ -626,7 +627,6 @@ ms_osk_layout_prefs_load_osk_layouts (MsOskLayoutPrefs *self)
 
   if (data.res)
     g_object_unref (data.res);
-  g_main_context_pop_thread_default (context);
 }
 
 
