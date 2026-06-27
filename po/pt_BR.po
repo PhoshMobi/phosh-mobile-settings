@@ -1,19 +1,19 @@
 # Brazilian Portuguese translation for phosh-mobile-settings.
-# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# Copyright (C) 2026 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2024-2025.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2026.
 # Álvaro Burns <>, 2025-2026.
 # Luiggi R. Cardoso <luiggicardoso@outlook.com>, 2026.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-11 19:34+0000\n"
+"POT-Creation-Date: 2026-06-24 14:57+0000\n"
 "PO-Revision-Date: 2026-06-01 19:21-0300\n"
-"Last-Translator: Luiggi R. Cardoso <luiggicardoso@outlook.com>\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr "Bateria"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
 #. Translators: Label for a button that allows the user to add a new keyboard layout
-#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:13
 msgid "Add Layout"
 msgstr "Adicionar leiaute"
 
@@ -142,7 +142,7 @@ msgid "Layouts"
 msgstr "Leiautes"
 
 #. Translators: Message displayed when there are no keyboard layouts configured
-#: libpms/ms-osk-layout-prefs.ui:30
+#: libpms/ms-osk-layout-prefs.ui:29
 msgid "No Layouts configured"
 msgstr "Nenhum leiaute configurado"
 
@@ -170,11 +170,12 @@ msgstr "Outros…"
 msgid "Select Language"
 msgstr "Selecionar idioma"
 
-#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:108
+#: src/ui/ms-hidden-apps-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: libpms/lang/ms-language-chooser.ui:23
+#: libpms/lang/ms-language-chooser.ui:23 src/ui/ms-hidden-apps-dialog.ui:23
 msgid "_Select"
 msgstr "_Selecionar"
 
@@ -420,19 +421,26 @@ msgstr "O padrão de autocompletamento selecionado pelo OSK"
 msgid "No information available for this completer"
 msgstr "Nenhuma informação disponível para este autocompletamento"
 
-#: src/ms-overview-panel.c:65
+#: src/ms-overview-panel.c:62
+#, c-format
+msgid "%u App Made Visible Again"
+msgid_plural "%u Apps Made Visible Again"
+msgstr[0] "%u aplicativo tornado visível novamente"
+msgstr[1] "%u aplicativos tornados visíveis novamente"
+
+#: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
 msgstr "Redefinir favoritos?"
 
-#: src/ms-overview-panel.c:68
+#: src/ms-overview-panel.c:105
 msgid "Reset list of favorite applications to the default?"
 msgstr "Redefinir a lista de aplicativos favoritos de volta ao padrão?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:109
 msgid "_Reset"
 msgstr "_Redefinir"
 
-#: src/ms-overview-panel.c:327
+#: src/ms-overview-panel.c:364
 msgid "Failed to set wallpaper for overview"
 msgstr "Falha ao configurar papel de parede da visão geral"
 
@@ -883,6 +891,18 @@ msgstr "Transferência de arquivos"
 msgid "A generic file transfer or download notification"
 msgstr "Uma notificação genérica de download ou transferência de arquivos"
 
+#: src/ui/ms-hidden-app-row.ui:5 src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Aplicativo"
+
+#: src/ui/ms-hidden-apps-dialog.ui:4
+msgid "Hidden Apps"
+msgstr "Aplicativos ocultos"
+
+#: src/ui/ms-hidden-apps-dialog.ui:83
+msgid "No Apps are Currently Hidden"
+msgstr "Nenhum aplicativo está atualmente oculto"
+
 #: src/ui/ms-lang-panel.ui:15
 msgid "The language of the user interface"
 msgstr "A linguagem da interface do usuário"
@@ -893,7 +913,8 @@ msgstr "_Idioma"
 
 #: src/ui/ms-lang-panel.ui:45
 msgid "Language change requires logout or restart"
-msgstr "A alteração de idioma exige o encerramento da sessão ou a reinicialização"
+msgstr ""
+"A alteração de idioma exige o encerramento da sessão ou a reinicialização"
 
 #: src/ui/ms-lang-panel.ui:46
 msgid "Logout"
@@ -927,19 +948,19 @@ msgstr "Atraso automático de bloqueio de tela"
 msgid "Seconds from screen blank to screen lock"
 msgstr "Segundos entre a tela em branco e o bloqueio da tela"
 
-#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:94
 msgid "Background"
 msgstr "Fundo"
 
-#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:100
 msgid "_Select Wallpaper…"
-msgstr "_Escolha papel de parede..."
+msgstr "_Escolha papel de parede…"
 
-#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:112
 msgid "Use wallpaper"
 msgstr "Usar papel de parede"
 
-#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
 msgstr "Se deve mostrar papel de parede colorido"
 
@@ -1063,7 +1084,7 @@ msgstr "Mantenha o tamanho físico constante"
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
-"Certifique-se que o teclado é largo o bastante em telas de alta resolução."
+"Certifique-se que o teclado é largo o bastante em telas de alta resolução"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1156,8 +1177,8 @@ msgid "Reset"
 msgstr "Redefinir"
 
 #: src/ui/ms-overview-panel.ui:64
-msgid "Mobile App Filtering"
-msgstr "Filtragem de aplicativos móveis"
+msgid "App Filtering and Hiding"
+msgstr "Filtragem e ocultação de aplicativo"
 
 #: src/ui/ms-overview-panel.ui:67
 msgid "Set Application Filter Mode"
@@ -1167,9 +1188,13 @@ msgstr "Definir modo de filtro de aplicativos"
 msgid "Show only mobile apps in the overview"
 msgstr "Mostrar apenas aplicativos móveis na visão geral"
 
-#: src/ui/ms-scale-to-fit-row.ui:5
-msgid "Application"
-msgstr "Aplicativo"
+#: src/ui/ms-overview-panel.ui:74
+msgid "_Manage Hidden Apps"
+msgstr "_Gerenciar aplicativos ocultos"
+
+#: src/ui/ms-overview-panel.ui:75
+msgid "Make apps you disabled in the overview visible again"
+msgstr "Torne aplicativos, que você desativou na visão geral, visíveis novamente"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -1450,6 +1475,9 @@ msgstr "Atalhos de _teclado"
 #: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_Sobre o Configurações Móveis"
+
+#~ msgid "Mobile App Filtering"
+#~ msgstr "Filtragem de aplicativos móveis"
 
 #~ msgid "Call volume"
 #~ msgstr "Volume da ligação"
