@@ -1,3 +1,41 @@
+phosh-mobile-settings (0.56~rc2) experimental; urgency=medium
+
+  [ Martin ]
+  * Update Slovenian translation.
+    Co-authored-by: Martin <miles@filmsi.net>
+
+  [ Antonio Marin ]
+  * Update Romanian translation.
+    Co-authored-by: Antonio Marin <gnmer.6qxyg@slmail.me>
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation.
+    Co-authored-by: Yaron Shahrabani <sh.yaron@gmail.com>
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation.
+    Co-authored-by: Yuri Chornoivan <yurchor@ukr.net>
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation.
+    Co-authored-by: Ekaterine Papava <papava.e@gtu.ge>
+
+  [ Rafael Fontenelle ]
+  * Update Brazilian Portuguese translation.
+    Co-authored-by: Rafael Fontenelle <rafaelff@gnome.org>
+
+  [ Guido Günther ]
+  * update-panel: Take inhibitor during OS updates.
+    We don't want the system to suspend or the user to log out
+    until done.
+  * osk-layout-prefs: Push context after attaching it to the main loop.
+    Otherwise we might end up with e.g. DBus calls seemingly not finishing. In our
+    case this manifested as `ListActivatableNames` never reaching it's ready
+    handler.
+    Fixes: fb189ede ("osk-layout-prefs: Provide proper async variant")
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 27 Jun 2026 15:49:05 +0200
+
 phosh-mobile-settings (0.56~rc1) experimental; urgency=medium
 
   [ nicole mikołajczyk ]
