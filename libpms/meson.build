@@ -69,6 +69,7 @@ libpms_resources = gnome.compile_resources(
 )
 
 libpms_generated_sources = [
+  libpms_enum_sources,
   libpms_resources,
 ]
 
