@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-27 13:18+0000\n"
-"PO-Revision-Date: 2026-06-28 11:05+0200\n"
+"POT-Creation-Date: 2026-06-28 15:54+0000\n"
+"PO-Revision-Date: 2026-06-28 18:12+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -331,7 +331,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Upravljajte nastavitve svojega mobilnika"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:542
+#: src/ms-application.c:541
 msgid "translator-credits"
 msgstr "Martin Srebotnjak <miles@filmsi.net>"
 
@@ -567,7 +567,11 @@ msgstr "Tiho"
 msgid "Choose Wallpaper"
 msgstr "Izberite sliko ozadja"
 
-#: src/ms-window.c:156
+#: src/ms-window.c:120
+msgid "Configurable Tweaks"
+msgstr "Nastavljive prilagoditve"
+
+#: src/ms-window.c:168
 msgid "Device"
 msgstr "Naprava"
 
