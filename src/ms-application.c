@@ -212,11 +212,11 @@ transform_to_active_panel (GBinding     *binding,
                            GValue       *to,
                            gpointer      user_data)
 {
-  g_autoptr (GtkStack) stack = GTK_STACK (g_binding_dup_source (binding));
+  g_autoptr (AdwViewStack) stack = ADW_VIEW_STACK (g_binding_dup_source (binding));
   GtkWidget *stack_child = g_value_get_object (from);
-  GtkStackPage *page = gtk_stack_get_page (stack, stack_child);
+  AdwViewStackPage *page = adw_view_stack_get_page (stack, stack_child);
 
-  g_value_set_object (to, gtk_stack_page_get_child (page));
+  g_value_set_object (to, adw_view_stack_page_get_child (page));
 
   return TRUE;
 }
@@ -228,7 +228,7 @@ get_active_window (MsApplication *self)
   GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
   if (window == NULL) {
-    GtkStack *panel_stack;
+    AdwViewStack *panel_stack;
     MsPanelSwitcher *panel_switcher;
 
     window = g_object_new (MS_TYPE_WINDOW, "application", self, NULL);
@@ -280,7 +280,6 @@ list_available_panels (GApplication *app)
 {
   MsWindow *window;
   g_autoptr (GListModel) list = NULL;
-  g_autoptr (GtkStackPage) page = NULL;
   const char *name;
 
   /* Since we're in the local instance, just get us a window */
@@ -292,9 +291,9 @@ list_available_panels (GApplication *app)
   g_print ("Available panels:\n");
 
   for (uint i = 0; i < g_list_model_get_n_items (list); ++i) {
-    page = g_list_model_get_item (list, i);
-    name = gtk_stack_page_get_name (page);
+    g_autoptr (AdwViewStackPage) page = g_list_model_get_item (list, i);
 
+    name = adw_view_stack_page_get_name (page);
     g_print ("- %s\n", name);
   }
 
