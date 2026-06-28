@@ -346,7 +346,7 @@ on_update_activated (GtkWidget *widget,  const char* action_name, GVariant *para
                                              (GTK_APPLICATION_INHIBIT_LOGOUT |
                                               GTK_APPLICATION_INHIBIT_SWITCH |
                                               GTK_APPLICATION_INHIBIT_SUSPEND),
-                                             _("OS udpate in progress"));
+                                             _("OS update in progress"));
 }
 
 
