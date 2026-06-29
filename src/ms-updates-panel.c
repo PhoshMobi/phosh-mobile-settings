@@ -383,6 +383,8 @@ ms_updates_panel_finalize (GObject *object)
 
   g_clear_object (&self->os_updater);
 
+  uninhibit (self);
+
   G_OBJECT_CLASS (ms_updates_panel_parent_class)->finalize (object);
 }
 
