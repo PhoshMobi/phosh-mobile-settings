@@ -26,23 +26,25 @@ static guint signals[N_SIGNALS];
 enum {
   PROP_0,
   PROP_STACK,
+  PROP_MODE,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
 
 struct _MsPanelSwitcher {
-  AdwBin        parent;
+  AdwBin         parent;
 
-  AdwSidebar   *sidebar;
-  AdwViewStack *stack;
-  GListModel   *pages;
-  GSettings    *settings;
-  GHashTable   *items;
+  AdwSidebar    *sidebar;
+  AdwViewStack  *stack;
+  GListModel    *pages;
+  GSettings     *settings;
+  GHashTable    *items;
+  AdwSidebarMode mode;
 
-  char         *query;
-  char         *current_panelname;
+  char          *query;
+  char          *current_panelname;
 
-  gboolean      only_tweaks;
+  gboolean       only_tweaks;
 };
 G_DEFINE_TYPE (MsPanelSwitcher, ms_panel_switcher, ADW_TYPE_BIN)
 
@@ -282,6 +284,9 @@ ms_panel_switcher_set_property (GObject      *object,
   case PROP_STACK:
     ms_panel_switcher_set_stack (self, g_value_get_object (value));
     break;
+  case PROP_MODE:
+    adw_sidebar_set_mode (self->sidebar, g_value_get_enum (value));
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
@@ -300,6 +305,9 @@ ms_panel_switcher_get_property (GObject    *object,
   switch (property_id) {
   case PROP_STACK:
     g_value_set_object (value, self->stack);
+    break;
+  case PROP_MODE:
+    g_value_set_enum (value, self->mode);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -339,6 +347,12 @@ ms_panel_switcher_class_init (MsPanelSwitcherClass *klass)
     g_param_spec_object ("stack", "", "",
                          ADW_TYPE_VIEW_STACK,
                          G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
+
+  props[PROP_MODE] =
+    g_param_spec_enum ("mode", "", "",
+                       ADW_TYPE_SIDEBAR_MODE,
+                       ADW_SIDEBAR_MODE_SIDEBAR,
+                       G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 

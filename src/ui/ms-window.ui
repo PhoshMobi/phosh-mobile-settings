@@ -12,6 +12,7 @@
       <object class="AdwBreakpoint">
         <condition>max-width: 500sp</condition>
         <setter object="split_view" property="collapsed">True</setter>
+        <setter object="panel_switcher" property="mode">page</setter>
       </object>
     </child>
     <property name="content">
