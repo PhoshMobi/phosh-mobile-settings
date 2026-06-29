@@ -2,18 +2,18 @@
 # Copyright (C) 2026 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2026.
-# Álvaro Burns <>, 2025-2026.
 # Luiggi R. Cardoso <luiggicardoso@outlook.com>, 2026.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024-2026.
+# Álvaro Burns <>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-24 14:57+0000\n"
-"PO-Revision-Date: 2026-06-01 19:21-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2026-06-29 16:46+0000\n"
+"PO-Revision-Date: 2026-06-28 12:04-0300\n"
+"Last-Translator: Álvaro Burns <>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -301,21 +301,6 @@ msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
 "Você precisa autenticar-se como administrador para salvar algumas definições"
 
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Geral"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Mostra os atalhos"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Sai"
-
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
 msgstr "Não pôde obter a lista de mensagens de transmissão celular"
@@ -325,7 +310,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Gerencia suas configurações móveis"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:542
+#: src/ms-application.c:541
 msgid "translator-credits"
 msgstr ""
 "Rafael Fontenelle <rafaelff@gnome.org>\n"
@@ -511,30 +496,34 @@ msgid "Choose sound file"
 msgstr "Escolha o arquivo de som"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:136
+#: src/ms-updates-panel.c:138
 #, c-format
 msgid "Update to %s"
 msgstr "Atualizar para %s"
 
-#: src/ms-updates-panel.c:169 src/ms-updates-panel.c:202
+#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
 #, c-format
 msgid "OS update failed: %s"
 msgstr "Atualização de SO falhou: %s"
 
-#: src/ms-updates-panel.c:248
+#: src/ms-updates-panel.c:259
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "Cancelando atualização em falha do SO: %s"
 
-#: src/ms-updates-panel.c:308
+#: src/ms-updates-panel.c:321
 msgid "OS Update already in progress"
 msgstr "Atualização do SO já está em processo"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:316
+#: src/ms-updates-panel.c:329
 #, c-format
 msgid "Updating to %s…"
 msgstr "Atualizando para %s…"
+
+#: src/ms-updates-panel.c:349
+msgid "OS update in progress"
+msgstr "Atualização do SO está em processo"
 
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
@@ -555,7 +544,11 @@ msgstr "Silencioso"
 msgid "Choose Wallpaper"
 msgstr "Escolha papel de parede"
 
-#: src/ms-window.c:156
+#: src/ms-window.c:120
+msgid "Configurable Tweaks"
+msgstr "Ajustes configuráveis"
+
+#: src/ms-window.c:168
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -1194,7 +1187,8 @@ msgstr "_Gerenciar aplicativos ocultos"
 
 #: src/ui/ms-overview-panel.ui:75
 msgid "Make apps you disabled in the overview visible again"
-msgstr "Torne aplicativos, que você desativou na visão geral, visíveis novamente"
+msgstr ""
+"Torne aplicativos, que você desativou na visão geral, visíveis novamente"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -1475,6 +1469,21 @@ msgstr "Atalhos de _teclado"
 #: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_Sobre o Configurações Móveis"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Geral"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostra os atalhos"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sai"
 
 #~ msgid "Mobile App Filtering"
 #~ msgstr "Filtragem de aplicativos móveis"
