@@ -404,16 +404,24 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, AdwViewStack *stack)
 
 
 gboolean
-ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panel)
+ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panelname)
 {
+  GtkWidget *panel;
+
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
-  if (adw_view_stack_get_child_by_name (self->stack, panel) == NULL) {
-    g_debug ("No panel '%s'", panel);
+  panel = adw_view_stack_get_child_by_name (self->stack, panelname);
+  if (panel == NULL) {
+    g_debug ("No panel '%s'", panelname);
     return FALSE;
   }
 
-  adw_view_stack_set_visible_child_name (self->stack, panel);
+  if (!ms_panel_get_enabled (MS_PANEL (panel))) {
+    g_debug ("Panel '%s' not enabled", panelname);
+    return FALSE;
+  }
+
+  adw_view_stack_set_visible_child_name (self->stack, panelname);
   return TRUE;
 }
 
