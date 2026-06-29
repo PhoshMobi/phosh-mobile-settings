@@ -243,8 +243,17 @@ on_job_cancel_ready (GObject *source_object, GAsyncResult *res, gpointer user_da
     if (!g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
       task = g_steal_pointer (&version->cancel_task);
 
+      if (g_dbus_error_is_remote_error (err) &&
+          g_strcmp0 (g_dbus_error_get_remote_error (err),
+                     "org.freedesktop.DBus.Error.UnknownObj") == 0) {
+        g_message ("Job for %s is already gone, nothing to cancel", version->version);
+        ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_FAILED);
+        g_task_return_boolean (task, TRUE);
+        return;
+      }
+
       g_warning ("Failed to cancel job for %s: %s", version->version, err->message);
-      /* Job status will set in `job-removed` */
+      /* Job status will be set in `job-removed` */
       g_task_return_error (task, g_steal_pointer (&err));
     }
     return;
