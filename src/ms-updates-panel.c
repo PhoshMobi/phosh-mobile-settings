@@ -270,6 +270,7 @@ on_os_updater_cancel_fetch_update_ready (GObject      *source_object,
     msg = g_strdup_printf (_("Canceling OS update failed: %s"), err->message);
     toast = adw_toast_new (msg);
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
+    uninhibit (self);
     return;
   }
 
