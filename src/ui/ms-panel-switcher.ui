@@ -5,6 +5,16 @@
     <property name="child">
       <object class="AdwSidebar" id="sidebar">
         <signal name="activated" handler="on_activated" swapped="yes"/>
+        <property name="placeholder">
+          <object class="AdwStatusPage">
+            <property name="icon-name">system-search-symbolic</property>
+            <property name="title" translatable="yes">No Matching Panels</property>
+            <property name="description" translatable="yes">Try a different search</property>
+            <style>
+              <class name="compact"/>
+            </style>
+          </object>
+        </property>
       </object>
     </property>
   </template>
