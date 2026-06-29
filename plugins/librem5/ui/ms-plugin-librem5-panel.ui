@@ -4,6 +4,13 @@
   <template class="MsPluginLibrem5Panel" parent="MsPluginPanel">
     <!-- Translators "Librem 5" is a smartphone model, usually no need to translate it -->
     <property name="title" translatable="yes">Librem 5</property>
+    <property name="keywords">
+      <object class="GtkStringList">
+        <items>
+          <item>Librem 5</item>
+        </items>
+      </object>
+    </property>
     <child>
       <object class="AdwClamp">
         <child>
