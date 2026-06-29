@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-24 14:57+0000\n"
-"PO-Revision-Date: 2026-06-26 06:46+0200\n"
+"POT-Creation-Date: 2026-06-28 18:05+0000\n"
+"PO-Revision-Date: 2026-06-29 06:58+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -322,7 +322,7 @@ msgid "- Manage your mobile settings"
 msgstr "- მართეთ თქვენი მობილურის პარამეტრები"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:542
+#: src/ms-application.c:541
 msgid "translator-credits"
 msgstr "temuri Doghonadze"
 
@@ -506,30 +506,34 @@ msgid "Choose sound file"
 msgstr "აირჩიეთ ხმის ფაილი"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:136
+#: src/ms-updates-panel.c:138
 #, c-format
 msgid "Update to %s"
 msgstr "განახლება %s-ზე"
 
-#: src/ms-updates-panel.c:169 src/ms-updates-panel.c:202
+#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
 #, c-format
 msgid "OS update failed: %s"
 msgstr "ოს-ის განახლება ჩავარდა: %s"
 
-#: src/ms-updates-panel.c:248
+#: src/ms-updates-panel.c:259
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "ოს-ის განახლების გაუქმება ჩავარდა: %s"
 
-#: src/ms-updates-panel.c:308
+#: src/ms-updates-panel.c:321
 msgid "OS Update already in progress"
 msgstr "ოს-ის განახლება უკვე მიმდინარეობს"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:316
+#: src/ms-updates-panel.c:329
 #, c-format
 msgid "Updating to %s…"
 msgstr "განახლება %s-მდე…"
+
+#: src/ms-updates-panel.c:349
+msgid "OS update in progress"
+msgstr "მიმდინარეობს ოს-ის განახლება"
 
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
@@ -550,7 +554,11 @@ msgstr "ჩუმი"
 msgid "Choose Wallpaper"
 msgstr "აირჩიეთ ფონის სურათი"
 
-#: src/ms-window.c:156
+#: src/ms-window.c:120
+msgid "Configurable Tweaks"
+msgstr "მორგებადი შესწორებები"
+
+#: src/ms-window.c:168
 msgid "Device"
 msgstr "მოწყობილობა"
 
