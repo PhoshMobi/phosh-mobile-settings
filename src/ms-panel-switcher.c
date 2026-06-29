@@ -42,7 +42,6 @@ struct _MsPanelSwitcher {
   AdwSidebarMode mode;
 
   char          *query;
-  char          *current_panelname;
 
   gboolean       only_tweaks;
 };
@@ -203,7 +202,6 @@ on_activated (MsPanelSwitcher *self, guint index)
 
   name = adw_view_stack_get_visible_child_name (self->stack);
   g_debug ("Activating '%s' (%d)", name, index);
-  g_set_str (&self->current_panelname, name);
 
   g_signal_emit (self, signals[ROW_ACTIVATED], 0);
 }
@@ -327,7 +325,6 @@ ms_panel_switcher_dispose (GObject *object)
 
   g_clear_object (&self->settings);
   g_clear_pointer (&self->query, g_free);
-  g_clear_pointer (&self->current_panelname, g_free);
 
   G_OBJECT_CLASS (ms_panel_switcher_parent_class)->dispose (object);
 }
