@@ -420,14 +420,51 @@ ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *pane
   return TRUE;
 }
 
-
-gboolean
+/**
+ * ms_panel_switcher_set_active_panel_index:
+ * @self: The panel switcher
+ * @idx: The index
+ *
+ * Select a panel by its index. This takes any filters into accout so e.g.
+ * `idx` `0` always selects the topmost item currently visible to the user.
+ */
+void
 ms_panel_switcher_set_active_panel_index (MsPanelSwitcher *self, uint idx)
 {
+  g_autoptr (GtkFilterListModel) filtered = NULL;
+  g_autoptr (GObject) idx_item = NULL;
+  GListModel *items;
+  GtkFilter *filter;
+
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
-  adw_sidebar_set_selected (self->sidebar, 0);
-  return TRUE;
+  /* We can't get the filtered item directly so reapply the same filter AdwSidebar applies */
+  /* https://gitlab.gnome.org/GNOME/libadwaita/-/merge_requests/1773 */
+  items = G_LIST_MODEL (adw_sidebar_get_items (self->sidebar));
+  filter = adw_sidebar_get_filter (self->sidebar);
+  filtered = gtk_filter_list_model_new (g_object_ref (items),  g_object_ref (filter));
+
+  idx_item = g_list_model_get_item (G_LIST_MODEL (filtered), idx);
+  if (idx_item == NULL)
+    return;
+
+  /* Find the position of the indexed item in the unfiltered list */
+  for (guint i = 0; i < g_list_model_get_n_items (items); i++) {
+    g_autoptr (GObject) item = g_list_model_get_item (items, i);
+
+    if (item == idx_item) {
+      AdwViewStackPage *page;
+      GtkWidget *child;
+
+      /* Get the page and select the item */
+      g_debug ("Selecting panel: %u", i);
+      page = g_object_get_data (item, "ms-page");
+      g_return_if_fail (ADW_IS_VIEW_STACK_PAGE (page));
+      child = adw_view_stack_page_get_child (page);
+      adw_view_stack_set_visible_child (self->stack, child);
+      return;
+    }
+  }
 }
 
 
