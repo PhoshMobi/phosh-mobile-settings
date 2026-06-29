@@ -563,10 +563,10 @@ ms_application_init (MsApplication *self)
 
   gtk_application_set_accels_for_action (GTK_APPLICATION (self),
                                          "app.quit",
-                                         (const char *[]) {
-                                           "<primary>q",
-                                           NULL,
-                                         });
+                                         (const char *[]) { "<primary>q", NULL, });
+  gtk_application_set_accels_for_action (GTK_APPLICATION (self),
+                                         "win.search",
+                                         (const char *[]) { "<Primary>F", NULL, });
 
   g_application_set_option_context_parameter_string (G_APPLICATION (self),
                                                      PHOSH_MOBILE_SETTINGS_DESCRIPTION);

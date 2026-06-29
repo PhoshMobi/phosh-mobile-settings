@@ -58,6 +58,16 @@ on_search_entry_activated (GtkSearchEntry *search_entry,
 
 
 static void
+on_search_activated (GtkWidget *widget, const char *action_name, GVariant *param)
+{
+  MsWindow *self = MS_WINDOW (widget);
+
+  adw_navigation_split_view_set_show_content (self->split_view, FALSE);
+  gtk_search_bar_set_search_mode (self->search_bar, TRUE);
+}
+
+
+static void
 show_content_cb (MsWindow *self)
 {
   const char *panelname;
@@ -223,7 +233,10 @@ ms_window_class_init (MsWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_activated);
   gtk_widget_class_bind_template_callback (widget_class, show_content_cb);
   gtk_widget_class_bind_template_callback (widget_class, stack_child_to_title);
+
+  gtk_widget_class_install_action (widget_class, "win.search", NULL, on_search_activated);
 }
+
 
 static void
 ms_window_init (MsWindow *self)
