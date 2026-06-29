@@ -232,6 +232,7 @@ panels_filter_func (gpointer item_, gpointer user_data)
   if (!ms_panel_get_enabled (panel))
     return FALSE;
 
+  /* Search is empty, show all enabled panels */
   if (GM_STR_IS_NULL_OR_EMPTY (self->query))
     return TRUE;
 
@@ -242,7 +243,7 @@ panels_filter_func (gpointer item_, gpointer user_data)
   query_normalized = ms_normalize_casefold_and_unaccent (self->query);
   query_words = g_strsplit (g_strstrip (query_normalized), " ", 0);
 
-  /* Search is empty, show each panel */
+  /* Search is empty, show all enabled panels */
   if (query_words[0] == NULL)
     return TRUE;
 
