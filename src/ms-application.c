@@ -290,7 +290,7 @@ list_available_panels (GApplication *app)
 
   g_print ("Available panels:\n");
 
-  for (uint i = 0; i < g_list_model_get_n_items (list); ++i) {
+  for (uint i = 0; i < g_list_model_get_n_items (list); i++) {
     g_autoptr (AdwViewStackPage) page = g_list_model_get_item (list, i);
 
     name = adw_view_stack_page_get_name (page);
