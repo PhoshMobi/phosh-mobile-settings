@@ -32,6 +32,7 @@ struct _MsWindow {
   AdwNavigationSplitView *split_view;
   AdwViewStack           *stack;
   MsPanelSwitcher        *panel_switcher;
+  GListModel *enabled_pages;
 
   GSettings *settings;
   MsTweaksParser         *ms_tweaks_parser;
@@ -204,6 +205,7 @@ ms_settings_window_dispose (GObject *object)
 {
   MsWindow *self = MS_WINDOW (object);
 
+  g_clear_object (&self->enabled_pages);
   g_clear_object (&self->settings);
   g_clear_object (&self->ms_tweaks_parser);
 
@@ -238,25 +240,48 @@ ms_window_class_init (MsWindowClass *klass)
 }
 
 
+static gboolean
+match_enabled_filter (gpointer item, gpointer user_data)
+{
+  AdwViewStackPage *view_stack_page = ADW_VIEW_STACK_PAGE (item);
+  MsPanel *panel;
+
+  g_return_val_if_fail (ADW_IS_VIEW_STACK_PAGE (item), FALSE);
+
+  panel = MS_PANEL (adw_view_stack_page_get_child (view_stack_page));
+
+  return ms_panel_get_enabled (panel);
+}
+
+
 static void
 ms_window_init (MsWindow *self)
 {
+  GListModel *pages;
+  GtkFilter *enabled_filter;
+
   self->settings = g_settings_new ("mobi.phosh.MobileSettings");
   self->ms_tweaks_parser = ms_tweaks_parser_new ();
 
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  pages = G_LIST_MODEL (adw_view_stack_get_pages (self->stack));
+  enabled_filter = GTK_FILTER (gtk_custom_filter_new (match_enabled_filter, NULL, NULL));
+  self->enabled_pages = G_LIST_MODEL (gtk_filter_list_model_new (pages,
+                                                                 GTK_FILTER (enabled_filter)));
+
   show_content_cb (self);
 
   gtk_search_bar_set_key_capture_widget (self->search_bar, GTK_WIDGET (self));
 }
 
 
-GtkSelectionModel *
+GListModel *
 ms_window_get_stack_pages (MsWindow *self)
 {
   g_assert (MS_IS_WINDOW (self));
 
-  return adw_view_stack_get_pages (self->stack);
+  return self->enabled_pages;
 }
 
 

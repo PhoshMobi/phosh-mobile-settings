@@ -18,7 +18,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (MsWindow, ms_window, MS, WINDOW, AdwApplicationWindow)
 
-GtkSelectionModel *  ms_window_get_stack_pages    (MsWindow *self);
-MsPanelSwitcher *    ms_window_get_panel_switcher (MsWindow *self);
+GListModel *     ms_window_get_stack_pages    (MsWindow *self);
+MsPanelSwitcher *ms_window_get_panel_switcher (MsWindow *self);
 
 G_END_DECLS
