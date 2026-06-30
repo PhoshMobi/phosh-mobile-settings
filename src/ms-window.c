@@ -150,10 +150,13 @@ do_toggle_conf_tweaks (GSettings *settings, char *key, gpointer user_data)
 static void
 on_panel_enabled_changed (MsWindow *self, GParamSpec *pspec, MsPanel *panel)
 {
+  GtkFilter *filter;
   gboolean enabled = ms_panel_get_enabled (panel);
+  GtkFilterChange change = enabled ? GTK_FILTER_CHANGE_LESS_STRICT : GTK_FILTER_CHANGE_MORE_STRICT;
 
-  ms_panel_switcher_refilter (self->panel_switcher,
-                              enabled ? GTK_FILTER_CHANGE_LESS_STRICT : GTK_FILTER_CHANGE_MORE_STRICT);
+  filter = gtk_filter_list_model_get_filter (GTK_FILTER_LIST_MODEL (self->enabled_pages));
+  ms_panel_switcher_refilter (self->panel_switcher, change);
+  gtk_filter_changed (filter, change);
 }
 
 
