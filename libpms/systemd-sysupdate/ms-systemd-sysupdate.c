@@ -41,7 +41,7 @@ struct _MsSystemdSysupdate {
   MsOsUpdater             parent;
 
   MsDBusSysupdateManager *manager;
-  GDBusConnection        *system_bus;
+  GDBusConnection        *bus;
   GCancellable           *cancel;
   GPtrArray *targets;
 };
@@ -604,61 +604,6 @@ on_target_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer user_
 
 
 static void
-on_list_targets_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
-{
-  MsSystemdSysupdate *self;
-  MsDBusSysupdateManager *manager;
-  const char *class = NULL;
-  const char *name = NULL;
-  const char *object_path = NULL;
-  g_autoptr (GVariant) ret_targets = NULL;
-  g_autoptr (GVariantIter) variant_iter = NULL;
-  g_autoptr (GError) err = NULL;
-  gboolean success;
-
-  manager = MS_DBUS_SYSUPDATE_MANAGER (source_object);
-  success = ms_dbus_sysupdate_manager_call_list_targets_finish (manager,
-                                                                &ret_targets,
-                                                                res,
-                                                                &err);
-  if (!success) {
-    g_warning ("Failed to list sysupdate targets: %s", err->message);
-    return;
-  }
-
-  self = MS_SYSTEMD_SYSUPDATE (user_data);
-
-  g_variant_get (ret_targets, "a(sso)", &variant_iter);
-  /* Get info about all the targets */
-  while (g_variant_iter_loop (variant_iter, "(&s&s&o)", &class, &name, &object_path)) {
-    Target *target;
-
-    g_debug ("Target: %s, class: %s, path: %s", name, class, object_path);
-
-    /* We're only interested in host updates */
-    if (g_strcmp0 (name, "host") || g_strcmp0 (class, "host")) {
-      g_debug ("Skipping %s/%s", name, class);
-      continue;
-    }
-
-    /* Since we can update the host, lets signal that: */
-    ms_os_updater_set_supported (MS_OS_UPDATER (self), TRUE);
-    /* TODO: do we need more than one? Isn't there only host? */
-    target = target_new (name, class, self);
-    g_ptr_array_add (self->targets, target);
-
-    ms_dbus_sysupdate_target_proxy_new (g_dbus_proxy_get_connection (G_DBUS_PROXY (manager)),
-                                        G_DBUS_PROXY_FLAGS_NONE,
-                                        "org.freedesktop.sysupdate1",
-                                        object_path,
-                                        target->cancel,
-                                        on_target_proxy_ready,
-                                        target);
-  }
-}
-
-
-static void
 on_job_removed (MsSystemdSysupdate *self, guint64 job_id, const char *job_path, int status)
 {
   g_debug ("Job %" G_GUINT64_FORMAT " at %s finished: %d", job_id, job_path, status);
@@ -728,25 +673,27 @@ on_job_removed (MsSystemdSysupdate *self, guint64 job_id, const char *job_path, 
 
 
 static void
-on_sysupdate_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
+check_service (MsSystemdSysupdate *self)
 {
-  MsSystemdSysupdate *self = MS_SYSTEMD_SYSUPDATE (user_data);
   g_autoptr (GError) err = NULL;
-  MsDBusSysupdateManager *manager;
+  const char *class = NULL;
+  const char *name = NULL;
+  const char *object_path = NULL;
+  g_autoptr (GVariant) ret_targets = NULL;
+  g_autoptr (GVariantIter) variant_iter = NULL;
+  gboolean success;
 
-  manager = ms_dbus_sysupdate_manager_proxy_new_finish (res, &err);
-  if (manager == NULL) {
-    if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
-      g_debug ("Cancelled getting sysupdate manager");
-      return;
-    }
-
-    g_warning ("Failed to get sysupdate manager: %s", err->message);
+  self->manager = ms_dbus_sysupdate_manager_proxy_new_sync (self->bus,
+                                                            G_DBUS_PROXY_FLAGS_NONE,
+                                                            "org.freedesktop.sysupdate1",
+                                                            "/org/freedesktop/sysupdate1",
+                                                            NULL,
+                                                            &err);
+  if (self->manager == NULL) {
+    g_debug ("Failed to get sysupdate_proxy: %s", err->message);
     ms_os_updater_set_supported (MS_OS_UPDATER (self), FALSE);
     return;
   }
-
-  self->manager = manager;
 
   g_signal_connect_object (self->manager,
                            "job-removed",
@@ -754,54 +701,48 @@ on_sysupdate_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer us
                            self,
                            G_CONNECT_SWAPPED);
 
-  ms_dbus_sysupdate_manager_call_list_targets (self->manager,
-                                               G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
-                                               10000,
-                                               self->cancel,
-                                               on_list_targets_ready,
-                                               self);
-}
-
-
-static void
-on_list_activatable_names_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
-{
-  MsSystemdSysupdate *self;
-  g_autoptr (GError) err = NULL;
-  g_autoptr (GVariant) ret = NULL;
-  const char *activatable_names;
-
-  ret = g_dbus_connection_call_finish (G_DBUS_CONNECTION (source_object), res, &err);
-  if (ret == NULL) {
-    if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
-      g_debug ("Cancelled listing activatable names");
-      return;
-    }
-
-    self = MS_SYSTEMD_SYSUPDATE (user_data);
-    g_warning ("Failed to list activatable names: %s", err->message);
+  success = ms_dbus_sysupdate_manager_call_list_targets_sync (self->manager,
+                                                              G_DBUS_CALL_FLAGS_NONE,
+                                                              10000,
+                                                              &ret_targets,
+                                                              NULL,
+                                                              &err);
+  if (!success) {
+    g_debug ("Failed to list sysupdate targets: %s", err->message);
     ms_os_updater_set_supported (MS_OS_UPDATER (self), FALSE);
     return;
   }
 
-  self = MS_SYSTEMD_SYSUPDATE (user_data);
-  if (MS_DBUS_BUS == G_BUS_TYPE_SYSTEM) {
-    g_variant_get (ret, "(^a&s)", &activatable_names);
-    if (!g_strv_contains ((const char *const *) activatable_names, "org.freedesktop.sysupdate1")) {
-      g_debug ("systemd-sysupdate service not available");
-      ms_os_updater_set_supported (MS_OS_UPDATER (self), FALSE);
-      return;
-    }
-  }
+  g_variant_get (ret_targets, "a(sso)", &variant_iter);
+  /* Get info about all the targets */
+  while (g_variant_iter_loop (variant_iter, "(&s&s&o)", &class, &name, &object_path)) {
+    Target *target;
 
-  ms_dbus_sysupdate_manager_proxy_new (self->system_bus,
-                                       G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START_AT_CONSTRUCTION,
-                                       "org.freedesktop.sysupdate1",
-                                       "/org/freedesktop/sysupdate1",
-                                       self->cancel,
-                                       on_sysupdate_proxy_ready,
-                                       self);
+    g_debug ("Target: %s, class: %s, path: %s", name, class, object_path);
+
+    /* We're only interested in host updates */
+    if (g_strcmp0 (name, "host") || g_strcmp0 (class, "host")) {
+      g_debug ("Skipping %s/%s", name, class);
+      continue;
+    }
+
+    /* Since we can update the host, lets signal that: */
+    ms_os_updater_set_supported (MS_OS_UPDATER (self), TRUE);
+    /* TODO: do we need more than one? Isn't there only one host? */
+    target = target_new (name, class, self);
+    g_ptr_array_add (self->targets, target);
+
+    ms_dbus_sysupdate_target_proxy_new (g_dbus_proxy_get_connection (G_DBUS_PROXY (self->manager)),
+                                        G_DBUS_PROXY_FLAGS_NONE,
+                                        "org.freedesktop.sysupdate1",
+                                        object_path,
+                                        target->cancel,
+                                        on_target_proxy_ready,
+                                        target);
+  }
 }
+
+
 
 
 static void
@@ -814,7 +755,8 @@ ms_systemd_sysupdate_dispose (GObject *object)
   g_cancellable_cancel (self->cancel);
   g_clear_object (&self->cancel);
 
-  g_clear_object (&self->system_bus);
+  g_clear_object (&self->manager);
+  g_clear_object (&self->bus);
   g_clear_pointer (&self->targets, g_ptr_array_unref);
 
   G_OBJECT_CLASS (ms_systemd_sysupdate_parent_class)->dispose (object);
@@ -841,25 +783,13 @@ ms_systemd_sysupdate_init (MsSystemdSysupdate *self)
 {
   g_autoptr (GError) err = NULL;
   self->cancel = g_cancellable_new ();
-  self->system_bus = g_bus_get_sync (MS_DBUS_BUS, NULL, &err);
+  self->bus = g_bus_get_sync (MS_DBUS_BUS, NULL, &err);
   self->targets = g_ptr_array_new_with_free_func ((GDestroyNotify)target_destroy);
 
-  if (self->system_bus) {
-    g_dbus_connection_call (self->system_bus,
-                            "org.freedesktop.DBus",
-                            "/org/freedesktop/DBus",
-                            "org.freedesktop.DBus",
-                            "ListActivatableNames",
-                            NULL,
-                            (const GVariantType *) "(as)",
-                            G_DBUS_CALL_FLAGS_NONE,
-                            200, /* ms */
-                            self->cancel,
-                            on_list_activatable_names_ready,
-                            self);
-  } else {
-    g_debug ("Failed to get system bus: %s", err->message);
-  }
+  if (self->bus)
+    check_service (self);
+  else
+    g_debug ("sysupdate: Can't connect to dbus");
 }
 
 
