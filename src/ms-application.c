@@ -279,14 +279,14 @@ static void
 list_available_panels (GApplication *app)
 {
   MsWindow *window;
-  g_autoptr (GListModel) list = NULL;
+  GListModel *list;
   const char *name;
 
   /* Since we're in the local instance, just get us a window */
   adw_init ();
 
   window = g_object_new (MS_TYPE_WINDOW, NULL);
-  list = G_LIST_MODEL (ms_window_get_stack_pages (window));
+  list = ms_window_get_stack_pages (window);
 
   g_print ("Available panels:\n");
 
