@@ -340,7 +340,6 @@
                         <property name="icon-name">software-update-available-symbolic</property>
                         <property name="child">
                           <object class="MsUpdatesPanel" id="os_updates_panel">
-                            <property name="enabled">False</property>
                             <property name="keywords">
                               <object class="GtkStringList">
                                 <items>
