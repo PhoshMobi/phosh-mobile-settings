@@ -41,6 +41,19 @@ G_DEFINE_TYPE (MsUpdatesPanel, ms_updates_panel, MS_TYPE_PANEL)
 
 
 static void
+uninhibit (MsUpdatesPanel *self)
+{
+  GtkApplication *app = GTK_APPLICATION (g_application_get_default ());
+
+  if (self->inhibitor == 0)
+    return;
+
+  gtk_application_uninhibit (app, self->inhibitor);
+  self->inhibitor = 0;
+}
+
+
+static void
 update_stack_page (MsUpdatesPanel *self)
 {
   MsOsUpdateState state;
@@ -152,7 +165,6 @@ on_reboot_button_clicked (MsUpdatesPanel *self)
 static void
 on_os_updater_install_update_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
 {
-  GtkApplication *app = GTK_APPLICATION (g_application_get_default ());
   MsUpdatesPanel *self;
   g_autoptr (GError) err = NULL;
   gboolean success;
@@ -173,7 +185,7 @@ on_os_updater_install_update_ready (GObject *source_object, GAsyncResult *res, g
     toast = adw_toast_new (msg);
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
 
-    gtk_application_uninhibit (app, self->inhibitor);
+    uninhibit (self);
     return;
   }
 
@@ -181,14 +193,13 @@ on_os_updater_install_update_ready (GObject *source_object, GAsyncResult *res, g
   g_debug ("Updates OS image");
   set_latest_os_update (self, NULL);
   adw_banner_set_revealed (self->reboot_banner, TRUE);
-  gtk_application_uninhibit (app, self->inhibitor);
+  uninhibit (self);
 }
 
 
 static void
 on_os_updater_fetch_update_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
 {
-  GtkApplication *app = GTK_APPLICATION (g_application_get_default);
   MsUpdatesPanel *self;
   MsOsUpdateState state;
   g_autoptr (GError) err = NULL;
@@ -210,7 +221,7 @@ on_os_updater_fetch_update_ready (GObject *source_object, GAsyncResult *res, gpo
     toast = adw_toast_new (msg);
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
 
-    gtk_application_uninhibit (app, self->inhibitor);
+    uninhibit (self);
     return;
   }
 
@@ -221,7 +232,7 @@ on_os_updater_fetch_update_ready (GObject *source_object, GAsyncResult *res, gpo
   if (state != MS_OS_UPDATE_STATE_FETCHED) {
     g_debug ("Update not fetched (state %d), giving up.", state);
 
-    gtk_application_uninhibit (app, self->inhibitor);
+    uninhibit (self);
     return;
   }
 
@@ -259,6 +270,7 @@ on_os_updater_cancel_fetch_update_ready (GObject      *source_object,
     msg = g_strdup_printf (_("Canceling OS update failed: %s"), err->message);
     toast = adw_toast_new (msg);
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
+    uninhibit (self);
     return;
   }
 
@@ -371,6 +383,8 @@ ms_updates_panel_finalize (GObject *object)
   g_clear_object (&self->cancel);
 
   g_clear_object (&self->os_updater);
+
+  uninhibit (self);
 
   G_OBJECT_CLASS (ms_updates_panel_parent_class)->finalize (object);
 }
