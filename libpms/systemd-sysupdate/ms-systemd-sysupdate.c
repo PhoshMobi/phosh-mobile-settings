@@ -581,6 +581,11 @@ on_target_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer user_
 
   target_proxy = ms_dbus_sysupdate_target_proxy_new_finish (res, &err);
   if (!target_proxy) {
+    if (g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+      g_debug ("Cancelled getting target proxy");
+      return;
+    }
+
     g_warning ("Failed to get target proxy: %s", err->message);
     return;
   }
