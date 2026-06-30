@@ -31,6 +31,7 @@
 /* We can use the session bus for easy mocking */
 #if 0
 # define MS_DBUS_BUS (G_BUS_TYPE_SESSION)
+#warning "sysupdate1 is using session bus"
 #else
 # define MS_DBUS_BUS (G_BUS_TYPE_SYSTEM)
 #endif
