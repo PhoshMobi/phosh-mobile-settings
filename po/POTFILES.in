@@ -38,6 +38,7 @@ src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-add-shortcut-dialog.ui
 src/ui/ms-osk-panel.ui
 src/ui/ms-overview-panel.ui
+src/ui/ms-panel-switcher.ui
 src/ui/ms-plugin-row.ui
 src/ui/ms-scale-to-fit-row.ui
 src/ui/ms-sensor-panel.ui

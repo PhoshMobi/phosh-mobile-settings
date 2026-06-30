@@ -26,23 +26,24 @@ static guint signals[N_SIGNALS];
 enum {
   PROP_0,
   PROP_STACK,
+  PROP_MODE,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
 
 struct _MsPanelSwitcher {
-  AdwBin        parent;
+  AdwBin         parent;
 
-  AdwSidebar   *sidebar;
-  AdwViewStack *stack;
-  GListModel   *pages;
-  GSettings    *settings;
-  GHashTable   *items;
+  AdwSidebar    *sidebar;
+  AdwViewStack  *stack;
+  GListModel    *pages;
+  GSettings     *settings;
+  GHashTable    *items;
+  AdwSidebarMode mode;
 
-  char         *query;
-  char         *current_panelname;
+  char          *query;
 
-  gboolean      only_tweaks;
+  gboolean       only_tweaks;
 };
 G_DEFINE_TYPE (MsPanelSwitcher, ms_panel_switcher, ADW_TYPE_BIN)
 
@@ -201,7 +202,6 @@ on_activated (MsPanelSwitcher *self, guint index)
 
   name = adw_view_stack_get_visible_child_name (self->stack);
   g_debug ("Activating '%s' (%d)", name, index);
-  g_set_str (&self->current_panelname, name);
 
   g_signal_emit (self, signals[ROW_ACTIVATED], 0);
 }
@@ -232,6 +232,7 @@ panels_filter_func (gpointer item_, gpointer user_data)
   if (!ms_panel_get_enabled (panel))
     return FALSE;
 
+  /* Search is empty, show all enabled panels */
   if (GM_STR_IS_NULL_OR_EMPTY (self->query))
     return TRUE;
 
@@ -242,7 +243,7 @@ panels_filter_func (gpointer item_, gpointer user_data)
   query_normalized = ms_normalize_casefold_and_unaccent (self->query);
   query_words = g_strsplit (g_strstrip (query_normalized), " ", 0);
 
-  /* Search is empty, show each panel */
+  /* Search is empty, show all enabled panels */
   if (query_words[0] == NULL)
     return TRUE;
 
@@ -281,6 +282,9 @@ ms_panel_switcher_set_property (GObject      *object,
   case PROP_STACK:
     ms_panel_switcher_set_stack (self, g_value_get_object (value));
     break;
+  case PROP_MODE:
+    adw_sidebar_set_mode (self->sidebar, g_value_get_enum (value));
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
@@ -300,6 +304,9 @@ ms_panel_switcher_get_property (GObject    *object,
   case PROP_STACK:
     g_value_set_object (value, self->stack);
     break;
+  case PROP_MODE:
+    g_value_set_enum (value, self->mode);
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
@@ -318,7 +325,6 @@ ms_panel_switcher_dispose (GObject *object)
 
   g_clear_object (&self->settings);
   g_clear_pointer (&self->query, g_free);
-  g_clear_pointer (&self->current_panelname, g_free);
 
   G_OBJECT_CLASS (ms_panel_switcher_parent_class)->dispose (object);
 }
@@ -338,6 +344,12 @@ ms_panel_switcher_class_init (MsPanelSwitcherClass *klass)
     g_param_spec_object ("stack", "", "",
                          ADW_TYPE_VIEW_STACK,
                          G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
+
+  props[PROP_MODE] =
+    g_param_spec_enum ("mode", "", "",
+                       ADW_TYPE_SIDEBAR_MODE,
+                       ADW_SIDEBAR_MODE_SIDEBAR,
+                       G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
@@ -392,27 +404,72 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, AdwViewStack *stack)
 
 
 gboolean
-ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panel)
+ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panelname)
 {
+  GtkWidget *panel;
+
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
-  if (adw_view_stack_get_child_by_name (self->stack, panel) == NULL) {
-    g_debug ("No panel '%s'", panel);
+  panel = adw_view_stack_get_child_by_name (self->stack, panelname);
+  if (panel == NULL) {
+    g_debug ("No panel '%s'", panelname);
     return FALSE;
   }
 
-  adw_view_stack_set_visible_child_name (self->stack, panel);
+  if (!ms_panel_get_enabled (MS_PANEL (panel))) {
+    g_debug ("Panel '%s' not enabled", panelname);
+    return FALSE;
+  }
+
+  adw_view_stack_set_visible_child_name (self->stack, panelname);
   return TRUE;
 }
 
-
-gboolean
+/**
+ * ms_panel_switcher_set_active_panel_index:
+ * @self: The panel switcher
+ * @idx: The index
+ *
+ * Select a panel by its index. This takes any filters into accout so e.g.
+ * `idx` `0` always selects the topmost item currently visible to the user.
+ */
+void
 ms_panel_switcher_set_active_panel_index (MsPanelSwitcher *self, uint idx)
 {
+  g_autoptr (GtkFilterListModel) filtered = NULL;
+  g_autoptr (GObject) idx_item = NULL;
+  GListModel *items;
+  GtkFilter *filter;
+
   g_assert (MS_IS_PANEL_SWITCHER (self));
 
-  adw_sidebar_set_selected (self->sidebar, 0);
-  return TRUE;
+  /* We can't get the filtered item directly so reapply the same filter AdwSidebar applies */
+  /* https://gitlab.gnome.org/GNOME/libadwaita/-/merge_requests/1773 */
+  items = G_LIST_MODEL (adw_sidebar_get_items (self->sidebar));
+  filter = adw_sidebar_get_filter (self->sidebar);
+  filtered = gtk_filter_list_model_new (g_object_ref (items),  g_object_ref (filter));
+
+  idx_item = g_list_model_get_item (G_LIST_MODEL (filtered), idx);
+  if (idx_item == NULL)
+    return;
+
+  /* Find the position of the indexed item in the unfiltered list */
+  for (guint i = 0; i < g_list_model_get_n_items (items); i++) {
+    g_autoptr (GObject) item = g_list_model_get_item (items, i);
+
+    if (item == idx_item) {
+      AdwViewStackPage *page;
+      GtkWidget *child;
+
+      /* Get the page and select the item */
+      g_debug ("Selecting panel: %u", i);
+      page = g_object_get_data (item, "ms-page");
+      g_return_if_fail (ADW_IS_VIEW_STACK_PAGE (page));
+      child = adw_view_stack_page_get_child (page);
+      adw_view_stack_set_visible_child (self->stack, child);
+      return;
+    }
+  }
 }
 
 

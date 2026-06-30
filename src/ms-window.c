@@ -58,6 +58,16 @@ on_search_entry_activated (GtkSearchEntry *search_entry,
 
 
 static void
+on_search_activated (GtkWidget *widget, const char *action_name, GVariant *param)
+{
+  MsWindow *self = MS_WINDOW (widget);
+
+  adw_navigation_split_view_set_show_content (self->split_view, FALSE);
+  gtk_search_bar_set_search_mode (self->search_bar, TRUE);
+}
+
+
+static void
 show_content_cb (MsWindow *self)
 {
   const char *panelname;
@@ -175,7 +185,7 @@ ms_settings_window_constructed (GObject *object)
 
   if (g_hash_table_size (parser_page_table) != 0) {
     g_autoptr (GList) pages_sorted_by_weight = ms_tweaks_parser_sort_by_weight (parser_page_table);
-    g_autoptr (GAction) toggle_conf_tweaks;
+    g_autoptr (GAction) toggle_conf_tweaks = NULL;
 
     g_list_foreach (pages_sorted_by_weight, add_ms_tweaks_page, self);
 
@@ -223,7 +233,10 @@ ms_window_class_init (MsWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_search_entry_activated);
   gtk_widget_class_bind_template_callback (widget_class, show_content_cb);
   gtk_widget_class_bind_template_callback (widget_class, stack_child_to_title);
+
+  gtk_widget_class_install_action (widget_class, "win.search", NULL, on_search_activated);
 }
+
 
 static void
 ms_window_init (MsWindow *self)
