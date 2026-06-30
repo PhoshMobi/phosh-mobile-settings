@@ -435,7 +435,7 @@ ms_updates_panel_init (MsUpdatesPanel *self)
   self->os_updater = ms_get_default_os_updater_sync ();
   g_object_bind_property (self->os_updater, "supported",
                           self, "enabled",
-                          G_BINDING_DEFAULT);
+                          G_BINDING_SYNC_CREATE);
 
   /* No property binding as we don't want newly available updates to change text during an
    * update operation */
