@@ -43,6 +43,7 @@ struct _MsSystemdSysupdate {
   MsDBusSysupdateManager *manager;
   GDBusConnection        *bus;
   GCancellable           *cancel;
+  GHashTable             *finished_jobs;
   GPtrArray *targets;
 };
 G_DEFINE_TYPE (MsSystemdSysupdate, ms_systemd_sysupdate, MS_TYPE_OS_UPDATER)
@@ -160,11 +161,61 @@ on_job_progress (Version *version, GParamSpec *pspec, MsDBusSysupdateJob *job_pr
 
 
 static void
+job_finished (Version *version, int status)
+{
+  MsOsUpdateState state;
+  g_autoptr (GTask) task = NULL;
+
+  g_return_if_fail (G_IS_TASK (version->task));
+  task = g_steal_pointer (&version->task);
+
+  /* Clear progress, etc */
+  clear_job_state (version);
+
+  state = ms_os_update_get_state (version->os_update);
+  if (status == 0) {
+    state = ms_os_update_get_state (version->os_update);
+    if (state == MS_OS_UPDATE_STATE_FETCHING)
+      state = MS_OS_UPDATE_STATE_FETCHED;
+    else if (state == MS_OS_UPDATE_STATE_INSTALLING)
+      state = MS_OS_UPDATE_STATE_INSTALLED;
+
+    ms_os_update_set_state (version->os_update, state);
+    g_task_return_boolean (task, TRUE);
+  } else {
+    GError *err;
+    GIOErrorEnum code;
+
+    g_debug ("Job in state %d exited with %d", state, status);
+    if (status < 0)
+      code = g_io_error_from_errno (-status);
+    else
+      code = G_IO_ERROR_FAILED;
+
+    if (state == MS_OS_UPDATE_STATE_FETCHING)
+      err = g_error_new_literal (G_IO_ERROR, code, "Fetch step failed");
+    else if (state == MS_OS_UPDATE_STATE_INSTALLING)
+      err = g_error_new_literal (G_IO_ERROR, code, "Install step failed");
+    else
+      err = g_error_new_literal (G_IO_ERROR, code, "Job failed");
+
+    ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_FAILED);
+    g_task_return_error (task, err);
+  }
+}
+
+
+static void
 on_job_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer user_data)
 {
+  MsSystemdSysupdate *self;
   MsDBusSysupdateJob *job_proxy;
   g_autoptr (GError) err = NULL;
   Version *version = user_data;
+  const char *object_path;
+  gboolean finished;
+  gpointer value;
+  guint status;
 
   job_proxy = ms_dbus_sysupdate_job_proxy_new_finish (res, &err);
   if (!job_proxy) {
@@ -183,6 +234,17 @@ on_job_proxy_ready (GObject *source_object, GAsyncResult *res, gpointer user_dat
                                                    "notify::progress",
                                                    G_CALLBACK (on_job_progress),
                                                    version);
+
+
+  self = version->target->sysupdate;
+  object_path = g_dbus_proxy_get_object_path (G_DBUS_PROXY (job_proxy));
+  finished = g_hash_table_lookup_extended (self->finished_jobs, object_path, NULL, &value);
+  if (finished) {
+    g_hash_table_remove (self->finished_jobs, object_path);
+    status = GPOINTER_TO_INT (value);
+    g_debug ("Job %s finished before proxy was ready, finishing right away", object_path);
+    job_finished (version, status);
+  }
 }
 
 
@@ -369,6 +431,7 @@ on_target_install_update_ready (GObject *source_object, GAsyncResult *res, gpoin
   ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_INSTALLING);
   g_debug ("Getting proxy for %" G_GUINT64_FORMAT " %s", job_id, job_path);
   version->job_id = job_id;
+
   ms_dbus_sysupdate_job_proxy_new (g_dbus_proxy_get_connection (G_DBUS_PROXY (source_object)),
                                    G_DBUS_PROXY_FLAGS_NONE,
                                    "org.freedesktop.sysupdate1",
@@ -615,8 +678,6 @@ on_job_removed (MsSystemdSysupdate *self, guint64 job_id, const char *job_path, 
 
     for (guint j = 0; j < target->versions->len; j++) {
       Version *version = g_ptr_array_index (target->versions, j);
-      MsOsUpdateState state;
-      g_autoptr (GTask) task = NULL;
 
       if (version->job_proxy == NULL)
         continue;
@@ -629,46 +690,13 @@ on_job_removed (MsSystemdSysupdate *self, guint64 job_id, const char *job_path, 
 
       g_debug ("Found removed job %" G_GUINT64_FORMAT, job_id);
 
-      g_return_if_fail (G_IS_TASK (version->task));
-      task = g_steal_pointer (&version->task);
-
-      /* Clear progress, etc */
-      clear_job_state (version);
-
-      state = ms_os_update_get_state (version->os_update);
-      if (status == 0) {
-        state = ms_os_update_get_state (version->os_update);
-        if (state == MS_OS_UPDATE_STATE_FETCHING)
-          state = MS_OS_UPDATE_STATE_FETCHED;
-        else if (state == MS_OS_UPDATE_STATE_INSTALLING)
-          state = MS_OS_UPDATE_STATE_INSTALLED;
-
-        ms_os_update_set_state (version->os_update, state);
-        g_task_return_boolean (task, TRUE);
-      } else {
-        GError *err;
-        GIOErrorEnum code;
-
-        g_debug ("Job in state %d exited with %d", state, status);
-        if (status < 0)
-          code = g_io_error_from_errno (-status);
-        else
-          code = G_IO_ERROR_FAILED;
-
-        if (state == MS_OS_UPDATE_STATE_FETCHING)
-          err = g_error_new_literal (G_IO_ERROR, code, "Fetch step failed");
-        else if (state == MS_OS_UPDATE_STATE_INSTALLING)
-          err = g_error_new_literal (G_IO_ERROR, code, "Install step failed");
-        else
-          err = g_error_new_literal (G_IO_ERROR, code, "Job failed");
-
-        ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_FAILED);
-        g_task_return_error (task, err);
-      }
+      job_finished (version, status);
       return;
     }
   }
   g_debug ("No matching job for %" G_GUINT64_FORMAT " at %s found.", job_id, job_path);
+  /* Keep job path around to check against it when the proxy becomes ready */
+  g_hash_table_insert (self->finished_jobs, g_strdup (job_path), GINT_TO_POINTER (status));
 }
 
 
@@ -758,6 +786,7 @@ ms_systemd_sysupdate_dispose (GObject *object)
   g_clear_object (&self->manager);
   g_clear_object (&self->bus);
   g_clear_pointer (&self->targets, g_ptr_array_unref);
+  g_clear_pointer (&self->finished_jobs, g_hash_table_unref);
 
   G_OBJECT_CLASS (ms_systemd_sysupdate_parent_class)->dispose (object);
 }
@@ -785,6 +814,7 @@ ms_systemd_sysupdate_init (MsSystemdSysupdate *self)
   self->cancel = g_cancellable_new ();
   self->bus = g_bus_get_sync (MS_DBUS_BUS, NULL, &err);
   self->targets = g_ptr_array_new_with_free_func ((GDestroyNotify)target_destroy);
+  self->finished_jobs = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
 
   if (self->bus)
     check_service (self);
