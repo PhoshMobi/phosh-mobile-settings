@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2026-06-30 20:20+0000\n"
-"PO-Revision-Date: 2026-07-01 17:49+0200\n"
+"PO-Revision-Date: 2026-07-01 18:07+0200\n"
 "Last-Translator: Victoria Niedzielska <victorian@gnome.org>\n"
 "Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
 "Language: pl\n"
@@ -1180,7 +1180,7 @@ msgstr "Włącz tryb filtrowania programów"
 
 #: src/ui/ms-overview-panel.ui:68
 msgid "Show only mobile apps in the overview"
-msgstr "Wyświetl tylko mobilne programy w podglądzie"
+msgstr "Wyświetl tylko mobilne programy w ekranie podglądu"
 
 #: src/ui/ms-overview-panel.ui:74
 msgid "_Manage Hidden Apps"
@@ -1350,7 +1350,7 @@ msgstr "Wcięcia"
 
 #: src/ui/ms-window.ui:131
 msgid "Overview"
-msgstr "Podgląd"
+msgstr "Ekran podglądu"
 
 #: src/ui/ms-window.ui:140
 msgid "Filter"
