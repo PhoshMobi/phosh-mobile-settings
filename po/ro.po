@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-28 18:05+0000\n"
-"PO-Revision-Date: 2026-06-29 10:25+0200\n"
+"POT-Creation-Date: 2026-06-30 20:20+0000\n"
+"PO-Revision-Date: 2026-07-01 09:56+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -57,58 +57,58 @@ msgstr "Panoul compozitorului"
 msgid "Feedback panel"
 msgstr "Panoul de reacții"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "Temperatura critică este de %.2f°C"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "Suspendă aparatul"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "Suspendarea este experimentală"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "suspendă acum"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "Temperaturi"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "VPU"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "Indicator de energie"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "Bateria"
 
@@ -130,7 +130,7 @@ msgid "Add"
 msgstr "Adaugă"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "Limba"
 
@@ -301,21 +301,6 @@ msgstr[2] "Au apărut %i de erori la salvare"
 #: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "Doar administratorul poate salva unele schimbări"
-
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Generale"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Arată scurtăturile"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Închide"
 
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
@@ -511,32 +496,32 @@ msgid "Choose sound file"
 msgstr "Alege fișierul audio"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:138
+#: src/ms-updates-panel.c:151
 #, c-format
 msgid "Update to %s"
 msgstr "Actualizează la %s"
 
-#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
+#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
 #, c-format
 msgid "OS update failed: %s"
 msgstr "Nu s-a putut actualiza sistemul: %s"
 
-#: src/ms-updates-panel.c:259
+#: src/ms-updates-panel.c:270
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "Nu s-a putut anula actualizarea sistemului: %s"
 
-#: src/ms-updates-panel.c:321
+#: src/ms-updates-panel.c:333
 msgid "OS Update already in progress"
 msgstr "Actualizarea sistemului este deja în curs"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:329
+#: src/ms-updates-panel.c:341
 #, c-format
 msgid "Updating to %s…"
 msgstr "Se actualizează la %s…"
 
-#: src/ms-updates-panel.c:349
+#: src/ms-updates-panel.c:361
 msgid "OS update in progress"
 msgstr "Se actualizează sistemul"
 
@@ -559,11 +544,11 @@ msgstr "Silențios"
 msgid "Choose Wallpaper"
 msgstr "Alege fundalul"
 
-#: src/ms-window.c:120
+#: src/ms-window.c:131
 msgid "Configurable Tweaks"
 msgstr "Reglări personalizabile"
 
-#: src/ms-window.c:168
+#: src/ms-window.c:182
 msgid "Device"
 msgstr "Aparat"
 
@@ -811,7 +796,7 @@ msgstr "Procentul maxim al forței de reacție tactilă"
 msgid "Per Application settings"
 msgstr "Reglări per aplicație"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "Sunete"
 
@@ -977,7 +962,7 @@ msgstr "Folosește un fundal"
 msgid "Whether to show a colorful wallpaper"
 msgstr "Dacă să se afișeze un fundal colorat"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "Miniaturi"
 
@@ -1086,7 +1071,7 @@ msgstr "Înălțimea tastaturii în modul orizontal"
 msgid "When the screen is wider than tall"
 msgstr "Când ecranul este mai lat decât înalt"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Redimensionare"
 
@@ -1167,7 +1152,7 @@ msgstr "Scurtături"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Scurtături disponibile în spațiul scurtăturilor"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "Preferate"
 
@@ -1213,6 +1198,14 @@ msgstr "_Gestionează aplicațiile ascunse"
 msgid "Make apps you disabled in the overview visible again"
 msgstr "Afișează din nou aplicațiile pe care le-ai scos din prezentare"
 
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "Niciun panou nu corespunde"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "Se poate căuta altfel"
+
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
 msgstr "Niciun senzor"
@@ -1225,7 +1218,7 @@ msgstr ""
 "Fie nu există senzori instalați în aparat, fie aceștia sunt dezactivați de "
 "un întrerupător."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "Senzori"
 
@@ -1245,7 +1238,7 @@ msgstr "Lumină"
 msgid "Orientation"
 msgstr "Orientare"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "Contrast mare"
 
@@ -1294,7 +1287,7 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Nu poziționa elementele interfeței sub orificiile și decupajul ecranului"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "Reglări rapide"
 
@@ -1343,132 +1336,132 @@ msgid "Tweak advanced mobile settings"
 msgstr "Reglări avansate pentru mobil"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "Caută"
 
 #. Translators: Placeholder text for the search bar input
-#: src/ui/ms-window.ui:49
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "Caută reglări"
 
-#: src/ui/ms-window.ui:99
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "Bun venit"
 
-#: src/ui/ms-window.ui:110
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "Bara de sus"
 
-#: src/ui/ms-window.ui:119
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "Orificii"
 
-#: src/ui/ms-window.ui:130
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "Prezentare"
 
-#: src/ui/ms-window.ui:139
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "Filtru"
 
-#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "Fundal"
 
-#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "Reacții"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "Iluminare"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "Vibrații"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "Tactil"
 
-#: src/ui/ms-window.ui:164
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:175
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "Compozitor"
 
-#: src/ui/ms-window.ui:194
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "Ecranul blocat"
 
-#: src/ui/ms-window.ui:203
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "Aleatorie"
 
-#: src/ui/ms-window.ui:205
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "Parola"
 
-#: src/ui/ms-window.ui:216
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "Convergență"
 
-#: src/ui/ms-window.ui:234
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "Tastatură pe ecran"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "Tastatură"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "Să apară"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "OSK"
 
-#: src/ui/ms-window.ui:245
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "Completarea cuvintelor"
 
-#: src/ui/ms-window.ui:256
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "Alerte de urgență"
 
-#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "Urgență"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "Alertă publică"
 
-#: src/ui/ms-window.ui:266
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "Pericol"
 
-#: src/ui/ms-window.ui:296
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "Caracteristici experimentale"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "Suspendă"
 
-#: src/ui/ms-window.ui:306
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/ui/ms-window.ui:326
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "Localizare"
 
-#: src/ui/ms-window.ui:337
+#: src/ui/ms-window.ui:338
 msgid "OS Updates"
 msgstr "Actualizări sistem"
 
@@ -1491,3 +1484,23 @@ msgstr "Scur_tături"
 #: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_Despre Reglări Mobil"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generale"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Arată scurtăturile"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Caută"
+
+#: src/ui/shortcuts-dialog.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Închide"
