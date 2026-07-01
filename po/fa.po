@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/"
 "issues\n"
-"POT-Creation-Date: 2026-06-28 18:05+0000\n"
-"PO-Revision-Date: 2026-06-29 11:55+0330\n"
+"POT-Creation-Date: 2026-06-30 20:20+0000\n"
+"PO-Revision-Date: 2026-07-02 03:10+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -37,8 +37,8 @@ msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise require "
 "command line usage."
 msgstr ""
-"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید از خط "
-"فرمان استفاده می‌کردید."
+"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید از خط فرمان "
+"استفاده می‌کردید."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
@@ -56,58 +56,58 @@ msgstr "تابلوی ترکیبکر"
 msgid "Feedback panel"
 msgstr "تابلوی بازخورد"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "دمای بحرانی ‪%I.2f°C‬ است"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "لیبرم ۵"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "یو-بوت"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "تعلیق افزاره"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "تعلیق آزمایشیست"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "اکنون معلّق شود"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "دماها"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "پردازنده"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "شتاب‌دهندهٔ گرافیکی"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "پردازشگر ویدیویی"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "عقربهٔ سوخت"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "باتری"
 
@@ -127,7 +127,7 @@ msgid "Add"
 msgstr "افزودن"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "زبان"
 
@@ -295,21 +295,6 @@ msgstr[1] "هنکام ذخیره کردن %Ii خطا رخ دادند"
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "ذخیرهٔ برخی تنظیمات نیازمند هوبت‌سنجی است"
 
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "عمومی"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "نمایش میان‌برها"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "خروج"
-
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
 msgstr "نتوانست سیاههٔ پیام‌های پخش وسیع سلولی ر بگیرد"
@@ -417,8 +402,8 @@ msgstr "هیچ اطّلاعاتی از این رایانه موجود نیست"
 #, c-format
 msgid "%u App Made Visible Again"
 msgid_plural "%u Apps Made Visible Again"
-msgstr[0] "%Iu برنامه دوباره نمایان شدند"
-msgstr[1] "‏%Iu برنامه دوباره نمایان شدند"
+msgstr[0] "‏%Iu برنامه دوباره نمایان شد"
+msgstr[1] "%Iu برنامه دوباره نمایان شدند"
 
 #: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
@@ -503,32 +488,32 @@ msgid "Choose sound file"
 msgstr "گزینش پروندهٔ صدا"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:138
+#: src/ms-updates-panel.c:151
 #, c-format
 msgid "Update to %s"
 msgstr "به‌روز رسانی به %s"
 
-#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
+#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
 #, c-format
 msgid "OS update failed: %s"
 msgstr "به‌روز رسانی سیستم‌عامل شکست خورد: %s"
 
-#: src/ms-updates-panel.c:259
+#: src/ms-updates-panel.c:270
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "لغو کردن به‌روز رسانی سیستم‌عامل شکست خورد: %s"
 
-#: src/ms-updates-panel.c:321
+#: src/ms-updates-panel.c:333
 msgid "OS Update already in progress"
 msgstr "به‌روز رسانی سیستم‌عامل در حال انجام"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:329
+#: src/ms-updates-panel.c:341
 #, c-format
 msgid "Updating to %s…"
 msgstr "به‌روز کردن به %s…"
 
-#: src/ms-updates-panel.c:349
+#: src/ms-updates-panel.c:361
 msgid "OS update in progress"
 msgstr "در حال به‌روز رسانی سیستم‌عامل"
 
@@ -551,11 +536,11 @@ msgstr "بی‌صدا"
 msgid "Choose Wallpaper"
 msgstr "گزینش کاغذدیواری"
 
-#: src/ms-window.c:120
+#: src/ms-window.c:131
 msgid "Configurable Tweaks"
 msgstr "سیخونک‌های قابل پیکربندی"
 
-#: src/ms-window.c:168
+#: src/ms-window.c:182
 msgid "Device"
 msgstr "افزاره"
 
@@ -597,11 +582,10 @@ msgstr "ناتوان در دریافت هشدارها"
 
 #: src/ui/ms-alerts-panel.ui:18
 msgid ""
-"Cannot receive Emergency Alerts on this device as no usable cellular modem is "
-"detected."
+"Cannot receive Emergency Alerts on this device as no usable cellular modem is detected."
 msgstr ""
-"از آن‌جا که هیچ مودم سلولی‌ای تشخیص داده نشد نمی‌توان هشدارهای اضطراری را روی این "
-"افزاره دریافت کرد."
+"از آن‌جا که هیچ مودم سلولی‌ای تشخیص داده نشد نمی‌توان هشدارهای اضطراری را روی این افزاره "
+"دریافت کرد."
 
 #: src/ui/ms-alerts-panel.ui:30
 msgid "Emergency and Governmental Alerts"
@@ -717,8 +701,8 @@ msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure that it's "
 "working with your provider."
 msgstr ""
-"به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با "
-"اوپراتورتان به کارش بیندازید."
+"به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با کارورتان به "
+"کارش بیندازید."
 
 #. Translators: setting to enable emergency calls
 #: src/ui/ms-features-panel.ui:24
@@ -732,11 +716,11 @@ msgstr "به کار انداختن تعلیق از فهرست سامانه"
 
 #: src/ui/ms-features-panel.ui:34
 msgid ""
-"Please only enable this if you're aware of the limitations like data connection "
-"loss or missed alarms"
+"Please only enable this if you're aware of the limitations like data connection loss "
+"or missed alarms"
 msgstr ""
-"لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن هشدارها "
-"به کارش بیندازید"
+"لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن هشدارها به "
+"کارش بیندازید"
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
@@ -796,7 +780,7 @@ msgstr "بیشینهٔ درصد قدرت بازخورد لرزشی"
 msgid "Per Application settings"
 msgstr "تنظیمات به ازای برنامه"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "صداها"
 
@@ -958,7 +942,7 @@ msgstr "استفاده از کاغذدیواری"
 msgid "Whether to show a colorful wallpaper"
 msgstr "این که کاغذدیواری رنگی نشان داده شود یا نه"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "ابزارک‌ها"
 
@@ -1060,7 +1044,7 @@ msgstr "بلندای صفحه‌کلید در حالت افقی"
 msgid "When the screen is wider than tall"
 msgstr "هنگامی که صفحه پهن‌تر از بلنداست"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "مقیاس"
 
@@ -1070,8 +1054,7 @@ msgstr "ثابت نگه داشتن اندازهٔ فیزیکی"
 
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
-msgstr ""
-"اطمینان از به اندازهٔ کافی بزرگ بودن صفحه‌کلید مجازی در صفحه‌های با تفکیک‌پذیری زیاد"
+msgstr "اطمینان از به اندازهٔ کافی بزرگ بودن صفحه‌کلید مجازی در صفحه‌های با تفکیک‌پذیری زیاد"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1079,8 +1062,7 @@ msgstr "افزودن فضای خالی زیر کلیدها"
 
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
-msgstr ""
-"این که زیر کلیدهای صفحه‌کلید مجازی فضایی خالی برای بالاتر آوردنش اضافه شود یا نه."
+msgstr "این که زیر کلیدهای صفحه‌کلید مجازی فضایی خالی برای بالاتر آوردنش اضافه شود یا نه."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -1132,7 +1114,7 @@ msgstr "میان‌برها"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "میان‌برهای موجود در نوار میان‌برها"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "محبوب‌ها"
 
@@ -1176,6 +1158,14 @@ msgstr "_مدیریت کاره‌های پنهان"
 msgid "Make apps you disabled in the overview visible again"
 msgstr "نمایان کردن دوبارهٔ کاره‌هایی که در نمای کلی از کار انداختید"
 
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "تابلوی مطابقی وجود ندارد"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "آزمودن جست‌وجویی دیگر"
+
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
 msgstr "هیچ حسگری پیدا نشد"
@@ -1186,7 +1176,7 @@ msgid ""
 "killswitch."
 msgstr "حسگری روی افزاره‌تان وجود نداشته یا با کلید سخت‌افزاری خاموش شده‌اند."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "حسگرها"
 
@@ -1206,7 +1196,7 @@ msgstr "نور"
 msgid "Orientation"
 msgstr "جهت"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "سایه‌روشن زیاد"
 
@@ -1254,7 +1244,7 @@ msgstr "دوری از روآمدگی‌ها"
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr "قرار ندادن عنصرهای میانای کاربری زیر روآمدگی‌ها و بریدگی‌های صفحهٔ نمایش"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "تنظیمات سریع"
 
@@ -1303,132 +1293,132 @@ msgid "Tweak advanced mobile settings"
 msgstr "سیخونک به تنظیمات همراه پیش‌رفته"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "جست‌وجو"
 
 #. Translators: Placeholder text for the search bar input
-#: src/ui/ms-window.ui:49
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "تنظیمات جست‌وجو"
 
-#: src/ui/ms-window.ui:99
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "خوش آمدید"
 
-#: src/ui/ms-window.ui:110
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "نوار بالا"
 
-#: src/ui/ms-window.ui:119
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "روآمدگی‌ها"
 
-#: src/ui/ms-window.ui:130
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "نمای کلی"
 
-#: src/ui/ms-window.ui:139
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "پالایه"
 
-#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "کاغذدیواری"
 
-#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "بازخورد"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "بیداری"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "لرزه"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "لرزشی"
 
-#: src/ui/ms-window.ui:164
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "چراغ"
 
-#: src/ui/ms-window.ui:175
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "ترکیب‌بند"
 
-#: src/ui/ms-window.ui:194
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "صفحهٔ قفل"
 
-#: src/ui/ms-window.ui:203
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "تصادفی"
 
-#: src/ui/ms-window.ui:205
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/ui/ms-window.ui:216
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "یکپارچگی"
 
-#: src/ui/ms-window.ui:234
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "صفحه‌کلید مجازی"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "صفحه‌کلید"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "باز کردن"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "صفحه‌کلید"
 
-#: src/ui/ms-window.ui:245
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "تکمیل واژه"
 
-#: src/ui/ms-window.ui:256
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "هشدارهای اضطراری"
 
-#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "اضطراری"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "پخش سلولی"
 
-#: src/ui/ms-window.ui:266
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "خطر"
 
-#: src/ui/ms-window.ui:296
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "ویژگی‌های آزمایشی"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "تعلیق"
 
-#: src/ui/ms-window.ui:306
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "آزمایشی"
 
-#: src/ui/ms-window.ui:326
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "اقلیم"
 
-#: src/ui/ms-window.ui:337
+#: src/ui/ms-window.ui:338
 msgid "OS Updates"
 msgstr "به‌روز رسانی سیستم‌عامل"
 
@@ -1451,6 +1441,26 @@ msgstr "_میان‌برهای صفحه‌کلید"
 #: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "عمومی"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "نمایش میان‌برها"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "جست‌وجو"
+
+#: src/ui/shortcuts-dialog.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "خروج"
 
 #~ msgid "Mobile App Filtering"
 #~ msgstr "پالایش کارهٔ همراه"
