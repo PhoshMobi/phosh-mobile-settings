@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-29 16:46+0000\n"
-"PO-Revision-Date: 2026-06-30 20:23+0900\n"
+"POT-Creation-Date: 2026-06-30 20:20+0000\n"
+"PO-Revision-Date: 2026-07-03 20:39+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "Language: ja\n"
@@ -54,59 +54,59 @@ msgstr "コンポジタパネル"
 msgid "Feedback panel"
 msgstr "フィードバックパネル"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "最大許容温度は %.2f°C"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "デバイスをサスペンド"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "サスペンドは試験機能です"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "今すぐサスペンド"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "温度"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "VPU"
 
 # 参考: https://www.renesas.com/ja/products/power-management/battery-management/battery-fuel-gauges
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "バッテリー残量ゲージ"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "バッテリー"
 
@@ -128,7 +128,7 @@ msgid "Add"
 msgstr "追加"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "言語"
 
@@ -486,32 +486,32 @@ msgid "Choose sound file"
 msgstr "音声ファイルを選択"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:138
+#: src/ms-updates-panel.c:151
 #, c-format
 msgid "Update to %s"
 msgstr "%s にアップデート"
 
-#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
+#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
 #, c-format
 msgid "OS update failed: %s"
 msgstr "OS のアップデートに失敗しました: %s"
 
-#: src/ms-updates-panel.c:259
+#: src/ms-updates-panel.c:270
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "OS のアップデートのキャンセルに失敗しました: %s"
 
-#: src/ms-updates-panel.c:321
+#: src/ms-updates-panel.c:333
 msgid "OS Update already in progress"
 msgstr "OS のアップデートはすでに進行中です"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:329
+#: src/ms-updates-panel.c:341
 #, c-format
 msgid "Updating to %s…"
 msgstr "%s にアップデート中…"
 
-#: src/ms-updates-panel.c:349
+#: src/ms-updates-panel.c:361
 msgid "OS update in progress"
 msgstr "OS のアップデートが進行中"
 
@@ -534,11 +534,11 @@ msgstr "サイレント"
 msgid "Choose Wallpaper"
 msgstr "壁紙を選択"
 
-#: src/ms-window.c:120
+#: src/ms-window.c:131
 msgid "Configurable Tweaks"
 msgstr "設定可能項目"
 
-#: src/ms-window.c:168
+#: src/ms-window.c:182
 msgid "Device"
 msgstr "デバイス"
 
@@ -783,7 +783,7 @@ msgstr "触覚フィードバックの最大の強さ (%)"
 msgid "Per Application settings"
 msgstr "アプリケーションごとの設定"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "サウンド"
 
@@ -948,7 +948,7 @@ msgstr "壁紙を使う"
 msgid "Whether to show a colorful wallpaper"
 msgstr "カラフルな壁紙を表示するかどうか"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "ウィジェット"
 
@@ -1054,7 +1054,7 @@ msgstr "横方向モードでのキーボードの高さ"
 msgid "When the screen is wider than tall"
 msgstr "画面の幅が高さよりも長い場合"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "サイズ調整"
 
@@ -1128,7 +1128,7 @@ msgstr "ショートカット"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "ショートカットバーで利用可能なショートカット"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "お気に入り"
 
@@ -1174,6 +1174,14 @@ msgstr "非表示のアプリを管理(_M)"
 msgid "Make apps you disabled in the overview visible again"
 msgstr "アクティビティ画面で非表示にしたアプリを再表示します"
 
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "一致するパネルなし"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "他のキーワードを試してください"
+
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
 msgstr "センサーが見つかりません"
@@ -1186,7 +1194,7 @@ msgstr ""
 "お使いのデバイスにセンサーが搭載されていないか、物理キルスイッチによって無効"
 "になっています。"
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "センサー"
 
@@ -1206,7 +1214,7 @@ msgstr "環境光センサー"
 msgid "Orientation"
 msgstr "ジャイロスコープ"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "ハイコントラスト"
 
@@ -1254,7 +1262,7 @@ msgstr "ノッチを避ける"
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr "ノッチやディスプレイの切り欠き部分に UI 要素を配置しないようにします"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "クイック設定"
 
@@ -1303,137 +1311,137 @@ msgid "Tweak advanced mobile settings"
 msgstr "高度なモバイル設定を調整します"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "検索"
 
 #. Translators: Placeholder text for the search bar input
-#: src/ui/ms-window.ui:49
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "設定を検索"
 
-#: src/ui/ms-window.ui:99
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "ようこそ"
 
-#: src/ui/ms-window.ui:110
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "トップバー"
 
-#: src/ui/ms-window.ui:119
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "ノッチ"
 
-#: src/ui/ms-window.ui:130
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "アクティビティ画面"
 
-#: src/ui/ms-window.ui:139
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "フィルター"
 
-#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "壁紙"
 
-#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "フィードバック"
 
 # コンテキスト: 通知が来たら画面を点灯する機能
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "点灯"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "バイブレーション"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "触覚"
 
-#: src/ui/ms-window.ui:164
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:175
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "コンポジタ"
 
-#: src/ui/ms-window.ui:194
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "ロック画面"
 
 # コンテキスト: ロック画面の数字キーをランダムにする機能
-#: src/ui/ms-window.ui:203
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "ランダム"
 
-#: src/ui/ms-window.ui:205
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "パスワード"
 
 # 直訳「コンバージェンス」はあまり知名度がないと判断しました
-#: src/ui/ms-window.ui:216
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "デスクトップモード"
 
-#: src/ui/ms-window.ui:234
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "オンスクリーンキーボード"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "キーボード"
 
 # コンテキスト: ホームバーの中央を押しつづけるとオンスクリーンキーボードを表示する機能
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "表示"
 
 # 「OSK」という単語が日本語にはあまり浸透していないと判断しました
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "オンスクリーンキーボード"
 
-#: src/ui/ms-window.ui:245
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "単語補完"
 
-#: src/ui/ms-window.ui:256
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "緊急警報"
 
-#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "緊急"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "セルブロードキャスト"
 
-#: src/ui/ms-window.ui:266
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "危険"
 
-#: src/ui/ms-window.ui:296
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "試験機能"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "サスペンド"
 
-#: src/ui/ms-window.ui:306
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "試験機能"
 
-#: src/ui/ms-window.ui:326
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "ロケール"
 
-#: src/ui/ms-window.ui:337
+#: src/ui/ms-window.ui:338
 msgid "OS Updates"
 msgstr "OS のアップデート"
 
@@ -1468,6 +1476,11 @@ msgid "Show Shortcuts"
 msgstr "ショートカットを表示する"
 
 #: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "検索する"
+
+#: src/ui/shortcuts-dialog.ui:21
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "終了する"
