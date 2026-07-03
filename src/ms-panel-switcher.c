@@ -421,7 +421,13 @@ ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *pane
     return FALSE;
   }
 
-  adw_view_stack_set_visible_child_name (self->stack, panelname);
+  if (g_strcmp0 (adw_view_stack_get_visible_child_name (self->stack), panelname) == 0) {
+    /* Panel is already active, make sure split view shows the panel, not the view switcher */
+    g_signal_emit (self, signals[ROW_ACTIVATED], 0);
+  } else {
+    adw_view_stack_set_visible_child_name (self->stack, panelname);
+  }
+
   return TRUE;
 }
 
