@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-05-17 15:38+0000\n"
-"PO-Revision-Date: 2026-05-17 19:52+0200\n"
+"POT-Creation-Date: 2026-06-30 20:20+0000\n"
+"PO-Revision-Date: 2026-07-03 14:42+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -56,69 +56,70 @@ msgstr "Panel kompozitoru"
 msgid "Feedback panel"
 msgstr "Panel zpětné vazby"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "Kritická teplota je %.2f°C"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "Uspat zařízení"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "Uspání je experimentální"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "uspat nyní"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "Teploty"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "VPU"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "Palivoměr"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "Baterie"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
 #. Translators: Label for a button that allows the user to add a new keyboard layout
-#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:13
 msgid "Add Layout"
 msgstr "Přidat rozložení"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
+#: src/ui/ms-updates-panel.ui:126
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -128,7 +129,7 @@ msgid "Add"
 msgstr "Přidat"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:316 src/ui/ms-window.ui:324
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "Jazyk"
 
@@ -138,7 +139,7 @@ msgid "Layouts"
 msgstr "Rozložení"
 
 #. Translators: Message displayed when there are no keyboard layouts configured
-#: libpms/ms-osk-layout-prefs.ui:30
+#: libpms/ms-osk-layout-prefs.ui:29
 msgid "No Layouts configured"
 msgstr "Nejsou nastavena žádná rozložení"
 
@@ -166,11 +167,12 @@ msgstr "Ostatní…"
 msgid "Select Language"
 msgstr "Výběr jazyka"
 
-#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:108
+#: src/ui/ms-hidden-apps-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: libpms/lang/ms-language-chooser.ui:23
+#: libpms/lang/ms-language-chooser.ui:23 src/ui/ms-hidden-apps-dialog.ui:23
 msgid "_Select"
 msgstr "_Vybrat"
 
@@ -299,21 +301,6 @@ msgstr[2] "Při ukládání došlo k %i chybám"
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "Pro uložení některých nastavení se musíte ověřit jako správce"
 
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Obecné"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Zobrazit klávesové zkratky"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Ukončit"
-
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
 msgstr "Nezdařilo se získat seznam zpráv mobilního vysílání"
@@ -323,7 +310,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Spravujte svá mobilní nastavení"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:542
+#: src/ms-application.c:541
 msgid "translator-credits"
 msgstr "Daniel Rusek <mail@asciiwolf.com>"
 
@@ -396,7 +383,7 @@ msgstr "nic"
 msgid "Mobile Settings Volume Control"
 msgstr "Ovládání hlasitosti mobilního nastavení"
 
-#: src/ms-lang-panel.c:104
+#: src/ms-lang-panel.c:80
 msgid "Failed to set system locale"
 msgstr "Nastavení národního prostředí systému se nezdařilo"
 
@@ -417,19 +404,27 @@ msgstr "Výchozí nástroj pro doplnění vybraný OSK"
 msgid "No information available for this completer"
 msgstr "Pro tento nástroj pro doplnění nejsou k dispozici žádné informace"
 
-#: src/ms-overview-panel.c:65
+#: src/ms-overview-panel.c:62
+#, c-format
+msgid "%u App Made Visible Again"
+msgid_plural "%u Apps Made Visible Again"
+msgstr[0] "%u aplikace opět zviditelněna"
+msgstr[1] "%u aplikace opět zviditelněny"
+msgstr[2] "%u aplikací opět zviditelněno"
+
+#: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
 msgstr "Resetovat oblíbené?"
 
-#: src/ms-overview-panel.c:68
+#: src/ms-overview-panel.c:105
 msgid "Reset list of favorite applications to the default?"
 msgstr "Vrátit seznam oblíbených aplikací zpět na výchozí?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:109
 msgid "_Reset"
 msgstr "_Výchozí"
 
-#: src/ms-overview-panel.c:327
+#: src/ms-overview-panel.c:364
 msgid "Failed to set wallpaper for overview"
 msgstr "Nastavení pozadí pro přehled se nezdařilo"
 
@@ -499,6 +494,36 @@ msgstr "Vlastní"
 msgid "Choose sound file"
 msgstr "Vyberte zvukový soubor"
 
+#. Translators: %s is a OS version number like 0.20260614
+#: src/ms-updates-panel.c:151
+#, c-format
+msgid "Update to %s"
+msgstr "Aktualizovat na %s"
+
+#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
+#, c-format
+msgid "OS update failed: %s"
+msgstr "Aktualizace OS se nezdařila: %s"
+
+#: src/ms-updates-panel.c:270
+#, c-format
+msgid "Canceling OS update failed: %s"
+msgstr "Zrušení aktualizace OS se nezdařilo: %s"
+
+#: src/ms-updates-panel.c:333
+msgid "OS Update already in progress"
+msgstr "Aktualizace OS již probíhá"
+
+#. Translators %s is an os version number like 0.20260614
+#: src/ms-updates-panel.c:341
+#, c-format
+msgid "Updating to %s…"
+msgstr "Aktualizace na %s…"
+
+#: src/ms-updates-panel.c:361
+msgid "OS update in progress"
+msgstr "Probíhá aktualizace OS"
+
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
 msgid "Full"
@@ -518,25 +543,45 @@ msgstr "Tiché"
 msgid "Choose Wallpaper"
 msgstr "Vyberte pozadí"
 
-#: src/ms-window.c:146
+#: src/ms-window.c:131
+msgid "Configurable Tweaks"
+msgstr "Nastavitelná vyladění"
+
+#: src/ms-window.c:182
 msgid "Device"
 msgstr "Zařízení"
 
-#: src/ui/ms-about-panel.ui:18
+#: src/ui/ms-about-panel.ui:19
 msgid "Phosh logo"
 msgstr "Logo Phosh"
 
-#: src/ui/ms-about-panel.ui:29
+#: src/ui/ms-about-panel.ui:30
 msgid "Phosh Version"
 msgstr "Verze Phosh"
 
-#: src/ui/ms-about-panel.ui:37
+#: src/ui/ms-about-panel.ui:38
 msgid "Operating System"
 msgstr "Operační systém"
 
-#: src/ui/ms-about-panel.ui:45
+#: src/ui/ms-about-panel.ui:46
+msgid "Operating System Version"
+msgstr "Verze operačního systému"
+
+#: src/ui/ms-about-panel.ui:54
 msgid "Hardware Model"
 msgstr "Model hardwaru"
+
+#: src/ui/ms-about-panel.ui:66
+msgid "Support Phosh"
+msgstr "Podpořit Phosh"
+
+#: src/ui/ms-about-panel.ui:67
+msgid "Your donations make our work possible"
+msgstr "Vaše dary umožňují naši práci"
+
+#: src/ui/ms-about-panel.ui:70
+msgid "D_onate"
+msgstr "Věn_ovat dar"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -748,7 +793,7 @@ msgstr "Maximální procento síly haptické zpětné vazby"
 msgid "Per Application settings"
 msgstr "Nastavení podle aplikace"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:159
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "Zvuky"
 
@@ -842,6 +887,18 @@ msgstr "Přenosy souborů"
 msgid "A generic file transfer or download notification"
 msgstr "Obecné upozornění na přenos nebo stažení souboru"
 
+#: src/ui/ms-hidden-app-row.ui:5 src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Aplikace"
+
+#: src/ui/ms-hidden-apps-dialog.ui:4
+msgid "Hidden Apps"
+msgstr "Skryté aplikace"
+
+#: src/ui/ms-hidden-apps-dialog.ui:83
+msgid "No Apps are Currently Hidden"
+msgstr "Žádné aplikace nejsou momentálně skryté"
+
 #: src/ui/ms-lang-panel.ui:15
 msgid "The language of the user interface"
 msgstr "Jazyk uživatelského rozhraní"
@@ -886,23 +943,23 @@ msgstr "Automatické zpoždění uzamknutí obrazovky"
 msgid "Seconds from screen blank to screen lock"
 msgstr "Počet sekund od ztmavení obrazovky po její uzamknutí"
 
-#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:94
 msgid "Background"
 msgstr "Pozadí"
 
-#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:100
 msgid "_Select Wallpaper…"
 msgstr "_Vybrat pozadí…"
 
-#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:112
 msgid "Use wallpaper"
 msgstr "Použít pozadí"
 
-#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
 msgstr "Zda zobrazit barevné pozadí"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:203
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "Widgety"
 
@@ -1010,7 +1067,7 @@ msgstr "Výška klávesnice v režimu na šířku"
 msgid "When the screen is wider than tall"
 msgstr "Když je šířka obrazovky větší než výška"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:182
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Škálování"
 
@@ -1082,7 +1139,7 @@ msgstr "Klávesové zkratky"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Zkratky dostupné na panelu zkratek"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:137
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "Oblíbené"
 
@@ -1108,8 +1165,8 @@ msgid "Reset"
 msgstr "Výchozí"
 
 #: src/ui/ms-overview-panel.ui:64
-msgid "Mobile App Filtering"
-msgstr "Filtrování mobilních aplikací"
+msgid "App Filtering and Hiding"
+msgstr "Filtrování a skrývání aplikací"
 
 #: src/ui/ms-overview-panel.ui:67
 msgid "Set Application Filter Mode"
@@ -1119,9 +1176,21 @@ msgstr "Nastavte režim filtru aplikací"
 msgid "Show only mobile apps in the overview"
 msgstr "V přehledu zobrazovat pouze mobilní aplikace"
 
-#: src/ui/ms-scale-to-fit-row.ui:5
-msgid "Application"
-msgstr "Aplikace"
+#: src/ui/ms-overview-panel.ui:74
+msgid "_Manage Hidden Apps"
+msgstr "_Spravovat skryté aplikace"
+
+#: src/ui/ms-overview-panel.ui:75
+msgid "Make apps you disabled in the overview visible again"
+msgstr "Znovu zviditelnit aplikace, které jste v přehledu zakázali"
+
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "Žádné odpovídající panely"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "Zkuste jiné hledání"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -1135,7 +1204,7 @@ msgstr ""
 "Buď na vašem zařízení nejsou nainstalovány žádné senzory, nebo jsou "
 "deaktivovány killswitchem."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:276
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "Senzory"
 
@@ -1155,7 +1224,7 @@ msgstr "Světlé"
 msgid "Orientation"
 msgstr "Orientace"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:284
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "Vysoký kontrast"
 
@@ -1204,13 +1273,45 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Neumisťovat prvky uživatelského rozhraní pod vykrojení a výřezy displeje"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:117
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "Rychlá nastavení"
 
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Uspořádejte si další rychlá nastavení"
+
+#: src/ui/ms-updates-panel.ui:12
+msgid "OS updates require a system restart"
+msgstr "Aktualizace OS vyžadují restart systému"
+
+#: src/ui/ms-updates-panel.ui:13
+msgid "Restart"
+msgstr "Restartovat"
+
+#: src/ui/ms-updates-panel.ui:30
+msgid "Everything up to date"
+msgstr "Vše je aktuální"
+
+#: src/ui/ms-updates-panel.ui:31
+msgid "There are no OS updates available"
+msgstr "Nejsou k dispozici žádné aktualizace OS"
+
+#: src/ui/ms-updates-panel.ui:42
+msgid "Updates available"
+msgstr "Jsou dostupné aktualizace"
+
+#: src/ui/ms-updates-panel.ui:43
+msgid "There are OS updates available"
+msgstr "K dispozici jsou aktualizace OS"
+
+#: src/ui/ms-updates-panel.ui:65
+msgid "Fetching OS update…"
+msgstr "Získávání aktualizace OS…"
+
+#: src/ui/ms-updates-panel.ui:109
+msgid "Installing OS update…"
+msgstr "Instalace aktualizace OS…"
 
 #: src/ui/ms-welcome-panel.ui:8
 msgid "Welcome to Mobile Settings"
@@ -1221,145 +1322,177 @@ msgid "Tweak advanced mobile settings"
 msgstr "Vylaďte pokročilá mobilní nastavení"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "Hledat"
 
-#: src/ui/ms-window.ui:48
+#. Translators: Placeholder text for the search bar input
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "hledat nastavení"
 
-#: src/ui/ms-window.ui:98
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: src/ui/ms-window.ui:109
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "Horní lišta"
 
-#: src/ui/ms-window.ui:118
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "Vykrojení"
 
-#: src/ui/ms-window.ui:129
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "Přehled"
 
-#: src/ui/ms-window.ui:138
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "Filtr"
 
-#: src/ui/ms-window.ui:139 src/ui/ms-window.ui:201
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "Pozadí"
 
-#: src/ui/ms-window.ui:150 src/ui/ms-window.ui:158
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "Zpětná vazba"
 
-#: src/ui/ms-window.ui:160
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "Probuzení"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "Vibrace"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "Haptika"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:174
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "Kompozitor"
 
-#: src/ui/ms-window.ui:193
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "Zamykací obrazovka"
 
-#: src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "Zamíchání"
 
-#: src/ui/ms-window.ui:204
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "Heslo"
 
-#: src/ui/ms-window.ui:215
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "Konvergence"
 
-#: src/ui/ms-window.ui:233
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "Klávesnice na obrazovce"
 
-#: src/ui/ms-window.ui:241
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "Klávesnice"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "Rozvinutí"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "OSK"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "Doplňování slov"
 
-#: src/ui/ms-window.ui:255
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "Nouzové výstrahy"
 
-#: src/ui/ms-window.ui:263 src/ui/ms-window.ui:303
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "Stav nouze"
 
-#: src/ui/ms-window.ui:264
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "Mobilní vysílání"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "Nebezpečí"
 
-#: src/ui/ms-window.ui:295
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "Experimentální funkce"
 
-#: src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "Uspání"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "Experimentální"
 
-#: src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "Národní prostředí"
 
-#: src/ui/ms-window.ui:336 src/ui/ms-window.ui:344
+#: src/ui/ms-window.ui:338
+msgid "OS Updates"
+msgstr "Aktualizace OS"
+
+#: src/ui/ms-window.ui:346
+msgid "Updates"
+msgstr "Aktualizace"
+
+#: src/ui/ms-window.ui:358 src/ui/ms-window.ui:366
 msgid "About"
 msgstr "O zařízení"
 
-#: src/ui/ms-window.ui:369
+#: src/ui/ms-window.ui:391
 msgid "_Show Configurable Tweaks"
 msgstr "Zobrazit na_stavitelná vyladění"
 
-#: src/ui/ms-window.ui:376
+#: src/ui/ms-window.ui:398
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: src/ui/ms-window.ui:380
+#: src/ui/ms-window.ui:402
 msgid "_About Mobile Settings"
 msgstr "O _aplikaci Mobilní nastavení"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Obecné"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobrazit klávesové zkratky"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Hledat"
+
+#: src/ui/shortcuts-dialog.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
+
+#~ msgid "Mobile App Filtering"
+#~ msgstr "Filtrování mobilních aplikací"
 
 #~ msgid "Silence on Vol-"
 #~ msgstr "Ticho při Hlas-"
