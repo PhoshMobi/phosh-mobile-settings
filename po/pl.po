@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2026-06-30 20:20+0000\n"
-"PO-Revision-Date: 2026-07-01 18:07+0200\n"
+"PO-Revision-Date: 2026-07-04 12:59+0200\n"
 "Last-Translator: Victoria Niedzielska <victorian@gnome.org>\n"
 "Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
 "Language: pl\n"
@@ -855,11 +855,11 @@ msgstr "Ogólne powiadomienia związane z urządzeniem"
 
 #: src/ui/ms-feedback-panel.ui:200
 msgid "Emails"
-msgstr "Wiadomości email"
+msgstr "Wiadomości e-mail"
 
 #: src/ui/ms-feedback-panel.ui:201
 msgid "A generic e-mail-related notification"
-msgstr "Ogólne powiadomienia związane z wiadomościami email"
+msgstr "Ogólne powiadomienia związane z wiadomościami e-mail"
 
 #: src/ui/ms-feedback-panel.ui:208
 msgid "A generic instant message-related notification"
