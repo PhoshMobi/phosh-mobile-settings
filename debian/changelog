@@ -1,3 +1,97 @@
+phosh-mobile-settings (0.56.0) experimental; urgency=medium
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Guido Günther ]
+  * build: Use libadwaita 1.9. We want to use AdwSidebar
+  * panel-switcher: Use AdwSidebar.
+    This will allow us to use sections.
+    This is inspired by AdwViewSwitcherSidebar which we can't use directly
+    as it doesn't allow us to get the page.
+  * window: Use a separate section for the conf tweaks
+  * window: Use adaptive shortcuts dialog
+  * window: Init auto variable.
+    It's too easy to break on refactors otherwise
+  * window: Activate search via CTRL-F
+  * panel-switcher: Use page mode when narrow.
+    Makes the UI easier to understand.
+  * panel-switcher: Select proper item by index.
+    When search wants to activate the topmost item we need to look
+    up the new selected item in the filtered list.
+  * panel-switcher: Add empty state.
+    Show a status page when no results are found
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/120
+  * panel-switcher: Drop unused current_panelname
+  * panel-switcher: Don't activate disabled panels.
+    Otherwise users could bring up disabled panels by passing
+    them on the command line.
+  * plugin-panel: Base on MsPanel.
+    All panels must use `MsPanel` as base class
+    Fixes: 3c31bddc ("ms-panel: Create base class for standard panels")
+  * librem5-panel: Add keyword.
+    This allows it to be found in search
+  * updates-panel: Simplify uninhibit
+  * updates-panel: Uninhibit on dispose.
+    This makes sure the inhibitor is dropped when the app is closed
+    by other means (and we cancel the OS update in that case as well).
+  * updates-panel: Uninhibit when we fail to cancel the update.
+    There's no point in keeping the inhibitor
+  * sysupdate: Don't return error when we cancelling an absent job.
+    If we can't find the job it's already gone, so there's nothing to
+    cancel.
+  * window: Add a list model with enabled pages.
+    This allows other parts to use that instead of checking for enabled
+    in multiple places.
+  * application: Only list enabled panels
+  * window: Notify about `enabled` changes
+    although not relevant for listing panels atm we need to inform the
+    enabled_panel list model about panel state changes too.
+  * systemd-sysupdate: Warn when using session bus
+  * updates-panel: Don't disable by default
+  * updates-panel: Sync `enabled` initially
+  * systemd-sysupdate: Don't warn when getting target proxy got cancelled.
+    Otherwise we might see errors on `--list`.
+  * systemd-sysupdate: Perform initial target check sync.
+  * systemd-sysupdate: Track jobs that finish early.
+  * panel-switcher: Make sure we show the content view.
+
+  [ Yuri Chornoivan ]
+  * Fix minor typo
+  * Update Ukrainian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ burns ]
+  * Update Brazilian Portuguese translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Ryo Nakano ]
+  * Update Japanese translation
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translation
+
+  [ Марко Костић ]
+  * Update Serbian translation
+
+  [ Victoria Niedzielska ]
+  * Update Polish translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 05 Jul 2026 09:10:33 +0200
+
 phosh-mobile-settings (0.56~rc2) experimental; urgency=medium
 
   [ Martin ]

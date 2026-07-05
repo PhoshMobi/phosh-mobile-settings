@@ -52,6 +52,18 @@
 
   <releases>
 
+    <release version="0.56.0" date="2026-07-05">
+      <description translate="no">
+        <ul>
+          <li>New os-updates panel to install atomic OS updates on immutable distributions</li>
+          <li>Improved about panel now shows the OS image version</li>
+          <li>Move conf-tweaks to their own section</li>
+          <li>Overview panel allows to re-enable hidden apps</li>
+          <li>The convergence panel now supports the NexDock 2025</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.55.0" date="2026-05-17">
       <description translate="no">
         <ul>
