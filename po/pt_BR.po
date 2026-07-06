@@ -2,18 +2,18 @@
 # Copyright (C) 2026 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2026.
-# Luiggi R. Cardoso <luiggicardoso@outlook.com>, 2026.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024-2026.
 # Álvaro Burns <>, 2025-2026.
+# Luiggi R. Cardoso <luiggicardoso@outlook.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-29 16:46+0000\n"
-"PO-Revision-Date: 2026-06-28 12:04-0300\n"
-"Last-Translator: Álvaro Burns <>\n"
+"POT-Creation-Date: 2026-06-30 20:20+0000\n"
+"PO-Revision-Date: 2026-07-03 21:24-0300\n"
+"Last-Translator: Luiggi R. Cardoso <luiggicardoso@outlook.com>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -59,58 +59,58 @@ msgstr "Painel do compositor"
 msgid "Feedback panel"
 msgstr "Panel de feedback"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "A temperatura crítica é %.2f°C"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "Suspender dispositivo"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "A suspensão é experimental"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "suspender agora"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "Temperaturas"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "VPU"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "Medidor de combustível"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "Bateria"
 
@@ -132,7 +132,7 @@ msgid "Add"
 msgstr "Adicionar"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "Idioma"
 
@@ -496,32 +496,32 @@ msgid "Choose sound file"
 msgstr "Escolha o arquivo de som"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:138
+#: src/ms-updates-panel.c:151
 #, c-format
 msgid "Update to %s"
 msgstr "Atualizar para %s"
 
-#: src/ms-updates-panel.c:172 src/ms-updates-panel.c:209
+#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
 #, c-format
 msgid "OS update failed: %s"
 msgstr "Atualização de SO falhou: %s"
 
-#: src/ms-updates-panel.c:259
+#: src/ms-updates-panel.c:270
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "Cancelando atualização em falha do SO: %s"
 
-#: src/ms-updates-panel.c:321
+#: src/ms-updates-panel.c:333
 msgid "OS Update already in progress"
 msgstr "Atualização do SO já está em processo"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:329
+#: src/ms-updates-panel.c:341
 #, c-format
 msgid "Updating to %s…"
 msgstr "Atualizando para %s…"
 
-#: src/ms-updates-panel.c:349
+#: src/ms-updates-panel.c:361
 msgid "OS update in progress"
 msgstr "Atualização do SO está em processo"
 
@@ -544,11 +544,11 @@ msgstr "Silencioso"
 msgid "Choose Wallpaper"
 msgstr "Escolha papel de parede"
 
-#: src/ms-window.c:120
+#: src/ms-window.c:131
 msgid "Configurable Tweaks"
 msgstr "Ajustes configuráveis"
 
-#: src/ms-window.c:168
+#: src/ms-window.c:182
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -791,7 +791,7 @@ msgstr "Porcentagem máxima de força de vibração"
 msgid "Per Application settings"
 msgstr "Configurações por aplicativo"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "Sons"
 
@@ -957,7 +957,7 @@ msgstr "Usar papel de parede"
 msgid "Whether to show a colorful wallpaper"
 msgstr "Se deve mostrar papel de parede colorido"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1066,7 +1066,7 @@ msgstr "Altura do teclado no modo paisagem"
 msgid "When the screen is wider than tall"
 msgstr "Quando a tela é mais larga que alta"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
+#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Tamanho"
 
@@ -1143,7 +1143,7 @@ msgstr "Atalhos"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Os atalhos disponíveis na barra de atalhos"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "Favoritos"
 
@@ -1190,6 +1190,14 @@ msgid "Make apps you disabled in the overview visible again"
 msgstr ""
 "Torne aplicativos, que você desativou na visão geral, visíveis novamente"
 
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "Nenhum painel correspondente"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "Tente uma busca diferente"
+
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
 msgstr "Nenhum sensor encontrado"
@@ -1202,7 +1210,7 @@ msgstr ""
 "Ou não há sensores instalados no seu dispositivo ou eles estão desabilitados "
 "por um killswitch."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "Sensores"
 
@@ -1222,7 +1230,7 @@ msgstr "Luz"
 msgid "Orientation"
 msgstr "Orientação"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "Alto contraste"
 
@@ -1272,7 +1280,7 @@ msgstr ""
 "Não coloca elementos da interface de usuário abaixo de notches e recortes de "
 "exibição"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "Configurações rápidas"
 
@@ -1321,132 +1329,132 @@ msgid "Tweak advanced mobile settings"
 msgstr "Ajuste configurações móveis avançadas"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "Pesquisar"
 
 #. Translators: Placeholder text for the search bar input
-#: src/ui/ms-window.ui:49
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "Configurações da pesquisa"
 
-#: src/ui/ms-window.ui:99
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "Boas vindas"
 
-#: src/ui/ms-window.ui:110
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "Barra superior"
 
-#: src/ui/ms-window.ui:119
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "Notches"
 
-#: src/ui/ms-window.ui:130
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "Visão geral"
 
-#: src/ui/ms-window.ui:139
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "Filtrar"
 
-#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "Papel de parede"
 
-#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "Feedback"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "Acordar"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "Vibra"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "Haptic"
 
-#: src/ui/ms-window.ui:164
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "LED"
 
-#: src/ui/ms-window.ui:175
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "Compositor"
 
-#: src/ui/ms-window.ui:194
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "Tela de bloqueio"
 
-#: src/ui/ms-window.ui:203
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "Aleatório"
 
-#: src/ui/ms-window.ui:205
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "Senha"
 
-#: src/ui/ms-window.ui:216
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "Convergência"
 
-#: src/ui/ms-window.ui:234
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "Teclado virtual"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "Teclado"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "Desdobrar"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "OSK"
 
-#: src/ui/ms-window.ui:245
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "Autocompletamento de texto"
 
-#: src/ui/ms-window.ui:256
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "Alertas de emergência"
 
-#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "Emergência"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "Transmissão de célula"
 
-#: src/ui/ms-window.ui:266
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "Perigo"
 
-#: src/ui/ms-window.ui:296
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "Recursos experimentais"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "Suspender"
 
-#: src/ui/ms-window.ui:306
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/ui/ms-window.ui:326
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "Localidade"
 
-#: src/ui/ms-window.ui:337
+#: src/ui/ms-window.ui:338
 msgid "OS Updates"
 msgstr "Atualizações do SO"
 
@@ -1481,6 +1489,11 @@ msgid "Show Shortcuts"
 msgstr "Mostra os atalhos"
 
 #: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Pesquisar"
+
+#: src/ui/shortcuts-dialog.ui:21
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sai"
