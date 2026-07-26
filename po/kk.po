@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2026-07-05 07:40+0000\n"
-"PO-Revision-Date: 2026-07-26 14:53+0500\n"
+"PO-Revision-Date: 2026-07-26 14:59+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <Kazakh>\n"
 "Language: kk\n"
@@ -23,10 +23,8 @@ msgstr ""
 msgid "Mobile Settings"
 msgstr "Мобильді баптаулар"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons. The list MUST also end with a semicolon.
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-#| msgid "Mobile;Preferences;MobileSettings;"
 msgid "Mobile;Preferences;MobileSettings;Tweaks;"
 msgstr "Mobile;Preferences;MobileSettings;Tweaks;Мобильді;Баптаулар;Жетілдірулер;"
 
@@ -39,12 +37,16 @@ msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
 msgstr ""
-"Бұл қолданба Phosh-тың кейбір аспектілерін баптауға мүмкіндік береді, "
-"әйтпесе олар үшін командалық жолды қолдану керек болар еді."
+"Бұл қолданба Phosh-тың кейбір аспектілерін баптауға мүмкіндік береді, әйтпесе "
+"олар үшін командалық жолды қолдану керек болар еді."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr "Phosh қолданатын мобильді құрылғыларға арналған кеңейтілген баптаулар"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:19
+msgid "Phosh developers"
+msgstr "Phosh әзірлеушілері"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
@@ -63,8 +65,7 @@ msgstr "Кері байланыс панелі"
 msgid "Critical temperature is %.2f°C"
 msgstr "Критикалық температура: %.2f°C"
 
-#. Translators "Librem 5" is a smartphone model, usually no need to translate
-#. it
+#. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
@@ -115,20 +116,17 @@ msgid "Battery"
 msgstr "Батарея"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard
-#. layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
 #: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:13
 msgid "Add Layout"
 msgstr "Жайманы қосу"
 
-#: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
-#: src/ui/ms-updates-panel.ui:126
+#: libpms/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: src/ui/ms-updates-panel.ui:82 src/ui/ms-updates-panel.ui:126
 msgid "Cancel"
 msgstr "Бас тарту"
 
-#: libpms/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+#: libpms/ms-osk-add-layout-dialog.ui:20 src/ui/ms-osk-add-shortcut-dialog.ui:23
 msgid "Add"
 msgstr "Қосу"
 
@@ -142,8 +140,7 @@ msgctxt "on screen keyboard"
 msgid "Layouts"
 msgstr "Жаймалар"
 
-#. Translators: Message displayed when there are no keyboard layouts
-#. configured
+#. Translators: Message displayed when there are no keyboard layouts configured
 #: libpms/ms-osk-layout-prefs.ui:29
 msgid "No Layouts configured"
 msgstr "Бапталған жаймалар жоқ"
@@ -297,8 +294,7 @@ msgstr[0] "Сақтау кезінде %i қате орын алды"
 #: src/conf-tweaks/ms-tweaks-preferences-page.c:902
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
-"Кейбір баптауларды сақтау үшін әкімші ретінде аутентификациядан өтуіңіз "
-"керек"
+"Кейбір баптауларды сақтау үшін әкімші ретінде аутентификациядан өтуіңіз керек"
 
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
@@ -308,8 +304,7 @@ msgstr "Ұялы хабар тарату хабарламаларының тіз
 msgid "- Manage your mobile settings"
 msgstr "- Мобильді баптауларды басқару"
 
-#. Translators: Replace "translator-credits" with your names, one name per
-#. line
+#. Translators: Replace "translator-credits" with your names, one name per line
 #: src/ms-application.c:541
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
@@ -374,8 +369,7 @@ msgstr "қалыпты"
 msgid "critical"
 msgstr "критикалық"
 
-#. Translators: "none" is the default for notifications with no specified
-#. importance
+#. Translators: "none" is the default for notifications with no specified importance
 #: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "жоқ"
@@ -437,20 +431,17 @@ msgstr "Қалыпты"
 msgid "Bottom up"
 msgstr "Төменнен жоғары"
 
-#. Translators: "Left up" indicates the orientation of a device with left side
-#. up
+#. Translators: "Left up" indicates the orientation of a device with left side up
 #: src/ms-sensor-panel.c:99
 msgid "Left up"
 msgstr "Солдан жоғары"
 
-#. Translators: "Right up" indicates the orientation of a device with right
-#. side up
+#. Translators: "Right up" indicates the orientation of a device with right side up
 #: src/ms-sensor-panel.c:102
 msgid "Right up"
 msgstr "Оңнан жоғары"
 
-#. Translators: "Undefined" is shown when the orientation of the device is not
-#. recognized
+#. Translators: "Undefined" is shown when the orientation of the device is not recognized
 #: src/ms-sensor-panel.c:105
 msgid "Undefined"
 msgstr "Анықталмаған"
@@ -469,22 +460,19 @@ msgstr "Алыс"
 msgid "Updating…"
 msgstr "Жаңартылуда…"
 
-#. Translators: "Not available" indicates that the proximity sensor data is
-#. unavailable
+#. Translators: "Not available" indicates that the proximity sensor data is unavailable
 #: src/ms-sensor-panel.c:277
 msgctxt "proximity sensor data"
 msgid "Not available"
 msgstr "Қолжетімді емес"
 
-#. Translators: "Not available" indicates that the light sensor data is
-#. unavailable
+#. Translators: "Not available" indicates that the light sensor data is unavailable
 #: src/ms-sensor-panel.c:279
 msgctxt "light sensor data"
 msgid "Not available"
 msgstr "Қолжетімді емес"
 
-#. Translators: "Not available" indicates that the accelerometer sensor data
-#. is unavailable
+#. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
 #: src/ms-sensor-panel.c:281
 msgctxt "accelerometer sensor data"
 msgid "Not available"
@@ -529,8 +517,7 @@ msgstr "%s нұсқасына жаңартылуда…"
 msgid "OS update in progress"
 msgstr "ОЖ жаңартылуы орындалуда"
 
-#. Translators: "Full" represents the feedback profile with maximum haptic,
-#. led and sounds
+#. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
 msgid "Full"
 msgstr "Толық"
@@ -595,8 +582,8 @@ msgstr "Хабарламаларды алу мүмкін емес"
 
 #: src/ui/ms-alerts-panel.ui:18
 msgid ""
-"Cannot receive Emergency Alerts on this device as no usable cellular modem "
-"is detected."
+"Cannot receive Emergency Alerts on this device as no usable cellular modem is "
+"detected."
 msgstr ""
 "Жұмыс істейтін ұялы модем табылмағандықтан, бұл құрылғыда төтенше жағдай "
 "хабарламаларын алу мүмкін емес."
@@ -628,8 +615,7 @@ msgstr "Қоғамдық қауіпсіздік хабарламалары"
 
 #: src/ui/ms-alerts-panel.ui:51
 msgid "Show recommended actions to take in situations with a risk to safety"
-msgstr ""
-"Қауіпсіздікке қатер төнетін жағдайларда ұсынылатын әрекеттерді көрсету"
+msgstr "Қауіпсіздікке қатер төнетін жағдайларда ұсынылатын әрекеттерді көрсету"
 
 #: src/ui/ms-alerts-panel.ui:57
 msgid "Test alerts"
@@ -675,8 +661,8 @@ msgstr "Барлық қолданбалардың масштабын кішір�
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
 msgstr ""
-"Барлық қолданбалардың масштабын мәжбүрлі түрде кішірейту. Бұны тек соңғы "
-"шара ретінде қолданыңыз."
+"Барлық қолданбалардың масштабын мәжбүрлі түрде кішірейту. Бұны тек соңғы шара "
+"ретінде қолданыңыз."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
@@ -717,8 +703,8 @@ msgstr "Төтенше жағдай қоңыраулары"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
-"Enable emergency calls. Please only enable this if you safely can ensure "
-"that it's working with your provider."
+"Enable emergency calls. Please only enable this if you safely can ensure that "
+"it's working with your provider."
 msgstr ""
 "Төтенше жағдай қоңырауларын іске қосу. Бұны тек операторыңызбен дұрыс жұмыс "
 "істейтініне көз жеткізсеңіз ғана қосыңыз."
@@ -735,8 +721,8 @@ msgstr "Жүйелік мәзір арқылы күту режиміне өту�
 
 #: src/ui/ms-features-panel.ui:34
 msgid ""
-"Please only enable this if you're aware of the limitations like data "
-"connection loss or missed alarms"
+"Please only enable this if you're aware of the limitations like data connection "
+"loss or missed alarms"
 msgstr ""
 "Мұны тек деректер байланысының үзілуі немесе өткізіп алған дабылдар сияқты "
 "шектеулерді білсеңіз ғана іске қосыңыз"
@@ -773,8 +759,7 @@ msgstr "Жарқылды қолдану"
 
 #: src/ui/ms-feedback-panel.ui:53
 msgid "Prefer camera flash over status LED when available"
-msgstr ""
-"Қолжетімді болғанда, күй жарық диодының орнына камера жарқылын қолдану"
+msgstr "Қолжетімді болғанда, күй жарық диодының орнына камера жарқылын қолдану"
 
 #: src/ui/ms-feedback-panel.ui:59
 msgid "Silence by volume button press"
@@ -782,8 +767,8 @@ msgstr "Дыбыс батырмасын басу арқылы дыбыссыз �
 
 #: src/ui/ms-feedback-panel.ui:60
 msgid ""
-"When locked put the phone in silent mode when pressing the button that "
-"lowers the volume on incoming calls"
+"When locked put the phone in silent mode when pressing the button that lowers "
+"the volume on incoming calls"
 msgstr ""
 "Құлыптаулы күйде кіріс қоңырау кезінде дыбысты азайту батырмасын басса, "
 "телефонды дыбыссыз режимге қою"
@@ -835,8 +820,7 @@ msgstr "Экранды жарықтандыратын хабарландыруд
 
 #: src/ui/ms-feedback-panel.ui:183
 msgid ""
-"Notification categories that wake up the screen independent from their "
-"urgency"
+"Notification categories that wake up the screen independent from their urgency"
 msgstr "Шұғылдығына қарамастан экранды оятатын хабарландыру санаттары"
 
 #: src/ui/ms-feedback-panel.ui:186
@@ -974,8 +958,7 @@ msgid "Additional widgets for the lock screen"
 msgstr "Құлыптау экранына арналған қосымша виджеттер"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
-#. Translators: Label for a button that allows the user to add a new keyboard
-#. shortcut
+#. Translators: Label for a button that allows the user to add a new keyboard shortcut
 #: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
 msgid "Add Shortcut"
 msgstr "Жарлықты қосу"
@@ -1018,14 +1001,12 @@ msgstr "Ұзақ басу арқылы жаймалау"
 
 #: src/ui/ms-osk-panel.ui:21
 msgid ""
-"How long to press the center of the home bar to unfold the on screen "
-"keyboard"
+"How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
-"Экрандағы пернетақтаны жаймалау үшін үй батырмасының ортасын қанша уақыт "
-"басу керек"
+"Экрандағы пернетақтаны жаймалау үшін үй батырмасының ортасын қанша уақыт басу "
+"керек"
 
-#. Translators: abbreviation for less than or equal to 0.5 second interval of
-#. time
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
 #: src/ui/ms-osk-panel.ui:26
 msgid "short"
 msgstr "қысқа"
@@ -1036,8 +1017,7 @@ msgctxt "press interval"
 msgid "normal"
 msgstr "қалыпты"
 
-#. Translators: abbreviation for greater than or equal to 1.5 second interval
-#. of time
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
 #: src/ui/ms-osk-panel.ui:30
 msgid "long"
 msgstr "ұзақ"
@@ -1047,10 +1027,8 @@ msgid "Ignore hardware keyboard"
 msgstr "Физикалық пернетақтаны елемеу"
 
 #: src/ui/ms-osk-panel.ui:39
-msgid ""
-"Whether to show the on screen keyboard when a physical keyboard is present"
-msgstr ""
-"Физикалық пернетақта болған кезде экрандағы пернетақтаны көрсету керек пе"
+msgid "Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr "Физикалық пернетақта болған кезде экрандағы пернетақтаны көрсету керек пе"
 
 #: src/ui/ms-osk-panel.ui:46
 msgid "Key indicator popup"
@@ -1058,8 +1036,7 @@ msgstr "Басылған перне индикаторы"
 
 #: src/ui/ms-osk-panel.ui:47
 msgid "Whether to show a popover indicating the currently pressed key"
-msgstr ""
-"Қазіргі уақытта басылған пернені көрсететін хабарламаны шығару керек пе"
+msgstr "Қазіргі уақытта басылған пернені көрсететін хабарламаны шығару керек пе"
 
 #: src/ui/ms-osk-panel.ui:59
 msgid "Keyboard height in portrait mode"
@@ -1088,8 +1065,8 @@ msgstr "Физикалық өлшемді тұрақты сақтау"
 #: src/ui/ms-osk-panel.ui:105
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
-"Экран ажыратымдылығы жоғары болса да экрандағы пернетақтаның жеткілікті "
-"үлкен болуын қамтамасыз ету"
+"Экран ажыратымдылығы жоғары болса да экрандағы пернетақтаның жеткілікті үлкен "
+"болуын қамтамасыз ету"
 
 #: src/ui/ms-osk-panel.ui:111
 msgid "Add empty space below keys"
@@ -1098,8 +1075,8 @@ msgstr "Пернелердің астына бос орын қосу"
 #: src/ui/ms-osk-panel.ui:112
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
-"Экрандағы пернетақтаны жоғары жылжыту үшін оның пернелерінің астына бос "
-"орын қосу керек пе."
+"Экрандағы пернетақтаны жоғары жылжыту үшін оның пернелерінің астына бос орын "
+"қосу керек пе."
 
 #: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
@@ -1137,8 +1114,7 @@ msgstr "Тыныс белгілерінің айналасындағы бос о
 
 #. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
-msgid ""
-"This also swaps the space and punctuation characters after word completion"
+msgid "This also swaps the space and punctuation characters after word completion"
 msgstr ""
 "Бұл сонымен қатар сөз аяқталғаннан кейін бос орын мен тыныс белгілерін "
 "ауыстырады"
@@ -1213,10 +1189,9 @@ msgstr "Сенсорлар табылған жоқ"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
-"Either there are no sensors installed on your device or they are disabled "
-"by a killswitch."
-msgstr ""
-"Құрылғыңызда сенсорлар орнатылмаған немесе олар сөндіргішпен сөндірілген."
+"Either there are no sensors installed on your device or they are disabled by a "
+"killswitch."
+msgstr "Құрылғыңызда сенсорлар орнатылмаған немесе олар сөндіргішпен сөндірілген."
 
 #: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
@@ -1285,8 +1260,7 @@ msgstr "Ойықтарды айналып өту"
 #: src/ui/ms-topbar-panel.ui:24
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
-"Интерфейс элементтерін экран ойықтары мен кесінділерінің астына "
-"орналастырмау"
+"Интерфейс элементтерін экран ойықтары мен кесінділерінің астына орналастырмау"
 
 #: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
