@@ -2,18 +2,18 @@
 # Copyright (C) 2026 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2026.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2024-2026.
 # Álvaro Burns <>, 2025-2026.
 # Luiggi R. Cardoso <luiggicardoso@outlook.com>, 2026.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-30 20:20+0000\n"
-"PO-Revision-Date: 2026-07-03 21:24-0300\n"
-"Last-Translator: Luiggi R. Cardoso <luiggicardoso@outlook.com>\n"
+"POT-Creation-Date: 2026-07-05 07:40+0000\n"
+"PO-Revision-Date: 2026-07-27 21:02-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 50.0\n"
+"X-DL-VCS-Web: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings\n"
+"X-DL-Lang: pt_BR\n"
+"X-DL-Module: phosh-mobile-settings\n"
+"X-DL-Branch: main\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -46,6 +52,10 @@ msgstr ""
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr "Configurações avançadas para dispositivos móveis usando Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:19
+msgid "Phosh developers"
+msgstr "Desenvolvedores do Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
