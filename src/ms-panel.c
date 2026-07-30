@@ -28,7 +28,7 @@ typedef struct {
   gboolean       enabled;
 } MsPanelPrivate;
 
-G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (MsPanel, ms_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE_WITH_PRIVATE (MsPanel, ms_panel, ADW_TYPE_BIN)
 
 
 static void
