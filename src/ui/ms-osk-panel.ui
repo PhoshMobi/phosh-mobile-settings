@@ -3,6 +3,8 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsOskPanel" parent="MsPanel">
     <child>
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
       <object class="GtkScrolledWindow">
         <child>
           <object class="AdwPreferencesPage">
@@ -183,11 +185,29 @@
                     </child>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwActionRow" id="reset_shortcuts_row">
+                    <property name="title" translatable="yes">Reset to default</property>
+                    <property name="subtitle" translatable="yes">Reset the shortcut bar to its default layout</property>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="label">Reset</property>
+                        <property name="valign">center</property>
+                        <property name="action-name">osk-panel.reset-terminal-shortcuts</property>
+                        <style>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
 
           </object>
         </child>
+      </object>
+        </property>
       </object>
     </child>
   </template>

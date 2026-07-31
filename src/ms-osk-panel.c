@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2023-2026 The Phosh Developers
+ * Copyright (C) 2023-2024 The Phosh Developers
+ *               2025-2026 Phosh.mobi e.V.
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -82,6 +83,7 @@ struct _MsOskPanel {
   GSettings           *a11y_settings;
   GtkWidget           *osk_enable_switch;
   GtkWidget           *osk_layout_prefs;
+  AdwToastOverlay     *toast_overlay;
 
   GSettings           *phosh_settings;
   GtkWidget           *long_press_combo;
@@ -107,6 +109,9 @@ struct _MsOskPanel {
   GtkWidget           *shortcuts_box;
   GListStore          *shortcuts;
   gboolean             shortcuts_updating;
+  AdwActionRow        *reset_shortcuts_row;
+  AdwToast            *undo_toast;
+  GVariant            *undo_shortcuts;
 
   /* Automatic scaling */
   AdwPreferencesGroup *osk_scaling_group;
@@ -304,7 +309,9 @@ create_shortcuts_row (gpointer item, gpointer user_data)
 static void
 on_terminal_shortcuts_changed (MsOskPanel *self)
 {
+  gboolean is_default;
   g_auto (GStrv) shortcuts = NULL;
+  g_autoptr (GVariant) current_val = NULL, default_val = NULL;
 
   if (self->shortcuts_updating)
     return;
@@ -317,6 +324,12 @@ on_terminal_shortcuts_changed (MsOskPanel *self)
 
     g_list_store_append (self->shortcuts, shortcut);
   }
+
+  /* Only show reset row if the modifier changed the setting */
+  default_val = g_settings_get_default_value (self->pos_terminal_settings, SHORTCUTS_KEY);
+  current_val = g_settings_get_value (self->pos_terminal_settings, SHORTCUTS_KEY);
+  is_default = g_variant_equal (default_val, current_val);
+  gtk_widget_set_visible (GTK_WIDGET (self->reset_shortcuts_row), !is_default);
 }
 
 
@@ -514,9 +527,49 @@ on_new_shortcut_clicked (MsOskPanel *self)
 
 
 static void
+on_undo_reset_terminal_shortcuts_activated (GtkWidget  *widget,
+                                            const char *action_name,
+                                            GVariant   *parameter)
+{
+  MsOskPanel *self = MS_OSK_PANEL (widget);
+
+  g_return_if_fail (self->undo_shortcuts);
+
+  g_settings_set_value (self->pos_terminal_settings, SHORTCUTS_KEY, self->undo_shortcuts);
+
+  g_clear_pointer (&self->undo_shortcuts, g_variant_unref);
+}
+
+
+static void
+on_reset_terminal_shortcuts_activated (GtkWidget  *widget,
+                                       const char *action_name,
+                                       GVariant   *parameter)
+{
+  MsOskPanel *self = MS_OSK_PANEL (widget);
+  AdwToast *toast = adw_toast_new (_("Shortcuts reset to defaults"));
+
+  g_clear_pointer (&self->undo_shortcuts, g_variant_unref);
+
+  self->undo_shortcuts = g_settings_get_value (self->pos_terminal_settings, SHORTCUTS_KEY);
+
+  g_debug ("Resetting shortcuts to their default");
+  g_settings_reset (self->pos_terminal_settings, SHORTCUTS_KEY);
+
+  /* Translators: This reverts resetting keyboard shortcuts to defaults */
+  adw_toast_set_button_label (toast, C_("undo shortcuts", "_Undo"));
+  adw_toast_set_action_name (toast, "osk-panel.undo-reset-terminal-shortcuts");
+
+  adw_toast_overlay_add_toast (self->toast_overlay, toast);
+}
+
+
+static void
 ms_osk_panel_finalize (GObject *object)
 {
   MsOskPanel *self = MS_OSK_PANEL (object);
+
+  g_clear_pointer (&self->undo_shortcuts, g_variant_unref);
 
   g_clear_object (&self->completer_infos);
   g_clear_object (&self->shortcuts);
@@ -541,9 +594,10 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-osk-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, hw_keyboard_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, key_indicator_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_layout_prefs);
-  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, key_indicator_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, on_key_indicator_switch_activate_changed);
 
   /* OSK handling */
@@ -558,8 +612,9 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_completion_switch_activate_changed);
 
   /* Terminal layout group */
-  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, terminal_layout_group);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, reset_shortcuts_row);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, shortcuts_box);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, terminal_layout_group);
   gtk_widget_class_bind_template_callback (widget_class, on_new_shortcut_clicked);
 
   /* Stevia scaling */
@@ -573,6 +628,16 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, keyboard_height_prefs);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_horizontal_orientation);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_vertical_orientation);
+
+  gtk_widget_class_install_action (widget_class,
+                                   "osk-panel.reset-terminal-shortcuts",
+                                   NULL,
+                                   on_reset_terminal_shortcuts_activated);
+
+  gtk_widget_class_install_action (widget_class,
+                                   "osk-panel.undo-reset-terminal-shortcuts",
+                                   NULL,
+                                   on_undo_reset_terminal_shortcuts_activated);
 }
 
 
