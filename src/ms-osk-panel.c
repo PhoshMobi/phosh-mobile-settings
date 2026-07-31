@@ -77,36 +77,36 @@ typedef enum {
 
 
 struct _MsOskPanel {
-  MsPanel           parent;
+  MsPanel              parent;
 
-  GSettings        *a11y_settings;
-  GtkWidget        *osk_enable_switch;
-  GtkWidget        *osk_layout_prefs;
+  GSettings           *a11y_settings;
+  GtkWidget           *osk_enable_switch;
+  GtkWidget           *osk_layout_prefs;
 
-  GSettings        *phosh_settings;
-  GtkWidget        *long_press_combo;
+  GSettings           *phosh_settings;
+  GtkWidget           *long_press_combo;
 
-  AdwSwitchRow     *key_indicator_switch;
+  AdwSwitchRow        *key_indicator_switch;
 
   /* Word completion */
-  GSettings        *pos_settings;
-  GSettings        *pos_completer_settings;
-  GtkWidget        *hw_keyboard_switch;
-  GtkWidget        *completion_group;
-  AdwSwitchRow     *app_completion_switch;
-  AdwSwitchRow     *menu_completion_switch;
-  AdwSwitchRow     *auto_space_switch;
-  CompletionMode    mode;
-  gboolean          updating_flags;
-  AdwComboRow      *completer_combo;
-  GListStore       *completer_infos;
+  GSettings           *pos_settings;
+  GSettings           *pos_completer_settings;
+  GtkWidget           *hw_keyboard_switch;
+  GtkWidget           *completion_group;
+  AdwSwitchRow        *app_completion_switch;
+  AdwSwitchRow        *menu_completion_switch;
+  AdwSwitchRow        *auto_space_switch;
+  CompletionMode       mode;
+  gboolean             updating_flags;
+  AdwComboRow         *completer_combo;
+  GListStore          *completer_infos;
 
   /* Terminal layout */
-  GSettings        *pos_terminal_settings;
-  GtkWidget        *terminal_layout_group;
-  GtkWidget        *shortcuts_box;
-  GListStore       *shortcuts;
-  gboolean          shortcuts_updating;
+  GSettings           *pos_terminal_settings;
+  GtkWidget           *terminal_layout_group;
+  GtkWidget           *shortcuts_box;
+  GListStore          *shortcuts;
+  gboolean             shortcuts_updating;
 
   /* Automatic scaling */
   AdwPreferencesGroup *osk_scaling_group;
@@ -115,9 +115,9 @@ struct _MsOskPanel {
   PhoshOskScalingFlags scaling;
 
   /* Squeekboard scaling */
-  GtkWidget        *keyboard_height_prefs;
-  GtkWidget        *scale_in_horizontal_orientation;
-  GtkWidget        *scale_in_vertical_orientation;
+  GtkWidget           *keyboard_height_prefs;
+  GtkWidget           *scale_in_horizontal_orientation;
+  GtkWidget           *scale_in_vertical_orientation;
 };
 
 G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, MS_TYPE_PANEL)
@@ -196,7 +196,7 @@ on_drop (GtkDropTarget *drop_target, const GValue  *value, double x, double y, g
 
 struct ShortcutData {
   MsOskPanel *self;
-  char *shortcut_string;
+  char       *shortcut_string;
 };
 
 
@@ -238,7 +238,8 @@ on_remove_button_clicked (gpointer user_data)
   g_auto (GStrv) shortcuts = NULL;
 
   pos_terminal_shortcuts = g_settings_get_strv (self->pos_terminal_settings, SHORTCUTS_KEY);
-  shortcuts = shortcut_remove ((const char * const *) pos_terminal_shortcuts, data->shortcut_string);
+  shortcuts = shortcut_remove ((const char * const *) pos_terminal_shortcuts,
+                               data->shortcut_string);
 
   g_settings_set_strv (self->pos_terminal_settings, SHORTCUTS_KEY, (const char * const *)shortcuts);
 
@@ -492,12 +493,11 @@ is_osk_app (void)
   }
 
   if (g_str_has_suffix (exe, "/phosh-osk-stevia") ||
-      g_str_has_suffix (exe, "/phosh-osk-stevia (deleted)")) {
+      g_str_has_suffix (exe, "/phosh-osk-stevia (deleted)"))
     return MS_OSK_APP_POS;
-  } else if (g_str_has_suffix (exe, "/squeekboard") ||
-             g_str_has_suffix (exe, "/squeekboard (deleted)")) {
+  else if (g_str_has_suffix (exe, "/squeekboard") ||
+           g_str_has_suffix (exe, "/squeekboard (deleted)"))
     return MS_OSK_APP_SQUEEKBOARD;
-  }
 
   return MS_OSK_APP_UNKNOWN;
 }
@@ -593,7 +593,9 @@ long_press_delay_get_mapping (GValue *value, GVariant *variant, gpointer user_da
 
 
 static GVariant *
-long_press_delay_set_mapping (const GValue *value, const GVariantType *expected_type, gpointer user_data)
+long_press_delay_set_mapping (const GValue       *value,
+                              const GVariantType *expected_type,
+                              gpointer            user_data)
 {
   guint selection = g_value_get_uint (value);
   double delay;
