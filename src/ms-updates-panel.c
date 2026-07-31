@@ -279,7 +279,7 @@ on_os_updater_cancel_fetch_update_ready (GObject      *source_object,
 
 
 static void
-on_cancel_update_activated (GtkWidget *widget,  const char* action_name, GVariant *parameter)
+on_cancel_update_activated (GtkWidget *widget, const char *action_name, GVariant *parameter)
 {
   MsUpdatesPanel *self = MS_UPDATES_PANEL (widget);
   MsOsUpdateState state;
