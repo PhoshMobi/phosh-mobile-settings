@@ -94,7 +94,6 @@ install_headers(
 )
 
 libpms_dep = declare_dependency(
-  sources: libpms_generated_sources,
   link_with: libpms_lib,
   include_directories: include_directories('.'),
   dependencies: libpms_deps,
@@ -111,7 +110,7 @@ if get_option('introspection')
   libpms_gir = gnome.generate_gir(
     libpms_lib,
     header: 'libpms.h',
-    sources: libpms_public_sources + libpms_public_headers,
+    sources: libpms_public_sources + libpms_public_headers + libpms_enum_sources,
     nsversion: api_version,
     namespace: 'Pms',
     export_packages: libname,
