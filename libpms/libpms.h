@@ -23,3 +23,5 @@
 #include "ms-os-updater.h"
 #include "ms-osk-layout-prefs.h"
 #include "lang/ms-language-chooser.h"
+
+#undef _LIBPMS_INSIDE
