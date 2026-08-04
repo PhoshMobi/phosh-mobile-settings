@@ -19,6 +19,7 @@
                 <property name="propagate-natural-height">1</property>
                 <property name="child">
                   <object class="GtkStack" id="stack">
+                    <property name="transition-type">crossfade</property>
                     <property name="vexpand">1</property>
                     <child>
                       <object class="GtkStackPage">
