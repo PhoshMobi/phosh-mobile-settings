@@ -9,7 +9,7 @@
 #pragma once
 
 #ifndef LIBPMS_USE_UNSTABLE_API
-#error    libpms is unstable API. You must define LIBPMS_USE_UNSTABLE_API before including libpms.h
+#error libpms is unstable API. You must define LIBPMS_USE_UNSTABLE_API before including libpms.h
 #endif
 
 #define _LIBPMS_INSIDE

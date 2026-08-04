@@ -20,6 +20,8 @@
 
 #pragma once
 
+#include "libpms-version.h"
+
 #include <gtk/gtk.h>
 #include <adwaita.h>
 #include <glib-object.h>
@@ -27,11 +29,16 @@
 G_BEGIN_DECLS
 
 #define MS_TYPE_LANGUAGE_CHOOSER (ms_language_chooser_get_type ())
+PMS_AVAILABLE_IN_ALL
 G_DECLARE_FINAL_TYPE (MsLanguageChooser, ms_language_chooser, MS, LANGUAGE_CHOOSER, AdwDialog)
 
+PMS_AVAILABLE_IN_ALL
 MsLanguageChooser *ms_language_chooser_new          (void);
+PMS_AVAILABLE_IN_ALL
 void               ms_language_chooser_clear_filter (MsLanguageChooser *chooser);
+PMS_AVAILABLE_IN_ALL
 const gchar       *ms_language_chooser_get_language (MsLanguageChooser *chooser);
+PMS_AVAILABLE_IN_ALL
 void               ms_language_chooser_set_language (MsLanguageChooser *chooser,
                                                      const gchar       *language);
 

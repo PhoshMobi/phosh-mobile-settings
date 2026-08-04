@@ -188,6 +188,7 @@ config_h.set_quoted(
   'MOBILE_SETTINGS_OSK_COMPLETERS_DIR',
   datadir / 'phosh-osk-stevia' / 'completers',
 )
+config_h.set('_PMS_EXTERN', '__attribute__((visibility("default"))) extern')
 
 configure_file(output: 'mobile-settings-config.h', configuration: config_h)
 add_project_arguments(['-I' + meson.project_build_root()], language: 'c')
