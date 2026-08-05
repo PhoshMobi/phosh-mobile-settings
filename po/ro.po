@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-07-05 07:40+0000\n"
-"PO-Revision-Date: 2026-07-26 18:32+0200\n"
+"POT-Creation-Date: 2026-07-31 17:15+0000\n"
+"PO-Revision-Date: 2026-08-05 10:49+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -402,16 +402,26 @@ msgstr "Nu s-a putut schimba limba sistemului"
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Nu s-a putut schimba fundalul pentru ecranul blocat"
 
+#: src/ms-osk-panel.c:550
+msgid "Shortcuts reset to defaults"
+msgstr "Scurtături readuse la valorile inițiale"
+
+#. Translators: This reverts resetting keyboard shortcuts to defaults
+#: src/ms-osk-panel.c:560
+msgctxt "undo shortcuts"
+msgid "_Undo"
+msgstr "An_ulează"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:818
 msgid "Default"
 msgstr "Prestabilită"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:819
 msgid "The default completer selected by the OSK"
 msgstr "Completarea prestabilită aleasă de tastatura de pe ecran"
 
-#: src/ms-osk-panel.c:755
+#: src/ms-osk-panel.c:822
 msgid "No information available for this completer"
 msgstr "Nicio informație disponibilă pentru această completare"
 
@@ -982,7 +992,7 @@ msgstr "Miniaturi suplimentare pentru ecranul blocat"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:170
 msgid "Add Shortcut"
 msgstr "Adaugă scurtătura"
 
@@ -1010,19 +1020,19 @@ msgstr "Tasta _scurtăturii"
 msgid "Shortcut Preview"
 msgstr "Arată scurtătura"
 
-#: src/ui/ms-osk-panel.ui:13
+#: src/ui/ms-osk-panel.ui:15
 msgid "Enable _On Screen Keyboard"
 msgstr "Activează _Tastatura pe ecran"
 
-#: src/ui/ms-osk-panel.ui:14
+#: src/ui/ms-osk-panel.ui:16
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Dacă să apară tastatura pe ecran atunci când este nevoie"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:22
 msgid "Unfold long-press"
 msgstr "Să apară prin apăsare lungă"
 
-#: src/ui/ms-osk-panel.ui:21
+#: src/ui/ms-osk-panel.ui:23
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -1030,137 +1040,145 @@ msgstr ""
 "apară tastatura pe ecran"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
-#: src/ui/ms-osk-panel.ui:26
+#: src/ui/ms-osk-panel.ui:28
 msgid "short"
 msgstr "scurtă"
 
 #. Translators: abbreviation for 1 second interval of time
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:30
 msgctxt "press interval"
 msgid "normal"
 msgstr "normală"
 
 #. Translators: abbreviation for greater than or equal to 1.5 second interval of time
-#: src/ui/ms-osk-panel.ui:30
+#: src/ui/ms-osk-panel.ui:32
 msgid "long"
 msgstr "lungă"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:40
 msgid "Ignore hardware keyboard"
 msgstr "Ignoră tastatura fizică"
 
-#: src/ui/ms-osk-panel.ui:39
+#: src/ui/ms-osk-panel.ui:41
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Dacă să apară tastatura pe ecran atunci când este prezentă o tastatură fizică"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:48
 msgid "Key indicator popup"
 msgstr "Indicarea tastei apăsate"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:49
 msgid "Whether to show a popover indicating the currently pressed key"
 msgstr ""
 "Dacă, la apăsarea unei taste, să apară o etichetă care să conțină tasta "
 "apăsată"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:61
 msgid "Keyboard height in portrait mode"
 msgstr "Înălțimea tastaturii în modul vertical"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:62
 msgid "When the screen is taller than wide"
 msgstr "Când ecranul este mai înalt decât lat"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:78
 msgid "Keyboard height in landscape mode"
 msgstr "Înălțimea tastaturii în modul orizontal"
 
-#: src/ui/ms-osk-panel.ui:77
+#: src/ui/ms-osk-panel.ui:79
 msgid "When the screen is wider than tall"
 msgstr "Când ecranul este mai lat decât înalt"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
+#: src/ui/ms-osk-panel.ui:103 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Redimensionare"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:106
 msgid "Keep physical size constant"
 msgstr "Păstrează constantă mărimea tastaturii"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:107
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
 "Face ca tastatura să fie suficient de mare pentru rezoluțiile mari ale "
 "ecranului"
 
-#: src/ui/ms-osk-panel.ui:111
+#: src/ui/ms-osk-panel.ui:113
 msgid "Add empty space below keys"
 msgstr "Adaugă spațiu gol sub taste"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:114
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
 "Dacă să se adauge o zonă goală sub tastele tastaturii virtuale la deplasarea "
 "în sus."
 
-#: src/ui/ms-osk-panel.ui:122
+#: src/ui/ms-osk-panel.ui:124
 msgid "Text Completion"
 msgstr "Completarea textului"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:127
 msgid "Opportunistic word completion"
 msgstr "Completare automată a cuvintelor"
 
-#: src/ui/ms-osk-panel.ui:126
+#: src/ui/ms-osk-panel.ui:128
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Activează completarea automată a cuvintelor dacă aplicația sugerează că este "
 "utilă"
 
-#: src/ui/ms-osk-panel.ui:133
+#: src/ui/ms-osk-panel.ui:135
 msgid "Toggle via OSK menu"
 msgstr "Comută din tastatura virtuală"
 
-#: src/ui/ms-osk-panel.ui:134
+#: src/ui/ms-osk-panel.ui:136
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permite activarea/dezactivarea completării cuvintelor cu butonul de opțiuni "
 "al tastaturii"
 
-#: src/ui/ms-osk-panel.ui:140
+#: src/ui/ms-osk-panel.ui:142
 msgid "Default Completer"
 msgstr "Completare prestabilită"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:143
 msgid "The default completion engine to use"
 msgstr "Motorul prestabilit de completare care trebuie utilizat"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:150
+#: src/ui/ms-osk-panel.ui:152
 msgid "Handle space around punctuation characters"
 msgstr "Gestionează spațiul din jurul semnelor de punctuație"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:152
+#: src/ui/ms-osk-panel.ui:154
 msgid ""
 "This also swaps the space and punctuation characters after word completion"
 msgstr ""
 "Aceasta schimbă ordinea dintre spațiu și semnul de punctuație după "
 "completarea unui cuvânt"
 
-#: src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-panel.ui:162
 msgid "Terminal Layout"
 msgstr "Aranjament Terminal"
 
-#: src/ui/ms-osk-panel.ui:179
+#: src/ui/ms-osk-panel.ui:181
 msgid "Shortcuts"
 msgstr "Scurtături"
 
-#: src/ui/ms-osk-panel.ui:180
+#: src/ui/ms-osk-panel.ui:182
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Scurtături disponibile în spațiul scurtăturilor"
+
+#: src/ui/ms-osk-panel.ui:190
+msgid "Reset to default"
+msgstr "Adu la valorile inițiale"
+
+#: src/ui/ms-osk-panel.ui:191
+msgid "Reset the shortcut bar to its default layout"
+msgstr "Readuce spațiul scurtăturilor la aspectul inițial"
 
 #: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
