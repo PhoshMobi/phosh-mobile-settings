@@ -1,3 +1,65 @@
+phosh-mobile-settings (0.57~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * build: Ensure we depend on enum sources.
+    Otherwise they might not be generated early enough
+    Fixes: d1e8a0bb ("libpms: Add os-updater class")
+  * osk-panel: Allow to reset shortcuts bar to the upstream / distro default.
+    Make it easy for users to go back to the upstream / distro defaults.
+  * libpms: Prevent direct inclusion of public headers
+  * libpms: Hide symbols by default.
+    We've used a symbol file in other libs but let's use an
+    approach that is more in line with glib, gtk and libadwaita.
+  * build: Don't add generated sources to dependency.
+    Otherwise they will be rebuilt for the tests which ends in
+    libpms/libpms-enum-types.h:8:2: error: #error "Only <libpms.h> can be included directly."
+    as we don't define `_LIBPMS_INSIDE` there.
+  * libpms: Undefine _LIBPMS_INSIDE.
+    Makes compilation a bit safer
+  * updates-panel: Crossfade between update states
+  * updates-panel: Drop superfluous visible property
+  * updates-panel: Show spinner while looking for updates.
+    Otherwise we flip between "no updates available" and "updates available"
+    which is confusing for the user.
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+  [ Luiggi Cardoso ]
+  * Update Brazilian Portuguese translation
+
+  [ Zeqian Sun ]
+  * Add Chinese (China) translation
+
+  [ Baurzhan Muftakhidinov ]
+  * Update Kazakh translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Rafael Fontenelle ]
+  * Update Brazilian Portuguese translation
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 06 Aug 2026 09:38:00 +0200
+
 phosh-mobile-settings (0.56.0) experimental; urgency=medium
 
   [ Martin ]
