@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2026-07-31 17:15+0000\n"
-"PO-Revision-Date: 2026-08-05 14:29+0300\n"
+"POT-Creation-Date: 2026-08-06 06:59+0000\n"
+"PO-Revision-Date: 2026-08-06 15:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -126,8 +126,8 @@ msgid "Add Layout"
 msgstr "Додати компонування"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
-#: src/ui/ms-updates-panel.ui:126
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:96
+#: src/ui/ms-updates-panel.ui:139
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -1330,27 +1330,32 @@ msgstr "Оновлення ОС потребують перезапуску си
 msgid "Restart"
 msgstr "Перезапустити"
 
-#: src/ui/ms-updates-panel.ui:30
+#: src/ui/ms-updates-panel.ui:34
+#| msgid "Fetching OS update…"
+msgid "Looking for updates…"
+msgstr "Шукаємо оновлення…"
+
+#: src/ui/ms-updates-panel.ui:45
 msgid "Everything up to date"
 msgstr "Усі частини є актуальними"
 
-#: src/ui/ms-updates-panel.ui:31
+#: src/ui/ms-updates-panel.ui:46
 msgid "There are no OS updates available"
 msgstr "Немає доступних оновлень ОС"
 
-#: src/ui/ms-updates-panel.ui:42
+#: src/ui/ms-updates-panel.ui:57
 msgid "Updates available"
 msgstr "Доступні оновлення"
 
-#: src/ui/ms-updates-panel.ui:43
+#: src/ui/ms-updates-panel.ui:58
 msgid "There are OS updates available"
 msgstr "Маємо оновлення ОС"
 
-#: src/ui/ms-updates-panel.ui:65
+#: src/ui/ms-updates-panel.ui:79
 msgid "Fetching OS update…"
 msgstr "Отримання оновлення ОС…"
 
-#: src/ui/ms-updates-panel.ui:109
+#: src/ui/ms-updates-panel.ui:122
 msgid "Installing OS update…"
 msgstr "Встановлення оновлення ОС…"
 
