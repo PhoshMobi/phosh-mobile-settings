@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/"
 "issues\n"
-"POT-Creation-Date: 2026-07-31 17:15+0000\n"
-"PO-Revision-Date: 2026-08-06 02:19+0330\n"
+"POT-Creation-Date: 2026-08-07 14:25+0000\n"
+"PO-Revision-Date: 2026-08-07 18:47+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -122,7 +122,7 @@ msgid "Add Layout"
 msgstr "افزودن چینش"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14 src/ui/ms-osk-add-shortcut-dialog.ui:17
-#: src/ui/ms-updates-panel.ui:82 src/ui/ms-updates-panel.ui:126
+#: src/ui/ms-updates-panel.ui:96 src/ui/ms-updates-panel.ui:139
 msgid "Cancel"
 msgstr "لغو"
 
@@ -416,8 +416,8 @@ msgstr "هیچ اطّلاعاتی از این رایانه موجود نیست"
 #, c-format
 msgid "%u App Made Visible Again"
 msgid_plural "%u Apps Made Visible Again"
-msgstr[0] "‏%Iu برنامه دوباره نمایان شد"
-msgstr[1] "%Iu برنامه دوباره نمایان شدند"
+msgstr[0] "‏%Iu کاره دوباره نمایان شد"
+msgstr[1] "‏%Iu کاره دوباره نمایان شدند"
 
 #: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
@@ -502,32 +502,32 @@ msgid "Choose sound file"
 msgstr "گزینش پروندهٔ صدا"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:151
+#: src/ms-updates-panel.c:164
 #, c-format
 msgid "Update to %s"
 msgstr "به‌روز رسانی به %s"
 
-#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
 #, c-format
 msgid "OS update failed: %s"
 msgstr "به‌روز رسانی سیستم‌عامل شکست خورد: %s"
 
-#: src/ms-updates-panel.c:270
+#: src/ms-updates-panel.c:283
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "لغو کردن به‌روز رسانی سیستم‌عامل شکست خورد: %s"
 
-#: src/ms-updates-panel.c:333
+#: src/ms-updates-panel.c:346
 msgid "OS Update already in progress"
 msgstr "به‌روز رسانی سیستم‌عامل در حال انجام"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:341
+#: src/ms-updates-panel.c:354
 #, c-format
 msgid "Updating to %s…"
 msgstr "به‌روز کردن به %s…"
 
-#: src/ms-updates-panel.c:361
+#: src/ms-updates-panel.c:374
 msgid "OS update in progress"
 msgstr "در حال به‌روز رسانی سیستم‌عامل"
 
@@ -1285,27 +1285,31 @@ msgstr "به‌روز رسانی سیستم‌عامل نیازمند آغاز �
 msgid "Restart"
 msgstr "آغاز دوباره"
 
-#: src/ui/ms-updates-panel.ui:30
+#: src/ui/ms-updates-panel.ui:34
+msgid "Looking for updates…"
+msgstr "گشتن برای به‌روز رسانی‌ها…"
+
+#: src/ui/ms-updates-panel.ui:45
 msgid "Everything up to date"
 msgstr "همه‌چیز به روز"
 
-#: src/ui/ms-updates-panel.ui:31
+#: src/ui/ms-updates-panel.ui:46
 msgid "There are no OS updates available"
 msgstr "هیچ به‌روز رسانی سیستم‌عاملی موجود نیست"
 
-#: src/ui/ms-updates-panel.ui:42
+#: src/ui/ms-updates-panel.ui:57
 msgid "Updates available"
 msgstr "به‌روز رسانی‌ها موجودند"
 
-#: src/ui/ms-updates-panel.ui:43
+#: src/ui/ms-updates-panel.ui:58
 msgid "There are OS updates available"
 msgstr "به‌روز رسانی‌های سیستم‌عامل موجودند"
 
-#: src/ui/ms-updates-panel.ui:65
+#: src/ui/ms-updates-panel.ui:79
 msgid "Fetching OS update…"
 msgstr "واکشیدن به‌روز رسانی سیستم‌عامل…"
 
-#: src/ui/ms-updates-panel.ui:109
+#: src/ui/ms-updates-panel.ui:122
 msgid "Installing OS update…"
 msgstr "نصب کردن به‌روز رسانی سیستم‌عامل…"
 
