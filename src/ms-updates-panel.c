@@ -57,9 +57,15 @@ static void
 update_stack_page (MsUpdatesPanel *self)
 {
   MsOsUpdateState state;
+  gboolean ready = ms_os_updater_get_ready (self->os_updater);
   const char *stack = "needsupdate";
 
   gtk_svg_pause (self->download_svg);
+
+  if (!ready) {
+    gtk_stack_set_visible_child_name (self->stack, "checkforupdate");
+    return;
+  }
 
   if (self->os_update == NULL) {
     gtk_stack_set_visible_child_name (self->stack, "uptodate");
@@ -89,6 +95,13 @@ update_stack_page (MsUpdatesPanel *self)
   }
 
   gtk_stack_set_visible_child_name (self->stack, stack);
+}
+
+
+static void
+on_updater_ready_changed (MsUpdatesPanel *self)
+{
+  update_stack_page (self);
 }
 
 
@@ -444,6 +457,12 @@ ms_updates_panel_init (MsUpdatesPanel *self)
                             G_CALLBACK (on_latest_update_changed),
                             self);
   on_latest_update_changed (self, NULL, self->os_updater);
+
+  g_signal_connect_swapped (self->os_updater,
+                            "notify::ready",
+                            G_CALLBACK (on_updater_ready_changed),
+                            self);
+  on_updater_ready_changed (self);
 }
 
 

@@ -11,6 +11,7 @@
 G_BEGIN_DECLS
 
 void ms_os_updater_set_supported (MsOsUpdater *self, gboolean supported);
+void ms_os_updater_set_ready (MsOsUpdater *self, gboolean ready);
 void ms_os_updater_set_latest_update (MsOsUpdater *self, MsOsUpdate *update);
 
 G_END_DECLS

@@ -11,6 +11,7 @@ import json
 import ctypes
 import dbus
 import dbusmock
+import time
 
 from types import MethodType
 
@@ -42,16 +43,22 @@ def ListVersions(self):
     return self.versions
 
 def Describe(self, ver):
+
+    # Wait a bit so we can check initial state
+    time.sleep(1)
+
     if ver == self.versions[0]:
         available = False
         installed = True
+        newest = False
     else:
         available = True
         installed = False
+        newest = True
 
     ret = json.dumps({
         "version": ver,
-        "newest": True,
+        "newest": newest,
         "available": available,
         "installed": installed,
         "partial": False,
