@@ -583,16 +583,19 @@ on_target_describe_ready (GObject *source_object, GAsyncResult *res, gpointer us
   version->obsolete = json_object_get_boolean_member (obj, "obsolete");
 
   g_debug ("Parsed %s: newest: %d", version->version, version->newest);
-  if (version->newest && version->available && !version->installed) {
-    MsOsUpdate *os_update = ms_os_update_new (version->version);
+  if (version->newest && version->available) {
+    if (!version->installed) {
+      MsOsUpdate *os_update = ms_os_update_new (version->version);
 
-    g_debug ("Update %s is usable", version->version);
-    /* TODO: we should use a derived class but this updater will be replaced with systemd 262 */
-    g_object_set_data (G_OBJECT (os_update), "sysupdate-version", version);
-    version->os_update = g_object_ref (os_update);
-    ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_READY);
+      g_debug ("Update %s is usable", version->version);
+      /* TODO: we should use a derived class but this updater will be replaced with systemd 262 */
+      g_object_set_data (G_OBJECT (os_update), "sysupdate-version", version);
+      version->os_update = g_object_ref (os_update);
+      ms_os_update_set_state (version->os_update, MS_OS_UPDATE_STATE_READY);
 
-    ms_os_updater_set_latest_update (MS_OS_UPDATER (version->target->sysupdate), os_update);
+      ms_os_updater_set_latest_update (MS_OS_UPDATER (version->target->sysupdate), os_update);
+    }
+    ms_os_updater_set_ready (MS_OS_UPDATER (version->target->sysupdate), TRUE);
   }
 }
 

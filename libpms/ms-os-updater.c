@@ -22,6 +22,7 @@
 enum {
   PROP_0,
   PROP_SUPPORTED,
+  PROP_READY,
   PROP_LATEST_UPDATE,
   LAST_PROP
 };
@@ -29,6 +30,7 @@ static GParamSpec *props[LAST_PROP];
 
 typedef struct _MsOsUpdaterPrivate {
   MsOsUpdate *latest_update;
+  gboolean    ready;
   gboolean    supported;
 } MsOsUpdaterPrivate;
 
@@ -47,6 +49,9 @@ ms_os_updater_get_property (GObject    *object,
   switch (property_id) {
   case PROP_SUPPORTED:
     g_value_set_boolean (value, priv->supported);
+    break;
+  case PROP_READY:
+    g_value_set_boolean (value, priv->ready);
     break;
   case PROP_LATEST_UPDATE:
     g_value_set_object (value, priv->latest_update);
@@ -125,6 +130,15 @@ ms_os_updater_class_init (MsOsUpdaterClass *klass)
                           FALSE,
                           G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
   /**
+   * MsOsUpdater:ready:
+   *
+   * Whether the updater is done checking for updates
+   */
+  props[PROP_READY] =
+    g_param_spec_boolean ("ready", "", "",
+                          FALSE,
+                          G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
+  /**
    * MsOsUpdater:latest-update:
    *
    * The latest update to install
@@ -168,6 +182,33 @@ ms_os_updater_get_supported (MsOsUpdater *self)
   g_return_val_if_fail (MS_IS_OS_UPDATER (self), FALSE);
 
   return priv->supported;
+}
+
+
+void
+ms_os_updater_set_ready (MsOsUpdater *self, gboolean ready)
+{
+  MsOsUpdaterPrivate *priv = ms_os_updater_get_instance_private (self);
+
+  g_return_if_fail (MS_IS_OS_UPDATER (self));
+
+  if (priv->ready == ready)
+    return;
+
+  g_debug ("OS updater %sready", ready ? "" : "not ");
+  priv->ready = ready;
+  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_READY]);
+}
+
+
+gboolean
+ms_os_updater_get_ready (MsOsUpdater *self)
+{
+  MsOsUpdaterPrivate *priv = ms_os_updater_get_instance_private (self);
+
+  g_return_val_if_fail (MS_IS_OS_UPDATER (self), FALSE);
+
+  return priv->ready;
 }
 
 

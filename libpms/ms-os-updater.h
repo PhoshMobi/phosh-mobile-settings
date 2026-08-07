@@ -80,6 +80,8 @@ struct _MsOsUpdaterClass {
 PMS_AVAILABLE_IN_ALL
 gboolean     ms_os_updater_get_supported (MsOsUpdater *self);
 PMS_AVAILABLE_IN_ALL
+gboolean     ms_os_updater_get_ready (MsOsUpdater *self);
+PMS_AVAILABLE_IN_ALL
 MsOsUpdate  *ms_os_updater_get_latest_update(MsOsUpdater *self);
 
 PMS_AVAILABLE_IN_ALL
