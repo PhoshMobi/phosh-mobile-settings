@@ -46,11 +46,13 @@ variables:
 .forky_vars: &forky_vars
   variables:
     DIST: forky
-    BUILD_OPTS:  ${COMMON_BUILD_OPTS}
+    BUILD_OPTS: ${COMMON_BUILD_OPTS}
+    DEB_BUILD_PROFILES: pkg.phoc.no-gcc-panels
 
 .build_step: &build_step
   script:
     - 'echo "Build opts: ${BUILD_OPTS}"'
+    - 'echo "Build profiles: ${DEB_BUILD_PROFILES}"'
     - meson setup -Dtweaks-data-dir= ${BUILD_OPTS} . _build
     - meson compile -C _build
 
@@ -86,6 +88,20 @@ build:native-debian-forky:
   image: ${DEBIAN_IMAGE}
   <<: *before
   <<: *forky_vars
+  <<: *build_step
+  artifacts:
+    paths:
+      - _build
+
+build:native-debian-forky:full:
+  extends: .forky_vars
+  stage: build
+  image: ${DEBIAN_IMAGE}
+  variables:
+    DEB_BUILD_PROFILE: ""
+    # No common build opts since the g-c-c build triggers warnings
+    BUILD_OPTS: "-Dgcc-panels=true"
+  <<: *before
   <<: *build_step
   artifacts:
     paths:
