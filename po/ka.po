@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-07-31 17:15+0000\n"
-"PO-Revision-Date: 2026-08-05 05:24+0200\n"
+"POT-Creation-Date: 2026-08-07 14:25+0000\n"
+"PO-Revision-Date: 2026-08-08 07:10+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -122,8 +122,8 @@ msgid "Add Layout"
 msgstr "განლაგების დამატება"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
-#: src/ui/ms-updates-panel.ui:126
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:96
+#: src/ui/ms-updates-panel.ui:139
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -505,32 +505,32 @@ msgid "Choose sound file"
 msgstr "აირჩიეთ ხმის ფაილი"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:151
+#: src/ms-updates-panel.c:164
 #, c-format
 msgid "Update to %s"
 msgstr "განახლება %s-ზე"
 
-#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
 #, c-format
 msgid "OS update failed: %s"
 msgstr "ოს-ის განახლება ჩავარდა: %s"
 
-#: src/ms-updates-panel.c:270
+#: src/ms-updates-panel.c:283
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "ოს-ის განახლების გაუქმება ჩავარდა: %s"
 
-#: src/ms-updates-panel.c:333
+#: src/ms-updates-panel.c:346
 msgid "OS Update already in progress"
 msgstr "ოს-ის განახლება უკვე მიმდინარეობს"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:341
+#: src/ms-updates-panel.c:354
 #, c-format
 msgid "Updating to %s…"
 msgstr "განახლება %s-მდე…"
 
-#: src/ms-updates-panel.c:361
+#: src/ms-updates-panel.c:374
 msgid "OS update in progress"
 msgstr "მიმდინარეობს ოს-ის განახლება"
 
@@ -1307,27 +1307,31 @@ msgstr "ოს-ის განახლებებს სისტემის
 msgid "Restart"
 msgstr "გადატვირთვა"
 
-#: src/ui/ms-updates-panel.ui:30
+#: src/ui/ms-updates-panel.ui:34
+msgid "Looking for updates…"
+msgstr "განახლებების ძებნა…"
+
+#: src/ui/ms-updates-panel.ui:45
 msgid "Everything up to date"
 msgstr "ყველაფერი განახლებულია"
 
-#: src/ui/ms-updates-panel.ui:31
+#: src/ui/ms-updates-panel.ui:46
 msgid "There are no OS updates available"
 msgstr "ოს-ის განახლებები ხელმისაწვდომი არაა"
 
-#: src/ui/ms-updates-panel.ui:42
+#: src/ui/ms-updates-panel.ui:57
 msgid "Updates available"
 msgstr "ხელმისაწვდომი განახლებები"
 
-#: src/ui/ms-updates-panel.ui:43
+#: src/ui/ms-updates-panel.ui:58
 msgid "There are OS updates available"
 msgstr "ხელმისაწვდომია ოს-ის განახლებები"
 
-#: src/ui/ms-updates-panel.ui:65
+#: src/ui/ms-updates-panel.ui:79
 msgid "Fetching OS update…"
 msgstr "ოს-ის განახლების გამოთხოვა…"
 
-#: src/ui/ms-updates-panel.ui:109
+#: src/ui/ms-updates-panel.ui:122
 msgid "Installing OS update…"
 msgstr "მიმდინარეობს ოს-ის განახლების დაყენება…"
 
