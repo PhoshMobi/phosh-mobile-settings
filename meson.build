@@ -68,6 +68,7 @@ gtk_dep = dependency('gtk4', version: gtk_ver_cmp)
 gtk_wayland_dep = dependency('gtk4-wayland', version: gtk_ver_cmp)
 json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.2')
 libfeedback_dep = dependency('libfeedback-0.0', version: '>= 0.8.0')
+libnm_dep = dependency('libnm', version: '>= 1.52.0')
 libportal_dep = dependency('libportal', version: '>= 0.9.1')
 libportal_gtk4_dep = dependency('libportal-gtk4', version: '>= 0.9.1')
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
@@ -188,6 +189,7 @@ config_h.set_quoted(
   'MOBILE_SETTINGS_OSK_COMPLETERS_DIR',
   datadir / 'phosh-osk-stevia' / 'completers',
 )
+config_h.set('MOBILE_SETTINGS_HAVE_GCC_PANELS', get_option('gcc-panels'))
 config_h.set('_PMS_EXTERN', '__attribute__((visibility("default"))) extern')
 
 configure_file(output: 'mobile-settings-config.h', configuration: config_h)
@@ -212,6 +214,7 @@ summary(
     'Introspection': get_option('introspection'),
     'Man pages': get_option('man'),
     'Tweaks directory': get_option('tweaks-data-dir'),
+    'Use GCC panels': get_option('gcc-panels'),
   },
   bool_yn: true,
 )

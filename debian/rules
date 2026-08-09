@@ -10,6 +10,12 @@ else
   MESON_OPTS+=-Dman=false
 endif
 
+ifeq ($(filter pkg.phosh-mobile-settings.no-gcc-panels,$(DEB_BUILD_PROFILES)),)
+  MESON_OPTS+=-Dgcc-panels=true
+else
+  MESON_OPTS+=-Dgcc-panels=false
+endif
+
 %:
 	dh $@ --builddirectory=_build
 
@@ -17,4 +23,4 @@ override_dh_auto_configure:
 	dh_auto_configure -- $(MESON_OPTS)
 
 override_dh_auto_install:
-	dh_auto_install --destdir=debian/tmp
+	dh_auto_install --destdir=debian/tmp -- --skip-subprojects=g-c-c

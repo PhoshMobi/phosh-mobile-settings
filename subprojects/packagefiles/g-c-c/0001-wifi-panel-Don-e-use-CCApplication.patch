@@ -1,0 +1,44 @@
+From e2fe18da44404b71fb5ddefb4cc74d2958b996e0 Mon Sep 17 00:00:00 2001
+Message-ID: <e2fe18da44404b71fb5ddefb4cc74d2958b996e0.1786183582.git.agx@sigxcpu.org>
+From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Sat, 8 Aug 2026 12:06:10 +0200
+Subject: [PATCH] wifi-panel: Don'e use CCApplication
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Guido Günther <agx@sigxcpu.org>
+---
+ panels/network/cc-wifi-panel.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/panels/network/cc-wifi-panel.c b/panels/network/cc-wifi-panel.c
+index fb77da0..6b2cb51 100644
+--- a/panels/network/cc-wifi-panel.c
++++ b/panels/network/cc-wifi-panel.c
+@@ -96,7 +96,7 @@ static void
+ update_panel_visibility (NMClient *client)
+ {
+   const GPtrArray *devices;
+-  CcApplication *application;
++  //CcApplication *application;
+   gboolean visible;
+   guint i;
+ 
+@@ -115,11 +115,13 @@ update_panel_visibility (NMClient *client)
+         break;
+     }
+ 
++#if 0
+   /* Set the new visibility */
+   application = CC_APPLICATION (g_application_get_default ());
+   cc_shell_model_set_panel_visibility (cc_application_get_model (application),
+                                        "wifi",
+                                        visible ? CC_PANEL_VISIBLE : CC_PANEL_VISIBLE_IN_SEARCH);
++#endif
+ 
+   g_debug ("Wi-Fi panel visible: %s", visible ? "yes" : "no");
+ }
+-- 
+2.53.0
+
