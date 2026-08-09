@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2026-08-06 06:59+0000\n"
-"PO-Revision-Date: 2026-08-06 15:31+0300\n"
+"POT-Creation-Date: 2026-08-09 06:18+0000\n"
+"PO-Revision-Date: 2026-08-09 19:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -324,7 +324,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Керування вашими мобільними параметрами"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:541
+#: src/ms-application.c:548
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
@@ -520,32 +520,32 @@ msgid "Choose sound file"
 msgstr "Виберіть звуковий файл"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:151
+#: src/ms-updates-panel.c:164
 #, c-format
 msgid "Update to %s"
 msgstr "Оновити до %s"
 
-#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
 #, c-format
 msgid "OS update failed: %s"
 msgstr "Не вдалося оновити ОС: %s"
 
-#: src/ms-updates-panel.c:270
+#: src/ms-updates-panel.c:283
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "Не вдалося скасувати оновлення ОС: %s"
 
-#: src/ms-updates-panel.c:333
+#: src/ms-updates-panel.c:346
 msgid "OS Update already in progress"
 msgstr "Оновлення ОС вже виконується"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:341
+#: src/ms-updates-panel.c:354
 #, c-format
 msgid "Updating to %s…"
 msgstr "Оновлення до %s…"
 
-#: src/ms-updates-panel.c:361
+#: src/ms-updates-panel.c:374
 msgid "OS update in progress"
 msgstr "Виконуємо оновлення ОС"
 
@@ -568,11 +568,11 @@ msgstr "Беззвучно"
 msgid "Choose Wallpaper"
 msgstr "Виберіть фонове зображення"
 
-#: src/ms-window.c:131
+#: src/ms-window.c:132
 msgid "Configurable Tweaks"
 msgstr "Налаштовувані коригування"
 
-#: src/ms-window.c:182
+#: src/ms-window.c:183
 msgid "Device"
 msgstr "Пристрій"
 
@@ -1331,7 +1331,6 @@ msgid "Restart"
 msgstr "Перезапустити"
 
 #: src/ui/ms-updates-panel.ui:34
-#| msgid "Fetching OS update…"
 msgid "Looking for updates…"
 msgstr "Шукаємо оновлення…"
 
@@ -1494,26 +1493,110 @@ msgid "Locale"
 msgstr "Локаль"
 
 #: src/ui/ms-window.ui:338
+#| msgid "Sounds"
+msgid "Sound"
+msgstr "Звук"
+
+#: src/ui/ms-window.ui:347
+#| msgid "Sounds"
+msgid "sound"
+msgstr "звук"
+
+#: src/ui/ms-window.ui:348
+msgid "audio"
+msgstr "звук"
+
+#: src/ui/ms-window.ui:349
+msgid "speaker"
+msgstr "гучномовець"
+
+#: src/ui/ms-window.ui:350
+msgid "microphone"
+msgstr "мікрофон"
+
+#: src/ui/ms-window.ui:362
 msgid "OS Updates"
 msgstr "Оновлення системи"
 
-#: src/ui/ms-window.ui:346
+#: src/ui/ms-window.ui:370
 msgid "Updates"
 msgstr "Оновлення"
 
-#: src/ui/ms-window.ui:358 src/ui/ms-window.ui:366
+#: src/ui/ms-window.ui:382 src/ui/ms-window.ui:390
 msgid "About"
 msgstr "Відомості"
 
-#: src/ui/ms-window.ui:391
+#: src/ui/ms-window.ui:401
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/ui/ms-window.ui:405
+msgid "Connectivity"
+msgstr "Можливість з'єднання"
+
+#: src/ui/ms-window.ui:412
+msgid "wifi"
+msgstr "wifi"
+
+#: src/ui/ms-window.ui:413
+msgid "wlan"
+msgstr "wlan"
+
+#: src/ui/ms-window.ui:414
+msgid "network"
+msgstr "мережа"
+
+#: src/ui/ms-window.ui:426
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/ui/ms-window.ui:435
+msgid "bluetooth"
+msgstr "bluetooth"
+
+#: src/ui/ms-window.ui:447
+msgid "Cellular"
+msgstr "Стільниковий"
+
+#: src/ui/ms-window.ui:456
+msgid "wwan"
+msgstr "wwan"
+
+#: src/ui/ms-window.ui:457
+msgid "modem"
+msgstr "модем"
+
+#: src/ui/ms-window.ui:458
+msgid "gesm"
+msgstr "gesm"
+
+#: src/ui/ms-window.ui:459
+#| msgid "Filter"
+msgid "lte"
+msgstr "lte"
+
+#: src/ui/ms-window.ui:471
+msgid "Online Accounts"
+msgstr "Облікові записи в інтернеті"
+
+#: src/ui/ms-window.ui:480
+msgid "account"
+msgstr "обліковий запис"
+
+#: src/ui/ms-window.ui:481
+#| msgid "Emails"
+msgid "email"
+msgstr "електронна пошта"
+
+#: src/ui/ms-window.ui:506
 msgid "_Show Configurable Tweaks"
 msgstr "По_казати налаштовувані коригування"
 
-#: src/ui/ms-window.ui:398
+#: src/ui/ms-window.ui:513
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: src/ui/ms-window.ui:402
+#: src/ui/ms-window.ui:517
 msgid "_About Mobile Settings"
 msgstr "_Про «Мобільні параметри»"
 
