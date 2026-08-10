@@ -39,6 +39,7 @@ Build-Depends:
  python3-docutils <!nodoc>,
 # For the g-c-c panel builds
  blueprint-compiler (>= 0.19.0) <!pkg.phosh-mobile-settings.no-gcc-panels>,
+ gnome-settings-daemon-dev <!pkg.phosh-mobile-settings.no-gcc-panels>,
  libaccountsservice-dev (>= 23.11.69) <!pkg.phosh-mobile-settings.no-gcc-panels>,
  libcolord-dev <!pkg.phosh-mobile-settings.no-gcc-panels>,
  libcolord-gtk4-dev <!pkg.phosh-mobile-settings.no-gcc-panels>,
@@ -66,6 +67,7 @@ Build-Depends:
  libupower-glib-dev (>= 1.90.6) <!pkg.phosh-mobile-settings.no-gcc-panels>,
  libwacom-dev [linux-any] <!pkg.phosh-mobile-settings.no-gcc-panels>,
  libxml2-dev <!pkg.phosh-mobile-settings.no-gcc-panels>,
+ tecla <!pkg.phosh-mobile-settings.no-gcc-panels>,
 Standards-Version: 4.6.0
 Homepage: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/
 Rules-Requires-Root: no
