@@ -1,6 +1,6 @@
 [wrap-git]
 directory=g-c-c
-url=https://gitlab.gnome.org/GNOME/gnome-control-center
+url=https://gitlab.gnome.org/GNOME/gnome-control-center.git
 revision=49.3
 depth=1
 diff_files =
