@@ -10,6 +10,7 @@ stages:
  - build
  - test
  - style-checks
+ - package
 
 default:
   # Protect CI infra from rogue jobs
@@ -222,3 +223,10 @@ check-markdown:
   variables:
     PHOSH_MARKDOWN_PATHS: "*.md src/conf-tweaks/*.md"
   extends: .phosh-check-markdown
+
+package-deb-debian-forky:
+  stage: package
+  variables:
+    DEB_BUILD_PROFILES: "nocheck"
+    PHOSH_DOCKER_IMAGE: "${DEBIAN_IMAGE}"
+  extends: .phosh-build-debian-package
