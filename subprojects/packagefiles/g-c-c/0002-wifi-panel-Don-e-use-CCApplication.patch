@@ -1,8 +1,10 @@
-From e2fe18da44404b71fb5ddefb4cc74d2958b996e0 Mon Sep 17 00:00:00 2001
-Message-ID: <e2fe18da44404b71fb5ddefb4cc74d2958b996e0.1786183582.git.agx@sigxcpu.org>
+From decc6c8a5015d8e840525fe76869d785ed066c43 Mon Sep 17 00:00:00 2001
+Message-ID: <decc6c8a5015d8e840525fe76869d785ed066c43.1786366384.git.agx@sigxcpu.org>
+In-Reply-To: <1857ab7dced757484810d30e687859c9c19714c7.1786366384.git.agx@sigxcpu.org>
+References: <1857ab7dced757484810d30e687859c9c19714c7.1786366384.git.agx@sigxcpu.org>
 From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
 Date: Sat, 8 Aug 2026 12:06:10 +0200
-Subject: [PATCH] wifi-panel: Don'e use CCApplication
+Subject: [PATCH 2/3] wifi-panel: Don'e use CCApplication
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -13,7 +15,7 @@ Signed-off-by: Guido Günther <agx@sigxcpu.org>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/panels/network/cc-wifi-panel.c b/panels/network/cc-wifi-panel.c
-index fb77da0..6b2cb51 100644
+index fb77da080..6b2cb513d 100644
 --- a/panels/network/cc-wifi-panel.c
 +++ b/panels/network/cc-wifi-panel.c
 @@ -96,7 +96,7 @@ static void
