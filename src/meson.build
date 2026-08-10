@@ -160,7 +160,6 @@ if get_option('gcc-panels')
       'privileged_group=sudo',
       'ibus=false',
       'snap=false',
-      'x11=false',
       'malcontent=false',
     ],
   )
