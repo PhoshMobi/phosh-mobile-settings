@@ -1,15 +1,15 @@
 # Dutch translation for phosh-mobile-settings.
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# Nathan Follens <nfollens@gnome.org>,  2024-2025.
+# Nathan Follens <nfollens@gnome.org>,  2024-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-10-11 02:13+0000\n"
-"PO-Revision-Date: 2025-10-11 23:01+0200\n"
+"POT-Creation-Date: 2026-08-09 06:18+0000\n"
+"PO-Revision-Date: 2026-08-11 09:57+0200\n"
 "Last-Translator: Nathan Follens <nfollens@gnome.org>\n"
 "Language-Team: GNOME-NL https://matrix.to/#/#nl:gnome.org\n"
 "Language: nl\n"
@@ -17,18 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:2
-#: src/ui/mobile-settings-window.ui:6
+#: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
 msgstr "Mobiele instellingen"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
-msgid "Mobile;Preferences;MobileSettings;"
+msgid "Mobile;Preferences;MobileSettings;Tweaks;"
 msgstr ""
-"Mobile;Preferences;MobileSettings;Mobiele instellingen;mobiele;instellingen;"
+"Mobile;Preferences;MobileSettings;Tweaks;Mobiele "
+"instellingen;mobiele;instellingen;afstellingen;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -47,6 +47,10 @@ msgid "Advanced settings for Mobile devices using Phosh"
 msgstr ""
 "Geavanceerde instellingen voor mobiele apparaten die gebruik maken van Phosh"
 
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:19
+msgid "Phosh developers"
+msgstr "Phosh-ontwikkelaars"
+
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
 msgstr "Beschikbare panelen"
@@ -59,121 +63,283 @@ msgstr "Compositorpaneel"
 msgid "Feedback panel"
 msgstr "Feedbackpaneel"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "Kritieke temperatuur is %.2f°C"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "Apparaat in pauzestand zetten"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "Pauzestand is nog in experimentele fase"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "nu in pauzestand zetten"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "Temperatuur"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "VPU"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "Brandstofmeter"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "Accu"
 
-#: src/conf-tweaks/ms-tweaks-callback-handlers.c:39
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:13
+msgid "Add Layout"
+msgstr "Indeling toevoegen"
+
+#: libpms/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:96
+#: src/ui/ms-updates-panel.ui:139
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: libpms/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:23
+msgid "Add"
+msgstr "Toevoegen"
+
+#: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
+msgid "Language"
+msgstr "Taal"
+
+#: libpms/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Indelingen"
+
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: libpms/ms-osk-layout-prefs.ui:29
+msgid "No Layouts configured"
+msgstr "Geen indelingen geconfigureerd"
+
+#: libpms/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:47
+msgid "More options…"
+msgstr "Meer opties…"
+
+#: libpms/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:60
+msgid "Move Up"
+msgstr "Naar boven"
+
+#: libpms/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:64
+msgid "Move Down"
+msgstr "Naar beneden"
+
+#: libpms/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: libpms/lang/ms-common-language.c:312
+msgid "Other…"
+msgstr "Andere…"
+
+#: libpms/lang/ms-language-chooser.ui:4
+msgid "Select Language"
+msgstr "Selecteer taal"
+
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:108
+#: src/ui/ms-hidden-apps-dialog.ui:15
+msgid "_Cancel"
+msgstr "_Annuleren"
+
+#: libpms/lang/ms-language-chooser.ui:23 src/ui/ms-hidden-apps-dialog.ui:23
+msgid "_Select"
+msgstr "_Selecteren"
+
+#: libpms/lang/ms-language-chooser.ui:44
+msgid "Language or country"
+msgstr "Taal of land"
+
+#: libpms/lang/ms-language-chooser.ui:68
+msgid "No languages found"
+msgstr "Geen talen gevonden"
+
+#: libpms/lang/ms-language-chooser.ui:79
+msgid "More…"
+msgstr "Meer…"
+
+#: libpms/lang/ms-util.c:130
+msgid "Today"
+msgstr "Vandaag"
+
+#: libpms/lang/ms-util.c:134
+msgid "Yesterday"
+msgstr "Gisteren"
+
+#. Translators: This is a date format string in the style of "Feb 24".
+#: libpms/lang/ms-util.c:142
+#, no-c-format
+msgid "%b %e"
+msgstr "%d %b"
+
+#. Translators: This is a date format string in the style of "Feb 24, 2013".
+#: libpms/lang/ms-util.c:147
+msgid "%b %e, %Y"
+msgstr "%d %b %Y"
+
+#. TRANSLATORS: This is the datetime format in the style of
+#. "Aug 1, 10:10:10 PM", "Feb 24, 2013, 10:10:10 PM", "Today, 10:10:10 AM",
+#. and "Yesterday, 10:10:10 AM"
+#: libpms/lang/ms-util.c:166
+#, c-format
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: libpms/lang/ms-util.c:186
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d uur"
+msgstr[1] "%d uur"
+
+#: libpms/lang/ms-util.c:187
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minuut"
+msgstr[1] "%d minuten"
+
+#: libpms/lang/ms-util.c:188
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d seconde"
+msgstr[1] "%d seconden"
+
+#. 5 hours 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:195
+#, c-format
+msgctxt "hours minutes seconds"
+msgid "%s %s %s"
+msgstr "%s %s %s"
+
+#. 5 hours 2 minutes
+#: libpms/lang/ms-util.c:200
+#, c-format
+msgctxt "hours minutes"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 5 hours
+#: libpms/lang/ms-util.c:205
+#, c-format
+msgctxt "hours"
+msgid "%s"
+msgstr "%s"
+
+#. 2 minutes 12 seconds
+#: libpms/lang/ms-util.c:213
+#, c-format
+msgctxt "minutes seconds"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. 2 minutes
+#: libpms/lang/ms-util.c:218
+#, c-format
+msgctxt "minutes"
+msgid "%s"
+msgstr "%s"
+
+#. 0 seconds
+#: libpms/lang/ms-util.c:229
+msgid "0 seconds"
+msgstr "0 seconden"
+
+#: src/conf-tweaks/ms-tweaks-callback-handlers.c:61
 #, c-format
 msgid "Something went wrong: %s"
 msgstr "Oeps, er ging iets mis: %s"
 
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Algemeen"
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:479
+msgid "Authentication cancelled"
+msgstr "Authenticatie geannuleerd"
 
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Sneltoetsen tonen"
+#. We had errors while running the commands, so inform the user of this.
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:484
+#, c-format
+msgid "%i error occurred while saving"
+msgid_plural "%i errors occurred while saving"
+msgstr[0] "%i fout opgetreden bij het opslaan"
+msgstr[1] "%i fouten opgetreden bij het opslaan"
 
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Afsluiten"
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
+msgid "You need to authenticate as administrator to save some settings"
+msgstr "Om bepaalde instellingen op te slaan dient u zich te authenticeren"
 
-#: src/mobile-settings-application.c:36
+#: src/ms-alerts-panel.c:238
+msgid "Could not get list of cell broadcast messages"
+msgstr "Kon geen lijst met cell broadcast-berichten ophalen"
+
+#: src/ms-application.c:37
 msgid "- Manage your mobile settings"
 msgstr "- Beheer uw mobiele instellingen"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:447
+#: src/ms-application.c:548
 msgid "translator-credits"
 msgstr ""
 "Nathan Follens <nfollens@gnome.org>\n"
 "Meer info over GNOME-NL https://nl.gnome.org"
 
-#: src/mobile-settings-window.c:148
-msgid "Device"
-msgstr "Apparaat"
-
-#: src/ms-alerts-panel.c:242
-msgid "Could not get list of cell broadcast messages"
-msgstr "Kon geen lijst met cell broadcast-berichten ophalen"
-
-#: src/ms-audio-devices.c:178
+#: src/ms-audio-devices.c:179
 msgid "Media Volume"
 msgstr "Mediavolume"
 
-#: src/ms-audio-devices.c:180
+#: src/ms-audio-devices.c:182
 msgid "Notification Volume"
 msgstr "Notificatievolume"
 
-#: src/ms-audio-devices.c:182
+#: src/ms-audio-devices.c:185
+msgid "Voice Call Volume"
+msgstr "Oproepvolume"
+
+#: src/ms-audio-devices.c:188
 msgid "Ring Tone Volume"
 msgstr "Beltoonvolume"
 
-#: src/ms-audio-devices.c:184
-msgid "Call volume"
-msgstr "Oproepvolume"
-
-#: src/ms-audio-devices.c:186
+#: src/ms-audio-devices.c:191
 msgid "Alarm Volume"
 msgstr "Wekkervolume"
 
-#: src/ms-audio-devices.c:188
+#: src/ms-audio-devices.c:194
 msgid "Emergency Alerts Volume"
 msgstr "Volume voor noodwaarschuwingen"
 
@@ -181,82 +347,99 @@ msgstr "Volume voor noodwaarschuwingen"
 msgid "Message of unknown severity"
 msgstr "Bericht met onbekende ernst"
 
-#: src/ms-feedback-panel.c:212
+#: src/ms-feedback-panel.c:338
 msgid "Sound file does not exist"
 msgstr "Geluidsbestand bestaat niet"
 
-#: src/ms-feedback-panel.c:214
+#: src/ms-feedback-panel.c:340
 msgid "Sound file is corrupt"
 msgstr "Geluidsbestand is beschadigd"
 
-#: src/ms-feedback-panel.c:216
+#: src/ms-feedback-panel.c:342
 msgid "Failed to play sound"
 msgstr "Kan geluid niet afspelen"
 
-#: src/ms-feedback-panel.c:255
+#: src/ms-feedback-panel.c:381
 #, c-format
 msgid "Playing %s"
 msgstr "%s wordt afgespeeld"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:416
+#: src/ms-feedback-panel.c:579
 msgid "low"
 msgstr "laag"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:419
+#: src/ms-feedback-panel.c:582
 msgid "normal"
 msgstr "normaal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:422
+#: src/ms-feedback-panel.c:585
 msgid "critical"
 msgstr "kritiek"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:426
+#: src/ms-feedback-panel.c:589
 msgid "none"
 msgstr "geen"
 
-#: src/ms-feedback-panel.c:806
+#: src/ms-feedback-panel.c:1008
 msgid "Mobile Settings Volume Control"
 msgstr "Volumebeheer voor mobiele instellingen"
+
+#: src/ms-lang-panel.c:80
+msgid "Failed to set system locale"
+msgstr "Kon taalinstelling van het systeem niet instellen"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Kon achtergrond voor vergrendelscherm niet instellen"
 
+#: src/ms-osk-panel.c:550
+msgid "Shortcuts reset to defaults"
+msgstr "Snelkoppelingen teruggezet naar standaardwaarden"
+
+#. Translators: This reverts resetting keyboard shortcuts to defaults
+#: src/ms-osk-panel.c:560
+msgctxt "undo shortcuts"
+msgid "_Undo"
+msgstr "_Ongedaan maken"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:746
+#: src/ms-osk-panel.c:818
 msgid "Default"
 msgstr "Standaard"
 
-#: src/ms-osk-panel.c:747
+#: src/ms-osk-panel.c:819
 msgid "The default completer selected by the OSK"
 msgstr "De standaardaanvuller geselecteerd door het schermtoetsenbord"
 
-#: src/ms-osk-panel.c:750
+#: src/ms-osk-panel.c:822
 msgid "No information available for this completer"
 msgstr "Geen informatie over deze aanvuller beschikbaar"
 
-#: src/ms-overview-panel.c:69
+#: src/ms-overview-panel.c:62
+#, c-format
+msgid "%u App Made Visible Again"
+msgid_plural "%u Apps Made Visible Again"
+msgstr[0] "%u toepassing opnieuw zichtbaar gemaakt"
+msgstr[1] "%u toepassingen opnieuw zichtbaar gemaakt"
+
+#: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
 msgstr "Favorieten resetten?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:105
 msgid "Reset list of favorite applications to the default?"
 msgstr ""
 "De lijst met favoriete toepassingen terugzetten op de standaardwaarden?"
 
-#: src/ms-overview-panel.c:75
-msgid "_Cancel"
-msgstr "_Annuleren"
-
-#: src/ms-overview-panel.c:76
+#: src/ms-overview-panel.c:109
 msgid "_Reset"
 msgstr "_Resetten"
 
-#: src/ms-overview-panel.c:331
+#: src/ms-overview-panel.c:364
 msgid "Failed to set wallpaper for overview"
 msgstr "Kon achtergrond voor overzicht niet instellen"
 
@@ -318,13 +501,43 @@ msgid "Not available"
 msgstr "Niet beschikbaar"
 
 #. Translators: "Custom" is the name of a user-defined sound theme
-#: src/ms-sound-row.c:128
+#: src/ms-sound-row.c:130
 msgid "Custom"
 msgstr "Aangepast"
 
-#: src/ms-sound-row.c:309
+#: src/ms-sound-row.c:311
 msgid "Choose sound file"
 msgstr "Kies een geluidsbestand"
+
+#. Translators: %s is a OS version number like 0.20260614
+#: src/ms-updates-panel.c:164
+#, c-format
+msgid "Update to %s"
+msgstr "Bijwerken naar %s"
+
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
+#, c-format
+msgid "OS update failed: %s"
+msgstr "Bijwerken van besturingssysteem is mislukt: %s"
+
+#: src/ms-updates-panel.c:283
+#, c-format
+msgid "Canceling OS update failed: %s"
+msgstr "Annuleren van bijwerken van besturingssysteem is mislukt: %s"
+
+#: src/ms-updates-panel.c:346
+msgid "OS Update already in progress"
+msgstr "Het besturingssysteem wordt al bijgewerkt"
+
+#. Translators %s is an os version number like 0.20260614
+#: src/ms-updates-panel.c:354
+#, c-format
+msgid "Updating to %s…"
+msgstr "Bezig met bijwerken naar %s…"
+
+#: src/ms-updates-panel.c:374
+msgid "OS update in progress"
+msgstr "Het besturingssysteem wordt bijgewerkt"
 
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
@@ -345,175 +558,45 @@ msgstr "Stil"
 msgid "Choose Wallpaper"
 msgstr "Kies achtergrond"
 
-#. Translators: this is a verb.
-#: src/ui/mobile-settings-window.ui:31
-msgid "Search"
-msgstr "Zoeken"
+#: src/ms-window.c:132
+msgid "Configurable Tweaks"
+msgstr "Configureerbare afstellingen"
 
-#: src/ui/mobile-settings-window.ui:48
-msgid "Search settings"
-msgstr "Zoekinstellingen"
+#: src/ms-window.c:183
+msgid "Device"
+msgstr "Apparaat"
 
-#: src/ui/mobile-settings-window.ui:98
-msgid "Welcome"
-msgstr "Welkom"
+#: src/ui/ms-about-panel.ui:19
+msgid "Phosh logo"
+msgstr "Phosh-logo"
 
-#: src/ui/mobile-settings-window.ui:104
-msgid "Welcome to Mobile Settings"
-msgstr "Welkom bij Mobiele instellingen"
+#: src/ui/ms-about-panel.ui:30
+msgid "Phosh Version"
+msgstr "Phosh-versie"
 
-#: src/ui/mobile-settings-window.ui:105
-msgid "Tweak advanced mobile settings"
-msgstr "Stel geavanceerde mobiele instellingen af"
+#: src/ui/ms-about-panel.ui:38
+msgid "Operating System"
+msgstr "Besturingssysteem"
 
-#: src/ui/mobile-settings-window.ui:113
-msgid "Top Bar"
-msgstr "Bovenste balk"
+#: src/ui/ms-about-panel.ui:46
+msgid "Operating System Version"
+msgstr "Besturingssysteemversie"
 
-#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
-msgid "Quick Settings"
-msgstr "Snelle instellingen"
+#: src/ui/ms-about-panel.ui:54
+msgid "Hardware Model"
+msgstr "Hardwaremodel"
 
-#: src/ui/mobile-settings-window.ui:122
-msgid "Notches"
-msgstr "Inkepingen"
+#: src/ui/ms-about-panel.ui:66
+msgid "Support Phosh"
+msgstr "Ondersteun Phosh"
 
-#: src/ui/mobile-settings-window.ui:133
-msgid "Overview"
-msgstr "Overzicht"
+#: src/ui/ms-about-panel.ui:67
+msgid "Your donations make our work possible"
+msgstr "Uw donaties maken ons werk mogelijk"
 
-#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
-msgid "Favorites"
-msgstr "Favorieten"
-
-#: src/ui/mobile-settings-window.ui:142
-msgid "Filter"
-msgstr "Filteren"
-
-#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
-msgid "Wallpaper"
-msgstr "Achtergrond"
-
-#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
-msgid "Feedback"
-msgstr "Feedback"
-
-#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
-msgid "Sounds"
-msgstr "Geluiden"
-
-#: src/ui/mobile-settings-window.ui:164
-msgid "Wakeup"
-msgstr "Wakker maken"
-
-#: src/ui/mobile-settings-window.ui:165
-msgid "Vibra"
-msgstr "Vibratie"
-
-#: src/ui/mobile-settings-window.ui:166
-msgid "Haptic"
-msgstr "Haptisch"
-
-#: src/ui/mobile-settings-window.ui:167
-msgid "LED"
-msgstr "LED"
-
-#: src/ui/mobile-settings-window.ui:178
-msgid "Compositor"
-msgstr "Compositor"
-
-#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
-msgid "Scaling"
-msgstr "Schalen"
-
-#: src/ui/mobile-settings-window.ui:197
-msgid "Lockscreen"
-msgstr "Vergrendelscherm"
-
-#: src/ui/mobile-settings-window.ui:206
-msgid "Shuffle"
-msgstr "Willekeurige volgorde"
-
-#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
-msgid "Widgets"
-msgstr "Widgets"
-
-#: src/ui/mobile-settings-window.ui:208
-msgid "Password"
-msgstr "Wachtwoord"
-
-# misschien 'samenvloeiing' - Nathan
-#: src/ui/mobile-settings-window.ui:219
-msgid "Convergence"
-msgstr "Convergentie"
-
-#: src/ui/mobile-settings-window.ui:237
-msgid "On Screen Keyboard"
-msgstr "Schermtoetsenbord"
-
-#: src/ui/mobile-settings-window.ui:245
-msgid "Keyboard"
-msgstr "Toetsenbord"
-
-#: src/ui/mobile-settings-window.ui:246
-msgid "Unfold"
-msgstr "Uitklappen"
-
-#: src/ui/mobile-settings-window.ui:247
-msgid "OSK"
-msgstr "Schermtoetsenbord"
-
-#: src/ui/mobile-settings-window.ui:248
-msgid "Word Completion"
-msgstr "Woordaanvulling"
-
-#: src/ui/mobile-settings-window.ui:259
-msgid "Emergency Alerts"
-msgstr "Noodwaarschuwingen"
-
-#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
-msgid "Emergency"
-msgstr "Noodgeval"
-
-#: src/ui/mobile-settings-window.ui:268
-msgid "Cell Broadcast"
-msgstr "Cell broadcast"
-
-#: src/ui/mobile-settings-window.ui:269
-msgid "Danger"
-msgstr "Gevaar"
-
-#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
-msgid "Sensors"
-msgstr "Sensoren"
-
-#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
-msgid "High Contrast"
-msgstr "Hoog contrast"
-
-#: src/ui/mobile-settings-window.ui:299
-msgid "Experimental features"
-msgstr "Experimentele functies"
-
-#: src/ui/mobile-settings-window.ui:308
-msgid "Suspend"
-msgstr "Pauzestand"
-
-#: src/ui/mobile-settings-window.ui:309
-msgid "Experimental"
-msgstr "Experimenteel"
-
-#: src/ui/mobile-settings-window.ui:333
-msgid "_Show Configurable Tweaks"
-msgstr "Configureerbare af_stellingen tonen"
-
-#: src/ui/mobile-settings-window.ui:340
-msgid "_Keyboard Shortcuts"
-msgstr "Snel_toetsen"
-
-#: src/ui/mobile-settings-window.ui:344
-msgid "_About Mobile Settings"
-msgstr "_Over Mobiele instellingen"
+#: src/ui/ms-about-panel.ui:70
+msgid "D_onate"
+msgstr "D_oneren"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -680,76 +763,88 @@ msgstr "Ingeschakeld"
 msgid "Sound Settings"
 msgstr "Geluidsinstellingen"
 
-#: src/ui/ms-feedback-panel.ui:27
+#: src/ui/ms-feedback-panel.ui:17
+msgid "Play sound on adjusting volume sliders"
+msgstr "Speel geluid af bij het aanpassen van het volume met de schuifbalken"
+
+#: src/ui/ms-feedback-panel.ui:33
 msgid "Feedback Settings"
 msgstr "Feedbackinstellingen"
 
-#: src/ui/ms-feedback-panel.ui:30
+#: src/ui/ms-feedback-panel.ui:36
 msgid "Feedback profile"
 msgstr "Feedbackprofiel"
 
-#: src/ui/ms-feedback-panel.ui:31
+#: src/ui/ms-feedback-panel.ui:37
 msgid "The global maximum feedback profile"
 msgstr "Het globale maximale feedbackprofiel"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:52
 msgid "Prefer flash"
 msgstr "Voorkeur voor flits"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:53
 msgid "Prefer camera flash over status LED when available"
 msgstr "Verkies de cameraflits boven de status-LED, indien beschikbaar"
 
-#. Translators: Vol- means the 'Lower Volume' key
-#: src/ui/ms-feedback-panel.ui:53
-msgid "Silence on Vol-"
-msgstr "Stilte bij Vol-"
+#: src/ui/ms-feedback-panel.ui:59
+msgid "Silence by volume button press"
+msgstr "Dempen met een druk op de volumeknop"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:60
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+"When locked put the phone in silent mode when pressing the button that "
+"lowers the volume on incoming calls"
 msgstr ""
-"Druk op Vol- wanneer u een inkomende oproep ontvangt om de telefoon in "
-"stille modus te zetten"
+"Druk op de knop die het volume verlaagt wanneer u een inkomende oproep "
+"ontvangt om de telefoon in stille modus te zetten"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:60
+#: src/ui/ms-feedback-panel.ui:66
 msgid "Haptic strength"
 msgstr "Haptische sterkte"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:67
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Maximale haptische feedbacksterkte, in procent"
 
-#: src/ui/ms-feedback-panel.ui:80
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Per Application settings"
 msgstr "Instellingen per toepassing"
 
-#: src/ui/ms-feedback-panel.ui:94
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
+msgid "Sounds"
+msgstr "Geluiden"
+
+#: src/ui/ms-feedback-panel.ui:100
 msgid "The sound to use for certain events"
 msgstr "Het geluid om voor bepaalde gebeurtenissen te gebruiken"
 
-#: src/ui/ms-feedback-panel.ui:102
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Phone Calls"
 msgstr "Oproepen"
 
-#: src/ui/ms-feedback-panel.ui:108
+#: src/ui/ms-feedback-panel.ui:126
 msgid "SMS"
 msgstr "Sms"
 
-#: src/ui/ms-feedback-panel.ui:114
-msgid "Instant messages"
+#: src/ui/ms-feedback-panel.ui:138 src/ui/ms-feedback-panel.ui:207
+msgid "Instant Messages"
 msgstr "Instantmessages"
 
-#: src/ui/ms-feedback-panel.ui:125
+#: src/ui/ms-feedback-panel.ui:151
+msgid "Alarm Clock"
+msgstr "Wekker"
+
+#: src/ui/ms-feedback-panel.ui:162
 msgid "Screen Wakeup"
 msgstr "Scherm wakker maken"
 
-#: src/ui/ms-feedback-panel.ui:128
+#: src/ui/ms-feedback-panel.ui:165
 msgid "Notification urgency that lights up the screen"
 msgstr "Met welke urgentie meldingen het scherm mogen laten oplichten"
 
-#: src/ui/ms-feedback-panel.ui:146
+#: src/ui/ms-feedback-panel.ui:183
 msgid ""
 "Notification categories that wake up the screen independent from their "
 "urgency"
@@ -757,61 +852,87 @@ msgstr ""
 "Notificatiecategorieën die het scherm wakker maken onafhankelijk van hun "
 "urgentie"
 
-#: src/ui/ms-feedback-panel.ui:149
+#: src/ui/ms-feedback-panel.ui:186
 msgid "Calls"
 msgstr "Oproepen"
 
-#: src/ui/ms-feedback-panel.ui:150
+#: src/ui/ms-feedback-panel.ui:187
 msgid "A generic audio or video call notification"
 msgstr "Een standaardnotificatie voor audio- of video-oproepen"
 
-#: src/ui/ms-feedback-panel.ui:156
+#: src/ui/ms-feedback-panel.ui:193
 msgid "Device events"
 msgstr "Apparaatgebeurtenissen"
 
-#: src/ui/ms-feedback-panel.ui:157
+#: src/ui/ms-feedback-panel.ui:194
 msgid "A generic device-related notification"
 msgstr "Een standaardnotificatie voor aan het apparaat gerelateerde zaken"
 
-#: src/ui/ms-feedback-panel.ui:163
+#: src/ui/ms-feedback-panel.ui:200
 msgid "Emails"
 msgstr "E-mails"
 
-#: src/ui/ms-feedback-panel.ui:164
+#: src/ui/ms-feedback-panel.ui:201
 msgid "A generic e-mail-related notification"
 msgstr "Een standaardnotificatie voor e-mails en gerelateerde zaken"
 
-#: src/ui/ms-feedback-panel.ui:170
-msgid "Instant Messages"
-msgstr "Instantmessages"
-
-#: src/ui/ms-feedback-panel.ui:171
+#: src/ui/ms-feedback-panel.ui:208
 msgid "A generic instant message-related notification"
 msgstr "Een standaardnotificatie voor instant messaging"
 
-#: src/ui/ms-feedback-panel.ui:177
+#: src/ui/ms-feedback-panel.ui:214
 msgid "Network events"
 msgstr "Netwerkgebeurtenissen"
 
-#: src/ui/ms-feedback-panel.ui:178
+#: src/ui/ms-feedback-panel.ui:215
 msgid "A generic network notification"
 msgstr "Een standaardnotificatie voor netwerkgebeurtenissen"
 
-#: src/ui/ms-feedback-panel.ui:184
+#. Translators: "presence change" means coming online or going offline,
+#. like in an instant messenger.
+#: src/ui/ms-feedback-panel.ui:223
 msgid "Presence changes"
 msgstr "Aanwezigheidswijzigingen"
 
-#: src/ui/ms-feedback-panel.ui:185
+#: src/ui/ms-feedback-panel.ui:224
 msgid "A generic presence change notification"
 msgstr "Een standaardnotificatie voor wijzigingen in aanwezigheid"
 
-#: src/ui/ms-feedback-panel.ui:191
+#: src/ui/ms-feedback-panel.ui:230
 msgid "File transfers"
 msgstr "Bestandsoverdrachten"
 
-#: src/ui/ms-feedback-panel.ui:192
+#: src/ui/ms-feedback-panel.ui:231
 msgid "A generic file transfer or download notification"
 msgstr "Een standaardnotificatie voor bestandsoverdrachten of downloads"
+
+#: src/ui/ms-hidden-app-row.ui:5 src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Toepassing"
+
+#: src/ui/ms-hidden-apps-dialog.ui:4
+msgid "Hidden Apps"
+msgstr "Verborgen toepassingen"
+
+#: src/ui/ms-hidden-apps-dialog.ui:83
+msgid "No Apps are Currently Hidden"
+msgstr "Er worden momenteel geen toepassingen verborgen"
+
+#: src/ui/ms-lang-panel.ui:15
+msgid "The language of the user interface"
+msgstr "De taal van de gebruikersinterface"
+
+#: src/ui/ms-lang-panel.ui:18
+msgid "_Language"
+msgstr "Taa_l"
+
+#: src/ui/ms-lang-panel.ui:45
+msgid "Language change requires logout or restart"
+msgstr "Om de taal te wijzigen moet u zich afmelden of het apparaat herstarten"
+
+#: src/ui/ms-lang-panel.ui:46
+msgid "Logout"
+msgstr "Afmelden"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
@@ -845,49 +966,33 @@ msgstr ""
 "Aantal seconden voordat het scherm vergrendeld wordt, nadat het zwart "
 "geworden is"
 
-#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:94
 msgid "Background"
 msgstr "Achtergrond"
 
-#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:100
 msgid "_Select Wallpaper…"
 msgstr "Achtergrond _selecteren…"
 
-#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:112
 msgid "Use wallpaper"
 msgstr "Achtergrond gebruiken"
 
-#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
 msgstr "Bepaalt of er een kleurrijke achtergrond gebruikt wordt"
+
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
+msgid "Widgets"
+msgstr "Widgets"
 
 #: src/ui/ms-lockscreen-panel.ui:80
 msgid "Additional widgets for the lock screen"
 msgstr "Extra widgets voor het vergrendelscherm"
 
-#. Translators: Title for a dialog to add a new on-screen keyboard layout
-#. Translators: Label for a button that allows the user to add a new keyboard layout
-#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-msgid "Add Layout"
-msgstr "Indeling toevoegen"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:20
-#: src/ui/ms-osk-add-shortcut-dialog.ui:23
-msgid "Add"
-msgstr "Toevoegen"
-
-#: src/ui/ms-osk-add-layout-dialog.ui:40
-msgid "Language"
-msgstr "Taal"
-
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:170
 msgid "Add Shortcut"
 msgstr "Snelkoppeling toevoegen"
 
@@ -911,49 +1016,23 @@ msgstr "Druk op een toets, zoals letters (bv. C of V), enz."
 msgid "_Shortcut Key"
 msgstr "_Sneltoets"
 
-#: src/ui/ms-osk-add-shortcut-dialog.ui:154
+#: src/ui/ms-osk-add-shortcut-dialog.ui:167
 msgid "Shortcut Preview"
 msgstr "Voorbeeld van snelkoppeling"
 
-#: src/ui/ms-osk-layout-prefs.ui:5
-msgctxt "on screen keyboard"
-msgid "Layouts"
-msgstr "Indelingen"
-
-#. Translators: Message displayed when there are no keyboard layouts configured
-#: src/ui/ms-osk-layout-prefs.ui:30
-msgid "No Layouts configured"
-msgstr "Geen indelingen geconfigureerd"
-
-#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "Meer opties…"
-
-#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Naar boven"
-
-#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Naar beneden"
-
-#: src/ui/ms-osk-layout-row.ui:49
-msgid "Remove"
-msgstr "Verwijderen"
-
-#: src/ui/ms-osk-panel.ui:13
+#: src/ui/ms-osk-panel.ui:15
 msgid "Enable _On Screen Keyboard"
 msgstr "Schermt_oetsenbord inschakelen"
 
-#: src/ui/ms-osk-panel.ui:14
+#: src/ui/ms-osk-panel.ui:16
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Of het schermtoetsenbord indien nodig getoond wordt"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:22
 msgid "Unfold long-press"
 msgstr "Lang indrukken om uit te klappen"
 
-#: src/ui/ms-osk-panel.ui:21
+#: src/ui/ms-osk-panel.ui:23
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -961,120 +1040,149 @@ msgstr ""
 "schermtoetsenbord uit te klappen"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
-#: src/ui/ms-osk-panel.ui:26
+#: src/ui/ms-osk-panel.ui:28
 msgid "short"
 msgstr "kort"
 
 #. Translators: abbreviation for 1 second interval of time
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:30
 msgctxt "press interval"
 msgid "normal"
 msgstr "normaal"
 
 #. Translators: abbreviation for greater than or equal to 1.5 second interval of time
-#: src/ui/ms-osk-panel.ui:30
+#: src/ui/ms-osk-panel.ui:32
 msgid "long"
 msgstr "lang"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:40
 msgid "Ignore hardware keyboard"
 msgstr "Hardwaretoetsenbord negeren"
 
-#: src/ui/ms-osk-panel.ui:39
+#: src/ui/ms-osk-panel.ui:41
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Of het schermtoetsenbord getoond moet worden wanneer er een fysiek "
 "toetsenbord aanwezig is"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:48
 msgid "Key indicator popup"
 msgstr "Pop-up voor aangeduide toets"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:49
 msgid "Whether to show a popover indicating the currently pressed key"
 msgstr ""
 "Bepaalt of er een pop-over weergegeven wordt om de huidig ingedrukte toets "
 "aan te duiden"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:61
 msgid "Keyboard height in portrait mode"
 msgstr "Hoogte van toetsenbord in portretmodus"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:62
 msgid "When the screen is taller than wide"
 msgstr "Wanneer het scherm hoger is dan het breed is"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:78
 msgid "Keyboard height in landscape mode"
 msgstr "Hoogte van toetsenbord in landschapsmodus"
 
-#: src/ui/ms-osk-panel.ui:77
+#: src/ui/ms-osk-panel.ui:79
 msgid "When the screen is wider than tall"
 msgstr "Wanneer het scherm breder is dan het hoog is"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:103 src/ui/ms-window.ui:184
+msgid "Scaling"
+msgstr "Schalen"
+
+#: src/ui/ms-osk-panel.ui:106
 msgid "Keep physical size constant"
 msgstr "Fysieke grootte constant houden"
 
-#: src/ui/ms-osk-panel.ui:105
-msgid "Whether to keep the OSK's size constant in portrait mode"
+#: src/ui/ms-osk-panel.ui:107
+msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
-"Bepaalt of de grootte van het schermtoetsenbord in portretmodus constant "
-"blijft"
+"Zorg ervoor dat het schermtoetsenbord groot genoeg is op schermen met een "
+"hoge resolutie"
 
-#: src/ui/ms-osk-panel.ui:111
+#: src/ui/ms-osk-panel.ui:113
 msgid "Add empty space below keys"
 msgstr "Lege ruimte toevoegen onder toetsen"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:114
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
 "Bepaalt of er onder de toetsen van het schermtoetsenbord een leeg vak "
 "weergegeven moet worden om het toetsenbord hoger te plaatsen."
 
-#: src/ui/ms-osk-panel.ui:122
+#: src/ui/ms-osk-panel.ui:124
 msgid "Text Completion"
 msgstr "Tekstaanvulling"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:127
 msgid "Opportunistic word completion"
 msgstr "Opportunistische woordaanvulling"
 
-#: src/ui/ms-osk-panel.ui:126
+#: src/ui/ms-osk-panel.ui:128
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Schakel woordaanvulling in wanneer de toepassing aangeeft dat het nuttig kan "
 "zijn"
 
-#: src/ui/ms-osk-panel.ui:133
+#: src/ui/ms-osk-panel.ui:135
 msgid "Toggle via OSK menu"
 msgstr "Aan/uit via schermtoetsenbordmenu"
 
-#: src/ui/ms-osk-panel.ui:134
+#: src/ui/ms-osk-panel.ui:136
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Schakel woordaanvulling aan of uit via de menuknop van het schermtoetsenbord"
 
-#: src/ui/ms-osk-panel.ui:140
+#: src/ui/ms-osk-panel.ui:142
 msgid "Default Completer"
 msgstr "Standaardaanvuller"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:143
 msgid "The default completion engine to use"
 msgstr "Het standaard te gebruiken aanvullingsprogramma"
 
+#. Translators: Space is the ' ' character here
 #: src/ui/ms-osk-panel.ui:152
+msgid "Handle space around punctuation characters"
+msgstr "Spaties rond interpunctietekens verwerken"
+
+#. Translators: Space is the ' ' character here
+#: src/ui/ms-osk-panel.ui:154
+msgid ""
+"This also swaps the space and punctuation characters after word completion"
+msgstr ""
+"Hiermee verwisselen spatie en interpunctietekens van plaats op het einde van "
+"een woord"
+
+#: src/ui/ms-osk-panel.ui:162
 msgid "Terminal Layout"
 msgstr "Terminalindeling"
 
-#: src/ui/ms-osk-panel.ui:171
+#: src/ui/ms-osk-panel.ui:181
 msgid "Shortcuts"
 msgstr "Snelkoppelingen"
 
-#: src/ui/ms-osk-panel.ui:172
+#: src/ui/ms-osk-panel.ui:182
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "De snelkoppelingen in de snelkoppelingsbalk"
+
+#: src/ui/ms-osk-panel.ui:190
+msgid "Reset to default"
+msgstr "Herstellen naar standaardwaarden"
+
+#: src/ui/ms-osk-panel.ui:191
+msgid "Reset the shortcut bar to its default layout"
+msgstr "Zet de snelkoppelingsbalk terug naar de standaardindeling"
+
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
+msgid "Favorites"
+msgstr "Favorieten"
 
 #: src/ui/ms-overview-panel.ui:22
 msgid "Organize Favorites"
@@ -1098,8 +1206,8 @@ msgid "Reset"
 msgstr "Standaardwaarden"
 
 #: src/ui/ms-overview-panel.ui:64
-msgid "Mobile App Filtering"
-msgstr "Mobiele toepassingen filteren"
+msgid "App Filtering and Hiding"
+msgstr "Filteren en verbergen van toepassingen"
 
 #: src/ui/ms-overview-panel.ui:67
 msgid "Set Application Filter Mode"
@@ -1109,9 +1217,22 @@ msgstr "Toepassingsfiltermodus instellen"
 msgid "Show only mobile apps in the overview"
 msgstr "Toon enkel mobiele toepassingen in het overzicht"
 
-#: src/ui/ms-scale-to-fit-row.ui:5
-msgid "Application"
-msgstr "Toepassing"
+#: src/ui/ms-overview-panel.ui:74
+msgid "_Manage Hidden Apps"
+msgstr "Verborge_n toepassingen beheren"
+
+#: src/ui/ms-overview-panel.ui:75
+msgid "Make apps you disabled in the overview visible again"
+msgstr ""
+"Maak toepassingen die u in het overzicht uitgeschakeld hebt terug zichtbaar"
+
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "Geen overeenkomstige panelen"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "Probeer een andere zoekopdracht"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -1124,6 +1245,10 @@ msgid ""
 msgstr ""
 "Er zijn ofwel geen sensoren geïnstalleerd in uw apparaat, ofwel zijn ze door "
 "een killswitch uitgeschakeld."
+
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
+msgid "Sensors"
+msgstr "Sensoren"
 
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
@@ -1140,6 +1265,10 @@ msgstr "Licht"
 #: src/ui/ms-sensor-panel.ui:58
 msgid "Orientation"
 msgstr "Stand"
+
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
+msgid "High Contrast"
+msgstr "Hoog contrast"
 
 #: src/ui/ms-sensor-panel.ui:72
 msgid "Automatic High Contrast"
@@ -1158,6 +1287,11 @@ msgid "Theme will switch to high contrast above the threshold"
 msgstr ""
 "Boven deze drempelwaarde zal het thema overschakelen naar de "
 "hoogcontrastmodus"
+
+# Play? Geen context - Nathan
+#: src/ui/ms-sound-row.ui:33
+msgid "Toggle Play"
+msgstr "Afspelen omschakelen"
 
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
@@ -1185,6 +1319,321 @@ msgstr ""
 "Plaats geen UI-elementen onder inkepingen en andere uitsparingen in het "
 "scherm"
 
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
+msgid "Quick Settings"
+msgstr "Snelle instellingen"
+
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Sorteer uw bijkomende snelle instellingen"
+
+#: src/ui/ms-updates-panel.ui:12
+msgid "OS updates require a system restart"
+msgstr "Updates voor het besturingssysteem vereisen een herstart"
+
+#: src/ui/ms-updates-panel.ui:13
+msgid "Restart"
+msgstr "Herstarten"
+
+#: src/ui/ms-updates-panel.ui:34
+msgid "Looking for updates…"
+msgstr "Zoeken naar updates…"
+
+#: src/ui/ms-updates-panel.ui:45
+msgid "Everything up to date"
+msgstr "Alles is up-to-date"
+
+#: src/ui/ms-updates-panel.ui:46
+msgid "There are no OS updates available"
+msgstr "Er zijn geen updates voor het besturingssysteem beschikbaar"
+
+#: src/ui/ms-updates-panel.ui:57
+msgid "Updates available"
+msgstr "Updates beschikbaar"
+
+#: src/ui/ms-updates-panel.ui:58
+msgid "There are OS updates available"
+msgstr "Er zijn updates voor het besturingssysteem beschikbaar"
+
+#: src/ui/ms-updates-panel.ui:79
+msgid "Fetching OS update…"
+msgstr "Update voor het besturingssysteem wordt opgehaald…"
+
+#: src/ui/ms-updates-panel.ui:122
+msgid "Installing OS update…"
+msgstr "Update voor het besturingssysteem wordt geïnstalleerd…"
+
+#: src/ui/ms-welcome-panel.ui:8
+msgid "Welcome to Mobile Settings"
+msgstr "Welkom bij Mobiele instellingen"
+
+#: src/ui/ms-welcome-panel.ui:9
+msgid "Tweak advanced mobile settings"
+msgstr "Stel geavanceerde mobiele instellingen af"
+
+#. Translators: this is a verb.
+#: src/ui/ms-window.ui:32
+msgid "Search"
+msgstr "Zoeken"
+
+#. Translators: Placeholder text for the search bar input
+#: src/ui/ms-window.ui:50
+msgid "Search settings"
+msgstr "Zoekinstellingen"
+
+#: src/ui/ms-window.ui:100
+msgid "Welcome"
+msgstr "Welkom"
+
+#: src/ui/ms-window.ui:111
+msgid "Top Bar"
+msgstr "Bovenste balk"
+
+#: src/ui/ms-window.ui:120
+msgid "Notches"
+msgstr "Inkepingen"
+
+#: src/ui/ms-window.ui:131
+msgid "Overview"
+msgstr "Overzicht"
+
+#: src/ui/ms-window.ui:140
+msgid "Filter"
+msgstr "Filteren"
+
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
+msgid "Wallpaper"
+msgstr "Achtergrond"
+
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
+msgid "Feedback"
+msgstr "Feedback"
+
+#: src/ui/ms-window.ui:162
+msgid "Wakeup"
+msgstr "Wakker maken"
+
+#: src/ui/ms-window.ui:163
+msgid "Vibra"
+msgstr "Vibratie"
+
+#: src/ui/ms-window.ui:164
+msgid "Haptic"
+msgstr "Haptisch"
+
+#: src/ui/ms-window.ui:165
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/ms-window.ui:176
+msgid "Compositor"
+msgstr "Compositor"
+
+#: src/ui/ms-window.ui:195
+msgid "Lockscreen"
+msgstr "Vergrendelscherm"
+
+#: src/ui/ms-window.ui:204
+msgid "Shuffle"
+msgstr "Willekeurige volgorde"
+
+#: src/ui/ms-window.ui:206
+msgid "Password"
+msgstr "Wachtwoord"
+
+# misschien 'samenvloeiing' - Nathan
+#: src/ui/ms-window.ui:217
+msgid "Convergence"
+msgstr "Convergentie"
+
+#: src/ui/ms-window.ui:235
+msgid "On Screen Keyboard"
+msgstr "Schermtoetsenbord"
+
+#: src/ui/ms-window.ui:243
+msgid "Keyboard"
+msgstr "Toetsenbord"
+
+#: src/ui/ms-window.ui:244
+msgid "Unfold"
+msgstr "Uitklappen"
+
+#: src/ui/ms-window.ui:245
+msgid "OSK"
+msgstr "Schermtoetsenbord"
+
+#: src/ui/ms-window.ui:246
+msgid "Word Completion"
+msgstr "Woordaanvulling"
+
+#: src/ui/ms-window.ui:257
+msgid "Emergency Alerts"
+msgstr "Noodwaarschuwingen"
+
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
+msgid "Emergency"
+msgstr "Noodgeval"
+
+#: src/ui/ms-window.ui:266
+msgid "Cell Broadcast"
+msgstr "Cell broadcast"
+
+#: src/ui/ms-window.ui:267
+msgid "Danger"
+msgstr "Gevaar"
+
+#: src/ui/ms-window.ui:297
+msgid "Experimental features"
+msgstr "Experimentele functies"
+
+#: src/ui/ms-window.ui:306
+msgid "Suspend"
+msgstr "Pauzestand"
+
+#: src/ui/ms-window.ui:307
+msgid "Experimental"
+msgstr "Experimenteel"
+
+#: src/ui/ms-window.ui:327
+msgid "Locale"
+msgstr "Taalinstelling"
+
+#: src/ui/ms-window.ui:338
+msgid "Sound"
+msgstr "Geluid"
+
+#: src/ui/ms-window.ui:347
+msgid "sound"
+msgstr "geluid"
+
+#: src/ui/ms-window.ui:348
+msgid "audio"
+msgstr "audio"
+
+#: src/ui/ms-window.ui:349
+msgid "speaker"
+msgstr "luidspreker"
+
+#: src/ui/ms-window.ui:350
+msgid "microphone"
+msgstr "microfoon"
+
+#: src/ui/ms-window.ui:362
+msgid "OS Updates"
+msgstr "Updates voor het besturingssysteem"
+
+#: src/ui/ms-window.ui:370
+msgid "Updates"
+msgstr "Updates"
+
+#: src/ui/ms-window.ui:382 src/ui/ms-window.ui:390
+msgid "About"
+msgstr "Over"
+
+#: src/ui/ms-window.ui:401
+msgid "Wi-Fi"
+msgstr "Wifi"
+
+#: src/ui/ms-window.ui:405
+msgid "Connectivity"
+msgstr "Connectiviteit"
+
+#: src/ui/ms-window.ui:412
+msgid "wifi"
+msgstr "wifi"
+
+#: src/ui/ms-window.ui:413
+msgid "wlan"
+msgstr "wlan"
+
+#: src/ui/ms-window.ui:414
+msgid "network"
+msgstr "netwerk"
+
+#: src/ui/ms-window.ui:426
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/ui/ms-window.ui:435
+msgid "bluetooth"
+msgstr "bluetooth"
+
+#: src/ui/ms-window.ui:447
+msgid "Cellular"
+msgstr "Mobiel"
+
+#: src/ui/ms-window.ui:456
+msgid "wwan"
+msgstr "wwan"
+
+#: src/ui/ms-window.ui:457
+msgid "modem"
+msgstr "modem"
+
+#: src/ui/ms-window.ui:458
+msgid "gesm"
+msgstr "gesm"
+
+#: src/ui/ms-window.ui:459
+#| msgid "Filter"
+msgid "lte"
+msgstr "lte"
+
+#: src/ui/ms-window.ui:471
+msgid "Online Accounts"
+msgstr "Online-accounts"
+
+#: src/ui/ms-window.ui:480
+msgid "account"
+msgstr "account"
+
+#: src/ui/ms-window.ui:481
+#| msgid "Emails"
+msgid "email"
+msgstr "e-mail"
+
+#: src/ui/ms-window.ui:506
+msgid "_Show Configurable Tweaks"
+msgstr "Configureerbare af_stellingen tonen"
+
+#: src/ui/ms-window.ui:513
+msgid "_Keyboard Shortcuts"
+msgstr "Snel_toetsen"
+
+#: src/ui/ms-window.ui:517
+msgid "_About Mobile Settings"
+msgstr "_Over Mobiele instellingen"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Sneltoetsen tonen"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Zoeken"
+
+#: src/ui/shortcuts-dialog.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#~ msgid "Silence on Vol-"
+#~ msgstr "Stilte bij Vol-"
+
+#~ msgid "Instant messages"
+#~ msgstr "Instantmessages"
+
+#~ msgid "Whether to keep the OSK's size constant in portrait mode"
+#~ msgstr ""
+#~ "Bepaalt of de grootte van het schermtoetsenbord in portretmodus constant "
+#~ "blijft"
+
+#~ msgid "Mobile App Filtering"
+#~ msgstr "Mobiele toepassingen filteren"
