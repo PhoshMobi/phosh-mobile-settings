@@ -1,8 +1,10 @@
-From 6746efa7f5fd110805ec6075ae62638b043ba175 Mon Sep 17 00:00:00 2001
-Message-ID: <6746efa7f5fd110805ec6075ae62638b043ba175.1786135449.git.agx@sigxcpu.org>
+From aea351a31965e471f7a4045cba82c16b5739fca9 Mon Sep 17 00:00:00 2001
+Message-ID: <aea351a31965e471f7a4045cba82c16b5739fca9.1786366384.git.agx@sigxcpu.org>
+In-Reply-To: <1857ab7dced757484810d30e687859c9c19714c7.1786366384.git.agx@sigxcpu.org>
+References: <1857ab7dced757484810d30e687859c9c19714c7.1786366384.git.agx@sigxcpu.org>
 From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
 Date: Fri, 7 Aug 2026 22:43:20 +0200
-Subject: [PATCH] wwan-panel: Work around lack of CCApplication
+Subject: [PATCH 3/3] wwan-panel: Work around lack of CCApplication
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -13,10 +15,10 @@ Signed-off-by: Guido Günther <agx@sigxcpu.org>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/panels/wwan/cc-wwan-panel.c b/panels/wwan/cc-wwan-panel.c
-index 3ba2bc4..9db9617 100644
+index bee916ee9..a8defce34 100644
 --- a/panels/wwan/cc-wwan-panel.c
 +++ b/panels/wwan/cc-wwan-panel.c
-@@ -760,7 +760,7 @@ cc_wwan_panel_init (CcWwanPanel *self)
+@@ -764,7 +764,7 @@ cc_wwan_panel_init (CcWwanPanel *self)
  static void
  wwan_update_panel_visibility (MMManager *mm_manager)
  {
@@ -25,7 +27,7 @@ index 3ba2bc4..9db9617 100644
    GList *devices;
    gboolean has_wwan;
  
-@@ -780,11 +780,13 @@ wwan_update_panel_visibility (MMManager *mm_manager)
+@@ -784,11 +784,13 @@ wwan_update_panel_visibility (MMManager *mm_manager)
          }
      }
  
@@ -39,7 +41,7 @@ index 3ba2bc4..9db9617 100644
  
    g_debug ("WWAN panel visible: %s", has_wwan ? "yes" : "no");
  
-@@ -814,13 +816,15 @@ cc_wwan_panel_static_init_func (void)
+@@ -818,13 +820,15 @@ cc_wwan_panel_static_init_func (void)
  
    if (mm_manager == NULL)
      {

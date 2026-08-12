@@ -1,9 +1,9 @@
 [wrap-git]
 directory=g-c-c
-url=https://gitlab.gnome.org/GNOME/gnome-control-center
-revision=49.3
+url=https://gitlab.gnome.org/GNOME/gnome-control-center.git
+revision=50.4
 depth=1
 diff_files =
   g-c-c/0001-Add-variables-for-plugins.patch,
-  g-c-c/0001-wwan-panel-Work-around-lack-of-CCApplication.patch,
-  g-c-c/0001-wifi-panel-Don-e-use-CCApplication.patch
+  g-c-c/0002-wifi-panel-Don-e-use-CCApplication.patch,
+  g-c-c/0003-wwan-panel-Work-around-lack-of-CCApplication.patch
