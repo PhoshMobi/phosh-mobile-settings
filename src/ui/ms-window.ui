@@ -423,6 +423,32 @@
 
                     <child>
                       <object class="AdwViewStackPage">
+                        <property name="title" translatable="yes">Network</property>
+                        <property name="name">network</property>
+                        <property name="icon-name">org.gnome.Settings-network-symbolic</property>
+                        <property name="child">
+                          <object class="MsPanel">
+                            <property name="enabled">False</property>
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <!-- translators: network is used a a search keyword here -->
+                                  <item translatable="yes">network</item>
+                                  <!-- translators: vpn is used a a search keyword here -->
+                                  <item translatable="yes">vpn</item>
+                                  <!-- translators: this is a network proxy -->
+                                  <item translatable="yes">proxy</item>
+                                </items>
+                              </object>
+                            </property>
+                            <signal name="notify::enabled" handler="on_panel_enabled_changed" swapped="yes" />
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwViewStackPage">
                         <property name="title" translatable="yes">Bluetooth</property>
                         <property name="name">bluetooth</property>
                         <property name="icon-name">org.gnome.Settings-bluetooth-symbolic</property>
