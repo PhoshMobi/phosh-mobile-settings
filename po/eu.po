@@ -6,8 +6,8 @@
 msgid ""
 msgstr "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues\n"
-"POT-Creation-Date: 2026-06-02 16:40+0000\n"
-"PO-Revision-Date: 2026-06-06 16:46+0000\n"
+"POT-Creation-Date: 2026-08-09 06:18+0000\n"
+"PO-Revision-Date: 2026-08-12 16:46+0000\n"
 "Last-Translator: Asier Saratsua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "Language: eu\n"
@@ -39,6 +39,10 @@ msgstr "Aplikazio hau erabiliz, Phosh sistemaren hainbat kontu konfiguratu ditza
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr "Phosh duten mugikorren ezarpen aurreratuak"
 
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:19
+msgid "Phosh developers"
+msgstr "Phosh garatzaileak"
+
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
 msgstr "Panel erabilgarriak"
@@ -51,69 +55,70 @@ msgstr "Konpositore-panela"
 msgid "Feedback panel"
 msgstr "Iritzien panela"
 
-#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#: plugins/librem5/ms-plugin-librem5-panel.c:215
 #, c-format
 msgid "Critical temperature is %.2f°C"
 msgstr "Tenperatura kritikoa %.2f°C da"
 
 #. Translators "Librem 5" is a smartphone model, usually no need to translate it
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:24
 msgid "Librem 5"
 msgstr "Librem 5"
 
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:28
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:40
 msgid "Suspend device"
 msgstr "Eseki gailua"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:42
 msgid "Suspend is experimental"
 msgstr "Esekitzea esperimentala da"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:45
 msgid "suspend now"
 msgstr "eseki orain"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:60
 msgid "Temperatures"
 msgstr "Tenperaturak"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:64
 msgid "CPU"
 msgstr "PUZa"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:83
 msgid "GPU"
 msgstr "PUZa"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:102
 msgid "VPU"
 msgstr "PUBa"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:120
 msgid "Fuel Gauge"
 msgstr "Energia-neurgailua"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:138
 msgid "Battery"
 msgstr "Bateria"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
 #. Translators: Label for a button that allows the user to add a new keyboard layout
-#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:14
+#: libpms/ms-osk-add-layout-dialog.ui:5 libpms/ms-osk-layout-prefs.ui:13
 msgid "Add Layout"
 msgstr "Gehitu diseinua"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:96
+#: src/ui/ms-updates-panel.ui:139
 msgid "Cancel"
 msgstr "Utzi"
 
@@ -123,7 +128,7 @@ msgid "Add"
 msgstr "Gehitu"
 
 #: libpms/ms-osk-add-layout-dialog.ui:40 src/ui/ms-lang-panel.ui:14
-#: src/ui/ms-window.ui:317 src/ui/ms-window.ui:325
+#: src/ui/ms-window.ui:318 src/ui/ms-window.ui:326
 msgid "Language"
 msgstr "Hizkuntza"
 
@@ -133,7 +138,7 @@ msgid "Layouts"
 msgstr "Diseinuak"
 
 #. Translators: Message displayed when there are no keyboard layouts configured
-#: libpms/ms-osk-layout-prefs.ui:30
+#: libpms/ms-osk-layout-prefs.ui:29
 msgid "No Layouts configured"
 msgstr "Ez dago diseinurik konfiguratuta"
 
@@ -161,11 +166,12 @@ msgstr "Bestelakoa…"
 msgid "Select Language"
 msgstr "Hautatu hizkuntza"
 
-#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:71
+#: libpms/lang/ms-language-chooser.ui:15 src/ms-overview-panel.c:108
+#: src/ui/ms-hidden-apps-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Utzi"
 
-#: libpms/lang/ms-language-chooser.ui:23
+#: libpms/lang/ms-language-chooser.ui:23 src/ui/ms-hidden-apps-dialog.ui:23
 msgid "_Select"
 msgstr "_Hautatu"
 
@@ -290,21 +296,6 @@ msgstr[1] "%i errore gertatu dira gordetzean"
 msgid "You need to authenticate as administrator to save some settings"
 msgstr "Administratzaile gisa autentifikatu behar duzu zenbait ezarpen gordetzeko"
 
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Orokorra"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Erakutsi lasterbideak"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Irten"
-
 #: src/ms-alerts-panel.c:238
 msgid "Could not get list of cell broadcast messages"
 msgstr "Ezin da eskuratu zelula bidez igorritako mezuen zerrenda"
@@ -314,7 +305,7 @@ msgid "- Manage your mobile settings"
 msgstr "- Kudeatu mugikorraren ezarpenak"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:542
+#: src/ms-application.c:548
 msgid "translator-credits"
 msgstr "Asier Saratsua Garmendia <asier.sarasua@gmail.com>"
 
@@ -387,7 +378,7 @@ msgstr "bat ere ez"
 msgid "Mobile Settings Volume Control"
 msgstr "Mugikorraren ezarpenen bolumen-kontrola"
 
-#: src/ms-lang-panel.c:104
+#: src/ms-lang-panel.c:80
 msgid "Failed to set system locale"
 msgstr "Sistemaren hizkuntza ezartzeak huts egin du"
 
@@ -395,32 +386,49 @@ msgstr "Sistemaren hizkuntza ezartzeak huts egin du"
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Blokeoko horma-papera ezartzeak huts egin du"
 
+#: src/ms-osk-panel.c:550
+msgid "Shortcuts reset to defaults"
+msgstr "Berrezarri lasterbideak lehenespenera"
+
+#. Translators: This reverts resetting keyboard shortcuts to defaults
+#: src/ms-osk-panel.c:560
+msgctxt "undo shortcuts"
+msgid "_Undo"
+msgstr "_Desegin"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:818
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:819
 msgid "The default completer selected by the OSK"
 msgstr "Pantailako teklatuak hautatutako osatzaile lehenetsia"
 
-#: src/ms-osk-panel.c:755
+#: src/ms-osk-panel.c:822
 msgid "No information available for this completer"
 msgstr "Ez dago informaziorik osatzaile honetarako"
 
-#: src/ms-overview-panel.c:65
+#: src/ms-overview-panel.c:62
+#, c-format
+msgid "%u App Made Visible Again"
+msgid_plural "%u Apps Made Visible Again"
+msgstr[0] "Aplikazio %u ikusgai dago berriro"
+msgstr[1] "%u aplikazio ikusgai daude berriro"
+
+#: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
 msgstr "Berrezarri gogokoak?"
 
-#: src/ms-overview-panel.c:68
+#: src/ms-overview-panel.c:105
 msgid "Reset list of favorite applications to the default?"
 msgstr "Berrezarri gogoko aplikazioen zerrenda balio lehenetsietara?"
 
-#: src/ms-overview-panel.c:72
+#: src/ms-overview-panel.c:109
 msgid "_Reset"
 msgstr "_Berrezarri"
 
-#: src/ms-overview-panel.c:327
+#: src/ms-overview-panel.c:364
 msgid "Failed to set wallpaper for overview"
 msgstr "Ikuspegi nagusiaren horma-papera ezartzeak huts egin du"
 
@@ -490,6 +498,36 @@ msgstr "Pertsonalizatu"
 msgid "Choose sound file"
 msgstr "Aukeratu soinu-fitxategia"
 
+#. Translators: %s is a OS version number like 0.20260614
+#: src/ms-updates-panel.c:164
+#, c-format
+msgid "Update to %s"
+msgstr "Eguneratu %s bertsiora"
+
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
+#, c-format
+msgid "OS update failed: %s"
+msgstr "Sistema eguneratzeak huts egin du: %s"
+
+#: src/ms-updates-panel.c:283
+#, c-format
+msgid "Canceling OS update failed: %s"
+msgstr "Sistemaren eguneratzea bertan behera uzteak huts egin du: %s"
+
+#: src/ms-updates-panel.c:346
+msgid "OS Update already in progress"
+msgstr "Sistemaren eguneratzea abian"
+
+#. Translators %s is an os version number like 0.20260614
+#: src/ms-updates-panel.c:354
+#, c-format
+msgid "Updating to %s…"
+msgstr "%s bertsiora eguneratzen…"
+
+#: src/ms-updates-panel.c:374
+msgid "OS update in progress"
+msgstr "Sistema-eguneratzea abian"
+
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
 #: src/ms-util.c:170
 msgid "Full"
@@ -509,25 +547,45 @@ msgstr "Isilik"
 msgid "Choose Wallpaper"
 msgstr "Aukeratu horma-papera"
 
-#: src/ms-window.c:146
+#: src/ms-window.c:132
+msgid "Configurable Tweaks"
+msgstr "Doikuntza konfiguragarriak"
+
+#: src/ms-window.c:183
 msgid "Device"
 msgstr "Gailua"
 
-#: src/ui/ms-about-panel.ui:18
+#: src/ui/ms-about-panel.ui:19
 msgid "Phosh logo"
 msgstr "Phosh logoa"
 
-#: src/ui/ms-about-panel.ui:29
+#: src/ui/ms-about-panel.ui:30
 msgid "Phosh Version"
 msgstr "Phosh bertsioa"
 
-#: src/ui/ms-about-panel.ui:37
+#: src/ui/ms-about-panel.ui:38
 msgid "Operating System"
 msgstr "Sistema eragilea"
 
-#: src/ui/ms-about-panel.ui:45
+#: src/ui/ms-about-panel.ui:46
+msgid "Operating System Version"
+msgstr "Sistema eragilearen bertsioa"
+
+#: src/ui/ms-about-panel.ui:54
 msgid "Hardware Model"
 msgstr "Hardwarearen modeloa"
+
+#: src/ui/ms-about-panel.ui:66
+msgid "Support Phosh"
+msgstr "Lagundu Phosh-i"
+
+#: src/ui/ms-about-panel.ui:67
+msgid "Your donations make our work possible"
+msgstr "Zure dohaintzek gure lanari laguntzen diote"
+
+#: src/ui/ms-about-panel.ui:70
+msgid "D_onate"
+msgstr "Lagundu _diruz"
 
 #: src/ui/ms-alerts-panel.ui:17
 msgid "Unable To Receive Alerts"
@@ -727,7 +785,7 @@ msgstr "Feedback haptikoaren gehieneko sendotasunaren ehunekoa"
 msgid "Per Application settings"
 msgstr "Aplikazioaren araberako ezarpenak"
 
-#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:160
+#: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
 msgstr "Soinuak"
 
@@ -819,6 +877,18 @@ msgstr "Fitxategi-transferentziak"
 msgid "A generic file transfer or download notification"
 msgstr "Fitxategi-transferentzien edo deskargen jakinarazpen generikoa"
 
+#: src/ui/ms-hidden-app-row.ui:5 src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "Aplikazioa"
+
+#: src/ui/ms-hidden-apps-dialog.ui:4
+msgid "Hidden Apps"
+msgstr "Ezkutuko aplikazioak"
+
+#: src/ui/ms-hidden-apps-dialog.ui:83
+msgid "No Apps are Currently Hidden"
+msgstr "Ez dago aplikaziorik ezkutuan"
+
 #: src/ui/ms-lang-panel.ui:15
 msgid "The language of the user interface"
 msgstr "Eerabiltzaile-interfazearen hizkuntza"
@@ -863,23 +933,23 @@ msgstr "Pantaila-blokeoaren atzerapen automatikoa"
 msgid "Seconds from screen blank to screen lock"
 msgstr "Pantaila blokeatzeko igaroko den segundo kopurua"
 
-#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:77
+#: src/ui/ms-lockscreen-panel.ui:52 src/ui/ms-overview-panel.ui:94
 msgid "Background"
 msgstr "Atzeko planoa"
 
-#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:83
+#: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:100
 msgid "_Select Wallpaper…"
 msgstr "_Hautatu horma-papera…"
 
-#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:95
+#: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:112
 msgid "Use wallpaper"
 msgstr "Erabili horma-papera"
 
-#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:96
+#: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
 msgstr "Horma-papera koloretsu bat erakutsiko den ala ez"
 
-#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:204
+#: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
 msgstr "Trepetak"
 
@@ -889,7 +959,7 @@ msgstr "Blokeo-pantailarako trepeta gehigarriak"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:170
 msgid "Add Shortcut"
 msgstr "Gehitu lasterbidea"
 
@@ -917,144 +987,152 @@ msgstr "_Laster-tekla"
 msgid "Shortcut Preview"
 msgstr "Lasterbidearen aurrebista"
 
-#: src/ui/ms-osk-panel.ui:13
+#: src/ui/ms-osk-panel.ui:15
 msgid "Enable _On Screen Keyboard"
 msgstr "Gaitu _pantailako teklatua"
 
-#: src/ui/ms-osk-panel.ui:14
+#: src/ui/ms-osk-panel.ui:16
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Pantailako teklatua erakutsiko den ala ez beharrezkoa denean"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:22
 msgid "Unfold long-press"
 msgstr "Zabaltzeko sakatze-luzera"
 
-#: src/ui/ms-osk-panel.ui:21
+#: src/ui/ms-osk-panel.ui:23
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr "Barra nagusiaren erdia zenbat denboraz sakatu beharko den pantailako teklatua zabaltzeko"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
-#: src/ui/ms-osk-panel.ui:26
+#: src/ui/ms-osk-panel.ui:28
 msgid "short"
 msgstr "laburra"
 
 #. Translators: abbreviation for 1 second interval of time
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:30
 msgctxt "press interval"
 msgid "normal"
 msgstr "normala"
 
 #. Translators: abbreviation for greater than or equal to 1.5 second interval of time
-#: src/ui/ms-osk-panel.ui:30
+#: src/ui/ms-osk-panel.ui:32
 msgid "long"
 msgstr "luzea"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:40
 msgid "Ignore hardware keyboard"
 msgstr "Ez ikusiarena egin teklatu fisikoari"
 
-#: src/ui/ms-osk-panel.ui:39
+#: src/ui/ms-osk-panel.ui:41
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "Pantailako teklatua erakutsiko den ala ez teklatu fisiko bat dagoenean"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:48
 msgid "Key indicator popup"
 msgstr "Tekla adierazteko laster-menua"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:49
 msgid "Whether to show a popover indicating the currently pressed key"
 msgstr "Sakatutako tekla adierazten duen laster-menu bat erakutsiko den ala ez"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:61
 msgid "Keyboard height in portrait mode"
 msgstr "Teklatuaren altuera modu bertikalean"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:62
 msgid "When the screen is taller than wide"
 msgstr "Pantaila zabalagoa baino altuagoa denean"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:78
 msgid "Keyboard height in landscape mode"
 msgstr "Teklatuaren altuera modu horizontalean"
 
-#: src/ui/ms-osk-panel.ui:77
+#: src/ui/ms-osk-panel.ui:79
 msgid "When the screen is wider than tall"
 msgstr "Pantaila altuagoa baino zabalagoa denean"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:183
+#: src/ui/ms-osk-panel.ui:103 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Eskalatzea"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:106
 msgid "Keep physical size constant"
 msgstr "Mantendu tamaina fisiko konstantea"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:107
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr "Ziurtatu pantailako teklatua nahiko handia dela bereizmen handiko pantailetan"
 
-#: src/ui/ms-osk-panel.ui:111
+#: src/ui/ms-osk-panel.ui:113
 msgid "Add empty space below keys"
 msgstr "Gehitu espazio hutsa teklen azpian"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:114
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr "Pantailako teklatuaren azpian espazio huts bat gehituko den ala ez hura gorantz eraman ahal izateko"
 
-#: src/ui/ms-osk-panel.ui:122
+#: src/ui/ms-osk-panel.ui:124
 msgid "Text Completion"
 msgstr "Testua osatzea"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:127
 msgid "Opportunistic word completion"
 msgstr "Hitzen osatze oportunista"
 
-#: src/ui/ms-osk-panel.ui:126
+#: src/ui/ms-osk-panel.ui:128
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Gaitu hitzen osatzea aplikazioa hori erabilgarria dela adierazten duenean"
 
-#: src/ui/ms-osk-panel.ui:133
+#: src/ui/ms-osk-panel.ui:135
 msgid "Toggle via OSK menu"
 msgstr "Aktibatu pantailako teklatuaren menuaren bidez"
 
-#: src/ui/ms-osk-panel.ui:134
+#: src/ui/ms-osk-panel.ui:136
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Ahalbidetu hitzen osatzea teklatuaren menu-botoiaren bidez aktibatu ahal izan dadin"
 
-#: src/ui/ms-osk-panel.ui:140
+#: src/ui/ms-osk-panel.ui:142
 msgid "Default Completer"
 msgstr "Osatzaile lehenetsia"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:143
 msgid "The default completion engine to use"
 msgstr "Hitzak osatzeko erabiliko den osatzaile lehenetsia"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:150
+#: src/ui/ms-osk-panel.ui:152
 msgid "Handle space around punctuation characters"
 msgstr "Kudeatu puntuazio-karaktereen inguruko zuriuneak"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:152
+#: src/ui/ms-osk-panel.ui:154
 msgid ""
 "This also swaps the space and punctuation characters after word completion"
 msgstr "Honek zuriunea eta puntuazio-karaktereak trukatzen ditu hitza osatu ondoren"
 
-#: src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-panel.ui:162
 msgid "Terminal Layout"
 msgstr "Terminalaren diseinua"
 
-#: src/ui/ms-osk-panel.ui:179
+#: src/ui/ms-osk-panel.ui:181
 msgid "Shortcuts"
 msgstr "Lasterbideak"
 
-#: src/ui/ms-osk-panel.ui:180
+#: src/ui/ms-osk-panel.ui:182
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Lasterbide-barran dauden lasterbideak"
 
-#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:138
+#: src/ui/ms-osk-panel.ui:190
+msgid "Reset to default"
+msgstr "Berrezarri lehenespenera"
+
+#: src/ui/ms-osk-panel.ui:191
+msgid "Reset the shortcut bar to its default layout"
+msgstr "Berrezarri lasterbide-barra diseinu lehenetsira"
+
+#: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
 msgstr "Gogokoak"
 
@@ -1079,8 +1157,8 @@ msgid "Reset"
 msgstr "Berrezarri"
 
 #: src/ui/ms-overview-panel.ui:64
-msgid "Mobile App Filtering"
-msgstr "Aplikazio mugikorren iragaztea"
+msgid "App Filtering and Hiding"
+msgstr "Aplikazioak iragaztea eta ezkutatzea"
 
 #: src/ui/ms-overview-panel.ui:67
 msgid "Set Application Filter Mode"
@@ -1090,9 +1168,21 @@ msgstr "Ezarri aplikazioen iragazki-modua"
 msgid "Show only mobile apps in the overview"
 msgstr "Ikuspegi orokorrean erakutsi aplikazio mugikorrak soilik"
 
-#: src/ui/ms-scale-to-fit-row.ui:5
-msgid "Application"
-msgstr "Aplikazioa"
+#: src/ui/ms-overview-panel.ui:74
+msgid "_Manage Hidden Apps"
+msgstr "_Kudeatu ezkutuko aplikazioak"
+
+#: src/ui/ms-overview-panel.ui:75
+msgid "Make apps you disabled in the overview visible again"
+msgstr "Ikuspegi orokorrean desgaitu dituzun aplikazioak ikusgai jarri berriro"
+
+#: src/ui/ms-panel-switcher.ui:11
+msgid "No Matching Panels"
+msgstr "Panelak ez datoz bat"
+
+#: src/ui/ms-panel-switcher.ui:12
+msgid "Try a different search"
+msgstr "Saiatu beste bilaketa batekin"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -1104,7 +1194,7 @@ msgid ""
 "a killswitch."
 msgstr "Zure gailuak ez du sentsorerik instalatuta edo desgaituta daude etengailu baten bidez."
 
-#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:277
+#: src/ui/ms-sensor-panel.ui:28 src/ui/ms-window.ui:278
 msgid "Sensors"
 msgstr "Sentsoreak"
 
@@ -1124,7 +1214,7 @@ msgstr "Argia"
 msgid "Orientation"
 msgstr "Orientazioa"
 
-#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:285
+#: src/ui/ms-sensor-panel.ui:69 src/ui/ms-window.ui:286
 msgid "High Contrast"
 msgstr "Kontraste altua"
 
@@ -1172,13 +1262,49 @@ msgstr "Saihestu koskak"
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr "Ez jarri interfazearen elementuak kosken eta mozketen azpian"
 
-#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:118
+#: src/ui/ms-topbar-panel.ui:34 src/ui/ms-window.ui:119
 msgid "Quick Settings"
 msgstr "Ezarpen azkarrak"
 
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Antolatu ezarpen azkar gehigarriak"
+
+#: src/ui/ms-updates-panel.ui:12
+msgid "OS updates require a system restart"
+msgstr "Sistema eguneratzeko, hura berrabiarazi behar da"
+
+#: src/ui/ms-updates-panel.ui:13
+msgid "Restart"
+msgstr "Berrabiarazi"
+
+#: src/ui/ms-updates-panel.ui:34
+msgid "Looking for updates…"
+msgstr "Eguneratzeak bilatzen…"
+
+#: src/ui/ms-updates-panel.ui:45
+msgid "Everything up to date"
+msgstr "Denta eguneratuta"
+
+#: src/ui/ms-updates-panel.ui:46
+msgid "There are no OS updates available"
+msgstr "Ez dago sistema-eguneratzerik eskuragarri"
+
+#: src/ui/ms-updates-panel.ui:57
+msgid "Updates available"
+msgstr "Eguneratzeak eskuragarri"
+
+#: src/ui/ms-updates-panel.ui:58
+msgid "There are OS updates available"
+msgstr "Sistema-eguneratzeak eskuragarri"
+
+#: src/ui/ms-updates-panel.ui:79
+msgid "Fetching OS update…"
+msgstr "Sistema-eguneratzea eskuratzen…"
+
+#: src/ui/ms-updates-panel.ui:122
+msgid "Installing OS update…"
+msgstr "Sistema-eguneratzea instalatzen…"
 
 #: src/ui/ms-welcome-panel.ui:8
 msgid "Welcome to Mobile Settings"
@@ -1189,146 +1315,257 @@ msgid "Tweak advanced mobile settings"
 msgstr "Doitu mugikorraren ezarpen aurreratuak"
 
 #. Translators: this is a verb.
-#: src/ui/ms-window.ui:31
+#: src/ui/ms-window.ui:32
 msgid "Search"
 msgstr "Bilatu"
 
 #. Translators: Placeholder text for the search bar input
-#: src/ui/ms-window.ui:49
+#: src/ui/ms-window.ui:50
 msgid "Search settings"
 msgstr "Bilaketa-ezarpenak"
 
-#: src/ui/ms-window.ui:99
+#: src/ui/ms-window.ui:100
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/ui/ms-window.ui:110
+#: src/ui/ms-window.ui:111
 msgid "Top Bar"
 msgstr "Goiko barra"
 
-#: src/ui/ms-window.ui:119
+#: src/ui/ms-window.ui:120
 msgid "Notches"
 msgstr "Koskak"
 
-#: src/ui/ms-window.ui:130
+#: src/ui/ms-window.ui:131
 msgid "Overview"
 msgstr "Aurkezpen orokorra"
 
-#: src/ui/ms-window.ui:139
+#: src/ui/ms-window.ui:140
 msgid "Filter"
 msgstr "Iragazkia"
 
-#: src/ui/ms-window.ui:140 src/ui/ms-window.ui:202
+#: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
 msgstr "Horma-papera"
 
-#: src/ui/ms-window.ui:151 src/ui/ms-window.ui:159
+#: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
 msgstr "Iritziak"
 
-#: src/ui/ms-window.ui:161
+#: src/ui/ms-window.ui:162
 msgid "Wakeup"
 msgstr "Esnatu"
 
-#: src/ui/ms-window.ui:162
+#: src/ui/ms-window.ui:163
 msgid "Vibra"
 msgstr "Dardara"
 
-#: src/ui/ms-window.ui:163
+#: src/ui/ms-window.ui:164
 msgid "Haptic"
 msgstr "Haptikoa"
 
-#: src/ui/ms-window.ui:164
+#: src/ui/ms-window.ui:165
 msgid "LED"
 msgstr "LEDa"
 
-#: src/ui/ms-window.ui:175
+#: src/ui/ms-window.ui:176
 msgid "Compositor"
 msgstr "Konposatzailea"
 
-#: src/ui/ms-window.ui:194
+#: src/ui/ms-window.ui:195
 msgid "Lockscreen"
 msgstr "Blokeo-pantaila"
 
-#: src/ui/ms-window.ui:203
+#: src/ui/ms-window.ui:204
 msgid "Shuffle"
 msgstr "Ausaz"
 
-#: src/ui/ms-window.ui:205
+#: src/ui/ms-window.ui:206
 msgid "Password"
 msgstr "Pasahitza"
 
-#: src/ui/ms-window.ui:216
+#: src/ui/ms-window.ui:217
 msgid "Convergence"
 msgstr "Konbergentzia"
 
-#: src/ui/ms-window.ui:234
+#: src/ui/ms-window.ui:235
 msgid "On Screen Keyboard"
 msgstr "Pantailako teklatua"
 
-#: src/ui/ms-window.ui:242
+#: src/ui/ms-window.ui:243
 msgid "Keyboard"
 msgstr "Teklatua"
 
-#: src/ui/ms-window.ui:243
+#: src/ui/ms-window.ui:244
 msgid "Unfold"
 msgstr "Zabaldu"
 
-#: src/ui/ms-window.ui:244
+#: src/ui/ms-window.ui:245
 msgid "OSK"
 msgstr "Pantailako teklatua"
 
-#: src/ui/ms-window.ui:245
+#: src/ui/ms-window.ui:246
 msgid "Word Completion"
 msgstr "Hitz-osaketa"
 
-#: src/ui/ms-window.ui:256
+#: src/ui/ms-window.ui:257
 msgid "Emergency Alerts"
 msgstr "Larrialdi-alertak"
 
-#: src/ui/ms-window.ui:264 src/ui/ms-window.ui:304
+#: src/ui/ms-window.ui:265 src/ui/ms-window.ui:305
 msgid "Emergency"
 msgstr "Larrialdia"
 
-#: src/ui/ms-window.ui:265
+#: src/ui/ms-window.ui:266
 msgid "Cell Broadcast"
 msgstr "Zelula bidezko igorpena"
 
-#: src/ui/ms-window.ui:266
+#: src/ui/ms-window.ui:267
 msgid "Danger"
 msgstr "Arriskua"
 
-#: src/ui/ms-window.ui:296
+#: src/ui/ms-window.ui:297
 msgid "Experimental features"
 msgstr "eginbide esperimentalak"
 
-#: src/ui/ms-window.ui:305
+#: src/ui/ms-window.ui:306
 msgid "Suspend"
 msgstr "Eseki"
 
-#: src/ui/ms-window.ui:306
+#: src/ui/ms-window.ui:307
 msgid "Experimental"
 msgstr "Esperimentala"
 
-#: src/ui/ms-window.ui:326
+#: src/ui/ms-window.ui:327
 msgid "Locale"
 msgstr "Konfigurazio lokala"
 
-#: src/ui/ms-window.ui:337 src/ui/ms-window.ui:345
+#: src/ui/ms-window.ui:338
+msgid "Sound"
+msgstr "Soinua"
+
+#: src/ui/ms-window.ui:347
+msgid "sound"
+msgstr "soinua"
+
+#: src/ui/ms-window.ui:348
+msgid "audio"
+msgstr "audioa"
+
+#: src/ui/ms-window.ui:349
+msgid "speaker"
+msgstr "bozgorailua"
+
+#: src/ui/ms-window.ui:350
+msgid "microphone"
+msgstr "mikrofonoa"
+
+#: src/ui/ms-window.ui:362
+msgid "OS Updates"
+msgstr "Sistema-eguneratzeak"
+
+#: src/ui/ms-window.ui:370
+msgid "Updates"
+msgstr "Eguneratzeak"
+
+#: src/ui/ms-window.ui:382 src/ui/ms-window.ui:390
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/ui/ms-window.ui:370
+#: src/ui/ms-window.ui:401
+msgid "Wi-Fi"
+msgstr "Wifia"
+
+#: src/ui/ms-window.ui:405
+msgid "Connectivity"
+msgstr "Konektibitatea"
+
+#: src/ui/ms-window.ui:412
+msgid "wifi"
+msgstr "wifia"
+
+#: src/ui/ms-window.ui:413
+msgid "wlan"
+msgstr "wlan"
+
+#: src/ui/ms-window.ui:414
+msgid "network"
+msgstr "sarea"
+
+#: src/ui/ms-window.ui:426
+msgid "Bluetooth"
+msgstr "Bluetooth-a"
+
+#: src/ui/ms-window.ui:435
+msgid "bluetooth"
+msgstr "bluetooth-a"
+
+#: src/ui/ms-window.ui:447
+msgid "Cellular"
+msgstr "Mugikorra"
+
+#: src/ui/ms-window.ui:456
+msgid "wwan"
+msgstr "wwan"
+
+#: src/ui/ms-window.ui:457
+msgid "modem"
+msgstr "modema"
+
+#: src/ui/ms-window.ui:458
+msgid "gesm"
+msgstr "gesm"
+
+#: src/ui/ms-window.ui:459
+msgid "lte"
+msgstr "lte"
+
+#: src/ui/ms-window.ui:471
+msgid "Online Accounts"
+msgstr "Lineako kontuak"
+
+#: src/ui/ms-window.ui:480
+msgid "account"
+msgstr "kontua"
+
+#: src/ui/ms-window.ui:481
+msgid "email"
+msgstr "posta"
+
+#: src/ui/ms-window.ui:506
 msgid "_Show Configurable Tweaks"
 msgstr "_Erakutsi doikuntza konfiguragarriak"
 
-#: src/ui/ms-window.ui:377
+#: src/ui/ms-window.ui:513
 msgid "_Keyboard Shortcuts"
 msgstr "Laster_bideak"
 
-#: src/ui/ms-window.ui:381
+#: src/ui/ms-window.ui:517
 msgid "_About Mobile Settings"
 msgstr "Mugikorraren ezarpenei _buruz"
+
+#: src/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Orokorra"
+
+#: src/ui/shortcuts-dialog.ui:9
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Erakutsi lasterbideak"
+
+#: src/ui/shortcuts-dialog.ui:15
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Bilatu"
+
+#: src/ui/shortcuts-dialog.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Irten"
+
+#~ msgid "Mobile App Filtering"
+#~ msgstr "Aplikazio mugikorren iragaztea"
 
 #~ msgid "Call volume"
 #~ msgstr "Deien bolumena"
