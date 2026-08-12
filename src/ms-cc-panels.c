@@ -63,11 +63,12 @@ void         cc_object_storage_add_object (const char *key, gpointer object);
 
 /* See CcPanelLoader */
 
-extern GType cc_wifi_panel_get_type (void);
-extern GType cc_wwan_panel_get_type (void);
 extern GType cc_bluetooth_panel_get_type (void);
+extern GType cc_network_panel_get_type (void);
 extern GType cc_online_accounts_panel_get_type (void);
 extern GType cc_sound_panel_get_type (void);
+extern GType cc_wifi_panel_get_type (void);
+extern GType cc_wwan_panel_get_type (void);
 
 void         cc_wwan_panel_static_init_func (void);
 void         cc_wifi_panel_static_init_func (void);
@@ -89,6 +90,11 @@ static const MsCcPanelData panel_data[] = {
   {
     "online-accounts",
     cc_online_accounts_panel_get_type,
+    NULL,
+  },
+  {
+    "network",
+    cc_network_panel_get_type,
     NULL,
   },
   {
