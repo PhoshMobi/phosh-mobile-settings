@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2026-08-12 13:43+0000\n"
-"PO-Revision-Date: 2026-08-14 18:20+0200\n"
+"PO-Revision-Date: 2026-08-17 16:14+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -948,7 +948,7 @@ msgstr "Tastatură aleatorie"
 
 #: src/ui/ms-lockscreen-panel.ui:19
 msgid "Whether to shuffle the numbers on the keypad"
-msgstr "Dacă să li se schimbe locul numerelor de pe tastatură"
+msgstr "Schimbă aleatoriu poziția numerelor de pe tastatura numerică"
 
 #: src/ui/ms-lockscreen-panel.ui:25
 msgid "Require authentication to unlock"
@@ -980,7 +980,7 @@ msgstr "Folosește un fundal"
 
 #: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
-msgstr "Dacă să se afișeze un fundal colorat"
+msgstr "Afișează un fundal colorat"
 
 #: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
@@ -1026,7 +1026,7 @@ msgstr "Activează _Tastatura pe ecran"
 
 #: src/ui/ms-osk-panel.ui:16
 msgid "Whether to show the on screen keyboard when needed"
-msgstr "Dacă să apară tastatura pe ecran atunci când este nevoie"
+msgstr "Tastatura va apărea automat pe ecran atunci când este nevoie"
 
 #: src/ui/ms-osk-panel.ui:22
 msgid "Unfold long-press"
@@ -1063,7 +1063,8 @@ msgstr "Ignoră tastatura fizică"
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
-"Dacă să apară tastatura pe ecran atunci când este prezentă o tastatură fizică"
+"Tastatura va rămâne vizibilă pe ecran chiar dacă este detectată o tastatură "
+"fizică"
 
 #: src/ui/ms-osk-panel.ui:48
 msgid "Key indicator popup"
@@ -1071,9 +1072,7 @@ msgstr "Indicarea tastei apăsate"
 
 #: src/ui/ms-osk-panel.ui:49
 msgid "Whether to show a popover indicating the currently pressed key"
-msgstr ""
-"Dacă, la apăsarea unei taste, să apară o etichetă care să conțină tasta "
-"apăsată"
+msgstr "La apăsarea unei taste, apare o etichetă care conține tasta apăsată"
 
 #: src/ui/ms-osk-panel.ui:61
 msgid "Keyboard height in portrait mode"
@@ -1112,8 +1111,8 @@ msgstr "Adaugă spațiu gol sub taste"
 #: src/ui/ms-osk-panel.ui:114
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
-"Dacă să se adauge o zonă goală sub tastele tastaturii virtuale la deplasarea "
-"în sus."
+"Adaugă o zonă goală sub tastele tastaturii virtuale, pentru ca tastatura să "
+"fie poziționată mai sus."
 
 #: src/ui/ms-osk-panel.ui:124
 msgid "Text Completion"
