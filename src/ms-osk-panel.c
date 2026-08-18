@@ -961,10 +961,10 @@ ms_osk_panel_init (MsOskPanel *self)
                                 self,
                                 NULL);
 
-  if (is_osk_app () == MS_OSK_APP_POS)
-    ms_osk_panel_init_pos (self);
-  else if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD)
+  if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD)
     ms_osk_panel_init_squeek (self);
+  else
+    ms_osk_panel_init_pos (self);
 }
 
 
