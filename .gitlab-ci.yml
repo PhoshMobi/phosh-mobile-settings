@@ -39,7 +39,7 @@ variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
   DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2026-06-10
-  COMMON_BUILD_OPTS: --werror -Db_coverage=true
+  COMMON_BUILD_OPTS: --werror -Db_coverage=true -Dprefix=/usr
   GCHECK_DIRS: src tests plugins
   PHOC: dbus-launch phoc --no-xwayland
   WLR_BACKENDS: headless
@@ -129,7 +129,7 @@ asan-test-native-debian-forky:
   needs: []
   <<: *before
   script:
-    - meson setup -Db_sanitize=address -Dtweaks-data-dir=$PWD/tests/data _build-asan
+    - meson setup -Dprefix=/usr -Db_sanitize=address -Dtweaks-data-dir=$PWD/tests/data _build-asan
     - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson test --print-errorlogs -C _build-asan"
   allow_failure: true
   artifacts:
@@ -197,7 +197,7 @@ check-dist:
   image: ${DEBIAN_IMAGE}
   <<: *before
   script:
-    - meson setup _build-dist ${MESON_OPTIONS}
+    - meson setup _build-dist -Dprefix=/usr ${MESON_OPTIONS}
     - XDG_RUNTIME_DIR=$PWD ${PHOC} -E "meson dist --include-subprojects -C _build-dist ${MESON_DIST_OPTIONS}"
 
 format-check:
