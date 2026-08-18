@@ -35,6 +35,7 @@ Build-Depends:
  phoc <!nocheck>,
  phosh (>= 0.40.0~) <!nocheck>,
  phosh-dev (>= 0.40.0),
+ phosh-osk-stevia (>= 0.56.0~) <!nocheck>,
  phosh-plugins (>= 0.40.0~) <!nocheck>,
  python3-docutils <!nodoc>,
 # For the g-c-c panel builds
