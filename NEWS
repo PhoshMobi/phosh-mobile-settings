@@ -1,13 +1,18 @@
-phosh-mobile-settings 0.57~rc1
-------------------------------
+phosh-mobile-settings 0.57.0
+----------------------------
 Released August 2026
+* New panels:
+    * Wi-Fi, Cellular Online Accounts, Network and Bluetooth based on
+      the g-c-c 50.4 panels
 * osk-panel: Allow to reset terminal shortcuts
 * updates-panel: Indicate that we're checking for updates when opening
   the panel
 * Contributors:
     * Guido Günther
 * UI translations:
+    * Anders Jonsson (sv)
     * Antonio Marin (ro)
+    * Asier Saratsua Garmendia (eu)
     * Baurzhan Muftakhidinov (kk)
     * Danial Behzadi (fa)
     * Daniel Rusek (cs)
@@ -15,7 +20,9 @@ Released August 2026
     * Hugo Carvalho (pt)
     * Luiggi Cardoso (pt_BR)
     * Martin (sl)
+    * Nathan Follens (nl)
     * Rafael Fontenelle (pt_BR)
+    * Ryo Nakano (ja)
     * Sabri Ünal (tr)
     * Yuri Chornoivan (uk)
     * Zeqian Sun (zh_CN)
