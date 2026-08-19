@@ -51,6 +51,16 @@
   </screenshots>
 
   <releases>
+    <release version="0.57.0" date="2026-08-19">
+      <description translate="no">
+        <ul>
+          <li>New panels for Wi-Fi, Cellular, Online Accounts, Network and Bluetooth</li>
+          <li>OSK panel: Allow to reset terminal shortcuts</li>
+          <li>Updates panel: Indicate that we're checking for updates when opening the panel</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
 
     <release version="0.56.0" date="2026-07-05">
       <description translate="no">

@@ -1,3 +1,77 @@
+phosh-mobile-settings (0.57.0) experimental; urgency=medium
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Guido Günther ]
+  * updates-panel: Handle ready state.
+    Otherwise we keep showing the spinner when there are no new updates. This
+    will also be used when we allow to trigger update checks.
+    Fixes: ca0a18b3 ("updates-panel: Show spinner while looking for updates")
+  * build: Add g-c-c as subproject
+  * window: Use some panels from g-c-c.
+    We use the bluetooth, online accounts, wwan and wi-fi panels from g-c-c
+    verbatim.
+    The g-c-c devs made that really easy for us
+  * packaging: Switch to compat 14.
+    Uses `meson install` instead of `ninja install`
+  * ci: Add jobs to build with and without additional panels
+  * packaging: Add more g-c-c deps.
+    This unbreaks the `nocheck` build profile
+  * ci: Build package.
+    Let's find those errors early
+  * panels: Add network panel.
+    Since we have the shared lib already this is easy to add.
+  * g-c-c: Update URL.
+    This avoids the redirect
+  * g-c-c: Update to 50.4
+  * g-c-c: The x11 build option is gone
+  * g-c-c: Disable building the tests.
+    It's sufficient when they run upstream
+  * ci: Use /usr prefix.
+    This allows the tests to find stevia's files
+  * osk-panel: Init stevia if OSK is unknown.
+    It's the default OSK after all and this can help to recover the OSK if it
+    e.g. crashed on startup due to an error in a completer lib, see e.g.
+    https://github.com/uim/uim/issues/295 . In this case the user can disable
+    the layout that triggers this.
+  * packaging: Install stevia.
+    We need the schema now
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Guido ]
+  * panel: Allow to instantiate plain panels.
+    This avoids having to create a class for simple panels that just
+    embed a widget.
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ryo Nakano ]
+  * Update Japanese translation
+
+  [ Nathan Follens ]
+  * Update Dutch translation
+
+  [ Asier Saratsua Garmendia ]
+  * Update Basque translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 19 Aug 2026 08:35:29 +0200
+
 phosh-mobile-settings (0.57~rc1) experimental; urgency=medium
 
   [ Guido Günther ]
