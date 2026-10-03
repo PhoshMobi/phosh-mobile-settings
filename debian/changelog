@@ -1,3 +1,54 @@
+phosh-mobile-settings (0.58.0) experimental; urgency=medium
+
+  [ Baurzhan Muftakhidinov ]
+  * Update Kazakh translation
+
+  [ Ryo Nakano ]
+  * Update Japanese translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Guido Günther ]
+  * ci: Skip subprojects in po check.
+    They're not checked out at this point and we won't detect
+    anything missing there anyway.
+  * g-c-c: Mark strings as translatable.
+    We can't use two gettext domains.
+  * po: Update tools to extract g-c-c translations.
+    As we use the modules verbatim we don't want to make translators
+    do the work twice, especially as these are a lot of strings. So
+    add a script to update the translations.
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/134
+  * packaging: Enable po processing.
+    This gives us translated panels there too.
+  * panel-switcher: Actually use filter change hint
+  * window: Filter in idle.
+    This avoids filtering panels multiple times
+
+  [ Марко Костић ]
+  * Update Serbian translation
+
+  [ Alexander Alexandrov Shopov ]
+  * Update Bulgarian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Balázs Úr ]
+  * Update Hungarian translation
+
+  [ Stefan Hansson ]
+  * ms-window: Move on_panel_enabled_changed () and on_idle_fitler () further up.
+    To allow use in a callback in a later commit.
+  * conf-tweaks: Use MsPanel enabled property.
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/126
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 03 Oct 2026 12:09:37 +0200
+
 phosh-mobile-settings (0.57.0) experimental; urgency=medium
 
   [ Antonio Marin ]

@@ -51,6 +51,16 @@
   </screenshots>
 
   <releases>
+    <release version="0.58.0" date="2026-10-03">
+      <description translate="no">
+        <ul>
+          <li>Fix translations for panels from the g-c-c subproject</li>
+          <li>Simplify panel filtering and use the same logic for conf-tweaks panels</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.57.0" date="2026-08-19">
       <description translate="no">
         <ul>
