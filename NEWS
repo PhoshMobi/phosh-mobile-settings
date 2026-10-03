@@ -1,3 +1,22 @@
+phosh-mobile-settings 0.58.0
+----------------------------
+Released October 2026
+* Fix translations for panels from the g-c-c subproject
+* Simplify panel filtering and use the same logic for conf-tweaks
+  panels
+* Contributors:
+    * Guido Günther
+    * Stefan Hansson
+* UI translations:
+    * Alexander Alexandrov Shopov (bg)
+    * Balázs Úr (hu)
+    * Baurzhan Muftakhidinov (kk)
+    * Emin Tufan Çetin (tr)
+    * Juliano de Souza Camargo (pt_BR)
+    * Ryo Nakano (ja)
+    * Yaron Shahrabani (he)
+    * Марко Костић (sr)
+
 phosh-mobile-settings 0.57.0
 ----------------------------
 Released August 2026
