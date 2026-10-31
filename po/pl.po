@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-06-30 20:20+0000\n"
-"PO-Revision-Date: 2026-07-04 12:59+0200\n"
-"Last-Translator: Victoria Niedzielska <victorian@gnome.org>\n"
-"Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
+"POT-Creation-Date: 2026-09-11 20:15+0000\n"
+"PO-Revision-Date: 2026-10-31 12:17+0100\n"
+"Last-Translator: Marcel Mrówka <micro.mail88@gmail.com>\n"
+"Last-Translator: nicole mikołajczyk <git@mkljczk.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 50.0\n"
+"X-Generator: Gtranslator 51.0\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -41,12 +41,16 @@ msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
 msgstr ""
-"Ten program pozwala na konfigurację niektórych elementów Phosha, które "
-"wymagałyby wykorzystania wiersza poleceń."
+"Ta aplikacja pozwala na konfigurację niektórych elementów środowiska Phosh, "
+"które wymagałyby wykorzystania wiersza poleceń."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr "Zaawansowane ustawienia dla urządzeń mobilnych korzystających z Phosha"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:19
+msgid "Phosh developers"
+msgstr "Twórcy środowiska Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
@@ -122,8 +126,8 @@ msgid "Add Layout"
 msgstr "Dodaj układ"
 
 #: libpms/ms-osk-add-layout-dialog.ui:14
-#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:82
-#: src/ui/ms-updates-panel.ui:126
+#: src/ui/ms-osk-add-shortcut-dialog.ui:17 src/ui/ms-updates-panel.ui:96
+#: src/ui/ms-updates-panel.ui:139
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -301,7 +305,7 @@ msgstr[0] "Wystąpił %i błąd podczas zapisywania"
 msgstr[1] "Wystąpiły %i błędy podczas zapisywania"
 msgstr[2] "Wystąpiło %i błędów podczas zapisywania"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:903
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
 "Musisz się uwierzytelnić jako administrator, aby zapisać niektóre ustawienia"
@@ -315,7 +319,7 @@ msgid "- Manage your mobile settings"
 msgstr "— Zarządzaj ustawieniami mobilnymi"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/ms-application.c:541
+#: src/ms-application.c:548
 msgid "translator-credits"
 msgstr ""
 "nicole mikołajczyk <git@mkljczk.pl>, 2026\n"
@@ -396,18 +400,28 @@ msgstr "Nie udało się ustawić języka systemu"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
-msgstr "Nie udało się ustawić tła ekranu blokady"
+msgstr "Nie udało się ustawić tapety ekranu blokady"
+
+#: src/ms-osk-panel.c:550
+msgid "Shortcuts reset to defaults"
+msgstr "Przywrócono domyślne skróty"
+
+#. Translators: This reverts resetting keyboard shortcuts to defaults
+#: src/ms-osk-panel.c:560
+msgctxt "undo shortcuts"
+msgid "_Undo"
+msgstr "_Cofnij"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:751
+#: src/ms-osk-panel.c:818
 msgid "Default"
 msgstr "Domyślny"
 
-#: src/ms-osk-panel.c:752
+#: src/ms-osk-panel.c:819
 msgid "The default completer selected by the OSK"
 msgstr "Domyślny silnik uzupełniania używany przez klawiaturę ekranową"
 
-#: src/ms-osk-panel.c:755
+#: src/ms-osk-panel.c:822
 msgid "No information available for this completer"
 msgstr "Brak informacji o tym silniku uzupełniania"
 
@@ -415,9 +429,9 @@ msgstr "Brak informacji o tym silniku uzupełniania"
 #, c-format
 msgid "%u App Made Visible Again"
 msgid_plural "%u Apps Made Visible Again"
-msgstr[0] "Przywrócono %u program "
-msgstr[1] "Przywrócono %u programy"
-msgstr[2] "Przywrócono %u programów"
+msgstr[0] "Przywrócono widoczność %u aplikacji"
+msgstr[1] "Przywrócono widoczność %u aplikacji"
+msgstr[2] "Przywrócono widoczność %u aplikacji"
 
 #: src/ms-overview-panel.c:102
 msgid "Reset favorites?"
@@ -425,7 +439,7 @@ msgstr "Przywrócić domyślne ulubione?"
 
 #: src/ms-overview-panel.c:105
 msgid "Reset list of favorite applications to the default?"
-msgstr "Przywrócić domyślną listę ulubionych programów?"
+msgstr "Przywrócić domyślną listę ulubionych aplikacji?"
 
 #: src/ms-overview-panel.c:109
 msgid "_Reset"
@@ -433,7 +447,7 @@ msgstr "P_rzywróć"
 
 #: src/ms-overview-panel.c:364
 msgid "Failed to set wallpaper for overview"
-msgstr "Nie udało się ustawić tła ekranu poglądu"
+msgstr "Nie udało się ustawić tapety ekranu poglądu"
 
 #. Translators: "Normal" represents the standard or default orientation
 #: src/ms-sensor-panel.c:93
@@ -502,32 +516,32 @@ msgid "Choose sound file"
 msgstr "Wybierz plik dźwiękowy"
 
 #. Translators: %s is a OS version number like 0.20260614
-#: src/ms-updates-panel.c:151
+#: src/ms-updates-panel.c:164
 #, c-format
 msgid "Update to %s"
 msgstr "Zaktualizuj do wersji %s"
 
-#: src/ms-updates-panel.c:184 src/ms-updates-panel.c:220
+#: src/ms-updates-panel.c:197 src/ms-updates-panel.c:233
 #, c-format
 msgid "OS update failed: %s"
 msgstr "Aktualizacja systemu się nie powiodła: %s"
 
-#: src/ms-updates-panel.c:270
+#: src/ms-updates-panel.c:283
 #, c-format
 msgid "Canceling OS update failed: %s"
 msgstr "Anulowanie aktualizacji systemu się nie powiodło: %s"
 
-#: src/ms-updates-panel.c:333
+#: src/ms-updates-panel.c:346
 msgid "OS Update already in progress"
 msgstr "Aktualizacja systemu już trwa"
 
 #. Translators %s is an os version number like 0.20260614
-#: src/ms-updates-panel.c:341
+#: src/ms-updates-panel.c:354
 #, c-format
 msgid "Updating to %s…"
 msgstr "Aktualizowanie do wersji %s…"
 
-#: src/ms-updates-panel.c:361
+#: src/ms-updates-panel.c:374
 msgid "OS update in progress"
 msgstr "Trwa aktualizacja systemu"
 
@@ -548,13 +562,13 @@ msgstr "Wyciszony"
 
 #: src/ms-util.c:292
 msgid "Choose Wallpaper"
-msgstr "Wybierz tło"
+msgstr "Wybierz tapetę"
 
-#: src/ms-window.c:131
+#: src/ms-window.c:175
 msgid "Configurable Tweaks"
 msgstr "Dostrajalne usprawnienia"
 
-#: src/ms-window.c:182
+#: src/ms-window.c:213
 msgid "Device"
 msgstr "Urządzenie"
 
@@ -660,25 +674,25 @@ msgstr "Głośność"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
-msgstr "Skalowanie w dół uruchomionych programów"
+msgstr "Skalowanie w dół uruchomionych aplikacji"
 
 #: src/ui/ms-compositor-panel.ui:12
 msgid "Only enable this for broken apps that don't fit the screen"
 msgstr ""
-"Włącz to tylko dla popsutych programów, które nie mieszczą się na ekranie"
+"Włącz to tylko dla popsutych aplikacji, które nie mieszczą się na ekranie"
 
 #: src/ui/ms-compositor-panel.ui:25
 msgid "Scale down all applications"
-msgstr "Skaluj w dół wszystkie programy"
+msgstr "Skaluj w dół wszystkie aplikacje"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
 msgstr ""
-"Wymuś skalowanie w dół wszystkich programów. Użyj tylko w ostateczności."
+"Wymuś skalowanie w dół wszystkich aplikacji. Użyj tylko w ostateczności."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
-msgstr "Skaluj w dół wszystkie programy"
+msgstr "Skaluj w dół wszystkie aplikacje"
 
 #. Translators: setting to scale down all applications
 #. Translators: setting to scale down a single application
@@ -796,7 +810,7 @@ msgstr "Procent maksymalnej siły wibracji"
 
 #: src/ui/ms-feedback-panel.ui:86
 msgid "Per Application settings"
-msgstr "Ustawienia dla poszczególnych programów"
+msgstr "Ustawienia dla poszczególnych aplikacji"
 
 #: src/ui/ms-feedback-panel.ui:99 src/ui/ms-window.ui:161
 msgid "Sounds"
@@ -893,15 +907,15 @@ msgstr "Ogólne powiadomienia związane z transferem plików i pobieraniem"
 
 #: src/ui/ms-hidden-app-row.ui:5 src/ui/ms-scale-to-fit-row.ui:5
 msgid "Application"
-msgstr "Program"
+msgstr "Aplikacja"
 
 #: src/ui/ms-hidden-apps-dialog.ui:4
 msgid "Hidden Apps"
-msgstr "Ukryte programy"
+msgstr "Ukryte aplikacje"
 
 #: src/ui/ms-hidden-apps-dialog.ui:83
 msgid "No Apps are Currently Hidden"
-msgstr "Żadne programy nie są obecnie ukryte"
+msgstr "Żadne aplikacje nie są obecnie ukryte"
 
 #: src/ui/ms-lang-panel.ui:15
 msgid "The language of the user interface"
@@ -953,15 +967,15 @@ msgstr "Tło"
 
 #: src/ui/ms-lockscreen-panel.ui:58 src/ui/ms-overview-panel.ui:100
 msgid "_Select Wallpaper…"
-msgstr "_Wybierz tło…"
+msgstr "_Wybierz tapetę…"
 
 #: src/ui/ms-lockscreen-panel.ui:70 src/ui/ms-overview-panel.ui:112
 msgid "Use wallpaper"
-msgstr "Używaj tła"
+msgstr "Używaj tapety"
 
 #: src/ui/ms-lockscreen-panel.ui:71 src/ui/ms-overview-panel.ui:113
 msgid "Whether to show a colorful wallpaper"
-msgstr "Czy wyświetlać kolorowe tło"
+msgstr "Czy wyświetlać kolorową tapetę"
 
 #: src/ui/ms-lockscreen-panel.ui:79 src/ui/ms-window.ui:205
 msgid "Widgets"
@@ -973,7 +987,7 @@ msgstr "Dodatkowe widżety dla ekranu blokady"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard shortcut
 #. Translators: Label for a button that allows the user to add a new keyboard shortcut
-#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:168
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:170
 msgid "Add Shortcut"
 msgstr "Dodaj skrót"
 
@@ -1001,19 +1015,19 @@ msgstr "Klawisz _skrótu"
 msgid "Shortcut Preview"
 msgstr "Podgląd skrótu"
 
-#: src/ui/ms-osk-panel.ui:13
+#: src/ui/ms-osk-panel.ui:15
 msgid "Enable _On Screen Keyboard"
 msgstr "Włącz _klawiaturę ekranową"
 
-#: src/ui/ms-osk-panel.ui:14
+#: src/ui/ms-osk-panel.ui:16
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Czy wyświetlać klawiaturę ekranową, gdy jest potrzebna"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:22
 msgid "Unfold long-press"
 msgstr "Otwieranie klawiatury przez długie przytrzymanie"
 
-#: src/ui/ms-osk-panel.ui:21
+#: src/ui/ms-osk-panel.ui:23
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -1021,129 +1035,137 @@ msgstr ""
 "ekranową"
 
 #. Translators: abbreviation for less than or equal to 0.5 second interval of time
-#: src/ui/ms-osk-panel.ui:26
+#: src/ui/ms-osk-panel.ui:28
 msgid "short"
 msgstr "krótko"
 
 #. Translators: abbreviation for 1 second interval of time
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:30
 msgctxt "press interval"
 msgid "normal"
 msgstr "średnio"
 
 #. Translators: abbreviation for greater than or equal to 1.5 second interval of time
-#: src/ui/ms-osk-panel.ui:30
+#: src/ui/ms-osk-panel.ui:32
 msgid "long"
 msgstr "długo"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:40
 msgid "Ignore hardware keyboard"
 msgstr "Ignoruj klawiaturę sprzętową"
 
-#: src/ui/ms-osk-panel.ui:39
+#: src/ui/ms-osk-panel.ui:41
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Czy wyświetlać klawiaturę ekranową, gdy podłączona jest fizyczna klawiatura"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:48
 msgid "Key indicator popup"
 msgstr "Wskaźnik klawisza"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:49
 msgid "Whether to show a popover indicating the currently pressed key"
 msgstr "Czy wyświetlać dymek wskazujący aktualnie wciśnięty klawisz"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:61
 msgid "Keyboard height in portrait mode"
 msgstr "Wysokość klawiatury w trybie pionowym"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:62
 msgid "When the screen is taller than wide"
 msgstr "Gdy ekran jest wyższy od jego szerokości"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:78
 msgid "Keyboard height in landscape mode"
 msgstr "Wysokość klawiatury w trybie poziomym"
 
-#: src/ui/ms-osk-panel.ui:77
+#: src/ui/ms-osk-panel.ui:79
 msgid "When the screen is wider than tall"
 msgstr "Gdy ekran jest szerszy od jego wysokości"
 
-#: src/ui/ms-osk-panel.ui:101 src/ui/ms-window.ui:184
+#: src/ui/ms-osk-panel.ui:103 src/ui/ms-window.ui:184
 msgid "Scaling"
 msgstr "Skalowanie"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:106
 msgid "Keep physical size constant"
 msgstr "Zachowuj stały fizyczny rozmiar"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:107
 msgid "Ensure OSK is large enough in high screen resolutions"
 msgstr ""
 "Zapewnia, że klawiatura ekranowa jest wystarczająco duża przy wysokich "
 "rozdzielczościach"
 
-#: src/ui/ms-osk-panel.ui:111
+#: src/ui/ms-osk-panel.ui:113
 msgid "Add empty space below keys"
 msgstr "Dodaj pustą przestrzeń pod klawiszami"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:114
 msgid "Whether to add an empty area below the OSK's keys to shift it upward."
 msgstr ""
 "Czy wyświetlać pustą przestrzeń pod klawiszami klawiatury ekranowej, aby "
 "podnieść ją wyżej."
 
-#: src/ui/ms-osk-panel.ui:122
+#: src/ui/ms-osk-panel.ui:124
 msgid "Text Completion"
 msgstr "Uzupełnianie tekstu"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:127
 msgid "Opportunistic word completion"
 msgstr "Oportunistyczne uzupełnianie słów"
 
-#: src/ui/ms-osk-panel.ui:126
+#: src/ui/ms-osk-panel.ui:128
 msgid "Enable word completion when the app indicates it is useful"
-msgstr "Włącz uzupełnianie słów, gdy program wskaże, że jest przydatne"
+msgstr "Włącz uzupełnianie słów, gdy aplikacja wskaże, że jest przydatne"
 
-#: src/ui/ms-osk-panel.ui:133
+#: src/ui/ms-osk-panel.ui:135
 msgid "Toggle via OSK menu"
 msgstr "Przełączaj w menu klawiatury ekranowej"
 
-#: src/ui/ms-osk-panel.ui:134
+#: src/ui/ms-osk-panel.ui:136
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Pozwala na przełączenie uzupełniania słów przyciskiem menu klawiatury"
 
-#: src/ui/ms-osk-panel.ui:140
+#: src/ui/ms-osk-panel.ui:142
 msgid "Default Completer"
 msgstr "Domyślny silnik uzupełniania"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:143
 msgid "The default completion engine to use"
 msgstr "Domyślnie używany silnik uzupełniany"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:150
+#: src/ui/ms-osk-panel.ui:152
 msgid "Handle space around punctuation characters"
 msgstr "Zarządzaj przestrzenią wokół znaków interpunkcyjnych"
 
 #. Translators: Space is the ' ' character here
-#: src/ui/ms-osk-panel.ui:152
+#: src/ui/ms-osk-panel.ui:154
 msgid ""
 "This also swaps the space and punctuation characters after word completion"
 msgstr "To także zamienia spacje i znaki interpunkcyjne po uzupełnieniu słowa"
 
-#: src/ui/ms-osk-panel.ui:160
+#: src/ui/ms-osk-panel.ui:162
 msgid "Terminal Layout"
 msgstr "Układ terminala"
 
-#: src/ui/ms-osk-panel.ui:179
+#: src/ui/ms-osk-panel.ui:181
 msgid "Shortcuts"
 msgstr "Skróty"
 
-#: src/ui/ms-osk-panel.ui:180
+#: src/ui/ms-osk-panel.ui:182
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Skróty widoczne w pasku skrótów"
+
+#: src/ui/ms-osk-panel.ui:190
+msgid "Reset to default"
+msgstr "Przywróć domyślne"
+
+#: src/ui/ms-osk-panel.ui:191
+msgid "Reset the shortcut bar to its default layout"
+msgstr "Przywróć domyślny układ paska skrótów"
 
 #: src/ui/ms-overview-panel.ui:13 src/ui/ms-window.ui:139
 msgid "Favorites"
@@ -1156,7 +1178,7 @@ msgstr "Organizuj ulubione"
 #: src/ui/ms-overview-panel.ui:23
 msgid "Drag and drop the apps below to rearrange your favorite apps"
 msgstr ""
-"Przeciągnij programy poniżej, aby zmienić kolejność ulubionych programów"
+"Przeciągnij aplikacje poniżej, aby zmienić kolejność ulubionych aplikacji"
 
 #: src/ui/ms-overview-panel.ui:48
 msgid "Reset Favorites"
@@ -1164,7 +1186,7 @@ msgstr "Zresetuj ulubione"
 
 #: src/ui/ms-overview-panel.ui:49
 msgid "Set list of favorite apps back to the default"
-msgstr "Zresetuj domyślną listę ulubionych programów"
+msgstr "Zresetuj domyślną listę ulubionych aplikacji"
 
 #: src/ui/ms-overview-panel.ui:53
 msgid "Reset"
@@ -1172,23 +1194,23 @@ msgstr "Zresetuj"
 
 #: src/ui/ms-overview-panel.ui:64
 msgid "App Filtering and Hiding"
-msgstr "Filtrowanie programów i ukrywanie"
+msgstr "Filtrowanie aplikacji i ukrywanie"
 
 #: src/ui/ms-overview-panel.ui:67
 msgid "Set Application Filter Mode"
-msgstr "Włącz tryb filtrowania programów"
+msgstr "Włącz tryb filtrowania aplikacji"
 
 #: src/ui/ms-overview-panel.ui:68
 msgid "Show only mobile apps in the overview"
-msgstr "Wyświetl tylko mobilne programy w ekranie podglądu"
+msgstr "Wyświetlaj tylko mobilne aplikacje w ekranie podglądu"
 
 #: src/ui/ms-overview-panel.ui:74
 msgid "_Manage Hidden Apps"
-msgstr "Zarządzaj ukrytymi programami"
+msgstr "Zarządzaj ukryty_mi aplikacjami"
 
 #: src/ui/ms-overview-panel.ui:75
 msgid "Make apps you disabled in the overview visible again"
-msgstr "Przywróć ukryte programy w ekranie podglądu"
+msgstr "Przywróć ukryte aplikacje w ekranie podglądu"
 
 #: src/ui/ms-panel-switcher.ui:11
 msgid "No Matching Panels"
@@ -1264,11 +1286,11 @@ msgstr "Elementy interfejsu"
 
 #: src/ui/ms-topbar-panel.ui:16
 msgid "Show battery percentage"
-msgstr "Pokazuj procent baterii"
+msgstr "Wyświetlaj procent baterii"
 
 #: src/ui/ms-topbar-panel.ui:17
 msgid "Show exact charge level in the top bar"
-msgstr "Pokazuj dokładny poziom naładowania w górnym pasku"
+msgstr "Wyświetlaj dokładny poziom naładowania w górnym pasku"
 
 #: src/ui/ms-topbar-panel.ui:23
 msgid "Avoid notches"
@@ -1294,27 +1316,31 @@ msgstr "Aktualizacje systemu wymagają ponownego uruchomienia"
 msgid "Restart"
 msgstr "Ponowne uruchomienie"
 
-#: src/ui/ms-updates-panel.ui:30
+#: src/ui/ms-updates-panel.ui:34
+msgid "Looking for updates…"
+msgstr "Wyszukiwanie aktualizacji…"
+
+#: src/ui/ms-updates-panel.ui:45
 msgid "Everything up to date"
 msgstr "Wszystko jest już aktualne"
 
-#: src/ui/ms-updates-panel.ui:31
+#: src/ui/ms-updates-panel.ui:46
 msgid "There are no OS updates available"
 msgstr "Brak dostępnych aktualizacji systemowych"
 
-#: src/ui/ms-updates-panel.ui:42
+#: src/ui/ms-updates-panel.ui:57
 msgid "Updates available"
 msgstr "Dostępna jest aktualizacja"
 
-#: src/ui/ms-updates-panel.ui:43
+#: src/ui/ms-updates-panel.ui:58
 msgid "There are OS updates available"
 msgstr "Dostępna jest nowa aktualizacja systemu"
 
-#: src/ui/ms-updates-panel.ui:65
+#: src/ui/ms-updates-panel.ui:79
 msgid "Fetching OS update…"
 msgstr "Pobieranie aktualizacji systemu…"
 
-#: src/ui/ms-updates-panel.ui:109
+#: src/ui/ms-updates-panel.ui:122
 msgid "Installing OS update…"
 msgstr "Instalowanie aktualizacji systemu…"
 
@@ -1358,7 +1384,7 @@ msgstr "Filtrowanie"
 
 #: src/ui/ms-window.ui:141 src/ui/ms-window.ui:203
 msgid "Wallpaper"
-msgstr "Tło"
+msgstr "Tapeta"
 
 #: src/ui/ms-window.ui:152 src/ui/ms-window.ui:160
 msgid "Feedback"
@@ -1453,28 +1479,123 @@ msgid "Locale"
 msgstr "Język"
 
 #: src/ui/ms-window.ui:338
+msgid "Sound"
+msgstr "Dźwięk"
+
+#: src/ui/ms-window.ui:347
+msgid "sound"
+msgstr "dźwięki"
+
+#: src/ui/ms-window.ui:348
+msgid "audio"
+msgstr "Audio"
+
+#: src/ui/ms-window.ui:349
+msgid "speaker"
+msgstr "głośnik"
+
+#: src/ui/ms-window.ui:350
+msgid "microphone"
+msgstr "mikrofon"
+
+#: src/ui/ms-window.ui:362
 msgid "OS Updates"
 msgstr "Aktualizacje systemu"
 
-#: src/ui/ms-window.ui:346
+#: src/ui/ms-window.ui:370
 msgid "Updates"
 msgstr "Aktualizacje"
 
-#: src/ui/ms-window.ui:358 src/ui/ms-window.ui:366
+#: src/ui/ms-window.ui:382 src/ui/ms-window.ui:390
 msgid "About"
 msgstr "Informacje"
 
-#: src/ui/ms-window.ui:391
+#: src/ui/ms-window.ui:401
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/ui/ms-window.ui:405
+msgid "Connectivity"
+msgstr "Łączność"
+
+#: src/ui/ms-window.ui:412
+msgid "wifi"
+msgstr "wifi"
+
+#: src/ui/ms-window.ui:413
+msgid "wlan"
+msgstr "wlan"
+
+#. translators: network is used a a search keyword here
+#: src/ui/ms-window.ui:414 src/ui/ms-window.ui:436
+msgid "network"
+msgstr "sieć"
+
+#: src/ui/ms-window.ui:426
+msgid "Network"
+msgstr "Sieć"
+
+#. translators: vpn is used a a search keyword here
+#: src/ui/ms-window.ui:438
+msgid "vpn"
+msgstr "vpn"
+
+#. translators: this is a network proxy
+#: src/ui/ms-window.ui:440
+msgid "proxy"
+msgstr "proxy"
+
+#: src/ui/ms-window.ui:452
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/ui/ms-window.ui:461
+msgid "bluetooth"
+msgstr "bluetooth"
+
+#: src/ui/ms-window.ui:473
+msgid "Cellular"
+msgstr "Łączność komórkowa"
+
+#: src/ui/ms-window.ui:482
+msgid "wwan"
+msgstr "wwan"
+
+#: src/ui/ms-window.ui:483
+msgid "modem"
+msgstr "modem"
+
+#: src/ui/ms-window.ui:484
+msgid "gesm"
+msgstr "gesm"
+
+#: src/ui/ms-window.ui:485
+msgid "lte"
+msgstr "lte"
+
+#: src/ui/ms-window.ui:497
+msgid "Online Accounts"
+msgstr "Konta online"
+
+#: src/ui/ms-window.ui:506
+msgid "account"
+msgstr "konto"
+
+#: src/ui/ms-window.ui:507
+msgid "email"
+msgstr "e-mail"
+
+#: src/ui/ms-window.ui:532
 msgid "_Show Configurable Tweaks"
 msgstr "_Pokaż dostrajalne usprawnienia"
 
-#: src/ui/ms-window.ui:398
+#: src/ui/ms-window.ui:539
 msgid "_Keyboard Shortcuts"
 msgstr "_Skróty klawiszowe"
 
-#: src/ui/ms-window.ui:402
+#: src/ui/ms-window.ui:543
 msgid "_About Mobile Settings"
-msgstr "_O programie"
+msgstr "_O aplikacji"
 
 #: src/ui/shortcuts-dialog.ui:6
 msgctxt "shortcut window"
@@ -1484,7 +1605,7 @@ msgstr "Ogólne"
 #: src/ui/shortcuts-dialog.ui:9
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Pokaż skróty klawiszowe"
+msgstr "Wyświetlenie skrótów klawiszowych"
 
 #: src/ui/shortcuts-dialog.ui:15
 msgctxt "shortcut window"
