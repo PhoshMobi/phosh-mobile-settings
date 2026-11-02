@@ -36,28 +36,28 @@ static guint signals[N_SIGNALS];
 
 
 struct _MsPluginRow {
-  AdwActionRow parent;
+  AdwActionRow        parent;
 
-  GtkImage    *plugin_icon;
-  GtkSwitch   *toggle;
-  GtkWidget   *prefs;
-  GtkWidget   *drag_handle;
-  GtkWidget   *move_separator;
-  GtkWidget   *move_button;
+  GtkImage           *plugin_icon;
+  GtkSwitch          *toggle;
+  GtkWidget          *prefs;
+  GtkWidget          *drag_handle;
+  GtkWidget          *move_separator;
+  GtkWidget          *move_button;
 
-  char        *name;
-  char        *subtitle;
-  char        *filename;
-  char        *icon_name;
-  gboolean     enabled;
-  gboolean     has_prefs;
-  gboolean     sortable;
+  char               *name;
+  char               *subtitle;
+  char               *filename;
+  char               *icon_name;
+  gboolean            enabled;
+  gboolean            has_prefs;
+  gboolean            sortable;
 
-  GtkDragSource *drag_source;
-  GtkDropTarget *drop_target;
-  GtkListBox  *drag_widget;
-  gdouble      drag_x;
-  gdouble      drag_y;
+  GtkDragSource      *drag_source;
+  GtkDropTarget      *drop_target;
+  GtkListBox         *drag_widget;
+  gdouble             drag_x;
+  gdouble             drag_y;
 
   GSimpleActionGroup *action_group;
 };
@@ -385,7 +385,7 @@ ms_plugin_row_init (MsPluginRow *self)
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  gtk_icon_theme_add_search_path (gtk_icon_theme_get_for_display (gdk_display_get_default()),
+  gtk_icon_theme_add_search_path (gtk_icon_theme_get_for_display (gdk_display_get_default ()),
                                   MOBILE_SETTINGS_PHOSH_PLUGINS_ICON_DIR);
 
   self->drag_source = gtk_drag_source_new ();
