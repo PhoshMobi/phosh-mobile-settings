@@ -10,7 +10,7 @@
       </object>
     </child>
     <child type="prefix">
-      <object class="GtkImage">
+      <object class="GtkImage" id="drag_handle">
         <property name="icon-name">list-drag-handle-symbolic</property>
         <style>
           <class name="drag-handle"/>
@@ -32,14 +32,14 @@
       </object>
     </child>
     <child type="suffix">
-      <object class="GtkSeparator">
+      <object class="GtkSeparator" id="move_separator">
         <property name="orientation">vertical</property>
         <property name="margin-top">12</property>
         <property name="margin-bottom">12</property>
       </object>
     </child>
     <child type="suffix">
-      <object class="GtkMenuButton">
+      <object class="GtkMenuButton" id="move_button">
         <property name="valign">center</property>
         <property name="icon-name">view-more-symbolic</property>
         <property name="menu-model">move_row_menu</property>

@@ -28,6 +28,7 @@ enum {
   PROP_SETTINGS_SCHEMA,
   PROP_SETTINGS_KEY,
   PROP_PREFS_EXTENSION_POINT,
+  PROP_SORTABLE,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -48,6 +49,7 @@ struct _MsPluginListBox {
 
   char                 *plugin_type;
   char                 *prefs_extension_point;
+  gboolean              sortable;
 };
 G_DEFINE_TYPE (MsPluginListBox, ms_plugin_list_box, ADW_TYPE_BIN)
 
@@ -330,6 +332,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
                         "has-prefs", !!prefs_path,
                         "filename", path,
                         "icon", icon_name,
+                        "sortable", self->sortable,
                         NULL);
     g_signal_connect_object (row,
                              "notify::enabled",
@@ -374,6 +377,9 @@ ms_plugin_list_box_set_property (GObject      *object,
   case PROP_PLUGIN_TYPE:
     self->plugin_type = g_value_dup_string (value);
     break;
+  case PROP_SORTABLE:
+    self->sortable = g_value_get_boolean (value);
+    break;
   case PROP_SETTINGS_SCHEMA:
     ms_plugin_list_box_set_settings_schema (self, g_value_get_string (value));
     break;
@@ -401,6 +407,9 @@ ms_plugin_list_box_get_property (GObject    *object,
   switch (property_id) {
   case PROP_PLUGIN_TYPE:
     g_value_set_string (value, self->plugin_type);
+    break;
+  case PROP_SORTABLE:
+    g_value_set_boolean (value, self->sortable);
     break;
   case PROP_SETTINGS_SCHEMA:
     g_value_set_string (value, self->settings_schema);
@@ -479,6 +488,15 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
     g_param_spec_string ("plugin-type", "", "",
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
+  /**
+   * MsPluginListBox:sortable:
+   *
+   * Whether the plugins can be moved in the list
+   */
+  props[PROP_SORTABLE] =
+    g_param_spec_boolean ("sortable", "", "",
+                          TRUE,
+                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
   /**
    * MsPluginListBox:settings-schema:
    *
