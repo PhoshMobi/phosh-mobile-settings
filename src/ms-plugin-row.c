@@ -56,8 +56,8 @@ struct _MsPluginRow {
   GtkDragSource      *drag_source;
   GtkDropTarget      *drop_target;
   GtkListBox         *drag_widget;
-  gdouble             drag_x;
-  gdouble             drag_y;
+  double              drag_x;
+  double              drag_y;
 
   GSimpleActionGroup *action_group;
 };
@@ -230,7 +230,7 @@ on_drag_begin (MsPluginRow *self, GdkDrag *drag)
 
 
 static gboolean
-on_drop (MsPluginRow *self, const GValue *value, gdouble x, gdouble y)
+on_drop (MsPluginRow *self, const GValue *value, double x, double y)
 {
   MsPluginRow *source;
 
