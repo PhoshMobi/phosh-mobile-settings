@@ -81,6 +81,7 @@
                     <child>
                       <object class="MsPluginListBox" id="plugins_listbox">
                         <property name="plugin-type">lockscreen</property>
+                        <property name="settings-schema">mobi.phosh.shell.plugins</property>
                         <property name="settings-key">lock-screen</property>
                         <property name="prefs-extension-point">phosh-lockscreen-widget-prefs</property>
                       </object>
