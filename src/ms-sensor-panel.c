@@ -17,7 +17,7 @@
 #define IIO_SENSOR_PROXY_DBUS_IFACE_NAME "net.hadess.SensorProxy"
 #define IIO_SENSOR_PROXY_DBUS_OBJECT     "/net/hadess/SensorProxy"
 
-#define PHOSH_SCHEMA_ID "sm.puri.phosh"
+#define PHOSH_SCHEMA_ID "mobi.phosh.shell"
 #define PHOSH_KEY_AUTO_HC "automatic-high-contrast"
 #define PHOSH_KEY_AUTO_HC_THRESHOLD "automatic-high-contrast-threshold"
 

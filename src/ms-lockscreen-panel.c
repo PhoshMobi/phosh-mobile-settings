@@ -22,7 +22,7 @@
 #include <phosh-plugin.h>
 
 /* Verbatim from phosh */
-#define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
+#define LOCKSCREEN_SCHEMA_ID "mobi.phosh.shell.lockscreen"
 #define LOCKSCREEN_KEY_SHUFFLE_KEYPAD "shuffle-keypad"
 #define LOCKSCREEN_KEY_REQUIRE_UNLOCK "require-unlock"
 

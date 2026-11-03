@@ -39,7 +39,7 @@
 #define GNOME_SOUND_SCHEMA_ID "org.gnome.desktop.sound"
 #define GNOME_SOUND_KEY_THEME_NAME "theme-name"
 
-#define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
+#define NOTIFICATIONS_SCHEMA "mobi.phosh.shell.notifications"
 #define NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY "wakeup-screen-triggers"
 #define NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY "wakeup-screen-urgency"
 #define NOTIFICATIONS_WAKEUP_SCREEN_CATEGORIES_KEY "wakeup-screen-categories"
@@ -884,7 +884,7 @@ ms_feedback_panel_constructed (GObject *object)
                    self->prefer_flash, "active",
                    G_SETTINGS_BIND_DEFAULT);
 
-  found = ms_schema_bind_property ("sm.puri.phosh",
+  found = ms_schema_bind_property ("mobi.phosh.shell",
                                    "quick-silent",
                                    G_OBJECT (self->quick_silent_switch),
                                    "active",

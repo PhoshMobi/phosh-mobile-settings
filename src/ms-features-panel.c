@@ -60,11 +60,11 @@ ms_features_panel_init (MsFeaturesPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  self->emergency_calls_settings = g_settings_new ("sm.puri.phosh.emergency-calls");
+  self->emergency_calls_settings = g_settings_new ("mobi.phosh.shell.emergency-calls");
   g_settings_bind (self->emergency_calls_settings, "enabled",
                    self->emergency_calls_enabled_switch, "active",
                    G_SETTINGS_BIND_DEFAULT);
-  self->phosh_settings = g_settings_new ("sm.puri.phosh");
+  self->phosh_settings = g_settings_new ("mobi.phosh.shell");
   g_settings_bind (self->phosh_settings, "enable-suspend",
                    self->manual_suspend_switch, "active",
                    G_SETTINGS_BIND_DEFAULT);

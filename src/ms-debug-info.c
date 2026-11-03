@@ -307,8 +307,8 @@ ms_generate_debug_info (void)
       const char *schema;
       const char *key;
     } const schema[] = {
-      { "sm.puri.phosh.emergency-calls", "enabled" },
-      { "sm.puri.phosh.plugins", "lock-screen" },
+      { "mobi.phosh.shell.emergency-calls", "enabled" },
+      { "mobi.phosh.shell.plugins", "lock-screen" },
       { "org.gnome.desktop.a11y.applications", "screen-keyboard-enabled" },
       { "org.gnome.desktop.interface", "gtk-im-module" },
       { "org.gnome.desktop.input-sources", "sources" },
@@ -332,13 +332,13 @@ ms_generate_debug_info (void)
       { "org.gnome.desktop.interface", "clock-show-weekday" },
 
       /* Screen wakeup */
-      { "sm.puri.phosh.notifications", "wakeup-screen-categories" },
-      { "sm.puri.phosh.notifications", "wakeup-screen-triggers" },
-      { "sm.puri.phosh.notifications", "wakeup-screen-urgency" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-categories" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-triggers" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-urgency" },
 
       /* Other phosh related */
-      { "sm.puri.phosh", "app-filter-mode" },
-      { "sm.puri.phosh", "automatic-high-contrast" },
+      { "mobi.phosh.shell", "app-filter-mode" },
+      { "mobi.phosh.shell", "automatic-high-contrast" },
       { "sm.puri.phoc", "auto-maximize" },
     };
 
