@@ -40,7 +40,6 @@
 #define GNOME_SOUND_KEY_THEME_NAME "theme-name"
 
 #define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
-#define NOTIFICATIONS_URGENCY_ENUM "sm.puri.phosh.NotificationUrgency"
 #define NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY "wakeup-screen-triggers"
 #define NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY "wakeup-screen-urgency"
 #define NOTIFICATIONS_WAKEUP_SCREEN_CATEGORIES_KEY "wakeup-screen-categories"
