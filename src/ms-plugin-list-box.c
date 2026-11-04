@@ -13,7 +13,7 @@
 #include "ms-plugin-list-box.h"
 #include "ms-plugin-row.h"
 
-#define PHOSH_PLUGINS_SCHEMA_ID "sm.puri.phosh.plugins"
+#define PHOSH_PLUGINS_SCHEMA_ID "mobi.phosh.shell.plugins"
 
 #define PHOSH_PLUGIN_PREFIX ""
 #define PHOSH_PLUGIN_SUFFIX ".plugin"

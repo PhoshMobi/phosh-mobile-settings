@@ -34,7 +34,7 @@ test_gsettings_fixture_setup_alternative (BackendTestFixture *fixture, gconstpoi
   fixture->setting->type = MS_TWEAKS_TYPE_BOOLEAN;
   fixture->setting->gtype = MS_TWEAKS_GTYPE_FLAGS;
   fixture->setting->key = g_ptr_array_new_full (1, g_free);
-  g_ptr_array_add (fixture->setting->key, g_strdup ("sm.puri.phosh.app-filter-mode"));
+  g_ptr_array_add (fixture->setting->key, g_strdup ("mobi.phosh.shell.app-filter-mode"));
   fixture->setting->map = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
   g_hash_table_insert (fixture->setting->map, g_strdup ("true"), g_strdup ("1"));
   g_hash_table_insert (fixture->setting->map, g_strdup ("false"), g_strdup ("0"));

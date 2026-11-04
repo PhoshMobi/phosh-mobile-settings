@@ -16,7 +16,7 @@
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
-#define PHOSH_SCHEMA_ID   "sm.puri.phosh"
+#define PHOSH_SCHEMA_ID   "mobi.phosh.shell"
 #define SHELL_LAYOUT_KEY  "shell-layout"
 
 #define INTERFACE_SCHEMA_ID     "org.gnome.desktop.interface"

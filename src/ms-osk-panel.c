@@ -26,7 +26,7 @@
 #define A11Y_SETTINGS                "org.gnome.desktop.a11y.applications"
 #define OSK_ENABLED_KEY              "screen-keyboard-enabled"
 
-#define PHOSH_SETTINGS               "sm.puri.phosh"
+#define PHOSH_SETTINGS               "mobi.phosh.shell"
 #define OSK_UNFOLD_DELAY_KEY         "osk-unfold-delay"
 
 #define PHOSH_OSK_SETTINGS           "mobi.phosh.osk"

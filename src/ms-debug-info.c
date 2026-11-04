@@ -71,11 +71,11 @@ get_flatpak_info (const char *group,
 static char *
 get_phosh_session_version (void)
 {
-  g_autoptr(GSubprocess) subprocess = NULL;
+  g_autoptr (GSubprocess) subprocess = NULL;
   GInputStream *stdout_stream = NULL;
-  g_autoptr(GDataInputStream) data_input_stream = NULL;
+  g_autoptr (GDataInputStream) data_input_stream = NULL;
   g_autofree char *version = NULL;
-  g_autoptr(GError) error = NULL;
+  g_autoptr (GError) error = NULL;
 
   subprocess = g_subprocess_new (G_SUBPROCESS_FLAGS_STDOUT_PIPE, &error,
                                  "phosh-session", "--version", NULL);
@@ -148,11 +148,15 @@ append_display_configuration (GString *string)
     g_string_append_printf (string, "  Make: %s\n", head->make ? head->make : "Unknown");
     g_string_append_printf (string, "  Model: %s\n", head->model ? head->model : "Unknown");
     g_string_append_printf (string, "  Scale: %d\n", head->scale);
-    g_string_append_printf (string, "  Serial: %s\n", head->serial_number ? head->serial_number : "Unknown");
-    g_string_append_printf (string, "  Description: %s\n", head->description ? head->description : "Unknown");
+    g_string_append_printf (string, "  Serial: %s\n",
+                            head->serial_number ? head->serial_number : "Unknown");
+    g_string_append_printf (string, "  Description: %s\n",
+                            head->description ? head->description : "Unknown");
     g_string_append_printf (string, "  Enabled: %s\n", head->enabled ? "Yes" : "No");
     g_string_append_printf (string, "  Position: (%d, %d)\n", head->x, head->y);
-    g_string_append_printf (string, "  Physical size: %dx%d mm\n", head->physical_width, head->physical_height);
+    g_string_append_printf (string, "  Physical size: %dx%d mm\n",
+                            head->physical_width,
+                            head->physical_height);
 
     if (head->current_mode) {
       g_string_append_printf (string, "  Current mode: %dx%d@%dHz\n",
@@ -202,29 +206,35 @@ ms_generate_debug_info (void)
 
   g_string_append_printf (string, "Mobile Settings: %s\n", MOBILE_SETTINGS_VERSION);
   g_string_append (string, "Compiled against:\n");
-  g_string_append_printf (string, "- GLib: %d.%d.%d\n", GLIB_MAJOR_VERSION,
-                                                        GLIB_MINOR_VERSION,
-                                                        GLIB_MICRO_VERSION);
-  g_string_append_printf (string, "- GTK: %d.%d.%d\n", GTK_MAJOR_VERSION,
-                                                       GTK_MINOR_VERSION,
-                                                       GTK_MICRO_VERSION);
+  g_string_append_printf (string, "- GLib: %d.%d.%d\n",
+                          GLIB_MAJOR_VERSION,
+                          GLIB_MINOR_VERSION,
+                          GLIB_MICRO_VERSION);
+  g_string_append_printf (string, "- GTK: %d.%d.%d\n",
+                          GTK_MAJOR_VERSION,
+                          GTK_MINOR_VERSION,
+                          GTK_MICRO_VERSION);
 
-  g_string_append_printf (string, "- Libadwaita: %d.%d.%d\n", ADW_MAJOR_VERSION,
-                                                              ADW_MINOR_VERSION,
-                                                              ADW_MICRO_VERSION);
+  g_string_append_printf (string, "- Libadwaita: %d.%d.%d\n",
+                          ADW_MAJOR_VERSION,
+                          ADW_MINOR_VERSION,
+                          ADW_MICRO_VERSION);
   g_string_append (string, "\n");
 
   g_string_append (string, "Running against:\n");
-  g_string_append_printf (string, "- GLib: %d.%d.%d\n", glib_major_version,
-                                                        glib_minor_version,
-                                                        glib_micro_version);
-  g_string_append_printf (string, "- GTK: %d.%d.%d\n", gtk_get_major_version (),
-                                                       gtk_get_minor_version (),
-                                                       gtk_get_micro_version ());
+  g_string_append_printf (string, "- GLib: %d.%d.%d\n",
+                          glib_major_version,
+                          glib_minor_version,
+                          glib_micro_version);
+  g_string_append_printf (string, "- GTK: %d.%d.%d\n",
+                          gtk_get_major_version (),
+                          gtk_get_minor_version (),
+                          gtk_get_micro_version ());
 
-  g_string_append_printf (string, "- Libadwaita: %d.%d.%d\n", adw_get_major_version (),
-                                                              adw_get_minor_version (),
-                                                              adw_get_micro_version ());
+  g_string_append_printf (string, "- Libadwaita: %d.%d.%d\n",
+                          adw_get_major_version (),
+                          adw_get_minor_version (),
+                          adw_get_micro_version ());
   g_string_append (string, "\n");
 
   {
@@ -285,12 +295,14 @@ ms_generate_debug_info (void)
       "XDG_STATE_HOME", "XDG_RUNTIME_DIR",
       /* Other XDG variables */
       "XDG_MENU_PREFIX",
-      NULL };
+      NULL
+    };
 
     g_string_append (string, "Environment:\n");
     g_string_append_printf (string, "- Desktop: %s\n", desktop);
-    g_string_append_printf (string, "- Session: %s (%s)\n", session_desktop,
-                                                            session_type);
+    g_string_append_printf (string, "- Session: %s (%s)\n",
+                            session_desktop,
+                            session_type);
     g_string_append_printf (string, "- Language: %s\n", lang);
     g_string_append_printf (string, "- Running inside Builder: %s\n", builder ? "yes" : "no");
 
@@ -307,8 +319,8 @@ ms_generate_debug_info (void)
       const char *schema;
       const char *key;
     } const schema[] = {
-      { "sm.puri.phosh.emergency-calls", "enabled" },
-      { "sm.puri.phosh.plugins", "lock-screen" },
+      { "mobi.phosh.shell.emergency-calls", "enabled" },
+      { "mobi.phosh.shell.plugins", "lock-screen" },
       { "org.gnome.desktop.a11y.applications", "screen-keyboard-enabled" },
       { "org.gnome.desktop.interface", "gtk-im-module" },
       { "org.gnome.desktop.input-sources", "sources" },
@@ -332,13 +344,13 @@ ms_generate_debug_info (void)
       { "org.gnome.desktop.interface", "clock-show-weekday" },
 
       /* Screen wakeup */
-      { "sm.puri.phosh.notifications", "wakeup-screen-categories" },
-      { "sm.puri.phosh.notifications", "wakeup-screen-triggers" },
-      { "sm.puri.phosh.notifications", "wakeup-screen-urgency" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-categories" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-triggers" },
+      { "mobi.phosh.shell.notifications", "wakeup-screen-urgency" },
 
       /* Other phosh related */
-      { "sm.puri.phosh", "app-filter-mode" },
-      { "sm.puri.phosh", "automatic-high-contrast" },
+      { "mobi.phosh.shell", "app-filter-mode" },
+      { "mobi.phosh.shell", "automatic-high-contrast" },
       { "sm.puri.phoc", "auto-maximize" },
     };
 
@@ -373,7 +385,7 @@ ms_generate_debug_info (void)
 
   g_string_append_printf (string, "Display Configuration\n");
   append_display_configuration (string);
-  g_string_append(string, "\n");
+  g_string_append (string, "\n");
 
   g_string_append_printf (string, "Hardware Information:\n");
   {

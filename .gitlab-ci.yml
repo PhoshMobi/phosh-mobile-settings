@@ -43,6 +43,8 @@ variables:
   GCHECK_DIRS: src tests plugins
   PHOC: dbus-launch phoc --no-xwayland
   WLR_BACKENDS: headless
+  # For the new schema locations:
+  PHOSH_ADDITIONAL_SID_PKGS: phosh
 
 .forky_vars: &forky_vars
   variables:

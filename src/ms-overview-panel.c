@@ -23,7 +23,7 @@
 
 #define FAVORITES_KEY            "favorites"
 #define APP_FILTER_MODE_KEY      "app-filter-mode"
-#define PHOSH_SCHEMA_ID          "sm.puri.phosh"
+#define PHOSH_SCHEMA_ID          "mobi.phosh.shell"
 #define FAVORITES_LIST_ICON_SIZE 48
 
 #define BACKGROUND_SCHEMA_ID "org.gnome.desktop.background"
