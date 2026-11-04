@@ -1,3 +1,22 @@
+phosh-mobile-settings (0.59~alpha1) experimental; urgency=medium
+
+  [ Roy-Magne Mo ]
+  * Add Norwegian Nynorsk translation
+
+  [ nicole mikołajczyk ]
+  * Update Polish translation
+
+  [ Guido Günther ]
+  * ci: Pull phosh from unstable.
+    We want the new schema locations
+  * feedback-panel: Remove unused define
+  * treewide: Update phosh related schema to mobi.phosh.
+    This needs phosh >= 0.59~ to work.
+  * debug-info: Fix indent.
+    We have to do it at some point
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 04 Nov 2026 16:56:18 +0100
+
 phosh-mobile-settings (0.58.0) experimental; urgency=medium
 
   [ Baurzhan Muftakhidinov ]
