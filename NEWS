@@ -1,3 +1,13 @@
+phosh-mobile-settings 0.59~alpha1
+---------------------------------
+Released November 2026
+* Use mobi.phosh schema location for Phosh related settings
+* Contributors:
+    * Guido Günther
+* UI translations:
+    * nicole mikołajczyk (pl)
+    * Roy-Magne Mo (nn)
+
 phosh-mobile-settings 0.58.0
 ----------------------------
 Released October 2026
