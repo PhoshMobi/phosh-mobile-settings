@@ -36,8 +36,24 @@
                 <child>
                   <object class="MsPluginListBox" id="plugins_listbox">
                     <property name="plugin-type">quick-setting</property>
+                    <property name="settings-schema">mobi.phosh.shell.plugins</property>
                     <property name="settings-key">quick-settings</property>
                     <property name="prefs-extension-point">phosh-quick-setting-widget-prefs</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Status Icons</property>
+                <property name="description" translatable="yes">Enable additional status icons in the top bar</property>
+                <child>
+                  <object class="MsPluginListBox">
+                    <property name="plugin-type">status-icon</property>
+                    <property name="settings-schema">mobi.phosh.shell.plugins</property>
+                    <property name="settings-key">status-icons</property>
+                    <property name="sortable">false</property>
                   </object>
                 </child>
               </object>

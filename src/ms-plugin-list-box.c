@@ -13,8 +13,6 @@
 #include "ms-plugin-list-box.h"
 #include "ms-plugin-row.h"
 
-#define PHOSH_PLUGINS_SCHEMA_ID "mobi.phosh.shell.plugins"
-
 #define PHOSH_PLUGIN_PREFIX ""
 #define PHOSH_PLUGIN_SUFFIX ".plugin"
 
@@ -27,8 +25,10 @@
 enum {
   PROP_0,
   PROP_PLUGIN_TYPE,
+  PROP_SETTINGS_SCHEMA,
   PROP_SETTINGS_KEY,
   PROP_PREFS_EXTENSION_POINT,
+  PROP_SORTABLE,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -37,6 +37,7 @@ struct _MsPluginListBox {
   AdwBin                parent;
 
   GSettings            *settings;
+  char                 *settings_schema;
   char                 *settings_key;
   GtkWidget            *list_box;
   GListStore           *store;
@@ -48,6 +49,7 @@ struct _MsPluginListBox {
 
   char                 *plugin_type;
   char                 *prefs_extension_point;
+  gboolean              sortable;
 };
 G_DEFINE_TYPE (MsPluginListBox, ms_plugin_list_box, ADW_TYPE_BIN)
 
@@ -330,6 +332,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
                         "has-prefs", !!prefs_path,
                         "filename", path,
                         "icon", icon_name,
+                        "sortable", self->sortable,
                         NULL);
     g_signal_connect_object (row,
                              "notify::enabled",
@@ -349,10 +352,16 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
 
 
 static void
+ms_plugin_list_box_set_settings_schema (MsPluginListBox *self, const char *schema)
+{
+  g_set_str (&self->settings_schema, schema);
+}
+
+
+static void
 ms_plugin_list_box_set_settings_key (MsPluginListBox *self, const char *key)
 {
-  self->settings_key = g_strdup (key);
-  ms_plugin_list_box_scan_phosh_plugins (self);
+  g_set_str (&self->settings_key, key);
 }
 
 
@@ -367,6 +376,12 @@ ms_plugin_list_box_set_property (GObject      *object,
   switch (property_id) {
   case PROP_PLUGIN_TYPE:
     self->plugin_type = g_value_dup_string (value);
+    break;
+  case PROP_SORTABLE:
+    self->sortable = g_value_get_boolean (value);
+    break;
+  case PROP_SETTINGS_SCHEMA:
+    ms_plugin_list_box_set_settings_schema (self, g_value_get_string (value));
     break;
   case PROP_SETTINGS_KEY:
     ms_plugin_list_box_set_settings_key (self, g_value_get_string (value));
@@ -393,6 +408,12 @@ ms_plugin_list_box_get_property (GObject    *object,
   case PROP_PLUGIN_TYPE:
     g_value_set_string (value, self->plugin_type);
     break;
+  case PROP_SORTABLE:
+    g_value_set_boolean (value, self->sortable);
+    break;
+  case PROP_SETTINGS_SCHEMA:
+    g_value_set_string (value, self->settings_schema);
+    break;
   case PROP_SETTINGS_KEY:
     g_value_set_string (value, self->settings_key);
     break;
@@ -403,6 +424,19 @@ ms_plugin_list_box_get_property (GObject    *object,
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
   }
+}
+
+static void
+ms_plugin_list_box_constructed (GObject *object)
+{
+  MsPluginListBox *self = MS_PLUGIN_LIST_BOX (object);
+
+  G_OBJECT_CLASS (ms_plugin_list_box_parent_class)->constructed (object);
+
+  g_assert (self->settings_schema && self->settings_key);
+
+  self->settings = g_settings_new (self->settings_schema);
+  ms_plugin_list_box_scan_phosh_plugins (self);
 }
 
 
@@ -427,6 +461,7 @@ ms_plugin_list_box_finalize (GObject *object)
 
   g_clear_pointer (&self->prefs_extension_point, g_free);
   g_clear_pointer (&self->settings_key, g_free);
+  g_clear_pointer (&self->settings_schema, g_free);
   g_clear_pointer (&self->plugin_type, g_free);
 
   G_OBJECT_CLASS (ms_plugin_list_box_parent_class)->finalize (object);
@@ -440,6 +475,7 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
 
   object_class->get_property = ms_plugin_list_box_get_property;
   object_class->set_property = ms_plugin_list_box_set_property;
+  object_class->constructed = ms_plugin_list_box_constructed;
   object_class->dispose = ms_plugin_list_box_dispose;
   object_class->finalize = ms_plugin_list_box_finalize;
 
@@ -453,9 +489,27 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
   /**
+   * MsPluginListBox:sortable:
+   *
+   * Whether the plugins can be moved in the list
+   */
+  props[PROP_SORTABLE] =
+    g_param_spec_boolean ("sortable", "", "",
+                          TRUE,
+                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
+  /**
+   * MsPluginListBox:settings-schema:
+   *
+   * The id of Phosh's settings schema that holds the list of enabled plugins
+   */
+  props[PROP_SETTINGS_SCHEMA] =
+    g_param_spec_string ("settings-schema", "", "",
+                         NULL,
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
+  /**
    * MsPluginListBox:settings-key:
    *
-   * The settings key in Phosh's schema that lists the enabled plugins
+   * The settings key in [property@MsPluginListBox:settings-schema] that lists the enabled plugins
    */
   props[PROP_SETTINGS_KEY] =
     g_param_spec_string ("settings-key", "", "",
@@ -501,7 +555,6 @@ ms_plugin_list_box_init (MsPluginListBox *self)
   adw_bin_set_child (ADW_BIN (self), self->list_box);
   gtk_widget_add_css_class (self->list_box, "boxed-list");
 
-  self->settings = g_settings_new (PHOSH_PLUGINS_SCHEMA_ID);
   self->store = g_list_store_new (MS_TYPE_PLUGIN_ROW);
 
   gtk_list_box_bind_model (GTK_LIST_BOX (self->list_box),

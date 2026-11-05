@@ -22,6 +22,7 @@ enum {
   PROP_FILENAME,
   PROP_HAS_PREFS,
   PROP_ICON,
+  PROP_SORTABLE,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -35,22 +36,28 @@ static guint signals[N_SIGNALS];
 
 
 struct _MsPluginRow {
-  AdwActionRow parent;
+  AdwActionRow        parent;
 
-  GtkImage    *plugin_icon;
-  GtkSwitch   *toggle;
-  GtkWidget   *prefs;
+  GtkImage           *plugin_icon;
+  GtkSwitch          *toggle;
+  GtkWidget          *prefs;
+  GtkWidget          *drag_handle;
+  GtkWidget          *move_separator;
+  GtkWidget          *move_button;
 
-  char        *name;
-  char        *subtitle;
-  char        *filename;
-  char        *icon_name;
-  gboolean     enabled;
-  gboolean     has_prefs;
+  char               *name;
+  char               *subtitle;
+  char               *filename;
+  char               *icon_name;
+  gboolean            enabled;
+  gboolean            has_prefs;
+  gboolean            sortable;
 
-  GtkListBox  *drag_widget;
-  gdouble      drag_x;
-  gdouble      drag_y;
+  GtkDragSource      *drag_source;
+  GtkDropTarget      *drop_target;
+  GtkListBox         *drag_widget;
+  double              drag_x;
+  double              drag_y;
 
   GSimpleActionGroup *action_group;
 };
@@ -98,6 +105,16 @@ ms_plugin_row_set_property (GObject      *object,
     self->icon_name = g_value_dup_string (value);
     gtk_image_set_from_icon_name (self->plugin_icon, self->icon_name);
     break;
+  case PROP_SORTABLE:
+    self->sortable = g_value_get_boolean (value);
+    if (!self->sortable) {
+      gtk_widget_remove_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (self->drag_source));
+      gtk_widget_remove_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (self->drop_target));
+    }
+    gtk_widget_set_visible (self->drag_handle, self->sortable);
+    gtk_widget_set_visible (self->move_separator, self->sortable);
+    gtk_widget_set_visible (self->move_button, self->sortable);
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     break;
@@ -131,6 +148,9 @@ ms_plugin_row_get_property (GObject    *object,
     break;
   case PROP_ICON:
     g_value_set_string (value, self->icon_name);
+    break;
+  case PROP_SORTABLE:
+    g_value_set_boolean (value, self->sortable);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -210,7 +230,7 @@ on_drag_begin (MsPluginRow *self, GdkDrag *drag)
 
 
 static gboolean
-on_drop (MsPluginRow *self, const GValue *value, gdouble x, gdouble y)
+on_drop (MsPluginRow *self, const GValue *value, double x, double y)
 {
   MsPluginRow *source;
 
@@ -316,6 +336,16 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
 
+  /**
+   * MsPluginRow:sortable:
+   *
+   * Whether the row can be moved in the list
+   */
+  props[PROP_SORTABLE] =
+    g_param_spec_boolean ("sortable", "", "",
+                          TRUE,
+                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
   signals[MOVE_ROW] =
@@ -336,6 +366,9 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, plugin_icon);
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, prefs);
+  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, drag_handle);
+  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, move_separator);
+  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, move_button);
 }
 
 
@@ -349,23 +382,21 @@ static void
 ms_plugin_row_init (MsPluginRow *self)
 {
   GAction *action;
-  GtkDragSource *drag_source;
-  GtkDropTarget *drop_target;
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  gtk_icon_theme_add_search_path (gtk_icon_theme_get_for_display (gdk_display_get_default()),
+  gtk_icon_theme_add_search_path (gtk_icon_theme_get_for_display (gdk_display_get_default ()),
                                   MOBILE_SETTINGS_PHOSH_PLUGINS_ICON_DIR);
 
-  drag_source = gtk_drag_source_new ();
-  gtk_drag_source_set_actions (drag_source, GDK_ACTION_MOVE);
-  g_signal_connect_swapped (drag_source, "prepare", G_CALLBACK (on_drag_prepare), self);
-  g_signal_connect_swapped (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), self);
-  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (drag_source));
+  self->drag_source = gtk_drag_source_new ();
+  gtk_drag_source_set_actions (self->drag_source, GDK_ACTION_MOVE);
+  g_signal_connect_swapped (self->drag_source, "prepare", G_CALLBACK (on_drag_prepare), self);
+  g_signal_connect_swapped (self->drag_source, "drag-begin", G_CALLBACK (on_drag_begin), self);
+  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (self->drag_source));
 
-  drop_target = gtk_drop_target_new (MS_TYPE_PLUGIN_ROW, GDK_ACTION_MOVE);
-  g_signal_connect_swapped (drop_target, "drop", G_CALLBACK (on_drop), self);
-  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (drop_target));
+  self->drop_target = gtk_drop_target_new (MS_TYPE_PLUGIN_ROW, GDK_ACTION_MOVE);
+  g_signal_connect_swapped (self->drop_target, "drop", G_CALLBACK (on_drop), self);
+  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (self->drop_target));
 
   g_object_bind_property (self,
                           "enabled",
