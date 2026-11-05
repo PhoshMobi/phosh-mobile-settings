@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2026-08-12 13:43+0000\n"
-"PO-Revision-Date: 2026-08-12 20:29+0300\n"
+"POT-Creation-Date: 2026-11-04 19:14+0000\n"
+"PO-Revision-Date: 2026-11-05 18:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -309,7 +309,7 @@ msgstr[1] "Під час спроби зберегти дані сталися %
 msgstr[2] "Під час спроби зберегти дані сталося %i помилок"
 msgstr[3] "Під час спроби зберегти дані сталася %i помилка"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:903
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
 "Для збереження деяких з параметрів вам слід пройти розпізнавання від імені "
@@ -356,44 +356,44 @@ msgstr "Гучність термінових попереджень"
 msgid "Message of unknown severity"
 msgstr "Повідомлення невідомої важливості"
 
-#: src/ms-feedback-panel.c:338
+#: src/ms-feedback-panel.c:337
 msgid "Sound file does not exist"
 msgstr "Звукового файла не існує"
 
-#: src/ms-feedback-panel.c:340
+#: src/ms-feedback-panel.c:339
 msgid "Sound file is corrupt"
 msgstr "Звуковий файл пошкоджено"
 
-#: src/ms-feedback-panel.c:342
+#: src/ms-feedback-panel.c:341
 msgid "Failed to play sound"
 msgstr "Не вдалося відтворити звук"
 
-#: src/ms-feedback-panel.c:381
+#: src/ms-feedback-panel.c:380
 #, c-format
 msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:579
+#: src/ms-feedback-panel.c:578
 msgid "low"
 msgstr "низький"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:582
+#: src/ms-feedback-panel.c:581
 msgid "normal"
 msgstr "звичайний"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:585
+#: src/ms-feedback-panel.c:584
 msgid "critical"
 msgstr "критичний"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:589
+#: src/ms-feedback-panel.c:588
 msgid "none"
 msgstr "немає"
 
-#: src/ms-feedback-panel.c:1008
+#: src/ms-feedback-panel.c:1007
 msgid "Mobile Settings Volume Control"
 msgstr "Параметри керування гучністю мобільного"
 
@@ -568,11 +568,11 @@ msgstr "Беззвучно"
 msgid "Choose Wallpaper"
 msgstr "Виберіть фонове зображення"
 
-#: src/ms-window.c:132
+#: src/ms-window.c:175
 msgid "Configurable Tweaks"
 msgstr "Налаштовувані коригування"
 
-#: src/ms-window.c:183
+#: src/ms-window.c:213
 msgid "Device"
 msgstr "Пристрій"
 
@@ -1322,6 +1322,14 @@ msgstr "Швидкі параметри"
 msgid "Organize your additional Quick Settings"
 msgstr "Упорядковування ваших додаткових швидких параметрів"
 
+#: src/ui/ms-topbar-panel.ui:49
+msgid "Status Icons"
+msgstr "Піктограми стану"
+
+#: src/ui/ms-topbar-panel.ui:50
+msgid "Enable additional status icons in the top bar"
+msgstr "Увімкнути додаткові піктограми стану на верхній панелі"
+
 #: src/ui/ms-updates-panel.ui:12
 msgid "OS updates require a system restart"
 msgstr "Оновлення ОС потребують перезапуску системи"
@@ -1546,7 +1554,6 @@ msgid "network"
 msgstr "мережа"
 
 #: src/ui/ms-window.ui:426
-#| msgid "network"
 msgid "Network"
 msgstr "Мережа"
 
