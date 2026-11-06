@@ -1,3 +1,26 @@
+phosh-mobile-settings (0.59~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * plugin-list-box: Make schema a property.
+  * plugin-list-box: Add sortable property.
+    This allows to use this widget for sortable and non-sortable plugins
+    We don't use property bindings as the property is construct-only so
+    setting it once is easier to follow.
+  * topbar-panel: Allow to configure status icons.
+    Add a plugin list box for the status icons too
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/118
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 06 Nov 2026 15:51:47 +0100
+
 phosh-mobile-settings (0.59~alpha1) experimental; urgency=medium
 
   [ Roy-Magne Mo ]

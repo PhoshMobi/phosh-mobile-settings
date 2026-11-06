@@ -1,3 +1,16 @@
+phosh-mobile-settings 0.59~rc1
+------------------------------
+Released November 2026
+* topbar panel: Allow to configure top bar plugins
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/work_items/118
+* Contributors:
+    * Guido Günther
+* UI translations:
+    * Antonio Marin (ro)
+    * Martin (sl)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.59~alpha1
 ---------------------------------
 Released November 2026
