@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2026-08-19 07:39+0000\n"
-"PO-Revision-Date: 2026-08-22 08:59+0500\n"
+"POT-Creation-Date: 2026-11-04 19:14+0000\n"
+"PO-Revision-Date: 2026-11-06 22:37+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <Kazakh>\n"
 "Language: kk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:2 src/ui/ms-window.ui:6
 msgid "Mobile Settings"
@@ -297,7 +297,7 @@ msgid "%i error occurred while saving"
 msgid_plural "%i errors occurred while saving"
 msgstr[0] "Сақтау кезінде %i қате орын алды"
 
-#: src/conf-tweaks/ms-tweaks-preferences-page.c:902
+#: src/conf-tweaks/ms-tweaks-preferences-page.c:903
 msgid "You need to authenticate as administrator to save some settings"
 msgstr ""
 "Кейбір баптауларды сақтау үшін әкімші ретінде аутентификациядан өтуіңіз "
@@ -345,45 +345,45 @@ msgstr "Төтенше хабарламалар дыбыс деңгейі"
 msgid "Message of unknown severity"
 msgstr "Маңыздылығы белгісіз хабарлама"
 
-#: src/ms-feedback-panel.c:338
+#: src/ms-feedback-panel.c:337
 msgid "Sound file does not exist"
 msgstr "Дыбыс файлы жоқ"
 
-#: src/ms-feedback-panel.c:340
+#: src/ms-feedback-panel.c:339
 msgid "Sound file is corrupt"
 msgstr "Дыбыс файлы зақымдалған"
 
-#: src/ms-feedback-panel.c:342
+#: src/ms-feedback-panel.c:341
 msgid "Failed to play sound"
 msgstr "Дыбысты ойнату сәтсіз аяқталды"
 
-#: src/ms-feedback-panel.c:381
+#: src/ms-feedback-panel.c:380
 #, c-format
 msgid "Playing %s"
 msgstr "%s ойнатылуда"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:579
+#: src/ms-feedback-panel.c:578
 msgid "low"
 msgstr "төмен"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:582
+#: src/ms-feedback-panel.c:581
 msgid "normal"
 msgstr "қалыпты"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:585
+#: src/ms-feedback-panel.c:584
 msgid "critical"
 msgstr "критикалық"
 
 #. Translators: "none" is the default for notifications with no specified
 #. importance
-#: src/ms-feedback-panel.c:589
+#: src/ms-feedback-panel.c:588
 msgid "none"
 msgstr "жоқ"
 
-#: src/ms-feedback-panel.c:1008
+#: src/ms-feedback-panel.c:1007
 msgid "Mobile Settings Volume Control"
 msgstr "Мобильді баптаулар дыбыс деңгейін басқару"
 
@@ -562,11 +562,11 @@ msgstr "Дыбыссыз"
 msgid "Choose Wallpaper"
 msgstr "Тұсқағазды таңдау"
 
-#: src/ms-window.c:132
+#: src/ms-window.c:175
 msgid "Configurable Tweaks"
 msgstr "Баптауға болатын жетілдірулер"
 
-#: src/ms-window.c:183
+#: src/ms-window.c:213
 msgid "Device"
 msgstr "Құрылғы"
 
@@ -1316,6 +1316,14 @@ msgstr "Жылдам баптаулар"
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Қосымша жылдам баптауларды реттеу"
+
+#: src/ui/ms-topbar-panel.ui:49
+msgid "Status Icons"
+msgstr "Қалып-күй таңбашалары"
+
+#: src/ui/ms-topbar-panel.ui:50
+msgid "Enable additional status icons in the top bar"
+msgstr "Жоғарғы панельде қосымша қалып-күй таңбашаларын іске қосу"
 
 #: src/ui/ms-updates-panel.ui:12
 msgid "OS updates require a system restart"
