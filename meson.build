@@ -190,6 +190,8 @@ config_h.set_quoted(
   datadir / 'phosh-osk-stevia' / 'completers',
 )
 config_h.set('MOBILE_SETTINGS_HAVE_GCC_PANELS', get_option('gcc-panels'))
+gcc_bluetooth_panel = get_option('gcc-panels') and not host_machine.cpu().contains('s390')
+config_h.set('MOBILE_SETTINGS_HAVE_GCC_BLUETOOTH_PANEL', gcc_bluetooth_panel)
 config_h.set('_PMS_EXTERN', '__attribute__((visibility("default"))) extern')
 
 configure_file(output: 'mobile-settings-config.h', configuration: config_h)
