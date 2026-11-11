@@ -63,7 +63,9 @@ void         cc_object_storage_add_object (const char *key, gpointer object);
 
 /* See CcPanelLoader */
 
+#ifdef MOBILE_SETTINGS_HAVE_GCC_BLUETOOTH_PANEL
 extern GType cc_bluetooth_panel_get_type (void);
+#endif
 extern GType cc_network_panel_get_type (void);
 extern GType cc_online_accounts_panel_get_type (void);
 extern GType cc_sound_panel_get_type (void);
@@ -77,11 +79,13 @@ void         cc_wifi_panel_static_init_func (void);
  * to different object initialization order */
 
 static const MsCcPanelData panel_data[] = {
+#ifdef MOBILE_SETTINGS_HAVE_GCC_BLUETOOTH_PANEL
   {
     "bluetooth",
     cc_bluetooth_panel_get_type,
     NULL,
   },
+#endif
   {
     "sound",
     cc_sound_panel_get_type,

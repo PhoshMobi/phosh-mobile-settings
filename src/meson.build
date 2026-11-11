@@ -190,11 +190,13 @@ if get_option('gcc-panels')
 
   # …other panels have only libs
   cc_panels = [
-    gcc.get_variable('bluetooth_panel_lib'),
     gcc.get_variable('sound_panel_lib'),
     gcc.get_variable('online_accounts_panel_lib'),
     gcc.get_variable('wwan_panel_lib'),
   ]
+  if gcc_bluetooth_panel
+    cc_panels += gcc.get_variable('bluetooth_panel_lib')
+  endif
 
 else
   gcc_panel_generated_sources = []
