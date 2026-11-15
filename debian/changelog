@@ -1,3 +1,33 @@
+phosh-mobile-settings (0.59.0) experimental; urgency=medium
+
+  [ Baurzhan Muftakhidinov ]
+  * Update Kazakh translation
+
+  [ Patrik Sivek ]
+  * Update Czech translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Achill Gilgenast ]
+  * build: Disable bluetooth panel on s390x.
+    It's not built in g-c-c (lol bluetooth on a mainframe) so let's also not
+    include it here.
+
+  [ Jiri Grönroos ]
+  * Update Finnish translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 15 Nov 2026 09:04:56 +0100
+
 phosh-mobile-settings (0.59~rc1) experimental; urgency=medium
 
   [ Guido Günther ]

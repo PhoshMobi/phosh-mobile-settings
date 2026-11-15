@@ -51,6 +51,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.59.0" date="2026-11-15">
+      <description translate="no">
+        <ul>
+          <li>topbar panel: Allow to configure top bar plugins</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.58.0" date="2026-10-03">
       <description translate="no">
         <ul>
